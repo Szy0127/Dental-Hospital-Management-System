@@ -1,13 +1,12 @@
-import logo from './logo.svg';
+import IndexRouter from './router/IndexRouter';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Dental-Hospital-Management-System</h1>
-
+        <IndexRouter>
+        </IndexRouter>
       </header>
     </div>
   );
