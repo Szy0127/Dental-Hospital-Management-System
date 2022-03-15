@@ -11,11 +11,12 @@ import Main from '../view/main/Main'
 export default function MainRoute() {
   return (
     <Routes>
-        <Route path='/administer' element={<Administer/>}/>
-        <Route path='/patient' element={<Patient/>}/>
-        <Route path='/doctor' element={<Doctor/>}/>
+        <Route path='/' element={<Main/>}>
+          <Route path='/administer' element={<Administer/>}/>
+          <Route path='/patient' element={<Patient/>}/>
+          <Route path='/doctor' element={<Doctor/>}/>
+        </Route>
         <Route path='/login' element={<Login/>}/>
-        <Route path='*' element={<Main/>}/>
     </Routes>
   )
 }
