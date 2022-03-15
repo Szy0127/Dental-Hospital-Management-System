@@ -2,3 +2,9 @@
 #root,.ant-layout{
     height: 100%;
 }
+.displayInfos{
+    float:left;
+}
+.displayNews{
+    float:left;
+}
