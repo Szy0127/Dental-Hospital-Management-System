@@ -1,10 +1,20 @@
 @import '~antd/dist/antd.css';
-#root,.ant-layout{
+
+#root, .ant-layout {
     height: 100%;
 }
-.displayInfos{
-    float:left;
+
+.displayNotice {
+    float: left;
 }
-.displayNews{
-    float:left;
+
+.displayNews {
+    float: left;
+}
+
+.clearfix::after {
+    clear:both !important;
+}
+.clearfix {
+    /*background-color: #212529;*/
 }

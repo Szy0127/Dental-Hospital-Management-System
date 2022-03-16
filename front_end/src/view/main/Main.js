@@ -1,30 +1,39 @@
-import { Outlet } from 'react-router-dom'
-import React, { useState } from 'react'
+import {Outlet} from 'react-router-dom'
+import React from 'react'
 import SideBar from '../../components/sidebar/SideBar';
 import Header from '../../components/header/Header';
+import Footer from '../../components/footer/Footer';
 import NewsCarousel from '../../components/newsCarousel/NewsCarousel';
 import InfoDisplay from '../../components/infoDisplay/InfoDisplay';
-import { Layout } from 'antd'
+import {Layout} from 'antd'
 
 import './Main.css'
 
-const { Content, Footer } = Layout;
+const {Content} = Layout;
 
 const HomeMainPage = function () {
     const newsContext = require.context("../../assets/carousel", true, /^\.\/.*\.jpg$/);
+    const news = ['abcabcd', 'aaaaaaa', 'ccccccc', 'ddddaafsdf', 'eeeeeee', 'abcabcd', 'aaaaaaa', 'ccccccc', 'ddddaafsdf', 'eeeeeee'];
+    // const news = [];//['abcabcd', 'aaaaaaa', 'ccccccc', 'ddddaafsdf', 'eeeeeee', 'abcabcd', 'aaaaaaa', 'ccccccc', 'ddddaafsdf', 'eeeeeee'];
+    const notice = ['kkkkkkkk', 'eeeeeee', 'vvvvvvv', 'ddddaafsdf', 'eeeeeee', 'abcabcd', 'aaaaaaa', 'ccccccc', 'ddddaafsdf', 'eeeeeee'];
+    // const notice = [];//['kkkkkkkk', 'eeeeeee', 'vvvvvvv', 'ddddaafsdf', 'eeeeeee', 'abcabcd', 'aaaaaaa', 'ccccccc', 'ddddaafsdf', 'eeeeeee'];
     return (
-        <Layout style={{ minHeight: '100vh' }}>
+        <Layout style={{minHeight: '100vh'}}>
             <Header/>
             <Layout className="site-layout">
                 <SideBar></SideBar>
-                <Content style={{ margin: '0 16px' }}>
+                <Content className="clearfix" style={{margin: '0 16px'}}>
                     <Outlet/>
                     <NewsCarousel context={newsContext}/>
-                    <div className="displayInfos"><InfoDisplay title="医院通知"/></div>
-                    <div className="displayNews"><InfoDisplay className="displayNews" title="医院新闻"/></div>
+                    <div className="displayNotice">
+                        <InfoDisplay title="医院通知" items={notice} type="notice"/>
+                    </div>
+                    <div className="displayNews">
+                        <InfoDisplay className="displayNews" title="医院新闻" items={news} type="news"/>
+                    </div>
                 </Content>
             </Layout>
-            <Footer style={{ textAlign: 'center' }}>Dental-Hospital</Footer>
+            <Footer/>
         </Layout>
     )
 }

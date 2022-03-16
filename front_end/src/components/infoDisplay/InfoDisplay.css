@@ -12,3 +12,35 @@
     background-color: #fff;
     border: 1px solid rgba(0, 0, 0, .125)
 }
+
+.badge {
+    display: inline-block;
+    padding: .35em .65em;
+    font-size: .75em;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem
+}
+
+.bg-primary {
+    --bs-bg-opacity: 1;
+    background-color: rgba(13, 110, 253, var(--bs-bg-opacity)) !important
+}
+
+.rounded-pill {
+    border-radius: 50rem !important;
+}
+.date{
+    float:right;
+    margin-left: 30px;
+}
+.infoItem{
+    width:500px;
+}
+.infoTitle{
+    text-align: center;
+}

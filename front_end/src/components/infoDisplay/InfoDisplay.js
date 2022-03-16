@@ -1,5 +1,5 @@
 import React from 'react';
-import { Carousel } from 'antd';
+import {Link} from 'react-router-dom'
 import "./InfoDisplay.css";
 export default class InfoDisplay extends React.Component{
 
@@ -11,20 +11,32 @@ export default class InfoDisplay extends React.Component{
 
     render(){
         const title = (
-            <h2>
+            <h2 className="infoTitle">
                 {this.props.title}
             </h2>
 
         )
+        let infoItems=[];
+        for(let i = 0 ;i < this.props.items.length ;i++){
+            infoItems.push(
+                <Link to={{
+                    pathname: '/info/'+this.props.type+'/',
+                    search: '?id=' + i
+                }}
+                      target="_blank"
+                >
+                    <li className="list-group-item infoItem">
+                        {this.props.items[i]}
+                        <span className="badge bg-primary  pull-right date">2022-1-13</span>
+                    </li>
+                </Link>
+            )
+        }
         return (
             <React.Fragment>
                 {title}
                 <ul className="list-group">
-                    <li className="list-group-item">An item</li>
-                    <li className="list-group-item">A second item</li>
-                    <li className="list-group-item">A third item</li>
-                    <li className="list-group-item">A fourth item</li>
-                    <li className="list-group-item">And a fifth one</li>
+                    {infoItems}
                 </ul>
             </React.Fragment>
 
