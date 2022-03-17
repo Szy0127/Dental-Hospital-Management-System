@@ -5,6 +5,7 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
 
 export default function LoginBox() {
+  
     const onFinish = (values) => {
       console.log('Received values of form: ', values);
     };
@@ -51,7 +52,7 @@ export default function LoginBox() {
           <Button type="primary" htmlType="submit" className="login-form-button">
             Log in
           </Button>
-          Or <a href="">register now!</a>
+          Or <a>register now!</a>
         </Form.Item>
       </Form>
     )

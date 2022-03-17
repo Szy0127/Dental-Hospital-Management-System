@@ -1,0 +1,29 @@
+.part{
+    float:left;
+    width: 33%;
+    /*margin: 0 auto;*/
+    text-align: center;
+}
+.hospital{
+    text-align: center;
+}
+footer{
+    background-color: white;
+    padding: 0 20px;
+    /*justify-content: space-between;*/
+    /*align-items: center;*/
+}
+.list-group {
+    border-top: inherit;
+    border-bottom: inherit;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .5rem 1rem;
+    color: #212529;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .125)
+}
