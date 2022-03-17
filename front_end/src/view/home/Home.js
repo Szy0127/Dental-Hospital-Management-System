@@ -1,5 +1,5 @@
 import React from 'react'
-
+import "./Home.css"
 import NewsCarousel from '../../components/newsCarousel/NewsCarousel';
 import InfoDisplay from '../../components/infoDisplay/InfoDisplay';
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
     const notice = ['kkkkkkkk', 'eeeeeee', 'vvvvvvv', 'ddddaafsdf', 'eeeeeee', 'abcabcd', 'aaaaaaa', 'ccccccc', 'ddddaafsdf', 'eeeeeee'];
     // const notice = [];//['kkkkkkkk', 'eeeeeee', 'vvvvvvv', 'ddddaafsdf', 'eeeeeee', 'abcabcd', 'aaaaaaa', 'ccccccc', 'ddddaafsdf', 'eeeeeee'];
     return (
-        <div>
+        <React.Fragment>
             <NewsCarousel context={newsContext} />
             <div className="displayNotice">
                 <InfoDisplay title="医院通知" items={notice} type="notice" />
@@ -17,6 +17,6 @@ export default function Home() {
             <div className="displayNews">
                 <InfoDisplay className="displayNews" title="医院新闻" items={news} type="news" />
             </div>
-        </div>
+        </React.Fragment>
     )
 }
