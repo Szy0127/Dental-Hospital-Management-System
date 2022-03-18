@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Form, Input, Button, Checkbox, Radio } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-
+import './Loginbox.css'
 
 
 export default function LoginBox() {

@@ -1,11 +1,19 @@
 import React from 'react'
 import LoginBox from '../../components/loginbox/LoginBox'
+import './Login.css'
+import logosrc from '../../assets/logo.jpeg'
 export default function Login() {
   return (
-    <div>
-        <div>
-            
+    <div className='login'>
+      <div className='login-container'>
+        <div className='login-header'>
+          <img src={logosrc} />
+          <b>牙科系统</b>
         </div>
+        <div className='loginbox'>
+          <LoginBox></LoginBox>
+        </div>
+      </div>
     </div>
   )
 }
