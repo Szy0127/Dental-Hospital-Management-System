@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import { Form, Input, Button, Checkbox, Radio } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import './Loginbox.css'
@@ -52,7 +53,7 @@ export default function LoginBox() {
           <Button type="primary" htmlType="submit" className="login-form-button">
             Log in
           </Button>
-          Or <a>register now!</a>
+          Or <Link to="/register">register now!</Link>
         </Form.Item>
       </Form>
     )

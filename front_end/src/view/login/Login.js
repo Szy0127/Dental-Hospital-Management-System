@@ -8,7 +8,7 @@ export default function Login() {
       <div className='login-container'>
         <div className='login-header'>
           <img src={logosrc} />
-          <b>牙科系统</b>
+          <b>水源诊所</b>
         </div>
         <div className='loginbox'>
           <LoginBox></LoginBox>

@@ -1,6 +1,6 @@
 import React from "react";
 import {useLocation} from "react-router-dom";
-
+import './Home.css'
 const InfoPage = function (props) {
     let location = useLocation();
     const query = location.search;

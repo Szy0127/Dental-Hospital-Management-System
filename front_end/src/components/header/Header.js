@@ -16,7 +16,7 @@ export default function Header() {
   return (
     <header>
       <div className='logo'>
-        <h1>水源牙科诊所</h1>
+        <h1>水源诊所</h1>
         <img src={logosrc}></img>
       </div>
       <div>

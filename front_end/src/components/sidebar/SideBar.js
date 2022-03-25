@@ -22,7 +22,7 @@ const menuList = [
         icon: <HomeOutlined />
     },
     {
-        key: "doctor",
+        key: "info",
         title: "医生介绍",
         icon: <MedicineBoxOutlined />,
         children: [
@@ -32,7 +32,7 @@ const menuList = [
                 icon: <MedicineBoxOutlined />,
                 children: [
                     {
-                        key: "doctor/client1/a",
+                        key: "doctor/profile",
                         title: "A",
                         icon: <MedicineBoxOutlined />
                     },
@@ -62,6 +62,89 @@ const menuList = [
             }
         ]
     },
+    {
+        key: "patient",
+        title: "患者",
+        icon: <MedicineBoxOutlined />,
+        children: [
+            {
+                key: "patient/appointment",
+                title: "预约挂号",
+                icon: <MedicineBoxOutlined />
+            },
+            {
+                key: "patient/consultation",
+                title: "就诊记录",
+                icon: <MedicineBoxOutlined />
+            },
+            {
+                key: "patient/profile",
+                title: "个人信息",
+                icon: <MedicineBoxOutlined />
+            }
+        ]
+    },
+    {
+        key: "doctor",
+        title: "医生",
+        icon: <MedicineBoxOutlined />,
+        children: [
+            {
+                key: "doctor/patient",
+                title: "患者信息",
+                icon: <MedicineBoxOutlined />,
+                children: [
+                    {
+                        key: "doctor/patientinfo",
+                        title: "诊疗信息",
+                        icon: <MedicineBoxOutlined />
+                    },
+                    {
+                        key: "doctor/appointment",
+                        title: "办理转诊",
+                        icon: <MedicineBoxOutlined />
+                    }
+                ]
+            },
+            {
+                key: "doctor/schedule",
+                title: "排班表",
+                icon: <MedicineBoxOutlined />
+            },
+            {
+                key: "docotor/profile",
+                title: "个人信息",
+                icon: <MedicineBoxOutlined />
+            }
+        ]
+    },
+    {
+        key: "administer/patient",
+        title: "信息管理",
+        icon: <MedicineBoxOutlined />,
+        children: [
+            {
+                key: "administer/doctor",
+                title: "科室医生管理",
+                icon: <MedicineBoxOutlined />
+            },
+            {
+                key: "administer/info",
+                title: "个人信息",
+                icon: <MedicineBoxOutlined />
+            },
+            {
+                key: "administer/hospital",
+                title: "医院信息",
+                icon: <MedicineBoxOutlined />
+            }
+        ]
+    },
+    {
+        key: "administer/authority",
+        title: "管理员权限设置",
+        icon: <MedicineBoxOutlined />,
+    }
 ]
 
 export default function SideBar() {
