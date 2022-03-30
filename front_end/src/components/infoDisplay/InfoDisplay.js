@@ -22,12 +22,10 @@ export default class InfoDisplay extends React.Component{
                 <Link to={{
                     pathname: '/info/'+this.props.type+'/',
                     search: '?id=' + i
-                }}
-                      target="_blank"
-                >
+                }}>
                     <li className="list-group-item infoItem">
-                        {this.props.items[i]}
-                        <span className="badge bg-primary  pull-right date">2022-1-13</span>
+                        {this.props.items[i].title}
+                        <span className="badge bg-primary  pull-right date">{this.props.items[i].date}</span>
                     </li>
                 </Link>
             )

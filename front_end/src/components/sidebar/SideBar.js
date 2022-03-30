@@ -27,38 +27,14 @@ const menuList = [
         icon: <MedicineBoxOutlined />,
         children: [
             {
-                key: "doctor/client1",
+                key: "doctor/profile",
                 title: "科室一",
                 icon: <MedicineBoxOutlined />,
-                children: [
-                    {
-                        key: "doctor/profile",
-                        title: "A",
-                        icon: <MedicineBoxOutlined />
-                    },
-                    {
-                        key: "doctor/client1/b",
-                        title: "B",
-                        icon: <MedicineBoxOutlined />
-                    }
-                ]
             },
             {
                 key: "doctor/client2",
                 title: "科室二",
                 icon: <MedicineBoxOutlined />,
-                children: [
-                    {
-                        key: "doctor/client2/a",
-                        title: "A",
-                        icon: <MedicineBoxOutlined />
-                    },
-                    {
-                        key: "doctor/client2/b",
-                        title: "B",
-                        icon: <MedicineBoxOutlined />
-                    }
-                ]
             }
         ]
     },

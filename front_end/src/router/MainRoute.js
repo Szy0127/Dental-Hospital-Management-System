@@ -15,6 +15,7 @@ import ConsultRecord from '../view/patient/ConsultRecord';
 import Main from '../view/main/Main'
 import InfoPage from '../view/home/Info'
 import Apointment from '../view/patient/apointment/Apointment';
+import DetailedInfo from "../view/doctor/profilelist/detailedInfo";
 
 export default function MainRoute() {
     return (
@@ -28,6 +29,7 @@ export default function MainRoute() {
                 </Route>
                 <Route path='/doctor' element={<Doctor />}>
                     <Route path='/doctor/profile' element={<Profile />} />
+                    <Route path='/doctor/detailedInfo' element={<DetailedInfo />} />
                     <Route path='/doctor/patientinfo' element={<PatientConsult />} />
                     <Route path='/doctor/schedule' element={<Schedule />} />
                 </Route>

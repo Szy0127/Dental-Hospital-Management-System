@@ -1,10 +1,10 @@
 import React from 'react'
-import ApointInfo from './apointInfo/ApointInfo'
+// import ApointInfo from './apointInfo/ApointInfo'
 export default function Apointment() {
   return (
     <div>
       <div>
-        <ApointInfo></ApointInfo>
+        {/*<ApointInfo></ApointInfo>*/}
       </div>
     </div>
   )

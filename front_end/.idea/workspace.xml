@@ -5,13 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8aef521b-74e9-4e1c-af34-0add91701a96" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/view/main/Info.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/doctor/profilelist/detailedInfo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/doctor/style1.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/home/img.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/infoDisplay/InfoDisplay.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/infoDisplay/InfoDisplay.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/infoDisplay/InfoDisplay.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/infoDisplay/InfoDisplay.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sidebar/SideBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/SideBar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router/MainRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/MainRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/main/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/main/Main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/main/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/main/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/doctor/profilelist/Profilelist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/doctor/profilelist/Profilelist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/home/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/home/Home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/home/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/home/Info.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/home/Info.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/patient/apointment/Apointment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/patient/apointment/Apointment.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -49,7 +54,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="C:\Users\Shen\AppData\Local\JetBrains\Toolbox\apps\IDEA-U\ch-0\213.6777.52\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="D:\IDEA\IntelliJ IDEA 2021.3.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
@@ -70,6 +75,7 @@
       <updated>1647358219380</updated>
       <workItem from="1647358219382" duration="4000" />
       <workItem from="1647358233755" duration="11574000" />
+      <workItem from="1648607017608" duration="12599000" />
     </task>
     <servers />
   </component>
