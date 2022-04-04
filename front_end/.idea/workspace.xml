@@ -5,17 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8aef521b-74e9-4e1c-af34-0add91701a96" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/view/doctor/profilelist/detailedInfo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/doctor/style1.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/home/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/doctor/profilelist/Profilelist2.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/infoDisplay/InfoDisplay.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/infoDisplay/InfoDisplay.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/sidebar/SideBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/SideBar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router/MainRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/MainRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/doctor/Profile.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/doctor/profilelist/Profilelist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/doctor/profilelist/Profilelist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/home/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/home/Home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/home/Info.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/home/Info.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/doctor/profilelist/detailedInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/doctor/profilelist/detailedInfo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/patient/apointment/Apointment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/patient/apointment/Apointment.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -76,6 +73,8 @@
       <workItem from="1647358219382" duration="4000" />
       <workItem from="1647358233755" duration="11574000" />
       <workItem from="1648607017608" duration="12599000" />
+      <workItem from="1648636707854" duration="686000" />
+      <workItem from="1648992881928" duration="2105000" />
     </task>
     <servers />
   </component>

@@ -32,7 +32,7 @@ const menuList = [
                 icon: <MedicineBoxOutlined />,
             },
             {
-                key: "doctor/client2",
+                key: "doctor/profile2",
                 title: "科室二",
                 icon: <MedicineBoxOutlined />,
             }

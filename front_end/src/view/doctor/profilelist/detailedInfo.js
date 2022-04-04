@@ -3,6 +3,7 @@ import {data} from "./Profilelist";
 import {useLocation} from "react-router-dom";
 import {Descriptions, Divider, Image} from "antd";
 import '../style1.css'
+import {data2} from "./Profilelist2";
 
 export default function DetailedInfo() {
 
@@ -11,9 +12,17 @@ export default function DetailedInfo() {
     const arr = query.split('&');
     const id = arr[0].substr(4);
 
-    const findResult = data.find((infoObj) => {
-        return infoObj.id === id
-    })
+    let findResult = {}
+    if (id >= 5) {
+        findResult = data2.find((infoObj) => {
+            return infoObj.id === id
+        })
+    }
+    else {
+        findResult = data.find((infoObj) => {
+            return infoObj.id === id
+        })
+    }
 
     return (
     <div>
