@@ -69,7 +69,6 @@ function getListData(value) {
   return listData || [];
 }
 const handleDelete = (item) => {
-  console.log(item);
 }
 function itemContent(item) {
   return (
@@ -82,12 +81,14 @@ function itemContent(item) {
 
 function dateCellRender(value) {
   const listData = getListData(value);
+  console.log("list")
+  console.log(listData)
   return (
     <ul className="events">
       {listData.map(item => (
         <li>
           <Popover content={itemContent(item)} trigger="hover">
-            {item.content}
+            <b>{item.content}</b>
           </Popover>
         </li>
       ))}

@@ -1,9 +1,8 @@
 import React from 'react'
-import {data} from "./Profilelist";
 import {useLocation} from "react-router-dom";
 import {Descriptions, Divider, Image} from "antd";
 import '../style1.css'
-import {data2} from "./Profilelist2";
+import { data,data2 } from '../../../utils/data';
 
 export default function DetailedInfo() {
 
