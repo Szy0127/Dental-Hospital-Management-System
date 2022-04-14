@@ -1,7 +1,11 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 
 export default function Administer() {
   return (
-    <div>Administer</div>
+    <div>
+      <Outlet />
+    </div>
+
   )
 }

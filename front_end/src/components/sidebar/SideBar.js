@@ -95,12 +95,12 @@ const menuList = [
         ]
     },
     {
-        key: "administer/patient",
+        key: "administer",
         title: "信息管理",
         icon: <MedicineBoxOutlined />,
         children: [
             {
-                key: "administer/doctor",
+                key: "administer/management",
                 title: "科室医生管理",
                 icon: <MedicineBoxOutlined />
             },

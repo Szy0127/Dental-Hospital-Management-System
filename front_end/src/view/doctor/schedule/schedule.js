@@ -1,4 +1,4 @@
-import { Calendar, Badge } from 'antd';
+import { Calendar, Badge, Button, Popover } from 'antd';
 import React from 'react'
 import './calendar.css'
 function getListData(value) {
@@ -68,38 +68,37 @@ function getListData(value) {
   }
   return listData || [];
 }
+const handleDelete = (item) => {
+  console.log(item);
+}
+function itemContent(item) {
+  return (
+    <div>
+      {item.content}
+      <a onClick={handleDelete(item)}>删除</a>
+    </div>
+  )
+}
 
 function dateCellRender(value) {
   const listData = getListData(value);
   return (
     <ul className="events">
       {listData.map(item => (
-        <li key={item.content}>
-          <Badge status={item.type} text={item.content} />
+        <li>
+          <Popover content={itemContent(item)} trigger="hover">
+            {item.content}
+          </Popover>
         </li>
       ))}
     </ul>
   );
 }
 
-function getMonthData(value) {
-  if (value.month() === 8) {
-    return 1394;
-  }
-}
-
-function monthCellRender(value) {
-  const num = getMonthData(value);
-  return num ? (
-    <div className="notes-month">
-      <section>{num}</section>
-      <span>Backlog number</span>
-    </div>
-  ) : null;
-}
-
 export default function Schedule() {
   return (
-    <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />
+    <div>
+      <Calendar dateCellRender={dateCellRender} />
+    </div>
   )
 }
