@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8aef521b-74e9-4e1c-af34-0add91701a96" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/doctor/profilelist/Profilelist2.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sidebar/SideBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/SideBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/MainRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/MainRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/doctor/Profile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/doctor/profilelist/Profilelist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/doctor/profilelist/Profilelist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/doctor/profilelist/detailedInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/doctor/profilelist/detailedInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/patient/Patient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/patient/Patient.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/patient/apointment/Apointment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/patient/apointment/Apointment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/patient/apointment/apointInfo/apointInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/patient/apointment/apointInfo/apointInfo.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +70,7 @@
       <workItem from="1648607017608" duration="12599000" />
       <workItem from="1648636707854" duration="686000" />
       <workItem from="1648992881928" duration="2105000" />
+      <workItem from="1649916258780" duration="1166000" />
     </task>
     <servers />
   </component>
