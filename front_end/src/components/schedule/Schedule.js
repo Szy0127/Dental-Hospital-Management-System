@@ -7,29 +7,45 @@ function getListData(value) {
     value.date() === item.date);
   return data;
 }
+const handleDelete = (item) => {
+  console.log(item);
+}
+function itemContent(item) {
+  return (
+    <div>
+      {item.content}
+      <a onClick={handleDelete(item)}>删除</a>
+    </div>
+  )
+}
+
 function dateCellRender(value) {
   const listData = getListData(value);
-  console.log(listData);
   return (
     <ul className="events">
       {listData.map(item => (
-        <li key={item.content}>
-          <Badge status={item.type} text={item.content} />
+        <li>
+          <Popover content={itemContent(item)} trigger="hover">
+            {item.content}
+          </Popover>
         </li>
       ))}
     </ul>
   );
 }
-function importScheduleData() {
+function importScheduleData(props) {
   const callback = (data) => {
     ScheduleData = data;
   }
+  GET_SCHEDULE(props.id, callback);
 }
 export default function Schedule(props) {
   useEffect(() => {
-    importScheduleData(props.schedule);
+    importScheduleData(props);
   });
   return (
-    <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />
+    <div>
+      <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />
+    </div>
   )
 }
