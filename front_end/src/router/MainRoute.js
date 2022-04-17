@@ -29,9 +29,10 @@ export default function MainRoute() {
                     <Route path='/administer/doctorInfo' element={<DoctorInfo/>}/>
                     <Route path='/administer/management' element={<Management/>}/>
                 </Route>
-                <Route path='/patient' element={<Patient />}>
+                <Route path='/patient'>
                     <Route path='/patient/appointment' element={<Apointment />} />
                     <Route path='/patient/consultation' element={<ConsultRecord />} />
+                    <Route path='/patient/profile' element={<Patient />} />
                 </Route>
                 <Route path='/doctor' element={<Doctor />}>
                     <Route path='/doctor/profile' element={<Profilelist />} />

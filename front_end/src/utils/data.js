@@ -104,3 +104,79 @@ export const data2 = [
         info: '毕业于上海交通大学医学院，2015年赴哈佛大学深造。2020年上海市十大最美医生',
     },
 ];
+
+// 用户信息
+export const user = {
+    id: 'XXX520021910544',
+    name: 'lujunchen',
+    gender: 'male',
+    age: '20',
+    account: 'lujunchen2020',
+    number: '18971393004',
+    email: 'lujunchen2020@sjtu.edu.cn'
+}
+
+// 就诊记录
+export const history = [
+    {
+        time: '2022-03-14',
+        place: '水源诊所',
+        department: '内科',
+        description: '急性肠胃炎',
+    },
+    {
+        time: '2022-03-14',
+        place: '水源诊所',
+        department: '内科',
+        description: '急性肠胃炎',
+    },
+    {time: '2022-03-14',
+        place: '水源诊所',
+        department: '内科',
+        description: '急性肠胃炎',},
+];
+
+export const appointment = [
+    {
+        id: '1',
+        date: '2022-04-15',
+        time: '13:00 ~ 14:00',
+        department: '儿科',
+        doctor: 'Doctor A',
+    },
+    {
+        id: '2',
+        date: '2022-04-16',
+        time: '14:00 ~ 15:00',
+        department: '内科',
+        doctor: 'Doctor B',
+    },
+    {
+        id: '3',
+        date: '2022-04-17',
+        time: '15:00 ~ 16:00',
+        department: '神经科',
+        doctor: 'Doctor C',
+    },
+    {
+        id: '4',
+        date: '2022-04-15',
+        time: '13:00 ~ 14:00',
+        department: '儿科',
+        doctor: 'Doctor A',
+    },
+    {
+        id: '5',
+        date: '2022-04-16',
+        time: '14:00 ~ 15:00',
+        department: '内科',
+        doctor: 'Doctor B',
+    },
+    {
+        id: '6',
+        date: '2022-04-17',
+        time: '15:00 ~ 16:00',
+        department: '神经科',
+        doctor: 'Doctor C',
+    },
+];

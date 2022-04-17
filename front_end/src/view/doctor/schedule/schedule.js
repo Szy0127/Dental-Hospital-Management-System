@@ -68,6 +68,7 @@ function getListData(value) {
   }
   return listData || [];
 }
+
 const handleDelete = (item) => {
 }
 function itemContent(item) {

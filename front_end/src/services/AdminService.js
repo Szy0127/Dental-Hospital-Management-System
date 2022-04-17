@@ -6,6 +6,7 @@ export const getDoctor = (key,callback)=>{
 
     }
 }
+
 export const getDoctors = (callback) => {
     callback(data);
 }
