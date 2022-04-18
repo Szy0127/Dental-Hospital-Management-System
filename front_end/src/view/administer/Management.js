@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Table, Button, Space, Popconfirm, message } from 'antd';
-import { data } from '../doctor/profilelist/Profilelist';
 import Doctor from '../doctor/Doctor';
 import { getDoctors } from '../../services/AdminService';
 import { useNavigate } from 'react-router-dom';

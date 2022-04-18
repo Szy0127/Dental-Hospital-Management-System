@@ -110,8 +110,8 @@ const menuList = [
                 icon: <MedicineBoxOutlined />
             },
             {
-                key: "administer/hospital",
-                title: "医院信息",
+                key: "administer/editlist",
+                title: "新闻管理",
                 icon: <MedicineBoxOutlined />
             }
         ]

@@ -2,7 +2,7 @@ import React from "react";
 import {useLocation} from "react-router-dom";
 import './Home.css'
 import Footer from "../../components/footer/Footer";
-import {notification, news} from "./Home"
+import { news,notification } from "../../utils/data";
 import img from './img.png'
 import {Divider} from "antd"
 import InfoDisplay from "../../components/infoDisplay/InfoDisplay";

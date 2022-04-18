@@ -19,6 +19,8 @@ import Profilelist2 from "../view/doctor/profilelist/Profilelist2";
 import Profilelist from "../view/doctor/profilelist/Profilelist";
 import DoctorInfo from '../view/administer/doctorInfo/DoctorInfo';
 import Management from '../view/administer/Management';
+import NewsEditList from '../view/administer/newEdit/NewsEdit';
+import Edit from '../view/administer/newEdit/Edit';
 
 export default function MainRoute() {
     return (
@@ -28,6 +30,8 @@ export default function MainRoute() {
                 <Route path='/administer' element={<Administer />} >
                     <Route path='/administer/doctorInfo' element={<DoctorInfo/>}/>
                     <Route path='/administer/management' element={<Management/>}/>
+                    <Route path='/administer/editlist' element={<NewsEditList/>}/>
+                    <Route path='/administer/infoedit' element={<Edit/>}/>
                 </Route>
                 <Route path='/patient' element={<Patient />}>
                     <Route path='/patient/appointment' element={<Apointment />} />
