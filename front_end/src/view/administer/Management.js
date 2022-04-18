@@ -3,9 +3,11 @@ import { Table, Button, Space, Popconfirm, message } from 'antd';
 import Doctor from '../doctor/Doctor';
 import { getDoctors } from '../../services/AdminService';
 import { useNavigate } from 'react-router-dom';
+
 export default function Management() {
     const [doctor, setDoctor] = useState([]);
     const navigate = useNavigate();
+
     useEffect(() => {
         const callback = (data) => {
             setDoctor(data);
@@ -13,6 +15,7 @@ export default function Management() {
         getDoctors(callback);
     }, []
     );
+
     const columns = [
         {
             title: '',
@@ -63,6 +66,7 @@ export default function Management() {
             ),
         },
     ];
+
     const handleDelete = (key) => {
         var dataSource = [...doctor];
         setDoctor(dataSource.filter((item) => item.key !== key));
@@ -78,9 +82,11 @@ export default function Management() {
             }
         });
     }
+
     const handleAdd = () => {
         console.log("add");
     }
+
     return (
         <div>
             <Button onClick={handleAdd} type="primary" style={{ marginBottom: 16 }}>

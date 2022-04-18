@@ -21,6 +21,7 @@ function getListData(value) {
   }
   return listData || [];
 }
+
 const handleDelete = (item) => {
   console.log("delete")
   console.log(item)

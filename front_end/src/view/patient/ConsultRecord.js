@@ -1,8 +1,38 @@
 import React from 'react'
 import { Timeline } from 'antd';
 import { ClockCircleOutlined } from '@ant-design/icons';
+import { Table, Tag, Space, Divider } from 'antd';
+import {history} from "../../utils/data";
+
+const columns = [
+    {
+        title: 'Time',
+        dataIndex: 'time',
+        key: 'time',
+        render: text => <a>{text}</a>,
+    },
+    {
+        title: 'Place',
+        dataIndex: 'place',
+        key: 'place',
+    },
+    {
+        title: 'Department',
+        dataIndex: 'department',
+        key: 'department',
+    },
+    {
+        title: 'Description',
+        dataIndex: 'description',
+        key: 'description',
+    }
+];
+
 export default function ConsultRecord() {
     return (
+        <div>
+            <Table columns={columns} dataSource={history} />
+            <Divider />
         <Timeline mode="alternate">
             <Timeline.Item>感冒 2020-9-1 东川路诊所</Timeline.Item>
             <Timeline.Item color="green">感冒治愈</Timeline.Item>
@@ -25,5 +55,7 @@ export default function ConsultRecord() {
                 进行测试
             </Timeline.Item>
         </Timeline>
+
+        </div>
     )
 }

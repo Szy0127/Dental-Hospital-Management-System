@@ -25,6 +25,7 @@ export const GET_SCHEDULE = (id,callback) =>{
     console.log(doc_shedule);
     callback(doc_shedule);
 }
+
 export const getDoctors = (callback) => {
     callback(data);
 }

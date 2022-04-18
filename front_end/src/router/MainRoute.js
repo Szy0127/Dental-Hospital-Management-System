@@ -33,9 +33,10 @@ export default function MainRoute() {
                     <Route path='/administer/editlist' element={<NewsEditList/>}/>
                     <Route path='/administer/infoedit' element={<Edit/>}/>
                 </Route>
-                <Route path='/patient' element={<Patient />}>
+                <Route path='/patient'>
                     <Route path='/patient/appointment' element={<Apointment />} />
                     <Route path='/patient/consultation' element={<ConsultRecord />} />
+                    <Route path='/patient/profile' element={<Patient />} />
                 </Route>
                 <Route path='/doctor' element={<Doctor />}>
                     <Route path='/doctor/profile' element={<Profilelist />} />
