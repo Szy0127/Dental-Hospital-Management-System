@@ -11,6 +11,7 @@ const handleDelete = (item) => {
 function itemContent(item) {
   return (
     <div>
+      {item.time}
       {item.content}
       <a onClick={() => { handleDelete(item) }}>删除</a>
     </div>
@@ -20,11 +21,12 @@ function itemContent(item) {
 export default function Schedule(props) {
   const [ScheduleData, setScheduleData] = useState([]);
   const {id} = props;
-  console.log(props);
   useEffect(() => {
     const callback = (data) => {
       setScheduleData(data);
     }
+  console.log(id);
+
     GET_SCHEDULE(id, callback);
     console.log(ScheduleData);
   },[]);
@@ -38,7 +40,7 @@ export default function Schedule(props) {
     if (data == null) {
       return [];
     }
-    return data;
+    return data.Datelist;
   }
 
   function dateCellRender(value) {
@@ -48,7 +50,7 @@ export default function Schedule(props) {
         {listData.map(item => (
           <li>
             <Popover content={itemContent(item)} trigger="hover">
-              {item.content}
+              {item.time}
             </Popover>
           </li>
         ))}
@@ -83,8 +85,8 @@ export default function Schedule(props) {
                   <List.Item
                     actions={[<Button key="list-loadmore-more" onClick={() => { handleDelete(item) }}>删除</Button>]}>
                     <List.Item.Meta
-                      title={item.content}
-                      description={item.type} />
+                      title={item.time}
+                      description={item.content} />
                   </List.Item>
                 )
               } />

@@ -16,13 +16,13 @@ export const getDoctor = (key,callback)=>{
 export const GET_SCHEDULE = (id,callback) =>{
     var doc_shedule = [];    
     console.log(schedule);
-    var doc_id = id +"";
+    var doc_id = id;
     for (var item in schedule) {
-        if(item.doc_id === doc_id){
-            doc_shedule.push(item);
+        console.log(schedule[item].doc_id === doc_id);
+        if(schedule[item].doc_id === doc_id){
+            doc_shedule.push(schedule[item]);
         }
     }
-    console.log(doc_shedule);
     callback(doc_shedule);
 }
 

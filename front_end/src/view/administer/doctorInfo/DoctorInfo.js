@@ -10,13 +10,14 @@ export default function DoctorInfo() {
   const [schedule, getSchedule] = useState();
   const location = useLocation();
   const { state } = location;
+  const id = state.key;
   console.log(state)
   useEffect(
     () => {
       const callback = (data) => {
         setDoctor(data);
       }
-      getDoctor(state.key,callback);
+      getDoctor(id,callback);
       console.log(doctor);
     }
   );
@@ -44,7 +45,7 @@ export default function DoctorInfo() {
         </Descriptions.Item>
       </Descriptions>
       <Divider />
-      <Schedule id={doctor.id} />
+      <Schedule id={id} />
     </div>
   )
 }
