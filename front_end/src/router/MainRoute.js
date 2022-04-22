@@ -10,8 +10,6 @@ import Schedule from '../view/doctor/schedule/schedule';
 import Administer from '../view/administer/Administer'
 import Patient from '../view/patient/Patient'
 import ConsultRecord from '../view/patient/ConsultRecord';
-/* Main 测试用 应该是主题封装*/
-import Main from '../view/main/Main'
 import InfoPage from '../view/home/Info'
 import Apointment from '../view/patient/apointment/Apointment';
 import DetailedInfo from "../view/doctor/profilelist/detailedInfo";
@@ -21,17 +19,19 @@ import DoctorInfo from '../view/administer/doctorInfo/DoctorInfo';
 import Management from '../view/administer/Management';
 import NewsEditList from '../view/administer/newEdit/NewsEdit';
 import Edit from '../view/administer/newEdit/Edit';
+import IdentityRoute from './IdentityRoute';
+import HomeMainPage from '../view/main/Main';
 
 export default function MainRoute() {
     return (
         <Routes>
-            <Route path='/' element={<Main />}>
+            <Route path='/' element={<HomeMainPage />}>
                 <Route path='/home' element={<Home />} />
                 <Route path='/administer' element={<Administer />} >
-                    <Route path='/administer/doctorInfo' element={<DoctorInfo/>}/>
-                    <Route path='/administer/management' element={<Management/>}/>
-                    <Route path='/administer/editlist' element={<NewsEditList/>}/>
-                    <Route path='/administer/infoedit' element={<Edit/>}/>
+                    <Route path='/administer/doctorInfo' element={<DoctorInfo />} />
+                    <Route path='/administer/management' element={<Management />} />
+                    <Route path='/administer/editlist' element={<NewsEditList />} />
+                    <Route path='/administer/infoedit' element={<Edit />} />
                 </Route>
                 <Route path='/patient'>
                     <Route path='/patient/appointment' element={<Apointment />} />

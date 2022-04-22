@@ -34,17 +34,6 @@ function Appointment() {
             dataIndex: 'doctor',
             key: 'doctor',
         },
-        {
-            title: '删除记录',
-            key: 'remove',
-            render: (_, record) => (
-                <Space size="middle">
-                    <Popconfirm title="是否要删除该条挂号记录" onConfirm={() => handleDelete(record.id)}>
-                        <Button>删除</Button>
-                    </Popconfirm>
-                </Space>
-            ),
-        },
     ];
 
     const handleDelete = (key) => {
@@ -77,13 +66,7 @@ function Appointment() {
 
     return (
         <div>
-            <Table
-                columns={columns}
-                dataSource={record}
-                pagination={
-                    {pageSize: 5}
-                }
-            />
+
 
             <Divider />
 
@@ -103,6 +86,13 @@ function Appointment() {
             </Form>
 
             <Divider />
+            <Table
+                columns={columns}
+                dataSource={record}
+                pagination={
+                    {pageSize: 5}
+                }
+            />
         </div>
     );
 }
