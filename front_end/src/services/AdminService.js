@@ -1,4 +1,4 @@
-import { data, data2, news , notification,schedule } from "../utils/data";
+import {data, data2, news, notification, patients, schedule} from "../utils/data";
 
 // 获取医生信息
 export const getDoctor = (key,callback)=>{
@@ -37,3 +37,7 @@ export const getInfo = (callback) =>{
     callback(news);
 }
 
+// 获取患者列表
+export const getPatients = (callback) => {
+    callback(patients);
+}

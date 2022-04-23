@@ -71,7 +71,7 @@ const menuList = [
                 icon: <MedicineBoxOutlined />,
                 children: [
                     {
-                        key: "doctor/patientinfo",
+                        key: "doctor/patientlist",
                         title: "诊疗信息",
                         icon: <MedicineBoxOutlined />
                     },
@@ -88,7 +88,7 @@ const menuList = [
                 icon: <MedicineBoxOutlined />
             },
             {
-                key: "docotor/profile",
+                key: "doctor/profile",
                 title: "个人信息",
                 icon: <MedicineBoxOutlined />
             }

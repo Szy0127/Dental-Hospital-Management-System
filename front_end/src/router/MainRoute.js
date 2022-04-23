@@ -21,6 +21,9 @@ import DoctorInfo from '../view/administer/doctorInfo/DoctorInfo';
 import Management from '../view/administer/Management';
 import NewsEditList from '../view/administer/newEdit/NewsEdit';
 import Edit from '../view/administer/newEdit/Edit';
+import PatientList from "../view/doctor/patientInfo/PatientList";
+import PatientInfo from "../view/doctor/patientInfo/PatientInfo";
+import ReAppointment from "../view/doctor/patientInfo/ReAppointment";
 
 export default function MainRoute() {
     return (
@@ -42,8 +45,10 @@ export default function MainRoute() {
                     <Route path='/doctor/profile' element={<Profilelist />} />
                     <Route path='/doctor/profile2' element={<Profilelist2 />} />
                     <Route path='/doctor/detailedInfo' element={<DetailedInfo />} />
-                    <Route path='/doctor/patientinfo' element={<PatientConsult />} />
+                    <Route path='/doctor/patientinfo' element={<PatientInfo />} />
                     <Route path='/doctor/schedule' element={<Schedule />} />
+                    <Route path='/doctor/patientlist' element={<PatientList />} />
+                    <Route path='/doctor/appointment' element={<ReAppointment />} />
                 </Route>
             </Route>
             <Route path='/info/news' element={<InfoPage title="医院新闻" />} />

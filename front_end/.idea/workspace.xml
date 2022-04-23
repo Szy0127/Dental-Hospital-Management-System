@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8aef521b-74e9-4e1c-af34-0add91701a96" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/view/doctor/patientInfo/PatientInfo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/doctor/patientInfo/PatientList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/doctor/patientInfo/ReAppointment.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sidebar/SideBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/SideBar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router/MainRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/MainRoute.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/AdminService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AdminService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/administer/Management.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/administer/Management.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/doctor/schedule/schedule.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/doctor/schedule/schedule.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/patient/ConsultRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/patient/ConsultRecord.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/patient/Patient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/patient/Patient.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/patient/apointment/Apointment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/patient/apointment/Apointment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/doctor/patientInfo/PatientConsult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/doctor/patientInfo/PatientConsult.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +30,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -80,6 +88,10 @@
       <workItem from="1650006546767" duration="1941000" />
       <workItem from="1650110250930" duration="150000" />
       <workItem from="1650179078857" duration="12232000" />
+      <workItem from="1650349426805" duration="105000" />
+      <workItem from="1650533757587" duration="302000" />
+      <workItem from="1650612327224" duration="9023000" />
+      <workItem from="1650680061957" duration="5014000" />
     </task>
     <servers />
   </component>
