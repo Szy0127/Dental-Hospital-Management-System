@@ -17,11 +17,13 @@ const { SubMenu } = Menu;
 
 const menuList = [
     {
+        identity: "all",
         key: "home",
         title: "首页",
         icon: <HomeOutlined />
     },
     {
+        identity: "all",
         key: "info",
         title: "医生介绍",
         icon: <MedicineBoxOutlined />,
@@ -39,6 +41,7 @@ const menuList = [
         ]
     },
     {
+        identity: "patient",
         key: "patient",
         title: "患者",
         icon: <MedicineBoxOutlined />,
@@ -61,11 +64,13 @@ const menuList = [
         ]
     },
     {
+        identity: "doctor",
         key: "doctor",
         title: "医生",
         icon: <MedicineBoxOutlined />,
         children: [
             {
+                identity: "doctor",
                 key: "doctor/patient",
                 title: "患者信息",
                 icon: <MedicineBoxOutlined />,
@@ -83,11 +88,13 @@ const menuList = [
                 ]
             },
             {
+                identity: "doctor",
                 key: "doctor/schedule",
                 title: "排班表",
                 icon: <MedicineBoxOutlined />
             },
             {
+                identity: "doctor",
                 key: "docotor/profile",
                 title: "个人信息",
                 icon: <MedicineBoxOutlined />
@@ -95,6 +102,7 @@ const menuList = [
         ]
     },
     {
+        identity: "administer",
         key: "administer",
         title: "信息管理",
         icon: <MedicineBoxOutlined />,
@@ -117,15 +125,18 @@ const menuList = [
         ]
     },
     {
+        identity:"administer",
         key: "administer/authority",
         title: "管理员权限设置",
         icon: <MedicineBoxOutlined />,
     }
 ]
 
-export default function SideBar() {
-    const navigate = useNavigate()
-    const location = useLocation()
+export default function SideBar(props) {
+    const { identity } = props;
+    console.log(identity);
+    const navigate = useNavigate();
+    const location = useLocation();
     const [defaultKey, setDefaultKey] = useState('list')
     useEffect(() => {
         console.log(location.pathname)
@@ -137,14 +148,17 @@ export default function SideBar() {
         console.log('/' + e.key)
         navigate('/' + e.key)
     };
+
     const renderMenu = (menuList) => {
         return menuList.map(item => {
-            if (item.children) {
+            if (item.children && (item.identity === "all" || item.identity === identity)) {
                 return <SubMenu key={item.key} icon={item.icon} title={item.title}>
                     {renderMenu(item.children)}
                 </SubMenu>
             }
-            return <Menu.Item key={item.key} icon={item.icon} onClick={handleClick}>{item.title}</Menu.Item>
+            else if(!item.children){
+                return <Menu.Item key={item.key} icon={item.icon} onClick={handleClick}>{item.title}</Menu.Item>
+            }
         })
     }
     return (

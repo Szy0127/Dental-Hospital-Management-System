@@ -1,14 +1,15 @@
 import React from 'react'
 import logosrc from '../../assets/logo.jpeg'
 import { useNavigate } from 'react-router-dom';
-import { Button } from 'antd';
+import { Avatar, Button } from 'antd';
 import './Header.css'
+import AvatarHover from './avatar/AvatarHover';
 
 
 
-export default function Header() {
+export default function Header(props) {
+  const {islogin} = props;
   const navigate = useNavigate()
-
   const handleLogin = () => {
     navigate('/login')
   };
@@ -20,7 +21,7 @@ export default function Header() {
         <img src={logosrc}></img>
       </div>
       <div>
-        <Button onClick={handleLogin}>Login/Register</Button>
+        {islogin?<AvatarHover/>:<Button onClick={handleLogin}>Login/Register</Button>}
       </div>
     </header>
   )

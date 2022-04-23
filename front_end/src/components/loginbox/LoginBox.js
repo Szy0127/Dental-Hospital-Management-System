@@ -6,9 +6,10 @@ import './Loginbox.css'
 
 
 export default function LoginBox() {
-  
+    const [Register,setRegister] = useState(true);
     const onFinish = (values) => {
       console.log('Received values of form: ', values);
+      // usrService.login(values);
     };
     return (
       <Form
@@ -17,8 +18,18 @@ export default function LoginBox() {
         initialValues={{ remember: true }}
         onFinish={onFinish}
       >
-        <Form.Item label="indentity" name="Identity">
-          <Radio.Group>
+        <Form.Item label="identity" name="identity">
+          <Radio.Group
+          defaultValue="patient"
+          onChange={(e)=>{
+            console.log(e);
+            if(e.target.value === "patient"){
+              setRegister(true);
+            }
+            else{
+              setRegister(false);
+            } 
+          }}>
             <Radio.Button value="patient">Patient</Radio.Button>
             <Radio.Button value="doctor">Doctor</Radio.Button>
             <Radio.Button value="administer">Administer</Radio.Button>
@@ -53,7 +64,7 @@ export default function LoginBox() {
           <Button type="primary" htmlType="submit" className="login-form-button">
             Log in
           </Button>
-          Or <Link to="/register">register now!</Link>
+          {Register?<Link to="/register">register now!</Link>:<></>}
         </Form.Item>
       </Form>
     )
