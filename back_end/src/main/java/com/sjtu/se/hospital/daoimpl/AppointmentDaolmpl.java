@@ -21,10 +21,6 @@ public class AppointmentDaolmpl implements AppointmentDao {
 //    }
 
 
-    public int getRemain(){
-//        return appointmentRepository.getRemain();
-        return 10;
-    }
     @Override
     public void addAppointment(Appointment appointment) {
         appointmentRepository.save(appointment);

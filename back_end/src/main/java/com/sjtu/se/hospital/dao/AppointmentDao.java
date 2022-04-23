@@ -7,6 +7,5 @@ import java.util.List;
 public interface AppointmentDao {
 //    Book findOne(Integer id);
 
-    int getRemain();
     void addAppointment(Appointment appointment);
 }

@@ -6,37 +6,42 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigInteger;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
-
 
 @Data
 @Entity
 @Table(name = "appointment")
 @JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "recordId")
-public class Appointment {
+@IdClass(value = AppointmentCoKey.class)
+public class Appointment implements Serializable {
 
     @Id
-    @Column(name = "id")
-    private Integer id;
+    @Column(name = "ranking")
+    private Integer ranking;
 
+    @Id
+    @Column(name = "patientID")
     private Integer patientID;
+
+    @Column(name = "deptID")
     private Integer deptID;
+
+    @Id
+    @Column(name = "doctorID")
     private Integer doctorID;
+
+    @Id
+    @Column(name = "date")
     private Date date;
 
-    public Appointment(){}
-    public Appointment(Integer patientID,Integer deptID){
-        this.patientID = patientID;
-        this.id = 44;
-        this.deptID = deptID;
-        this.doctorID = 1;
-        this.date = new Date();
-    }
+    @Id
+    @Column(name = "time")
+    private String time;
 
+    public Appointment(){}
 }
