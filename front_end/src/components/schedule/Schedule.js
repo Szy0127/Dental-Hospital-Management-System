@@ -30,7 +30,7 @@ export default function Schedule(props) {
       <div>
         {item.time}
         {item.content}
-        {()=>(editable?<a onClick={() => { handleDelete(item) }}>删除</a>:<></>)}
+        {(editable&&date.diff(moment(),'days')>7)?<a onClick={() => { handleDelete(item) }}>删除</a>:<></>}
       </div>
     )
   }
@@ -84,7 +84,7 @@ export default function Schedule(props) {
               renderItem={
                 item => (
                   <List.Item
-                    actions={()=>(editable?[<Button key="list-loadmore-more" onClick={() => { handleDelete(item) }}>删除</Button>]:[<></>])}>
+                    actions={(editable&&date.diff(moment(),'days')>7)?[<Button key="list-loadmore-more" onClick={() => { handleDelete(item) }}>删除</Button>]:[]}>
                     <List.Item.Meta
                       title={item.time}
                       description={item.content} />

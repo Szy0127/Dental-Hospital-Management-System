@@ -6,7 +6,6 @@ import Login from '../view/login/Login'
 import Register from '../view/register/Register';
 import Doctor from '../view/doctor/Doctor'
 import PatientConsult from '../view/doctor/patientInfo/PatientConsult'
-import Schedule from '../view/doctor/schedule/schedule';
 import Administer from '../view/administer/Administer'
 import Patient from '../view/patient/Patient'
 import ConsultRecord from '../view/patient/ConsultRecord';
@@ -19,8 +18,8 @@ import DoctorInfo from '../view/administer/doctorInfo/DoctorInfo';
 import Management from '../view/administer/Management';
 import NewsEditList from '../view/administer/newEdit/NewsEdit';
 import Edit from '../view/administer/newEdit/Edit';
-import IdentityRoute from './IdentityRoute';
 import HomeMainPage from '../view/main/Main';
+import Assignment from '../view/doctor/Assignment';
 
 export default function MainRoute() {
     return (
@@ -43,7 +42,7 @@ export default function MainRoute() {
                     <Route path='/doctor/profile2' element={<Profilelist2 />} />
                     <Route path='/doctor/detailedInfo' element={<DetailedInfo />} />
                     <Route path='/doctor/patientinfo' element={<PatientConsult />} />
-                    <Route path='/doctor/schedule' element={<Schedule />} />
+                    <Route path='/doctor/schedule' element={<Assignment/>} />
                 </Route>
             </Route>
             <Route path='/info/news' element={<InfoPage title="医院新闻" />} />
