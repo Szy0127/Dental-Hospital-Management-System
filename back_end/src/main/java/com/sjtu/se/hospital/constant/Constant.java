@@ -14,7 +14,7 @@ public class Constant {
     public static final String REMEMBER_ME = "remember";
     public static final String JSESSIONID = "JSESSIONID";
 
-    public static final Integer NUMBER_MORNING = 30;
-    public static final Integer NUMBER_AFTERNOON = 40;
+    public static final Integer N_MORNING_MAX = 30;
+    public static final Integer N_AFTERNOON_MAX = 40;
     public static final Integer CUSTOMER = 1;
 }

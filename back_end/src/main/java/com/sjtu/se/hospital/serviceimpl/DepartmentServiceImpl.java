@@ -3,6 +3,7 @@ package com.sjtu.se.hospital.serviceimpl;
 import com.sjtu.se.hospital.dao.DepartmentDao;
 import com.sjtu.se.hospital.dao.DoctorDao;
 import com.sjtu.se.hospital.entity.Department;
+import com.sjtu.se.hospital.entity.DepartmentEdited;
 import com.sjtu.se.hospital.entity.Doctor;
 import com.sjtu.se.hospital.entity.DoctorEdited;
 import com.sjtu.se.hospital.service.DepartmentService;
@@ -20,13 +21,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     private DoctorDao doctorDao;
 
     @Override
-    public Pair<Department, List<DoctorEdited>> getDepartment(Integer ID) {
-        Department dept = departmentDao.getDepartment(ID);
-        return new Pair<>(dept, doctorDao.getDoctorsByDept(ID));
-    }
-
-    @Override
-    public List<Department> getDepartments() {
+    public List<DepartmentEdited> getDepartments() {
         return departmentDao.getDepartments();
     }
 

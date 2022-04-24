@@ -1,6 +1,7 @@
 package com.sjtu.se.hospital.controller;
 
 import com.sjtu.se.hospital.entity.Department;
+import com.sjtu.se.hospital.entity.DepartmentEdited;
 import com.sjtu.se.hospital.entity.DoctorEdited;
 import com.sjtu.se.hospital.service.DepartmentService;
 import javafx.util.Pair;
@@ -15,13 +16,8 @@ public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;
 
-    @RequestMapping("/getDepartment")
-    public Pair<Department, List<DoctorEdited>> getDepartment(Integer ID) {
-        return departmentService.getDepartment(ID);
-    }
-
     @RequestMapping("/getDepartments")
-    public List<Department> getDepartments() {
+    public List<DepartmentEdited> getDepartments() {
         return departmentService.getDepartments();
     }
 
