@@ -2,6 +2,7 @@ package com.sjtu.se.hospital.serviceimpl;
 
 import com.sjtu.se.hospital.dao.HistoryDao;
 import com.sjtu.se.hospital.entity.History;
+import com.sjtu.se.hospital.entity.HistoryEdited;
 import com.sjtu.se.hospital.service.HistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,7 @@ public class HistoryServiceImpl implements HistoryService {
     private HistoryDao historyDao;
 
     @Override
-    public List<History> getHistories() {
+    public List<HistoryEdited> getHistories() {
         return historyDao.getHistories();
     }
 }

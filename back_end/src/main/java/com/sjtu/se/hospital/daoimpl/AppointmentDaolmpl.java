@@ -15,14 +15,8 @@ public class AppointmentDaolmpl implements AppointmentDao {
     @Autowired
     private AppointmentRepository appointmentRepository;
 
-//    @Override
-//    public Record findOne(Integer id){
-//        return recordRepository.getOne(id);
-//    }
-
 
     public int getRemain(){
-//        return appointmentRepository.getRemain();
         return 10;
     }
     @Override

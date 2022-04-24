@@ -1,6 +1,6 @@
 package com.sjtu.se.hospital.controller;
 
-import com.sjtu.se.hospital.entity.History;
+import com.sjtu.se.hospital.entity.HistoryEdited;
 import com.sjtu.se.hospital.service.HistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,7 +18,7 @@ public class HistoryController {
     private HistoryService historyService;
 
     @RequestMapping("/getHistories")
-    public List<History> getHistories(@RequestBody Map<String, String> params) {
+    public List<HistoryEdited> getHistories(@RequestBody Map<String, String> params) {
         return historyService.getHistories();
     }
 }

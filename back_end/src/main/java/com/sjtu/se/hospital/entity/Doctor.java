@@ -27,6 +27,6 @@ public class Doctor {
     private Integer deptID;
     private Integer age;
     private String post;
-    private String Avatar;
-    private String Intro;
+    private String avatar;
+    private String intro;
 }

@@ -22,4 +22,9 @@ public class DepartmentDaoImpl implements DepartmentDao {
     public List<Department> getDepartments() {
         return departmentRepository.getDepartments();
     }
+
+    @Override
+    public Department getDeptOnly(Integer ID) {
+        return departmentRepository.getOne(ID);
+    }
 }
