@@ -3,7 +3,7 @@ package com.sjtu.se.hospital.entity;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 import java.util.Objects;
 
 @NoArgsConstructor

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * @ClassName BookServiceImpl
@@ -36,25 +36,27 @@ public class PatientServicelmpl implements PatientService {
     @Override
     public Appointment addAppointment(Integer patientID,Integer deptID,Integer doctorID,String datestr,String time) {
         try{
-            Date date = new SimpleDateFormat("yyyy-mm-dd").parse(datestr);
+            boolean success = false;
+            Date date = new Date(new SimpleDateFormat("yyyy-MM-dd").parse(datestr).getTime());
+            System.out.println(datestr);
+            System.out.println(date);
             Appointment appointment = new Appointment();
             appointment.setPatientID(patientID);
             appointment.setDeptID(deptID);
             appointment.setDoctorID(doctorID);
-            appointment.setDate(date);
+            appointment.setDate(new java.sql.Date(date.getTime()));
             appointment.setTime(time);
             Schedule schedule = scheduleDao.getSchedule(doctorID,date);
             if(time.equals("m")&& schedule.getN_morning() < Constant.N_MORNING_MAX){
-//                schedule.setN_morning(schedule.getN_morning()+1);
-                scheduleDao.updateMorning(schedule);
                 appointment.setRanking(schedule.getN_morning()+1);
-                appointmentDao.addAppointment(appointment);
-                return appointment;
+                success = true;
             }
             if(time.equals("a")&& schedule.getN_afternoon() < Constant.N_AFTERNOON_MAX){
-//                schedule.setN_afternoon(schedule.getN_afternoon()+1);
-                scheduleDao.updateAfternoon(schedule);
                 appointment.setRanking(schedule.getN_afternoon()+1);
+                success = true;
+            }
+            if(success){
+                scheduleDao.update(schedule,time);
                 appointmentDao.addAppointment(appointment);
                 return appointment;
             }

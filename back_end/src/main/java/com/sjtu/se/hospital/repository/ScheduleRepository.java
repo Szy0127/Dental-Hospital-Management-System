@@ -12,9 +12,17 @@ import java.util.Date;
 
 public interface ScheduleRepository extends JpaRepository<Schedule, ScheduleCoKey> {
 
-    @Query(value = "update schedule set n_morning = n_morning+1 where doctorID=:doctorID and date = :date",nativeQuery = true)
+    @Query(value = "update schedule set n_morning = n_morning+1 where doctorID=:doctorID and date=:date",nativeQuery = true)
+//    @Query(value = "update schedule set n_morning = n_morning+1",nativeQuery = true)
     @Modifying
-    public void updateMorning(
+    void updateMorning(
             @Param("doctorID") Integer doctorID,
-            @Param("date")Date date);
+            @Param("date")java.sql.Date date);
+
+    @Query(value = "update schedule set n_afternoon = n_afternoon+1 where doctorID=:doctorID and date=:date",nativeQuery = true)
+//    @Query(value = "update schedule set n_morning = n_morning+1",nativeQuery = true)
+    @Modifying
+    void updateAfternoon(
+            @Param("doctorID") Integer doctorID,
+            @Param("date")java.sql.Date date);
 }

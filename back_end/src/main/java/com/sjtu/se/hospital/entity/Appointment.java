@@ -37,7 +37,7 @@ public class Appointment implements Serializable {
 
     @Id
     @Column(name = "date")
-    private Date date;
+    private java.sql.Date date;
 
     @Id
     @Column(name = "time")
