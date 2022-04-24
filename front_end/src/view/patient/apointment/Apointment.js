@@ -1,17 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { appointment, data } from "../../../utils/data";
 import { Button, Cascader, Divider, Form, Popconfirm, Select, Space, Table, TimePicker } from "antd";
 import { DatePicker } from "antd/es";
 import { Option } from "antd/es/mentions";
-import { TimeAppointment,ADD_TO_APOINT } from '../../../services/PatientService';
+import moment from 'moment'
+import { TimeAppointment, ADD_TO_APPOINT } from '../../../services/PatientService';
 
 function Appointment() {
 
-    const [record, setRecord] = useState(appointment);
+    const [record, setRecord] = useState([]);
+    useEffect(
+        () => {
+            setRecord(appointment);
+        }, []
+    );
 
     const columns = [
         {
-            title: '挂号记录',
+            title: '挂号号码',
             dataIndex: 'id',
             key: 'id',
         },
@@ -21,7 +27,7 @@ function Appointment() {
             key: 'date',
         },
         {
-            title: '预约时间',
+            title: '预期时间',
             dataIndex: 'time',
             key: 'time',
         },
@@ -82,18 +88,20 @@ function Appointment() {
         ]
     };
     const callback = (data) => {
-        if(data != null){
-            ADD_TO_APOINT(data);
+        if (data != null) {
+            ADD_TO_APPOINT(data);
+            newRecord = [data, ...record];
+            setRecord(newRecord);
         }
     }
     const onFinish = (fieldsvalue) => {
-        const value ={
+        const value = {
             ...fieldsvalue,
-            'date':fieldsvalue['date'].format('YYYY-MM-DD'),
+            'date': fieldsvalue['date'].format('YYYY-MM-DD'),
 
         }
         console.log(value);
-        TimeAppointment(data,callback);
+        TimeAppointment(data, callback);
     }
     const Time = ['上午', '下午'];
     return (
@@ -102,10 +110,12 @@ function Appointment() {
             <Form layout="inline"
                 onFinish={onFinish}>
                 <Form.Item label="预约日期" name="date" {...config}>
-                    <DatePicker />
+                    <DatePicker disabledDate={(date) => (
+                        date.diff(moment(), 'days') > 7
+                    )} />
                 </Form.Item>
                 <Form.Item label="预约时间" name="time" {...timeConfig}>
-                    <Select  style={{ width: 120 }} >
+                    <Select style={{ width: 120 }} >
                         {Time.map(item => (
                             <Option key={item}>{item}</Option>
                         ))}
