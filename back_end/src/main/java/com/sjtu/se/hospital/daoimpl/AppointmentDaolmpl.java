@@ -6,8 +6,6 @@ import com.sjtu.se.hospital.repository.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 
 @Repository
 public class AppointmentDaolmpl implements AppointmentDao {

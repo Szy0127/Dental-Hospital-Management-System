@@ -2,7 +2,7 @@ import React from 'react'
 import {useLocation} from "react-router-dom";
 import {Descriptions, Divider, Image} from "antd";
 import '../style1.css'
-import {getDoctor, getDeptOnly, MaleOrFemale} from "../../../services/DataSurvice";
+import {getDoctor, MaleOrFemale} from "../../../services/DataSurvice";
 
 class Info extends React.Component {
     constructor(props) {
