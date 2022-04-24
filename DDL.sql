@@ -1,12 +1,5 @@
 use hospital;
-drop table if exists notification;
-drop table if exists news;
-drop table if exists schedule;
-drop table if exists doctor;
-drop table if exists history;
-drop table if exists department;
-drop table if exists appointment;
-drop table if exists patient;
+
 create table notification
 (
     ID integer,
@@ -40,7 +33,7 @@ create table patient
     gender varchar(1) check ( gender in ('m', 'f') ),
     email varchar(50),
     phone varchar(15),
-    age numeric(3) check ( age >= 0 ),
+    age integer check ( age >= 0 ),
     account varchar(50),
     primary key (ID)
 );
@@ -51,7 +44,7 @@ create table doctor
     name varchar(50),
     gender varchar(1), check ( gender in ('m', 'f') ),
     deptID integer,
-    age numeric(3),
+    age integer,
     post varchar(16),
     avatar TEXT,
     intro TEXT,
