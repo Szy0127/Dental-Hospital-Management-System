@@ -7,6 +7,7 @@ import com.sjtu.se.hospital.service.DepartmentService;
 import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public class DepartmentController {
     }
 
     @RequestMapping("/getDeptName")
-    public Department getDeptOnly(Integer ID) {
+    public Department getDeptOnly(@RequestParam("deptID")Integer ID) {
         return departmentService.getDeptOnly(ID);
     }
 }

@@ -2,7 +2,7 @@ import {postRequest, postRequest_v2} from "../utils/ajax";
 const root = "http://localhost:8080";
 
 export const getUser = (id, callback) => {
-    const data = {ID: id};
+    const data = {patientID: id};
     const url = root + "/getPatientInfo";
     postRequest_v2(url, data, callback);
 }
@@ -18,25 +18,25 @@ export const getDepartments = (data, callback) =>{
 }
 
 export const getDoctors = (deptId, callback) => {
-    const data = {ID: deptId};
+    const data = {deptID: deptId};
     const url = root + "/getDoctorsByDept";
     postRequest_v2(url, data, callback);
 }
 
 export const getDoctor = (id, callback) => {
-    const data = {ID: id};
+    const data = {doctorID: id};
     const url = root + "/getDoctor";
     return postRequest_v2(url, data, callback);
 }
 
 export const getDeptOnly = (id, callback) => {
-    const data = {ID: id};
+    const data = {deptID: id};
     const url = root + "/getDeptName";
     postRequest_v2(url, data, callback);
 }
 
 export const getAppointments = (id, callback) => {
-    const data = {ID: id};
+    const data = {patientID: id};
     const url = root + "/getAppointments";
     postRequest_v2(url, data, callback);
 }

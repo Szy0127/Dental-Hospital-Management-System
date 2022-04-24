@@ -19,23 +19,23 @@ public class PatientController {
 
     @RequestMapping("/addAppointment")
     public Appointment addAppointment(
-            @RequestParam Integer patientID,
-            @RequestParam Integer deptID,
-            @RequestParam Integer doctorID,
-            @RequestParam String date,
-            @RequestParam String time
+            @RequestParam("patientID") Integer patientID,
+            @RequestParam("deptID") Integer deptID,
+            @RequestParam("doctorID") Integer doctorID,
+            @RequestParam("date") String date,
+            @RequestParam("time") String time
     ) {
 //        return null;
         return patientService.addAppointment(patientID,deptID,doctorID,date,time);
     }
 
     @RequestMapping("/getAppointments")
-    public List<AppointmentEdited> getAppointmentsByPatient(Integer ID) {
+    public List<AppointmentEdited> getAppointmentsByPatient(@RequestParam("patientID") Integer ID) {
         return patientService.getAppointmentsByPatient(ID);
     }
 
     @RequestMapping("/getPatientInfo")
-    public Record getPatientInfo(@RequestParam("ID") Integer ID) {
+    public Record getPatientInfo(@RequestParam("patientID") Integer ID) {
         return patientService.getPatientInfo(ID);
     }
 
