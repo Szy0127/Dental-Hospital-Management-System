@@ -5,73 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8aef521b-74e9-4e1c-af34-0add91701a96" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/../DDL.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/dao/ScheduleDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/daoimpl/ScheduleDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/entity/AppointmentCoKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/entity/AppointmentEdited.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/entity/DepartmentEdited.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/entity/Schedule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/entity/ScheduleCoKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/repository/ScheduleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../insert.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/constant/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/constant/Constant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/controller/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/controller/DepartmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/controller/HistoryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/controller/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/controller/DoctorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/controller/PatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/controller/RecordController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/dao/AppointmentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/dao/AppointmentDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/dao/DepartmentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/dao/DepartmentDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/dao/RecordDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/dao/RecordDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/daoimpl/AppointmentDaolmpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/daoimpl/AppointmentDaolmpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/daoimpl/DepartmentDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/daoimpl/DepartmentDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/daoimpl/RecordDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/daoimpl/RecordDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/entity/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/entity/Appointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/repository/AppointmentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/repository/AppointmentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/service/DepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/service/DepartmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/service/HistoryService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/service/PatientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/service/RecordService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/serviceimpl/DepartmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/serviceimpl/DepartmentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/serviceimpl/HistoryServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/serviceimpl/PatientServicelmpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/serviceimpl/PatientServicelmpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/serviceimpl/RecordServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/BookstoreApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/constant/Constant.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/controller/HistoryController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/controller/LoginController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/controller/RecordController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/dao/HistoryDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/dao/RecordDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/daoimpl/HistoryDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/daoimpl/RecordDaoImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/entity/History.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/entity/Record.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/interceptor/InterceptorConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/interceptor/SessionValidateInterceptor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/repository/HistoryRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/repository/RecordRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/service/HistoryService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/service/RecordService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/serviceimpl/HistoryServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/serviceimpl/RecordServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/utils/msgutils/Msg.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/utils/msgutils/MsgCode.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/utils/msgutils/MsgUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/java/com/reins/bookstore/utils/sessionutils/SessionUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/src/test/java/com/reins/bookstore/BookstoreApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/DataSurvice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/DataSurvice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/patient/apointment/Apointment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/patient/apointment/Apointment.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +85,7 @@
       <workItem from="1650110250930" duration="150000" />
       <workItem from="1650179078857" duration="12232000" />
       <workItem from="1650640251648" duration="735000" />
-      <workItem from="1650707987276" duration="32445000" />
+      <workItem from="1650707987276" duration="33823000" />
     </task>
     <servers />
   </component>
