@@ -22,7 +22,7 @@ let postRequest_v2 = (url, data, callback) => {
             callback(data);
         })
         .catch((error) => {
-           console.log(error);
+            console.log(error);
         });
 };
 

@@ -6,13 +6,13 @@ import Login from '../view/login/Login'
 import Register from '../view/register/Register';
 import Doctor from '../view/doctor/Doctor'
 import PatientConsult from '../view/doctor/patientInfo/PatientConsult'
+import Schedule from '../view/doctor/schedule/schedule';
 import Administer from '../view/administer/Administer'
 import Patient from '../view/patient/Patient'
 import ConsultRecord from '../view/patient/ConsultRecord';
 import InfoPage from '../view/home/Info'
 import Apointment from '../view/patient/apointment/Apointment';
 import DetailedInfo from "../view/doctor/profilelist/detailedInfo";
-import Profilelist2 from "../view/doctor/profilelist/Profilelist2";
 import Profilelist from "../view/doctor/profilelist/Profilelist";
 import DoctorInfo from '../view/administer/doctorInfo/DoctorInfo';
 import Management from '../view/administer/Management';
@@ -38,11 +38,10 @@ export default function MainRoute() {
                     <Route path='/patient/profile' element={<Patient />} />
                 </Route>
                 <Route path='/doctor' element={<Doctor />}>
-                    <Route path='/doctor/profile' element={<Profilelist />} />
-                    <Route path='/doctor/profile2' element={<Profilelist2 />} />
                     <Route path='/doctor/detailedInfo' element={<DetailedInfo />} />
                     <Route path='/doctor/patientinfo' element={<PatientConsult />} />
                     <Route path='/doctor/schedule' element={<Assignment/>} />
+                    <Route path='/doctor/profile' element={<Profilelist/>} />
                 </Route>
             </Route>
             <Route path='/info/news' element={<InfoPage title="医院新闻" />} />

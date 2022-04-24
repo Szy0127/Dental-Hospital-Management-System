@@ -21,7 +21,6 @@ const HomeMainPage = function (props) {
         }
     }
     useEffect(() => {
-        setIdentity("administer");
         // UsrService.checkSession(checkAuth);
     }, []);
     return (

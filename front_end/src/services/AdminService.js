@@ -1,5 +1,6 @@
 import { data, data2, news , notification,schedule } from "../utils/data";
 import { postRequest,postRequests } from "../utils/ajax";
+
 // 获取医生信息
 export const getDoctor = (key,callback)=>{
     if(key === null){
@@ -39,6 +40,7 @@ export const getDoctorsDept = (data,callback) =>{
     let data = {deptID:data};
     postRequest(url,data,callback);
 }
+
 // 获取医生排班表
 
 // 获取info和news

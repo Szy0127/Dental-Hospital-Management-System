@@ -1,4 +1,5 @@
 import config from 'config';
+<<<<<<< HEAD
 import { postRequest } from "../utils/ajax";
 import { message } from 'antd';
 
@@ -20,6 +21,22 @@ export const login = (form) => {
         }
     };
     postRequest(url, form, callback);
+import {postRequest} from "../utils/ajax";
+import {message} from 'antd';
+
+export const login = (data) => {
+    const url = `${config.apiUrl}/login`;
+    const callback = (data) => {
+        if(data.status >= 0) {
+            localStorage.setItem('user', JSON.stringify(data.data));
+            // history.push("/");
+            message.success(data.msg);
+        }
+        else{
+            message.error(data.msg);
+        }
+    };
+    postRequest(url, data, callback);
 };
 
 export const logout = () => {
@@ -27,17 +44,19 @@ export const logout = () => {
 
     const callback = (data) => {
         if (data.status >= 0) {
+        if(data.status >= 0) {
             localStorage.removeItem("user");
             // history.push("/login");
             message.success(data.msg);
         }
-        else {
+		else{
             message.error(data.msg);
         }
     };
     postRequest(url, {}, callback);
 };
 
+<<<<<<< HEAD
 export const register = (data) => {
     const url = `${config.apiUrl}/register`;
     const callback = (data) => {
@@ -50,6 +69,11 @@ export const register = (data) => {
         }
     }
     postRequest(url, {}, callback);
+=======
+export const register = (data) =>{
+    const url = `${config.apiUrl}/register`;
+    
+>>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
 }
 
 export const checkSession = (callback) => {
