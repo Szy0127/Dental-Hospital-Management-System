@@ -1,15 +1,9 @@
-import logo from './logo.svg';
+import IndexRouter from './router/IndexRouter';
 import './App.css';
-
+import HomeMainPage from './view/main/Main';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Dental-Hospital-Management-System</h1>
-
-      </header>
-    </div>
+    <IndexRouter></IndexRouter>
   );
 }
 
