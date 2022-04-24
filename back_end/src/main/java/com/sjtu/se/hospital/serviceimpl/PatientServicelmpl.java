@@ -1,6 +1,7 @@
 package com.sjtu.se.hospital.serviceimpl;
 
-import com.reins.bookstore.constant.Constant;
+
+import com.sjtu.se.hospital.constant.Constant;
 import com.sjtu.se.hospital.dao.AppointmentDao;
 import com.sjtu.se.hospital.dao.HistoryDao;
 import com.sjtu.se.hospital.dao.RecordDao;
@@ -11,9 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.sql.Date;
 import java.util.List;
 
 /**

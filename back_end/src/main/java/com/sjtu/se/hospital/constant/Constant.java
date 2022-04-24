@@ -1,4 +1,4 @@
-package com.reins.bookstore.constant;
+package com.sjtu.se.hospital.constant;
 
 /**
  * @ClassName Constant
