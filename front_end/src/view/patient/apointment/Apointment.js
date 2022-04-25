@@ -1,110 +1,150 @@
-import React, {useState} from 'react';
-import {appointment} from "../../../utils/data";
-import {Button, Cascader, Divider, Form, Popconfirm, Select, Space, Table, TimePicker} from "antd";
-import {DatePicker} from "antd/es";
-import {Option} from "antd/es/mentions";
+import React, { useState } from 'react';
+import moment from 'moment'
+import { Button, Cascader, Divider, Form, Table, Select } from "antd";
+import { DatePicker } from "antd/es";
+import { getDepartments, getDoctors, MngOrAftn } from "../../../services/DataSurvice";
+import { AddAppointment, getAppointments, getPredictedTime } from '../../../services/PatientService';
+import { render } from '@testing-library/react';
+const { Option } = Select;
+const columns = [
+    {
+        title: '挂号号码',
+        dataIndex: 'ranking',
+        key: 'ranking',
+    },
+    {
+        title: '预约日期',
+        dataIndex: 'date',
+        key: 'date',
+    },
+    {
+        title: '预期就诊时间',
+        dataIndex: 'Ptime',
+        key: 'Ptime',
+        render: (text, record) => (
+            getPredictedTime(record.time, record.ranking)
+        )
+    },
+    {
+        title: '预约科室',
+        dataIndex: 'department',
+        key: 'department',
+    },
+    {
+        title: '预约医生',
+        dataIndex: 'doctor',
+        key: 'doctor',
+    },
+];
 
-function Appointment() {
-
-    const [record, setRecord] = useState(appointment);
-
-    const columns = [
-        {
-            title: '挂号记录',
-            dataIndex: 'id',
-            key: 'id',
-        },
-        {
-            title: '预约日期',
-            dataIndex: 'date',
-            key: 'date',
-        },
-        {
-            title: '预约时间',
-            dataIndex: 'time',
-            key: 'time',
-        },
-        {
-            title: '预约科室',
-            dataIndex: 'department',
-            key: 'department',
-        },
-        {
-            title: '预约医生',
-            dataIndex: 'doctor',
-            key: 'doctor',
-        },
-        {
-            title: '删除记录',
-            key: 'remove',
-            render: (_, record) => (
-                <Space size="middle">
-                    <Popconfirm title="是否要删除该条挂号记录" onConfirm={() => handleDelete(record.id)}>
-                        <Button>删除</Button>
-                    </Popconfirm>
-                </Space>
-            ),
-        },
-    ];
-
-    const handleDelete = (key) => {
-        let oldRecord = [...record];
-        setRecord(oldRecord.filter((item) => item.key !== key));
+export default class Appointment extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            record: [],
+            departments: [],
+        }
     }
 
-    const FormItem = Form.Item;
+    componentDidMount() {
+        getAppointments((data) => {
+            this.setState({ record: data })
+        });
 
-    const options = [
-        {
-            value: '儿科',
-            label: '儿科',
-            children: [
-                {value: 'Doctor A', label: 'Doctor A'},
-                {value: 'Doctor B', label: 'Doctor B'},
-                {value: 'Doctor C', label: 'Doctor C'},
-            ]
-        },
-        {
-            value: '内科',
-            label: '内科',
-            children: [
-                {value: 'Doctor D', label: 'Doctor D'},
-                {value: 'Doctor E', label: 'Doctor E'},
-                {value: 'Doctor F', label: 'Doctor F'},
-            ]
-        },
-    ];
+        getDepartments({ search: null }, (data) => {
+            this.setState({ departments: data })
+        });
+    }
 
-    return (
-        <div>
-            <Table
-                columns={columns}
-                dataSource={record}
-                pagination={
-                    {pageSize: 5}
-                }
-            />
+    options = () => {
+        return this.state.departments.map((item, idx) => {
+            return {
+                value: item.id,
+                label: item.title,
+                children: item.doctors.map((doc) => {
+                    return {
+                        value: doc.id,
+                        label: doc.name,
+                    }
+                })
+            }
+        })
+    }
+    config = {
+        rules: [
+            {
+                type: 'object',
+                required: true,
+                message: 'Please select time!',
+            },
+        ],
+    };
+    timeConfig = {
+        rules: [
+            {
+                required: true,
+                message: 'Please choose',
+            },
+        ]
+    };
+    callback = (get) => {
+        if (get != null) {
+            getAppointments((data) => {
+                this.setState({
+                    record: data
+                })
+            });
+        }
+    }
+    onFinish = (fieldsvalue) => {
+        const value = {
+            'deptID': fieldsvalue['doctor'][0],
+            'doctorID': fieldsvalue['doctor'][1],
+            'date': fieldsvalue['date'].format('YYYY-MM-DD'),
+            'time': fieldsvalue['time'],
+        }
+        console.log(value);
+        AddAppointment(value, this.callback);
+    }
 
-            <Divider />
+    Time = [{ value: 'm', label: '上午' }, { value: 'a', label: '下午' }];
 
-            <Form layout="inline">
-                <FormItem label="预约日期">
-                    <DatePicker />
-                </FormItem>
-                <FormItem label="预约时间">
-                    <TimePicker.RangePicker />
-                </FormItem>
-                <FormItem label="预约科室与医生">
-                    <Cascader options={options} style={{width: '150px'}} />
-                </FormItem>
-                <Button type="primary">
-                    我要挂号
-                </Button>
-            </Form>
+    render() {
+        console.log(this.state.departments)
+        return (
+            <div>
+                <Divider />
+                <Form layout="inline"
+                    onFinish={this.onFinish}>
+                    <Form.Item label="预约日期" name="date" {...this.config}>
+                        <DatePicker disabledDate={(date) => (
+                            date.diff(moment(), 'days') > 7
+                        )} />
+                    </Form.Item>
+                    <Form.Item label="预约时间" name="time" {...this.timeConfig}>
+                        <Select style={{ width: 120 }} >
+                            {this.Time.map(item => (
+                                <Option key={item.value}>{item.label}</Option>
+                            ))}
+                        </Select>
+                    </Form.Item>
+                    <Form.Item label="预约科室与医生" name="doctor" {...this.timeConfig}>
+                        <Cascader options={this.options()} style={{ width: '150px' }} />
+                    </Form.Item>
+                    <Button type="primary" htmlType="submit">
+                        我要挂号
+                    </Button>
+                </Form>
+                <Divider />
+                <Table
+                    columns={columns}
+                    dataSource={this.state.record}
+                    pagination={
+                        { pageSize: 5 }
+                    }
+                />
+            </div>
+        );
+    }
 
-            <Divider />
-        </div>
-    );
 }
-
-export default Appointment;

@@ -8,19 +8,10 @@ const handleDelete = (item) => {
   console.log(item)
 }
 
-function itemContent(item) {
-  return (
-    <div>
-      {item.time}
-      {item.content}
-      <a onClick={() => { handleDelete(item) }}>删除</a>
-    </div>
-  )
-}
-
 export default function Schedule(props) {
   const [ScheduleData, setScheduleData] = useState([]);
-  const {id} = props;
+  const {id,editable} = props;
+  console.log(editable)
   useEffect(() => {
     const callback = (data) => {
       setScheduleData(data);
@@ -33,6 +24,16 @@ export default function Schedule(props) {
 
   const [schedule, setSchedule] = useState(getListData(moment().date()))
   const [date, setDate] = useState(moment);
+
+  function itemContent(item) {
+    return (
+      <div>
+        {item.time}
+        {item.content}
+        {(editable&&date.diff(moment(),'days')>7)?<a onClick={() => { handleDelete(item) }}>删除</a>:<></>}
+      </div>
+    )
+  }
 
   function getListData(value) {
     var data = ScheduleData.find((item) =>
@@ -83,7 +84,7 @@ export default function Schedule(props) {
               renderItem={
                 item => (
                   <List.Item
-                    actions={[<Button key="list-loadmore-more" onClick={() => { handleDelete(item) }}>删除</Button>]}>
+                    actions={(editable&&date.diff(moment(),'days')>7)?[<Button key="list-loadmore-more" onClick={() => { handleDelete(item) }}>删除</Button>]:[]}>
                     <List.Item.Meta
                       title={item.time}
                       description={item.content} />

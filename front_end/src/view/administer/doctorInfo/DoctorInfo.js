@@ -45,7 +45,7 @@ export default function DoctorInfo() {
         </Descriptions.Item>
       </Descriptions>
       <Divider />
-      <Schedule id={id} />
+      <Schedule id={id} editable={true}/>
     </div>
   )
 }

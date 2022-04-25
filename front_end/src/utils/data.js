@@ -232,8 +232,8 @@ export var schedule = [
         doc_id:'3',
         date:27,
         Datelist : [
-            { time: '9:00-12:00', content: '门诊' },
-            { time: '14:00-17:00', content: '手术' },
+            { time: '上午8:00-12:00', content: '门诊' },
+            { time: '下午14:00-18:00', content: '手术' },
         ]
     },
 ]

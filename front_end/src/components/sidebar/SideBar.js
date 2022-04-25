@@ -5,40 +5,39 @@ import { Layout, Menu } from 'antd';
 import './SideBar.css'
 import {
     HomeOutlined,
-    UserOutlined,
-    VideoCameraOutlined,
-    UploadOutlined,
     MedicineBoxOutlined,
 } from '@ant-design/icons';
-import Item from 'antd/lib/list/Item';
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 const menuList = [
     {
+        identity: "all",
         key: "home",
         title: "首页",
         icon: <HomeOutlined />
     },
     {
+        identity: "all",
         key: "info",
         title: "医生介绍",
         icon: <MedicineBoxOutlined />,
         children: [
             {
-                key: "doctor/profile",
+                key: "doctor/profile?id=1",
                 title: "科室一",
                 icon: <MedicineBoxOutlined />,
             },
             {
-                key: "doctor/profile2",
+                key: "doctor/profile?id=2",
                 title: "科室二",
                 icon: <MedicineBoxOutlined />,
             }
         ]
     },
     {
+        identity: "patient",
         key: "patient",
         title: "患者",
         icon: <MedicineBoxOutlined />,
@@ -61,11 +60,13 @@ const menuList = [
         ]
     },
     {
+        identity: "doctor",
         key: "doctor",
         title: "医生",
         icon: <MedicineBoxOutlined />,
         children: [
             {
+                identity: "doctor",
                 key: "doctor/patient",
                 title: "患者信息",
                 icon: <MedicineBoxOutlined />,
@@ -83,18 +84,22 @@ const menuList = [
                 ]
             },
             {
+                identity: "doctor",
                 key: "doctor/schedule",
                 title: "排班表",
                 icon: <MedicineBoxOutlined />
             },
             {
                 key: "doctor/profile",
+                identity: "doctor",
+                key: "docotor/profile",
                 title: "个人信息",
                 icon: <MedicineBoxOutlined />
             }
         ]
     },
     {
+        identity: "administer",
         key: "administer",
         title: "信息管理",
         icon: <MedicineBoxOutlined />,
@@ -117,15 +122,18 @@ const menuList = [
         ]
     },
     {
+        identity:"administer",
         key: "administer/authority",
         title: "管理员权限设置",
         icon: <MedicineBoxOutlined />,
     }
 ]
 
-export default function SideBar() {
-    const navigate = useNavigate()
-    const location = useLocation()
+export default function SideBar(props) {
+    const { identity } = props;
+    console.log(identity);
+    const navigate = useNavigate();
+    const location = useLocation();
     const [defaultKey, setDefaultKey] = useState('list')
     useEffect(() => {
         console.log(location.pathname)
@@ -137,31 +145,23 @@ export default function SideBar() {
         console.log('/' + e.key)
         navigate('/' + e.key)
     };
+
     const renderMenu = (menuList) => {
         return menuList.map(item => {
-            if (item.children) {
+            if (item.children && (item.identity === "all" || item.identity === identity)) {
                 return <SubMenu key={item.key} icon={item.icon} title={item.title}>
                     {renderMenu(item.children)}
                 </SubMenu>
             }
-            return <Menu.Item key={item.key} icon={item.icon} onClick={handleClick}>{item.title}</Menu.Item>
+            else if(!item.children){
+                return <Menu.Item key={item.key} icon={item.icon} onClick={handleClick}>{item.title}</Menu.Item>
+            }
         })
     }
     return (
         <Sider trigger={null}>
             <div className="logo" />
             <Menu theme="dark" mode="inline" defaultSelectedKeys={['doctor']} defaultOpenKeys={['doctor']}>
-                {/* <Menu.Item key="home" icon={<HomeOutlined/>}>首页</Menu.Item>
-                <SubMenu key="doctor" icon={<MedicineBoxOutlined />} title="医生介绍">
-                    <SubMenu key="client1"  title="科室一">
-                        <Menu.Item key="c1A">A</Menu.Item>
-                        <Menu.Item key="c1B">B</Menu.Item>
-                    </SubMenu>
-                    <SubMenu key="client1" title="科室二">
-                        <Menu.Item key="c2A">A</Menu.Item>
-                        <Menu.Item key="c2B">B</Menu.Item>
-                    </SubMenu>
-                </SubMenu> */}
                 {renderMenu(menuList)}
             </Menu>
         </Sider>
