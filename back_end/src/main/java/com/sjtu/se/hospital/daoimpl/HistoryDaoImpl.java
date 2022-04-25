@@ -23,6 +23,7 @@ public class HistoryDaoImpl implements HistoryDao {
         he.department = departmentRepository.getOne(p.getDeptID()).getTitle();
         he.id = p.getId();
         he.time = p.getTime();
+        he.patientID = p.getPatientID();
         he.description = p.getDescription();
         return he;
     }

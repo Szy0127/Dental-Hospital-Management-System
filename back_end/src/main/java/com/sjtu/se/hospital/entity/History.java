@@ -24,6 +24,7 @@ public class History {
     private int id;
 
     private Date time;
+    private int patientID;
     private int deptID;
     private String description;
 }
