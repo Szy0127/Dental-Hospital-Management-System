@@ -21,21 +21,15 @@ public class DoctorDaoImpl implements DoctorDao {
     @Override
     public DoctorEdited getDoctor(Integer ID) {
         Doctor p = doctorRepository.getOne(ID);
-        return getDoctorEdited(p);
-    }
-
-    private DoctorEdited getDoctorEdited(Doctor p) {
-        DoctorEdited de = new DoctorEdited();
-        de.department = departmentRepository.getOne(p.getDeptID()).getTitle();
-        de.age = p.getAge();
-        de.avatar = p.getAvatar();
-        de.id = p.getId();
-        de.name = p.getName();
-        de.post = p.getPost();
-        de.gender = p.getGender();
-        de.intro = p.getIntro();
-
-        return de;
+        return new DoctorEdited(
+                p.getId(),
+                p.getName(),
+                p.getGender(),
+                departmentRepository.getOne(p.getDeptID()).getTitle(),
+                p.getAge(),
+                p.getPost(),
+                p.getAvatar(),
+                p.getIntro());
     }
 
     @Override
@@ -44,7 +38,15 @@ public class DoctorDaoImpl implements DoctorDao {
         LinkedList<DoctorEdited> res = new LinkedList<>();
 
         for (Doctor p : docs) {
-            res.add(getDoctorEdited(p));
+            res.add(new DoctorEdited(
+                    p.getId(),
+                    p.getName(),
+                    p.getGender(),
+                    departmentRepository.getOne(p.getDeptID()).getTitle(),
+                    p.getAge(),
+                    p.getPost(),
+                    p.getAvatar(),
+                    p.getIntro()));
         }
 
         return res;

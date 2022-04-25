@@ -1,17 +1,12 @@
 package com.sjtu.se.hospital.entity;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
 
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.math.BigInteger;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.Date;
 
 @Data
 @Entity
@@ -44,4 +39,12 @@ public class Appointment implements Serializable {
     private String time;
 
     public Appointment(){}
+    public Appointment(Integer patientID,Integer deptID,Integer doctorID,Date date,String time){
+        this.patientID = patientID;
+        this.deptID = deptID;
+        this.doctorID = doctorID;
+        this.date = date;
+        this.time = time;
+
+    }
 }
