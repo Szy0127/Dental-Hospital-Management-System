@@ -46,10 +46,10 @@ insert into schedule values (3, '2022-03-27', 0, 0, '手术');
 
 insert into patient values (1, 'lujunchen', 'm', 'lujunchen2020@sjtu.edu.cn', '008618971393004', 20, 'lunjunchen2020');
 
-insert into history values (1, '2022-03-14', 1, '急性肠胃炎');
-insert into history values (2, '2022-03-14', 1, '急性肠胃炎');
-insert into history values (3, '2022-03-14', 1, '急性肠胃炎');
-insert into history values (4, '2022-03-14', 2, '急性肠胃炎');
+insert into history values (1, '2022-03-14', 1, 1, '急性肠胃炎');
+insert into history values (2, '2022-03-15', 1, 1, '急性肠胃炎');
+insert into history values (3, '2022-03-16', 1, 1, '急性肠胃炎');
+insert into history values (4, '2022-03-17', 2, 1, '急性肠胃炎');
 
 insert into appointment values (1, 1, 1, 1, '2022-04-15', 'm');
 insert into appointment values (2, 1, 2, 2, '2022-04-15', 'a');

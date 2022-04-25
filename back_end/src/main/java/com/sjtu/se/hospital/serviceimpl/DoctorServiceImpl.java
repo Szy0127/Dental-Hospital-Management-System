@@ -2,6 +2,7 @@ package com.sjtu.se.hospital.serviceimpl;
 
 import com.sjtu.se.hospital.dao.DoctorDao;
 import com.sjtu.se.hospital.entity.DoctorEdited;
+import com.sjtu.se.hospital.entity.Schedule;
 import com.sjtu.se.hospital.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,5 +22,10 @@ public class DoctorServiceImpl implements DoctorService {
     @Override
     public List<DoctorEdited> getDoctorsByDept(Integer ID) {
         return doctorDao.getDoctorsByDept(ID);
+    }
+
+    @Override
+    public List<Schedule> getSchedule(Integer ID) {
+        return doctorDao.getSchedule(ID);
     }
 }

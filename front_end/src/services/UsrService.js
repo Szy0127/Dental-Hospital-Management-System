@@ -10,18 +10,16 @@ export const login = (form) => {
             localStorage.setItem('user', JSON.stringify(data.data));
             localStorage.setItem('identity');
             if (form.identity === "patient") {
-                localStorage.setItem('patientID',data.patientID);
+                localStorage.setItem('patientID', data.patientID);
             }
             // history.push("/");
             message.success(data.msg);
-        }
-        else {
+        } else {
             message.error(data.msg);
         }
     };
     postRequest(url, form, callback);
-import {postRequest} from "../utils/ajax";
-import {message} from 'antd';
+}
 
 export const login = (data) => {
     const url = `${config.apiUrl}/login`;
@@ -43,15 +41,16 @@ export const logout = () => {
 
     const callback = (data) => {
         if (data.status >= 0) {
-        if(data.status >= 0) {
-            localStorage.removeItem("user");
-            // history.push("/login");
-            message.success(data.msg);
+            if (data.status >= 0) {
+                localStorage.removeItem("user");
+                // history.push("/login");
+                message.success(data.msg);
+            } else {
+                message.error(data.msg);
+            }
         }
-		else{
-            message.error(data.msg);
-        }
-    };
+    }
+
     postRequest(url, {}, callback);
 };
 
@@ -67,7 +66,7 @@ export const register = (data) => {
         }
     }
     postRequest(url, {}, callback);
-}
+};
 
 export const checkSession = (callback) => {
     const url = `${config.apiUrl}/checkSession`;

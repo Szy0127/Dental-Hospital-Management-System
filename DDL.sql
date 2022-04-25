@@ -54,8 +54,9 @@ create table doctor
 
 create table history
 (
-    ID integer,
+    ID integer auto_increment,
     time date,
+    patientID integer,
     deptID integer,
     description text,
     primary key (ID),
