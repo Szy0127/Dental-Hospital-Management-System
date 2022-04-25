@@ -91,7 +91,7 @@ const menuList = [
             },
             {
                 identity: "doctor",
-                key: "docotor/profile",
+                key: "doctor/detailedInfo?id=1",
                 title: "个人信息",
                 icon: <MedicineBoxOutlined />
             }

@@ -3,8 +3,10 @@ package com.sjtu.se.hospital.daoimpl;
 import com.sjtu.se.hospital.entity.Doctor;
 import com.sjtu.se.hospital.dao.DoctorDao;
 import com.sjtu.se.hospital.entity.DoctorEdited;
+import com.sjtu.se.hospital.entity.Schedule;
 import com.sjtu.se.hospital.repository.DepartmentRepository;
 import com.sjtu.se.hospital.repository.DoctorRepository;
+import com.sjtu.se.hospital.repository.ScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -17,6 +19,8 @@ public class DoctorDaoImpl implements DoctorDao {
     private DoctorRepository doctorRepository;
     @Autowired
     private DepartmentRepository departmentRepository;
+    @Autowired
+    private ScheduleRepository scheduleRepository;
 
     @Override
     public DoctorEdited getDoctor(Integer ID) {
@@ -50,5 +54,10 @@ public class DoctorDaoImpl implements DoctorDao {
         }
 
         return res;
+    }
+
+    @Override
+    public List<Schedule> getSchedule(Integer ID) {
+        return scheduleRepository.getSchedule(ID);
     }
 }

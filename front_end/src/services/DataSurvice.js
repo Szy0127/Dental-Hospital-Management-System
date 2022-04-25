@@ -29,6 +29,12 @@ export const getDepartments = (data, callback) =>{
     postRequest(url, data, callback);
 }
 
+export const getDeptOnly = (id, callback) => {
+    const data = {deptID: id};
+    const url = root + "/getDeptName";
+    postRequest_v2(url, data, callback);
+}
+
 export const getDoctors = (deptId, callback) => {
     const data = {deptID: deptId};
     const url = root + "/getDoctorsByDept";
@@ -41,9 +47,9 @@ export const getDoctor = (id, callback) => {
     postRequest_v2(url, data, callback);
 }
 
-export const getDeptOnly = (id, callback) => {
-    const data = {deptID: id};
-    const url = root + "/getDeptName";
+export const getScheduleByDocId = (docID, callback) => {
+    const data = {docID: docID};
+    const url = root + "/getScheduleByDocID";
     postRequest_v2(url, data, callback);
 }
 
