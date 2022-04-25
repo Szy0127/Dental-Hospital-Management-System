@@ -11,7 +11,11 @@ import com.sjtu.se.hospital.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -41,39 +45,36 @@ public class PatientServicelmpl implements PatientService {
 
 
 
-    @Transactional
+    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     @Override
-    public Appointment addAppointment(Integer patientID,Integer deptID,Integer doctorID,String datestr,String time) {
-        try{
-            boolean success = false;
-            Date date = new Date(new SimpleDateFormat("yyyy-MM-dd").parse(datestr).getTime());
-            System.out.println(datestr);
-            System.out.println(date);
-            Appointment appointment = new Appointment();
-            appointment.setPatientID(patientID);
-            appointment.setDeptID(deptID);
-            appointment.setDoctorID(doctorID);
-            appointment.setDate(new java.sql.Date(date.getTime()));
-            appointment.setTime(time);
-            Schedule schedule = scheduleDao.getSchedule(doctorID,date);
-            if(time.equals("m")&& schedule.getN_morning() < Constant.N_MORNING_MAX){
-                appointment.setRanking(schedule.getN_morning()+1);
-                success = true;
-            }
-            if(time.equals("a")&& schedule.getN_afternoon() < Constant.N_AFTERNOON_MAX){
-                appointment.setRanking(schedule.getN_afternoon()+1);
-                success = true;
-            }
-            if(success){
-                scheduleDao.update(schedule,time);
-                appointmentDao.addAppointment(appointment);
-                return appointment;
-            }
+    public Appointment addAppointment(Integer patientID, Integer deptID, Integer doctorID, String datestr, String time) {
+        Date date = null;
+        try {
+            date = new Date(new SimpleDateFormat("yyyy-MM-dd").parse(datestr).getTime());
         } catch (ParseException e) {
             e.printStackTrace();
             return null;
         }
-        return null;
+        Appointment appointment = new Appointment(patientID, deptID, doctorID, date, time);
+        Schedule schedule = scheduleDao.getSchedule(doctorID, date);
+
+        if (time.equals("m")) {
+            if (schedule.getN_morning() >= Constant.N_MORNING_MAX) {
+                appointment.setRanking(0);
+                return appointment;
+            }
+            appointment.setRanking(schedule.getN_morning() + 1);
+        } else {
+            if (schedule.getN_afternoon() >= Constant.N_AFTERNOON_MAX) {
+                appointment.setRanking(0);
+                return appointment;
+            }
+            appointment.setRanking(schedule.getN_afternoon() + 1);
+        }
+
+        scheduleDao.update(schedule, time);
+        appointmentDao.addAppointment(appointment);
+        return appointment;
     }
 
     @Override

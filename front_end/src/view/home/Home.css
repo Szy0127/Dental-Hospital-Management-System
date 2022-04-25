@@ -1,5 +1,13 @@
 .displayNotice {
+<<<<<<< HEAD
+<<<<<<< HEAD
+    float: left!important;
+=======
     float: left;
+>>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
+=======
+    float: left;
+>>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
 }
 
 .displayNews {
@@ -11,6 +19,12 @@
 }
 .clearfix {
     /*background-color: #212529;*/
+<<<<<<< HEAD
+<<<<<<< HEAD
+}
+=======
+=======
+>>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
 }
 
 #news {
@@ -46,3 +60,7 @@
 #new_list {
     margin-left: 250px;
 }
+<<<<<<< HEAD
+>>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
+=======
+>>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
