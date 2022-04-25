@@ -1,9 +1,34 @@
 import React, {useState} from "react";
 import PatientConsult from "./PatientConsult";
 import {useLocation} from "react-router-dom";
-import {Button, Descriptions, Divider, Input, message} from "antd";
+import {Button, Descriptions, Divider, Input, message, Table} from "antd";
+import {history} from "../../../utils/data";
 
 const { TextArea } = Input;
+
+const columns = [
+    {
+        title: 'Time',
+        dataIndex: 'time',
+        key: 'time',
+        render: text => <a>{text}</a>,
+    },
+    {
+        title: 'Place',
+        dataIndex: 'place',
+        key: 'place',
+    },
+    {
+        title: 'Department',
+        dataIndex: 'department',
+        key: 'department',
+    },
+    {
+        title: 'Description',
+        dataIndex: 'description',
+        key: 'description',
+    }
+];
 
 export default function PatientInfo () {
 
@@ -20,7 +45,7 @@ export default function PatientInfo () {
 
     return (
         <div>
-            <PatientConsult step={patient.step} />
+            <PatientConsult step={patient.steps} id={patient.id} />
 
             <Descriptions
                 title="患者信息"
@@ -45,6 +70,12 @@ export default function PatientInfo () {
                 }}
             />
             <Button type='primary' onClick={handleClick}>上传药方</Button>
+
+            <Divider />
+
+            <h1>就诊记录：</h1>
+
+            <Table columns={columns} dataSource={history} />
 
         </div>
     )

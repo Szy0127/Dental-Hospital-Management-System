@@ -322,7 +322,6 @@ export const patients = [
         gender: 'male',
         age: '20',
         doctor: 'Doctor A',
-        step: '1',
         disease: '感冒',
         medicine: '莲花清瘟胶囊'
     },
@@ -332,7 +331,6 @@ export const patients = [
         gender: 'male',
         age: '30',
         doctor: 'Doctor B',
-        step: '2',
         disease: '感冒',
         medicine: '莲花清瘟胶囊'
     },
@@ -342,7 +340,6 @@ export const patients = [
         gender: 'female',
         age: '40',
         doctor: 'Doctor C',
-        step: '3',
         disease: '感冒',
         medicine: '莲花清瘟胶囊'
     },
@@ -352,7 +349,6 @@ export const patients = [
         gender: 'female',
         age: '50',
         doctor: 'Doctor D',
-        step: '4',
         disease: '感冒',
         medicine: '莲花清瘟胶囊'
     },
@@ -362,7 +358,6 @@ export const patients = [
         gender: 'female',
         age: '25',
         doctor: 'Doctor A',
-        step: '3',
         disease: '感冒',
         medicine: '莲花清瘟胶囊'
     },

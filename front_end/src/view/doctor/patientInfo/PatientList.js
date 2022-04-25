@@ -19,6 +19,20 @@ export default function PatientList () {
                 patient.doctor === "Doctor A"
             );
         })
+
+        patients.map(item => {
+            if (localStorage.getItem(item.id) === null) {
+                item.steps = '1';
+                let cur_patient = JSON.stringify(item);
+                localStorage.setItem(item.id, cur_patient);
+            }
+            else {
+                let jsonString = localStorage.getItem(item.id);
+                let cur_patient = JSON.parse(jsonString);
+                item.steps = cur_patient.steps;
+            }
+            console.log(item);
+        })
     }, [])
 
     const navigate = useNavigate();

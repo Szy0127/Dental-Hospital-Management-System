@@ -15,6 +15,11 @@ class PatientConsult extends React.Component {
   onChange = current => {
     console.log('onChange:', current);
     this.setState({ current });
+
+    let jsonString = localStorage.getItem(this.props.id);
+    let cur_patient = JSON.parse(jsonString);
+    cur_patient.steps = current;
+    localStorage.setItem(this.props.id, JSON.stringify(cur_patient));
   };
 
   render() {
