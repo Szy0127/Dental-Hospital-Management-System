@@ -92,7 +92,6 @@ const menuList = [
             {
                 key: "doctor/profile",
                 identity: "doctor",
-                key: "docotor/profile",
                 title: "个人信息",
                 icon: <MedicineBoxOutlined />
             }
