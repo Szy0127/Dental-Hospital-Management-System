@@ -7,14 +7,26 @@ export const getUser = (id, callback) => {
     postRequest_v2(url, data, callback);
 }
 
-export const getHistories = (data, callback) => {
+export const getHistories = (patientID, callback) => {
     const url = root + "/getHistories";
-    postRequest(url, data, callback);
+    const data = {ID: patientID}
+    postRequest_v2(url, data, callback);
+}
+
+export const addHistory = (time, patientID, deptID, des) => {
+    const url = root + "/addHistory";
+    const data = {
+        time: time,
+        patientID: patientID,
+        deptID: deptID,
+        des: des
+    };
+    postRequest_v2(url, data, null);
 }
 
 export const getDepartments = (data, callback) =>{
     const url = root + "/getDepartments";
-    postRequest_v2(url, data, callback);
+    postRequest(url, data, callback);
 }
 
 export const getDoctors = (deptId, callback) => {
@@ -26,7 +38,7 @@ export const getDoctors = (deptId, callback) => {
 export const getDoctor = (id, callback) => {
     const data = {doctorID: id};
     const url = root + "/getDoctor";
-    return postRequest_v2(url, data, callback);
+    postRequest_v2(url, data, callback);
 }
 
 export const getDeptOnly = (id, callback) => {

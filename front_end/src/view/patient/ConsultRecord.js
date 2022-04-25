@@ -32,7 +32,7 @@ export default function ConsultRecord(props) {
     const [history, setHistory] = useState([]);
     useEffect(
         () => {
-            getHistories({ 'search': null }, (data) => {
+            getHistories(1, (data) => {
                 setHistory(data);
             });
         }, []
