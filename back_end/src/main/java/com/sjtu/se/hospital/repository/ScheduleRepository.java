@@ -11,6 +11,7 @@ import org.springframework.data.repository.query.Param;
 
 import javax.persistence.LockModeType;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 public interface ScheduleRepository extends JpaRepository<Schedule, ScheduleCoKey> {
@@ -32,4 +33,7 @@ public interface ScheduleRepository extends JpaRepository<Schedule, ScheduleCoKe
     void updateAfternoon(
             @Param("doctorID") Integer doctorID,
             @Param("date")java.sql.Date date);
+
+    @Query("select s from Schedule s where s.doctorID=:ID")
+    List<Schedule> getSchedule(@Param("ID")Integer ID);
 }
