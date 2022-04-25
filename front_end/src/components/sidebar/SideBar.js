@@ -5,17 +5,8 @@ import { Layout, Menu } from 'antd';
 import './SideBar.css'
 import {
     HomeOutlined,
-<<<<<<< HEAD
-    UserOutlined,
-    VideoCameraOutlined,
-    UploadOutlined,
     MedicineBoxOutlined,
 } from '@ant-design/icons';
-import Item from 'antd/lib/list/Item';
-=======
-    MedicineBoxOutlined,
-} from '@ant-design/icons';
->>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
@@ -34,20 +25,12 @@ const menuList = [
         icon: <MedicineBoxOutlined />,
         children: [
             {
-<<<<<<< HEAD
-                key: "doctor/profile",
-=======
                 key: "doctor/profile?id=1",
->>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
                 title: "科室一",
                 icon: <MedicineBoxOutlined />,
             },
             {
-<<<<<<< HEAD
-                key: "doctor/profile2",
-=======
                 key: "doctor/profile?id=2",
->>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
                 title: "科室二",
                 icon: <MedicineBoxOutlined />,
             }
@@ -178,20 +161,6 @@ export default function SideBar(props) {
         <Sider trigger={null}>
             <div className="logo" />
             <Menu theme="dark" mode="inline" defaultSelectedKeys={['doctor']} defaultOpenKeys={['doctor']}>
-<<<<<<< HEAD
-                {/* <Menu.Item key="home" icon={<HomeOutlined/>}>首页</Menu.Item>
-                <SubMenu key="doctor" icon={<MedicineBoxOutlined />} title="医生介绍">
-                    <SubMenu key="client1"  title="科室一">
-                        <Menu.Item key="c1A">A</Menu.Item>
-                        <Menu.Item key="c1B">B</Menu.Item>
-                    </SubMenu>
-                    <SubMenu key="client1" title="科室二">
-                        <Menu.Item key="c2A">A</Menu.Item>
-                        <Menu.Item key="c2B">B</Menu.Item>
-                    </SubMenu>
-                </SubMenu> */}
-=======
->>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
                 {renderMenu(menuList)}
             </Menu>
         </Sider>

@@ -21,11 +21,12 @@ const HomeMainPage = function (props) {
         }
     }
     useEffect(() => {
+        setIdentity("patient")
         // UsrService.checkSession(checkAuth);
     }, []);
     return (
         <Layout style={{minHeight: '100vh'}}>
-            <Header identity = {identity} islogin = {true}/>
+            <Header identity = {identity} islogin = {login}/>
             <Layout className="site-layout">
                 <SideBar identity = {identity}></SideBar>
                 <Content style={{margin: '0 16px'}}>

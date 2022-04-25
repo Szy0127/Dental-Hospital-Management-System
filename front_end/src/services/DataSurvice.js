@@ -35,12 +35,6 @@ export const getDeptOnly = (id, callback) => {
     postRequest_v2(url, data, callback);
 }
 
-export const getAppointments = (id, callback) => {
-    const data = {patientID: id};
-    const url = root + "/getAppointments";
-    postRequest_v2(url, data, callback);
-}
-
 export const MngOrAftn = (flag) => {
     return flag === 'm' ? 'morning' : 'afternoon';
 }

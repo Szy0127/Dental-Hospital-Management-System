@@ -6,7 +6,6 @@ import Login from '../view/login/Login'
 import Register from '../view/register/Register';
 import Doctor from '../view/doctor/Doctor'
 import PatientConsult from '../view/doctor/patientInfo/PatientConsult'
-import Schedule from '../view/doctor/schedule/schedule';
 import Administer from '../view/administer/Administer'
 import Patient from '../view/patient/Patient'
 import ConsultRecord from '../view/patient/ConsultRecord';

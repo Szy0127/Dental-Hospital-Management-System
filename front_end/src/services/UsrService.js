@@ -1,5 +1,4 @@
 import config from 'config';
-<<<<<<< HEAD
 import { postRequest } from "../utils/ajax";
 import { message } from 'antd';
 
@@ -56,7 +55,6 @@ export const logout = () => {
     postRequest(url, {}, callback);
 };
 
-<<<<<<< HEAD
 export const register = (data) => {
     const url = `${config.apiUrl}/register`;
     const callback = (data) => {
@@ -69,15 +67,9 @@ export const register = (data) => {
         }
     }
     postRequest(url, {}, callback);
-=======
-export const register = (data) =>{
-    const url = `${config.apiUrl}/register`;
-    
->>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
 }
 
 export const checkSession = (callback) => {
     const url = `${config.apiUrl}/checkSession`;
     postRequest(url, {}, callback);
 };
-

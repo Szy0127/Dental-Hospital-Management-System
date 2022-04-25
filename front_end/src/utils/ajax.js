@@ -7,7 +7,7 @@ let postRequest_v2 = (url, data, callback) => {
         if(data.hasOwnProperty(p))
             formData.append(p, data[p]);
     }
-
+    console.log(formData);
     let opts = {
         method: "POST",
         body: formData,

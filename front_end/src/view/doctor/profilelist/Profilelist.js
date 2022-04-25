@@ -1,28 +1,5 @@
 import React from 'react'
 import { List, Avatar } from 'antd';
-<<<<<<< HEAD
-import { Link } from "react-router-dom";
-import { data } from '../../../utils/data';
-export default function Profilelist() {
-
-    return (
-        <List
-            itemLayout="horizontal"
-            dataSource={data}
-            renderItem={item => (
-                <List.Item>
-                    <List.Item.Meta
-                        avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-                        title={<Link to={`/doctor/detailedInfo/?id=${item.id}`} >
-                            {item.title}
-                        </Link>}
-                        description="医生简短简介 点击进入可查看详情"
-                    />
-                </List.Item>
-            )}
-        />
-    )
-=======
 import {Link, useLocation} from "react-router-dom";
 import {getDoctors} from "../../../services/DataSurvice";
 
@@ -68,5 +45,4 @@ export default function Profilelist() {
     const id = arr[0].substr(4);
 
     return <Profile deptID={id}/>
->>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
 }

@@ -1,3 +1,6 @@
+import React from 'react'
+import {Descriptions} from "antd";
+import {getUser, MaleOrFemale} from "../../services/DataSurvice";
 
 export default class Patient extends React.Component {
     constructor(props) {
