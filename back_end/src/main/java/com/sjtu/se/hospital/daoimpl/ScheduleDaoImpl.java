@@ -21,8 +21,7 @@ public class ScheduleDaoImpl implements ScheduleDao {
     @Autowired
     private ScheduleRepository scheduleRepository;
 
-//    @Nullable
-//    @NotFound(action = NotFoundAction.IGNORE)
+
     @Override
     public Schedule getSchedule(Integer doctorID, Date date){
         Optional<Schedule> s = scheduleRepository.findById(new ScheduleCoKey(doctorID,date));

@@ -10,9 +10,11 @@ import com.sjtu.se.hospital.entity.*;
 import com.sjtu.se.hospital.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
 
 import java.sql.Date;
 import java.text.ParseException;
@@ -40,6 +42,7 @@ public class PatientServicelmpl implements PatientService {
 
     @Autowired
     private HistoryDao historyDao;
+
 
 
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
@@ -72,7 +75,6 @@ public class PatientServicelmpl implements PatientService {
         scheduleDao.update(schedule, time);
         appointmentDao.addAppointment(appointment);
         return appointment;
-
     }
 
     @Override

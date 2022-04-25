@@ -2,10 +2,13 @@ import React from 'react'
 import { Table, Tag, Space } from 'antd';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default function apointInfo() {
   return (
     <div>apointInfo</div>
 =======
+=======
+>>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
 const columns = [
   { title: '挂号诊所', dataIndex: 'client', key: 'client' },
   { title: '挂号医生', dataIndex: 'doctor', key: 'doctor' },
@@ -52,6 +55,9 @@ export default function ApointInfo() {
     columns={columns}
     dataSource={data}
   />
+<<<<<<< HEAD
+>>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
+=======
 >>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
   )
 }

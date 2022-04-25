@@ -1,5 +1,6 @@
 import React from 'react'
 <<<<<<< HEAD
+<<<<<<< HEAD
 import "./Home.css"
 import NewsCarousel from '../../components/newsCarousel/NewsCarousel';
 import InfoDisplay from '../../components/infoDisplay/InfoDisplay';
@@ -20,6 +21,8 @@ export default function Home() {
             </div>
         </React.Fragment>
 =======
+=======
+>>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
 
 import NewsCarousel from '../../components/newsCarousel/NewsCarousel';
 import InfoDisplay from '../../components/infoDisplay/InfoDisplay';
@@ -47,6 +50,9 @@ export default function Home() {
             <Divider />
             <Divider />
         </div>
+<<<<<<< HEAD
+>>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
+=======
 >>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
     )
 }

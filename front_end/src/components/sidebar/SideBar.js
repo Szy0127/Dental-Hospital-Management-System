@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useNavigate,useLocation} from 'react-router-dom';
+=======
+import { useNavigate, useLocation } from 'react-router-dom';
+>>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
 =======
 import { useNavigate, useLocation } from 'react-router-dom';
 >>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
@@ -8,6 +12,7 @@ import { Layout, Menu } from 'antd';
 
 import './SideBar.css'
 import {
+<<<<<<< HEAD
 <<<<<<< HEAD
     UserOutlined,
     VideoCameraOutlined,
@@ -17,11 +22,16 @@ import {
     HomeOutlined,
     MedicineBoxOutlined,
 >>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
+=======
+    HomeOutlined,
+    MedicineBoxOutlined,
+>>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
 } from '@ant-design/icons';
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 const SideMenu = (
     <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
@@ -52,6 +62,8 @@ export default function SideBar() {
     //     navigate('/' + e.key)
     // };
 =======
+=======
+>>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
 const menuList = [
     {
         identity: "all",
@@ -198,11 +210,15 @@ export default function SideBar(props) {
             }
         })
     }
+<<<<<<< HEAD
+>>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
+=======
 >>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
     return (
         <Sider trigger={null}>
             <div className="logo" />
             <Menu theme="dark" mode="inline" defaultSelectedKeys={['doctor']} defaultOpenKeys={['doctor']}>
+<<<<<<< HEAD
 <<<<<<< HEAD
                 <SubMenu key="doctor" icon={<MailOutlined />} title="医生介绍">
                     <SubMenu key="client1" icon={<MailOutlined />} title="科室一">
@@ -214,6 +230,9 @@ export default function SideBar(props) {
                         <Menu.Item key="c2B">B</Menu.Item>
                     </SubMenu>
                 </SubMenu>
+=======
+                {renderMenu(menuList)}
+>>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
 =======
                 {renderMenu(menuList)}
 >>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24

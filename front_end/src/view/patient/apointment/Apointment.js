@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React from 'react'
 
 export default function Apointment() {
@@ -7,6 +8,8 @@ export default function Apointment() {
   )
 }
 =======
+=======
+>>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
 import React, {useState} from 'react';
 import {Button, Cascader, Divider, Form, Table, TimePicker} from "antd";
 import {DatePicker} from "antd/es";
@@ -226,4 +229,7 @@ export default class Appointment extends React.Component {
 // }
 //
 // export default Appointment;
+<<<<<<< HEAD
+>>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
+=======
 >>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24

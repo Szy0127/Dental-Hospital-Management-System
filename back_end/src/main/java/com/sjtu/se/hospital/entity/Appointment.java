@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.math.BigInteger;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+
 import java.sql.Date;
 
 @Data
@@ -52,4 +53,5 @@ public class Appointment implements Serializable {
         this.time = time;
 
     }
+
 }
