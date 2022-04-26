@@ -2,6 +2,7 @@ package com.sjtu.se.hospital.daoimpl;
 
 import com.sjtu.se.hospital.dao.AppointmentDao;
 import com.sjtu.se.hospital.entity.Appointment;
+import com.sjtu.se.hospital.entity.AppointmentCoKey;
 import com.sjtu.se.hospital.entity.AppointmentEdited;
 import com.sjtu.se.hospital.repository.AppointmentRepository;
 import com.sjtu.se.hospital.repository.DepartmentRepository;
@@ -9,8 +10,10 @@ import com.sjtu.se.hospital.repository.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.swing.text.html.Option;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 
 @Repository
@@ -26,6 +29,17 @@ public class AppointmentDaolmpl implements AppointmentDao {
     @Override
     public void addAppointment(Appointment appointment) {
         appointmentRepository.save(appointment);
+    }
+
+    @Override
+    public boolean cancelAppointment(Appointment appointment) {
+
+        Optional<Appointment> a = appointmentRepository.findById(new AppointmentCoKey(appointment));
+        if(!a.isPresent()){
+            return false;
+        }
+        appointmentRepository.delete(a.get());
+        return true;
     }
 
     @Override

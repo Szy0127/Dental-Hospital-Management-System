@@ -63,13 +63,13 @@ public class PatientServicelmpl implements PatientService {
                 appointment.setRanking(0);
                 return appointment;
             }
-            appointment.setRanking(schedule.getN_morning() + 1);
+            appointment.setRanking(schedule.getRank_morning() + 1);
         } else {
             if (schedule.getN_afternoon() >= Constant.N_AFTERNOON_MAX) {
                 appointment.setRanking(0);
                 return appointment;
             }
-            appointment.setRanking(schedule.getN_afternoon() + 1);
+            appointment.setRanking(schedule.getRank_afternoon() + 1);
         }
 
         scheduleDao.update(schedule, time);
@@ -77,9 +77,38 @@ public class PatientServicelmpl implements PatientService {
         return appointment;
     }
 
+    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+    @Override
+    public boolean cancelAppointment(Integer ranking,Integer patientID, Integer deptID, Integer doctorID, String datestr, String time) {
+        Date date = null;
+        try {
+            date = new Date(new SimpleDateFormat("yyyy-MM-dd").parse(datestr).getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return false;
+        }
+        boolean success = appointmentDao.cancelAppointment(new Appointment(ranking,patientID,deptID,doctorID,date,time));
+        if(success){
+            scheduleDao.cancel(doctorID, date,time);
+        }
+        return success;
+    }
+
     @Override
     public List<AppointmentEdited> getAppointmentsByPatient(Integer ID) {
         return appointmentDao.getAppointmentsByPatient(ID);
+    }
+
+    @Override
+    public List<Schedule> getFullScheduleByDateTime(String datestr, String time) {
+        Date date = null;
+        try {
+            date = new Date(new SimpleDateFormat("yyyy-MM-dd").parse(datestr).getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return scheduleDao.getFullScheduleByDateTime(date,time);
     }
 
     @Override

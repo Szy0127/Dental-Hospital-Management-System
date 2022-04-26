@@ -9,5 +9,6 @@ public interface AppointmentDao {
 //    Book findOne(Integer id);
 
     void addAppointment(Appointment appointment);
+    boolean cancelAppointment(Appointment appointment);
     List<AppointmentEdited> getAppointmentsByPatient(Integer ID);
 }
