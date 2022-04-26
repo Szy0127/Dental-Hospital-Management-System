@@ -27,4 +27,13 @@ public class History {
     private int patientID;
     private int deptID;
     private String description;
+
+    public History(){}
+    public History(Date time, Integer patientID, Integer deptID, String des){
+        this.id = 0;
+        this.time = time;
+        this.patientID = patientID;
+        this.deptID = deptID;
+        this.description = des;
+    }
 }

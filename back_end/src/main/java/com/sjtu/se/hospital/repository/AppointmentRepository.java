@@ -14,4 +14,7 @@ import java.util.List;
 public interface AppointmentRepository extends JpaRepository<Appointment, AppointmentCoKey> {
     @Query("select a from Appointment a where a.patientID=:ID")
     List<Appointment> getAppointmentsByPatient(@Param("ID") Integer ID);
+
+    @Query("select a from Appointment a where a.doctorID=:ID")
+    List<Appointment> getAppointmentsByDoc(@Param("ID") Integer ID);
 }

@@ -1,12 +1,11 @@
 package com.sjtu.se.hospital.controller;
-import com.sjtu.se.hospital.entity.Appointment;
-import com.sjtu.se.hospital.entity.AppointmentEdited;
-import com.sjtu.se.hospital.entity.HistoryEdited;
-import com.sjtu.se.hospital.entity.Record;
+import com.sjtu.se.hospital.entity.*;
 import com.sjtu.se.hospital.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -40,7 +39,17 @@ public class PatientController {
     }
 
     @RequestMapping("/getHistories")
-    public List<HistoryEdited> getHistories(@RequestBody Map<String, String> params) {
-        return patientService.getHistories();
+    public List<HistoryEdited> getHistories(@RequestParam("ID") Integer ID) {
+        return patientService.getHistories(ID);
+    }
+
+    @RequestMapping("/addHistory")
+    public void addHistory(
+            @RequestParam("time")Date time,
+            @RequestParam("patientID")Integer patientID,
+            @RequestParam("deptID")Integer deptID,
+            @RequestParam("description")String des
+            ) {
+        patientService.addHistory(new History(time, patientID, deptID, des));
     }
 }

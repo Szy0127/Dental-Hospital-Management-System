@@ -1,18 +1,6 @@
 import React from 'react'
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-export default function Patient() {
-  return (
-    <div>Patient</div>
-  )
-}
-=======
-=======
->>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
 import {Descriptions} from "antd";
 import {getUser, MaleOrFemale} from "../../services/DataSurvice";
-
 
 export default class Patient extends React.Component {
     constructor(props) {
@@ -69,7 +57,3 @@ export default class Patient extends React.Component {
 //     </div>
 //   )
 // }
-<<<<<<< HEAD
->>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
-=======
->>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24

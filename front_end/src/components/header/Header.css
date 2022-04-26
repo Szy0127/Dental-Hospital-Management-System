@@ -1,15 +1,5 @@
 .logo{
     display: flex;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    
-}
-img{
-    height: 60px;
-    width: 70px;
-=======
-=======
->>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
 }
 img{
     height: 100px;
@@ -17,23 +7,11 @@ img{
 }
 h1{
     padding: 30px;
-<<<<<<< HEAD
->>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
-=======
->>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
 }
 header{
     height: 70px;
     background-color: white;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    padding: 0 20px;
-=======
     padding: 0;
->>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
-=======
-    padding: 0;
->>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
     display: flex;
     justify-content: space-between;
     align-items: center;

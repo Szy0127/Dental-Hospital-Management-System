@@ -10,12 +10,10 @@ import com.sjtu.se.hospital.entity.*;
 import com.sjtu.se.hospital.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
+
 import org.springframework.transaction.annotation.Transactional;
-
-
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -88,8 +86,13 @@ public class PatientServicelmpl implements PatientService {
     }
 
     @Override
-    public List<HistoryEdited> getHistories() {
-        return historyDao.getHistories();
+    public List<HistoryEdited> getHistories(Integer ID) {
+        return historyDao.getHistories(ID);
+    }
+
+    @Override
+    public void addHistory(History newHis) {
+        historyDao.addHistory(newHis);
     }
 
 }

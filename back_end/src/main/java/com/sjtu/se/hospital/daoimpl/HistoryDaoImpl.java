@@ -18,25 +18,23 @@ public class HistoryDaoImpl implements HistoryDao {
     @Autowired
     private DepartmentRepository departmentRepository;
 
-    private HistoryEdited getHistoryEdited(History p) {
-        HistoryEdited he = new HistoryEdited();
-        he.department = departmentRepository.getOne(p.getDeptID()).getTitle();
-        he.id = p.getId();
-        he.time = p.getTime();
-        he.patientID = p.getPatientID();
-        he.description = p.getDescription();
-        return he;
-    }
-
     @Override
-    public List<HistoryEdited> getHistories() {
-        List<History> his =  historyRepository.getHistories();
+    public List<HistoryEdited> getHistories(Integer ID) {
+        List<History> his =  historyRepository.getHistories(ID);
         LinkedList<HistoryEdited> res = new LinkedList<>();
 
         for (History p : his) {
-            res.add(getHistoryEdited(p));
+            res.addFirst(new HistoryEdited(
+                    p.getTime(),
+                    departmentRepository.getOne(p.getDeptID()).getTitle(),
+                    p.getDescription()));
         }
 
         return res;
+    }
+
+    @Override
+    public void addHistory(History newHis) {
+        historyRepository.save(newHis);
     }
 }
