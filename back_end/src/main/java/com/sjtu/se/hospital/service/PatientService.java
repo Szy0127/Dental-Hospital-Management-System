@@ -2,6 +2,7 @@ package com.sjtu.se.hospital.service;
 
 import com.sjtu.se.hospital.entity.*;
 
+import java.sql.Date;
 import java.text.ParseException;
 import java.util.List;
 
@@ -15,4 +16,5 @@ public interface PatientService {
     Record getPatientInfo(Integer ID);
     List<HistoryEdited> getHistories(Integer ID);
     void addHistory(History newHis);
+    void updateDescription(Integer ID, Date time);
 }

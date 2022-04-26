@@ -8,6 +8,7 @@ import com.sjtu.se.hospital.repository.HistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -36,5 +37,10 @@ public class HistoryDaoImpl implements HistoryDao {
     @Override
     public void addHistory(History newHis) {
         historyRepository.save(newHis);
+    }
+
+    @Override
+    public void updateHistory(Integer ID, Date time) {
+        historyRepository.updateDescription(ID, time);
     }
 }
