@@ -46,5 +46,10 @@ public class AppointmentDaolmpl implements AppointmentDao {
         return res;
     }
 
+    @Override
+    public List<Appointment> getAppointmentsByDoc(Integer ID) {
+        return appointmentRepository.getAppointmentsByDoc(ID);
+    }
+
 
 }

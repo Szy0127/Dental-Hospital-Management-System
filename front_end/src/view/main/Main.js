@@ -21,7 +21,7 @@ const HomeMainPage = function (props) {
         }
     }
     useEffect(() => {
-        setIdentity("doctor")
+        setIdentity("patient")
         // UsrService.checkSession(checkAuth);
     }, []);
     return (
