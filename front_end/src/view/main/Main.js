@@ -1,11 +1,11 @@
-import {Outlet} from 'react-router-dom'
+import {Outlet, useNavigate} from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import SideBar from '../../components/sidebar/SideBar';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import {Layout} from 'antd'
-
 import './Main.css'
+import { checkSession } from '../../services/UsrService';
 
 const {Content} = Layout;
 
@@ -15,15 +15,20 @@ const HomeMainPage = function (props) {
     const [login, setLogin] = useState(false);
     const [identity, setIdentity] = useState("");
     const checkAuth = (data) =>{
-        if(data.state >= 0){
+        if(data.state > 0){
+            console.log(data);
             setLogin(true);
-            setIdentity(data.data.identity);
+            setIdentity(data.identity);
+        }
+        else{
+            setLogin(false);
+            setIdentity(null);
         }
     }
     useEffect(() => {
-        setIdentity("doctor")
-        // UsrService.checkSession(checkAuth);
-    }, []);
+        setIdentity(identity)
+        checkSession(checkAuth);
+    }, [identity]);
     return (
         <Layout style={{minHeight: '100vh'}}>
             <Header identity = {identity} islogin = {login}/>

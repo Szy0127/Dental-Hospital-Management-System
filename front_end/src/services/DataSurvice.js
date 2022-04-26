@@ -1,9 +1,14 @@
 import {postRequest, postRequest_v2} from "../utils/ajax";
 const root = "http://localhost:8080";
 
-export const getPatient = (id, callback) => {
-    const data = {patientID: id};
-    const url = root + "/getPatientInfo";
+export const getUser = (patientID, callback) => {
+    const data = {patientID: patientID};
+    postRequest_v2(url, data, callback);
+}
+
+export const getPatientsByID = (patientID, callback) => {
+    const data = {patientID: patientID};
+    const url = root + "/getPatientsByID";
     postRequest_v2(url, data, callback);
 }
 
@@ -29,8 +34,8 @@ export const getDepartments = (data, callback) =>{
     postRequest(url, data, callback);
 }
 
-export const getDeptOnly = (id, callback) => {
-    const data = {deptID: id};
+export const getDeptOnly = (deptID, callback) => {
+    const data = {deptID: deptID};
     const url = root + "/getDeptName";
     postRequest_v2(url, data, callback);
 }
@@ -44,6 +49,12 @@ export const getDoctors = (deptId, callback) => {
 export const getDoctor = (id, callback) => {
     const data = {doctorID: id};
     const url = root + "/getDoctor";
+    postRequest_v2(url, data, callback);
+}
+
+export const getAppointmentsByDocID = (docID, callback) => {
+    const data = {docID: docID};
+    const url = root + "/getAppointmentsByDocID";
     postRequest_v2(url, data, callback);
 }
 

@@ -1,4 +1,18 @@
 // 科室1
+export var userlist = [
+    {identity:'patient',
+    username:'patient',
+    password:'123',
+    id:1},
+    {identity:'doctor',
+    username:'doctor',
+    password:'123',
+    id:1},
+    {identity:'admin',
+    username:'admin',
+    password:'123',
+    id:1},
+];
 export const data = [
     {
         id: '1',
