@@ -27,7 +27,26 @@ public class PatientController {
 //        return null;
         return patientService.addAppointment(patientID,deptID,doctorID,date,time);
     }
+    @RequestMapping("/cancelAppointment")
+    public boolean cancelAppointment(
+            @RequestParam("ranking") Integer ranking,
+            @RequestParam("patientID") Integer patientID,
+            @RequestParam("deptID") Integer deptID,
+            @RequestParam("doctorID") Integer doctorID,
+            @RequestParam("date") String date,
+            @RequestParam("time") String time
+    ) {
+//        return null;
+        return patientService.cancelAppointment(ranking,patientID,deptID,doctorID,date,time);
+    }
 
+
+    @RequestMapping("/getFullScheduleByDateTime")
+    public List<Schedule> getFullScheduleByDateTime(
+            @RequestParam("date") String date,
+            @RequestParam("time") String time) {
+        return patientService.getFullScheduleByDateTime(date,time);
+    }
     @RequestMapping("/getAppointments")
     public List<AppointmentEdited> getAppointmentsByPatient(@RequestParam("patientID") Integer ID) {
         return patientService.getAppointmentsByPatient(ID);

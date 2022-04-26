@@ -8,6 +8,7 @@ import java.util.List;
 public interface AppointmentDao {
 
     void addAppointment(Appointment appointment);
+    boolean cancelAppointment(Appointment appointment);
     List<AppointmentEdited> getAppointmentsByPatient(Integer ID);
     List<Appointment> getAppointmentsByDoc(Integer ID);
 }
