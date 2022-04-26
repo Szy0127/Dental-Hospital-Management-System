@@ -1,9 +1,12 @@
 package com.sjtu.se.hospital.entity;
 
+import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
+@NoArgsConstructor
 public class AppointmentCoKey implements Serializable {
     private Integer ranking;
 
@@ -13,6 +16,13 @@ public class AppointmentCoKey implements Serializable {
 
     private Date date;
 
+
+    public AppointmentCoKey(Appointment appointment){
+        this.ranking = appointment.getRanking();
+        this.patientID = appointment.getPatientID();;
+        this.doctorID = appointment.getDoctorID();
+        this.date = appointment.getDate();
+    }
     @Override
     public boolean equals(Object o){
         if(this == o){

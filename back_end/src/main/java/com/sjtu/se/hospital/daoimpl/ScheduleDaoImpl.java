@@ -1,5 +1,6 @@
 package com.sjtu.se.hospital.daoimpl;
 
+import com.sjtu.se.hospital.constant.Constant;
 import com.sjtu.se.hospital.dao.ScheduleDao;
 import com.sjtu.se.hospital.entity.Schedule;
 import com.sjtu.se.hospital.entity.ScheduleCoKey;
@@ -14,6 +15,8 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityNotFoundException;
 import java.sql.Date;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -42,8 +45,27 @@ public class ScheduleDaoImpl implements ScheduleDao {
         }
     }
 
+    @Override
+    public List<Schedule> getFullScheduleByDateTime(Date date, String time) {
+        List<Schedule> fullSchedule = scheduleRepository.getFullScheduleByDateTime(date);
+        List<Schedule> res = new LinkedList<>();
+        if(time.equals("m")){
+            for(Schedule s : fullSchedule){
+                if(s.getN_morning().equals(Constant.N_MORNING_MAX)){
+                    res.add(s);
+                }
+            }
+        }else{
+            for(Schedule s : fullSchedule){
+                if(s.getN_afternoon().equals(Constant.N_AFTERNOON_MAX)){
+                    res.add(s);
+                }
+            }
+        }
+        return res;
+    }
 
-//    @Override
+    //    @Override
 //    public void saveSchedule(Schedule schedule){
 //        scheduleRepository.save(schedule);
 //    }
@@ -56,4 +78,12 @@ public class ScheduleDaoImpl implements ScheduleDao {
         }
     }
 
+    @Override
+    public void cancel(Integer doctorID, Date date,String time) {
+        if(time.equals("m")){
+            scheduleRepository.cancelMorning(doctorID,date);
+        }else{
+            scheduleRepository.cancelAfternoon(doctorID,date);
+        }
+    }
 }

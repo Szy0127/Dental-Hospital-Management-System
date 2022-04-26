@@ -10,7 +10,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import javax.persistence.LockModeType;
+<<<<<<< HEAD
 import java.util.Date;
+=======
+import java.sql.Date;
+>>>>>>> 1985b7806fc11859b5282279a0d82fd80c5af9aa
 import java.util.List;
 import java.util.Optional;
 
@@ -20,20 +24,42 @@ public interface ScheduleRepository extends JpaRepository<Schedule, ScheduleCoKe
     @Override
     Optional<Schedule> findById(ScheduleCoKey scheduleCoKey);
 
-    @Query(value = "update schedule set n_morning = n_morning+1 where doctorID=:doctorID and date=:date",nativeQuery = true)
-//    @Query(value = "update schedule set n_morning = n_morning+1",nativeQuery = true)
+    @Query(value = "update schedule set n_morning = n_morning+1,rank_morning=rank_morning+1 where doctorID=:doctorID and date=:date",nativeQuery = true)
     @Modifying
     void updateMorning(
             @Param("doctorID") Integer doctorID,
             @Param("date")java.sql.Date date);
 
-    @Query(value = "update schedule set n_afternoon = n_afternoon+1 where doctorID=:doctorID and date=:date",nativeQuery = true)
-//    @Query(value = "update schedule set n_morning = n_morning+1",nativeQuery = true)
+    @Query(value = "update schedule set n_afternoon = n_afternoon+1,rank_afternoon=rank_afternoon+1 where doctorID=:doctorID and date=:date",nativeQuery = true)
     @Modifying
     void updateAfternoon(
             @Param("doctorID") Integer doctorID,
+<<<<<<< HEAD
             @Param("date")java.sql.Date date);
 
     @Query("select s from Schedule s where s.doctorID=:ID")
     List<Schedule> getSchedule(@Param("ID")Integer ID);
+=======
+            @Param("date")Date date);
+
+    @Query(value = "update schedule set n_morning = n_morning-1 where doctorID=:doctorID and date=:date",nativeQuery = true)
+    @Modifying
+    void cancelMorning(
+            @Param("doctorID") Integer doctorID,
+            @Param("date")Date date);
+
+    @Query(value = "update schedule set n_afternoon = n_afternoon-1 where doctorID=:doctorID and date=:date",nativeQuery = true)
+    @Modifying
+    void cancelAfternoon(
+            @Param("doctorID") Integer doctorID,
+            @Param("date")Date date);
+
+
+    @Query("select s from Schedule s where s.date=:date")
+    List<Schedule> getFullScheduleByDateTime(
+            @Param("date") Date date
+    );
+
+
+>>>>>>> 1985b7806fc11859b5282279a0d82fd80c5af9aa
 }
