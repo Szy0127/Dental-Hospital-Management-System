@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
-import {getPatients} from "../../../services/AdminService";
 import {List} from "antd";
+import {getPatient} from "../../../services/DataSurvice";
 
 export default function PatientList () {
 
@@ -11,7 +11,7 @@ export default function PatientList () {
         const callback = (data) => {
             setPatients(data);
         }
-        getPatients(callback);
+        getPatient(callback);
 
         // 医生只能看到自己病人的信息
         setPatients((allPatients) => {
