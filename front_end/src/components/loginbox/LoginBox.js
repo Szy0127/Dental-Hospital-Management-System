@@ -1,15 +1,21 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Form, Input, Button, Checkbox, Radio } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { login } from '../../services/UsrService';
 import './Loginbox.css'
 
 
 export default function LoginBox() {
     const [Register,setRegister] = useState(true);
+    const navigate = useNavigate();
     const onFinish = (values) => {
       console.log('Received values of form: ', values);
-      // usrService.login(values);
+      let islogin = login(values);
+      if(islogin){
+        console.log("in");
+        navigate('/home');
+      }
     };
     return (
       <Form
@@ -20,7 +26,6 @@ export default function LoginBox() {
       >
         <Form.Item label="identity" name="identity">
           <Radio.Group
-          defaultValue="patient"
           onChange={(e)=>{
             console.log(e);
             if(e.target.value === "patient"){
