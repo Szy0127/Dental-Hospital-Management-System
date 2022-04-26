@@ -1,6 +1,8 @@
 package com.sjtu.se.hospital.controller;
 
+import com.sjtu.se.hospital.entity.Appointment;
 import com.sjtu.se.hospital.entity.DoctorEdited;
+import com.sjtu.se.hospital.entity.Record;
 import com.sjtu.se.hospital.entity.Schedule;
 import com.sjtu.se.hospital.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,4 +31,10 @@ public class DoctorController {
     List<Schedule> getSchedule(@RequestParam("docID") Integer ID) {
         return doctorService.getSchedule(ID);
     }
+
+    @RequestMapping("/getAppointmentsByDocID")
+    List<Appointment> getAppointments(@RequestParam("docID") Integer ID) {
+        return doctorService.getAppointments(ID);
+    }
+
 }

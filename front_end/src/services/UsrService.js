@@ -3,6 +3,25 @@ import { message } from 'antd';
 import { userlist } from '../utils/data';
 
 export const login = (form) => {
+    const url = `${config.apiUrl}/login`;
+    const callback = (data) => {
+        console.log(data);
+        if (data.status >= 0) {
+            localStorage.setItem('user', JSON.stringify(data.data));
+            localStorage.setItem('identity');
+            if (form.identity === "patient") {
+                localStorage.setItem('patientID', data.patientID);
+            }
+            // history.push("/");
+            message.success(data.msg);
+        } else {
+            message.error(data.msg);
+        }
+    };
+    postRequest(url, form, callback);
+}
+
+export const login = (form) => {
     // const url = `${config.apiUrl}/login`;
     console.log(form);
     const callback = (data) => {
@@ -55,15 +74,9 @@ export const logout = () => {
 
 export const register = (data) => {
     // const url = `${config.apiUrl}/register`;
-    const callback = (data) => {
-        console.log(data);
-        if (data.status >= 0) {
-            message.success(data.msg);
-        }
-        else {
-            message.error(data.msg);
-        }
-    }
+    postRequest(url, {}, callback);
+};
+
     // postRequest(url, {}, callback);
 };
 
