@@ -16,5 +16,5 @@ public interface PatientService {
     Record getPatientInfo(Integer ID);
     List<HistoryEdited> getHistories(Integer ID);
     void addHistory(History newHis);
-    void updateDescription(Integer ID, Date time);
+    void updateDescription(Integer ID, Date time, String newDes);
 }

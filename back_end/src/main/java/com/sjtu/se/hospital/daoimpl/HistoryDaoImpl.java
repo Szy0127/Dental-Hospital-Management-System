@@ -40,7 +40,7 @@ public class HistoryDaoImpl implements HistoryDao {
     }
 
     @Override
-    public void updateHistory(Integer ID, Date time) {
-        historyRepository.updateDescription(ID, time);
+    public void updateHistory(Integer ID, Date time, String newDes) {
+        historyRepository.updateDescription(ID, time, newDes);
     }
 }

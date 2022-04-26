@@ -125,8 +125,8 @@ public class PatientServicelmpl implements PatientService {
     }
 
     @Override
-    public void updateDescription(Integer ID, Date time) {
-        historyDao.updateHistory(ID, time);
+    public void updateDescription(Integer ID, Date time, String newDes) {
+        historyDao.updateHistory(ID, time, newDes);
     }
 
 }

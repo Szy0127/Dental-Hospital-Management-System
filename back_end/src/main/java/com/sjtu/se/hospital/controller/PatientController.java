@@ -75,8 +75,9 @@ public class PatientController {
     @RequestMapping("/updateDescriptionOfHistory")
     public void updateDescription(
             @RequestParam("patientID") Integer ID,
-            @RequestParam("date") Date time
+            @RequestParam("date") Date time,
+            @RequestParam("newDes") String newDes
     ) {
-        patientService.updateDescription(ID, time);
+        patientService.updateDescription(ID, time, newDes);
     }
 }

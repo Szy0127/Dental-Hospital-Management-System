@@ -15,5 +15,5 @@ public interface HistoryRepository extends JpaRepository<History,Integer> {
 
     @Modifying
     @Query("update History h set h.description=:newDes where h.patientID=:ID and h.time=:time")
-    void updateDescription(@Param("ID") Integer ID, @Param("time")Date time);
+    void updateDescription(@Param("ID") Integer ID, @Param("time")Date time, @Param("newDes") String newDes);
 }
