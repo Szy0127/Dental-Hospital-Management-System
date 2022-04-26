@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8aef521b-74e9-4e1c-af34-0add91701a96" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sidebar/SideBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/SideBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/DataSurvice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/DataSurvice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/doctor/patientInfo/PatientList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/doctor/patientInfo/PatientList.js" afterDir="false" />
-    </list>
+    <list default="true" id="8aef521b-74e9-4e1c-af34-0add91701a96" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
