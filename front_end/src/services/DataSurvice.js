@@ -1,5 +1,5 @@
 import {postRequest, postRequest_v2} from "../utils/ajax";
-const root = "http://localhost:8080";
+const root = "http://10.119.10.57:8080";
 
 export const getUser = (patientID, callback) => {
     const data = {patientID: patientID};

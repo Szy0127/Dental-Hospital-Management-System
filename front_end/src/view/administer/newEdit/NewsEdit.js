@@ -1,7 +1,7 @@
 import { List } from 'antd'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { getNews } from '../../../services/DataSurvice';
+import { getNews, getNotifications } from '../../../services/DataSurvice';
 
 export default function NewsEditList() {
     const [info, setInfo] = useState();
@@ -10,7 +10,7 @@ export default function NewsEditList() {
         const callback = (data) => {
             setInfo(data);
         }
-        getNews(callback);
+        getNotifications(callback);
     }, []);
 
     const handleEdit = (item) => {

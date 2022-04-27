@@ -8,7 +8,7 @@ export var userlist = [
     username:'doctor',
     password:'123',
     id:1},
-    {identity:'admin',
+    {identity:'administer',
     username:'admin',
     password:'123',
     id:1},

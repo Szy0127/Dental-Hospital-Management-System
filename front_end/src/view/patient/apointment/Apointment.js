@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import moment from 'moment'
 import { Button, Cascader, Divider, Form, Table, Select, message, Popconfirm } from "antd";
 import { DatePicker } from "antd/es";
-import { getDepartments, getDoctors, MngOrAftn } from "../../../services/DataSurvice";
+import { addHistory, getDepartments, getDoctors, MngOrAftn } from "../../../services/DataSurvice";
 import { AddAppointment, cancelAppointment, getAppointments, getPredictedTime } from '../../../services/PatientService';
 import { render } from '@testing-library/react';
 const { Option } = Select;
@@ -18,6 +18,7 @@ export default class Appointment extends React.Component {
     }
     componentDidMount() {
         getAppointments((data) => {
+            console.log(data);
             this.setState({ record: data })
         });
 
@@ -42,7 +43,7 @@ export default class Appointment extends React.Component {
     }
     cancel = (record) => {
         console.log(record);
-        // cancelAppointment();
+        // cancelAppointment(record.);
     }
     columns = [
         {
@@ -77,7 +78,7 @@ export default class Appointment extends React.Component {
             title: '退号',
             dataIndex: 'cancel',
             key: 'cancel',
-            render: (text, record) => (<Popconfirm onConfirm={this.cancel(record)}>
+            render: (text, record) => (<Popconfirm onConfirm={()=>{this.cancel(record)}}>
                 <Button> 退号</Button>
             </Popconfirm>)
         }
@@ -127,6 +128,8 @@ export default class Appointment extends React.Component {
         console.log(value);
         if (this.CanAppoint(value)) {
             AddAppointment(value, this.callback);
+            let Pid = localStorage.getItem("PatientID");
+            addHistory(value.time,Pid,value.deptID,{});
         }
         else {
             message.error("一天仅能挂号一次");

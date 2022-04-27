@@ -54,6 +54,7 @@ export const logout = () => {
 };
 
 export const register = (data) => {
+    
     // const url = `${config.apiUrl}/register`;
     // postRequest(url, {}, callback);
 };

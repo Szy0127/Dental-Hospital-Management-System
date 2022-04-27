@@ -11,7 +11,7 @@ export default function Management() {
         const callback = (data) => {
             setDoctor(data);
         }
-        getDoctors(callback);
+        getDoctors(1,callback);
     }, []
     );
 
@@ -84,6 +84,7 @@ export default function Management() {
 
     const handleAdd = () => {
         console.log("add");
+
     }
 
     return (
