@@ -1,0 +1,10 @@
+#content {
+    width: 800px;
+    height: auto;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+    /* text-align: center; */
+    margin-left: 350px;
+    margin-top: 50px;
+}
