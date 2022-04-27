@@ -4,7 +4,7 @@ import {useLocation} from "react-router-dom";
 import {Button, Descriptions, Divider, Input, message, Table} from "antd";
 import {history} from "../../../utils/data";
 import moment from 'moment';
-import {getHistories, getPatientsByID} from "../../../services/DataSurvice";
+import {getHistories, getPatientsByID, updateDescriptionOfHistory} from "../../../services/DataSurvice";
 import { Steps } from 'antd';
 
 const { Step } = Steps;
@@ -52,9 +52,11 @@ export default function PatientInfo () {
             setPatient(data);
         }
         const callback2 = (data) => {
+            console.log("DATA")
             console.log(data)
             let res = data.find((item) => {
-                return item.time === moment().format('YYYY-MM-DD');
+                // return item.time === moment().format('YYYY-MM-DD');
+                return item.time === "2022-04-26"
             })
             setDescription(JSON.parse(res.description));
         }
@@ -62,8 +64,8 @@ export default function PatientInfo () {
         getHistories(patient.patientID, callback2);
     }, [])
 
-    console.log("history ===============")
-    console.log(history)
+    console.log("Description Object")
+    console.log(desc)
 
     const handleClick = () => {
         console.log("已完成药方的编辑！")
@@ -80,8 +82,13 @@ export default function PatientInfo () {
 
     const handleClick3 = () => {
         // 将所有记录传至后端
-
+        message.success("信息已存储")
+        let jsonString = JSON.stringify(desc);
+        console.log(jsonString)
+        updateDescriptionOfHistory(patient.id, "2022-04-26", jsonString)
     }
+
+    console.log(patient)
 
     return (
         <div>
