@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import {List} from "antd";
-import {getPatient} from "../../../services/DataSurvice";
+import {addHistory, getAppointmentsByDocID} from "../../../services/DataSurvice";
 
 export default function PatientList () {
 
@@ -11,31 +11,25 @@ export default function PatientList () {
         const callback = (data) => {
             setPatients(data);
         }
-        getPatient(callback);
-
-        // 医生只能看到自己病人的信息
-        setPatients((allPatients) => {
-            return allPatients.filter((patient) =>
-                patient.doctor === "Doctor A"
-            );
-        })
-
-        patients.map(item => {
-            if (localStorage.getItem(item.id) === null) {
-                item.steps = '1';
-                let cur_patient = JSON.stringify(item);
-                localStorage.setItem(item.id, cur_patient);
-            }
-            else {
-                let jsonString = localStorage.getItem(item.id);
-                let cur_patient = JSON.parse(jsonString);
-                item.steps = cur_patient.steps;
-            }
-            console.log(item);
-        })
+        let jsonString = localStorage.getItem("doctorID");
+        let cur_doctor = JSON.parse(jsonString);
+        getAppointmentsByDocID(cur_doctor, callback);
     }, [])
 
     const navigate = useNavigate();
+
+    patients.map(item => {
+        if (localStorage.getItem(item.patientID) === null) {
+            item.steps = '1';
+            let cur_patient = JSON.stringify(item);
+            localStorage.setItem(item.patientID, cur_patient);
+        }
+        else {
+            let jsonString = localStorage.getItem(item.patientID);
+            let cur_patient = JSON.parse(jsonString);
+            item.steps = cur_patient.steps;
+        }
+    })
 
     return (
         <div>
@@ -55,8 +49,9 @@ export default function PatientList () {
                             </a>
                     ]}>
                         <List.Item.Meta
-                            title={item.id + " : " + item.name}
-                            description={"age: " + item.age + " gender: " + item.gender}
+                            title={"Patient ID: " + item.patientID}
+                            description={"Date: " + item.date + (item.time === 'm' ? " Morning" : " Afternoon")
+                                + " Ranking: " + item.ranking}
                         />
                     </List.Item>
             )}

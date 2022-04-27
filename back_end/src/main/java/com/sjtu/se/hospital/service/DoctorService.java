@@ -3,7 +3,6 @@ package com.sjtu.se.hospital.service;
 import com.sjtu.se.hospital.entity.Appointment;
 import com.sjtu.se.hospital.entity.DoctorEdited;
 import com.sjtu.se.hospital.entity.Record;
->>>>>>> working
 import com.sjtu.se.hospital.entity.Schedule;
 
 import java.util.List;

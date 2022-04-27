@@ -1,9 +1,20 @@
 import {postRequest, postRequest_v2} from "../utils/ajax";
 const root = "http://localhost:8080";
 
+<<<<<<< HEAD
+export const getPatient = (id, callback) => {
+    const data = {patientID: id};
+=======
+export const getUser = (patientID, callback) => {
+    const data = {patientID: patientID};
+>>>>>>> hjm
+    const url = root + "/getPatientInfo";
+    postRequest_v2(url, data, callback);
+}
+
 export const getPatientsByID = (patientID, callback) => {
     const data = {patientID: patientID};
-    const url = root + "/getPatientInfo";
+    const url = root + "/getPatientsByID";
     postRequest_v2(url, data, callback);
 }
 
