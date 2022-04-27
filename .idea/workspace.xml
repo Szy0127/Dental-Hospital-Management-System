@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f97aa01-77b5-4327-9082-194d6c96c8c7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/front_end/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/front_end/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front_end/src/services/DataSurvice.js.orig" beforeDir="false" afterPath="$PROJECT_DIR$/front_end/src/services/DataSurvice.js.orig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +34,7 @@
       <option name="presentableId" value="Default" />
       <updated>1648992844427</updated>
       <workItem from="1648992847761" duration="30000" />
+      <workItem from="1651039272629" duration="3000" />
     </task>
     <servers />
   </component>
