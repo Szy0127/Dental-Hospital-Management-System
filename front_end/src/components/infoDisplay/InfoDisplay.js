@@ -21,7 +21,7 @@ export default class InfoDisplay extends React.Component{
             infoItems.push(
                 <Link to={{
                     pathname: '/info/'+this.props.type+'/',
-                    search: '?id=' + i
+                    search: '?id=' + this.props.items[i].id
                 }}>
                     <li className="list-group-item infoItem">
                         {this.props.items[i].title}

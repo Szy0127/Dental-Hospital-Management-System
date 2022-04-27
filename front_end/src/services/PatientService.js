@@ -1,6 +1,6 @@
 import { message } from "antd";
 import { postRequest, postRequest_v2 } from "../utils/ajax";
-const root = "http://localhost:8080";
+const root = "http://10.119.10.57";
 
 const MorningAppoint = 30;
 const AfternoonAppoint = 40;
@@ -29,17 +29,17 @@ export const getPredictedTime = (time, ranking) => {
 export const AddAppointment = (value, callback) => {
     const url = root + "/addAppointment";
     const Wrapcallback = (data) => {
-        // if(data.status >= 0){
+        if(data.ranking > 0){
         console.log(data);
         let Ptime = getPredictedTime(data.time, data.ranking)
         let backData = { ...data, 'Ptime': Ptime };
         message.success('预约成功！预期时间为：' + Ptime);
         console.log(backData)
         callback(backData);
-        // }
-        // else{
-        //     message.error(data.msg);
-        // }
+        }
+        else{
+            message.error("号已被抢完");
+        }
     }
     let Pid = localStorage.getItem("patientID");
     let data = { patientID: 1, ...value };
@@ -65,4 +65,11 @@ export const GET_Record = (callback) => {
     let record = localStorage.getItem("record");
 
 
+}
+
+export const cancelAppointment = (value,callback) =>{
+    const url = root + "/cancelAppointment";
+    let Pid = localStorage.getItem("patientID");
+    let data = { patientID: 1, ...value };
+    postRequest_v2(url, data, callback);
 }

@@ -1,5 +1,5 @@
 import {postRequest, postRequest_v2} from "../utils/ajax";
-const root = "http://localhost:8080";
+const root = "http://10.119.10.57:8080";
 
 export const getUser = (patientID, callback) => {
     const data = {patientID: patientID};
@@ -9,12 +9,12 @@ export const getUser = (patientID, callback) => {
 
 export const getNews = (callback) => {
     const url = root + "/getNews";
-    postRequest_v2(url, null, callback);
+    postRequest(url, null, callback);
 }
 
 export const getNotifications = (callback) => {
     const url = root + "/getNotifications";
-    postRequest_v2(url, null, callback);
+    postRequest(url, null, callback);
 }
 
 export const getPatientsByID = (patientID, callback) => {
@@ -78,6 +78,7 @@ export const getAppointmentsByDocID = (docID, callback) => {
     const url = root + "/getAppointmentsByDocID";
     postRequest_v2(url, data, callback);
 }
+
 
 export const getScheduleByDocId = (docID, callback) => {
     const data = {docID: docID};

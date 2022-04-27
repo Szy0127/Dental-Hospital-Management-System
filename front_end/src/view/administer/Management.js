@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Table, Button, Space, Popconfirm, message } from 'antd';
 import Doctor from '../doctor/Doctor';
-import { getDoctors } from '../../services/AdminService';
 import { useNavigate } from 'react-router-dom';
-
+import { getDoctors } from '../../services/DataSurvice';
 export default function Management() {
     const [doctor, setDoctor] = useState([]);
     const navigate = useNavigate();
@@ -12,7 +11,7 @@ export default function Management() {
         const callback = (data) => {
             setDoctor(data);
         }
-        getDoctors(callback);
+        getDoctors(1,callback);
     }, []
     );
 
@@ -85,6 +84,7 @@ export default function Management() {
 
     const handleAdd = () => {
         console.log("add");
+
     }
 
     return (

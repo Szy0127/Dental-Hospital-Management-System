@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import {data, data2, news, notification, patients, schedule} from "../utils/data";
 // // import { data, data2, news , notification,schedule } from "../utils/data";
 // import { postRequest,postRequests } from "../utils/ajax";
@@ -5,6 +6,12 @@
 // export const getDoctor = (key,callback)=>{
 //     if(key === null){
 
+=======
+// // 获取医生信息
+// export const getDoctor = (key,callback)=>{
+//     if(key === null){
+import {data, data2, news, notification, patients, schedule} from "../utils/data";
+>>>>>>> hjm
 //     }
 //     let doctor = data.find((item) =>(
 //         item.id === key
