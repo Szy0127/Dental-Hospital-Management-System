@@ -1,48 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8aef521b-74e9-4e1c-af34-0add91701a96" name="Changes" comment="">
+    <list default="true" id="8d7030d0-a417-46bd-9507-b8ab2fe5c944" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back_end/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back_end/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back_end/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back_end/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back_end/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back_end/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/controller/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/dao/HomeDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/daoimpl/HomeDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/entity/Appointment.java.orig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/entity/News.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/entity/Notification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/repository/NewsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/repository/NotificationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/service/HomeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/serviceimpl/HomeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/DataSurvice.js.orig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/UsrService.js.orig" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/view/doctor/patientInfo/PatientInfo.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/view/doctor/patientInfo/PatientList.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/view/doctor/patientInfo/ReAppointment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hosipital_analysis.oob" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hosipital_analysis.oom" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hosipital_analysis/hosipital_analysis.pjb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../hosipital_analysis/hosipital_analysis.prj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../insert_patient.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/Dental-Hospital-Management-System.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DDL.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../DDL.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/controller/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/dao/AppointmentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/dao/AppointmentDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/dao/HistoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/dao/HistoryDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/dao/ScheduleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/dao/ScheduleDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/daoimpl/AppointmentDaolmpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/daoimpl/AppointmentDaolmpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/daoimpl/HistoryDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/daoimpl/HistoryDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/daoimpl/ScheduleDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/daoimpl/ScheduleDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/entity/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/entity/Appointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/entity/AppointmentCoKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/entity/AppointmentCoKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/entity/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/entity/Schedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/repository/HistoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/repository/HistoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/repository/ScheduleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/repository/ScheduleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/service/PatientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/serviceimpl/PatientServicelmpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/serviceimpl/PatientServicelmpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../back_end/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml.orig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/avatar/AvatarHover.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/avatar/AvatarHover.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/loginbox/LoginBox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/loginbox/LoginBox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/schedule/Schedule.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/schedule/Schedule.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/sidebar/SideBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/SideBar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router/MainRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/MainRoute.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/AdminService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AdminService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/DataSurvice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/DataSurvice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/PatientService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/PatientService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/UsrService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/UsrService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/administer/Management.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/administer/Management.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/administer/doctorInfo/DoctorInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/administer/doctorInfo/DoctorInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/administer/newEdit/NewsEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/administer/newEdit/NewsEdit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/doctor/Assignment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/doctor/Assignment.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/doctor/patientInfo/PatientConsult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/doctor/patientInfo/PatientConsult.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/doctor/schedule/calendar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/doctor/schedule/schedule.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/home/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/home/Info.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/home/Info.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/main/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/main/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/patient/apointment/Apointment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/patient/apointment/Apointment.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="CSS File" />
-        <option value="JavaScript File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="26QaMQDJ5V1S7AkThGrnqHMlZtY" />
+  <component name="ProjectId" id="28NLqPlFyAzNmG3YS2WM2At0lB1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -52,14 +97,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../互联网应用开发技术/bookstore" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../back_end" />
     <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="D:\IDEA\IntelliJ IDEA 2021.3.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
@@ -70,43 +112,19 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="8aef521b-74e9-4e1c-af34-0add91701a96" name="Changes" comment="" />
-      <created>1647358219380</created>
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="8d7030d0-a417-46bd-9507-b8ab2fe5c944" name="变更" comment="" />
+      <created>1651052286850</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1647358219380</updated>
-      <workItem from="1647358219382" duration="4000" />
-      <workItem from="1647358233755" duration="11574000" />
-      <workItem from="1648607017608" duration="12599000" />
-      <workItem from="1648636707854" duration="686000" />
-      <workItem from="1648992881928" duration="2105000" />
-      <workItem from="1649916258780" duration="1166000" />
-      <workItem from="1649942792881" duration="5505000" />
-      <workItem from="1650006546767" duration="1941000" />
-      <workItem from="1650110250930" duration="150000" />
-      <workItem from="1650179078857" duration="12232000" />
-      <workItem from="1650349426805" duration="105000" />
-      <workItem from="1650533757587" duration="302000" />
-      <workItem from="1650612327224" duration="9023000" />
-      <workItem from="1650680061957" duration="5014000" />
+      <updated>1651052286850</updated>
+      <workItem from="1651052288161" duration="162000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
