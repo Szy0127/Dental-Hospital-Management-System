@@ -30,10 +30,10 @@ public class History {
 
     public History(){}
     public History(Date time, Integer patientID, Integer deptID){
-        this.id = (int) time.getTime()+ patientID;
+        this.id = 0 ;
         this.time = time;
         this.patientID = patientID;
         this.deptID = deptID;
-        this.description = "";
+        this.description = "{\"disease\":\"\",\"commentA\":\"\",\"commentB\":\"\",\"commentC\":\"\",medicine\":\"\"}";
     }
 }
