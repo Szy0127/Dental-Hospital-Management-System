@@ -3,8 +3,13 @@ import React from 'react';
 const { Step } = Steps;
 
 class PatientConsult extends React.Component {
+
+    constructor(props) {
+      super(props);
+    }
+
   state = {
-    current: 0,
+    current: this.props.step
   };
 
   onChange = current => {

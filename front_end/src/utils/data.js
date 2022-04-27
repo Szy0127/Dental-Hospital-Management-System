@@ -327,3 +327,57 @@ export const appointment = [
         doctor: 'Doctor C',
     },
 ];
+
+// 患者信息
+export const patients = [
+    {
+        id: 'XXX520021910544',
+        name: 'lujunchen',
+        gender: 'male',
+        age: '20',
+        doctor: 'Doctor A',
+        step: '1',
+        disease: '感冒',
+        medicine: '莲花清瘟胶囊'
+    },
+    {
+        id: 'XXX520021910545',
+        name: 'huangjiamin',
+        gender: 'male',
+        age: '30',
+        doctor: 'Doctor B',
+        step: '2',
+        disease: '感冒',
+        medicine: '莲花清瘟胶囊'
+    },
+    {
+        id: 'XXX520021910546',
+        name: 'Daniel Lue',
+        gender: 'female',
+        age: '40',
+        doctor: 'Doctor C',
+        step: '3',
+        disease: '感冒',
+        medicine: '莲花清瘟胶囊'
+    },
+    {
+        id: 'XXX520021910547',
+        name: 'Keven Huang',
+        gender: 'female',
+        age: '50',
+        doctor: 'Doctor D',
+        step: '4',
+        disease: '感冒',
+        medicine: '莲花清瘟胶囊'
+    },
+    {
+        id: 'XXX520021910548',
+        name: 'Lu Jun Chen',
+        gender: 'female',
+        age: '25',
+        doctor: 'Doctor A',
+        step: '3',
+        disease: '感冒',
+        medicine: '莲花清瘟胶囊'
+    },
+];
