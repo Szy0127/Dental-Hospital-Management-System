@@ -9,5 +9,6 @@ import java.util.List;
 public interface HistoryDao {
     List<HistoryEdited> getHistories(Integer ID);
     void addHistory(History newHis);
+    void removeHistory(History newHis);
     void updateHistory(Integer ID, Date time, String newDes);
 }

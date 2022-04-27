@@ -60,15 +60,15 @@ public class PatientController {
         return patientService.getHistories(ID);
     }
 
-    @RequestMapping("/addHistory")
-    public void addHistory(
-            @RequestParam("time")String time,
-            @RequestParam("patientID")Integer patientID,
-            @RequestParam("deptID")Integer deptID,
-            @RequestParam("description")String des
-    ) {
-        patientService.addHistory(time, patientID, deptID, des);
-    }
+//    @RequestMapping("/addHistory")
+//    public void addHistory(
+//            @RequestParam("time")String time,
+//            @RequestParam("patientID")Integer patientID,
+//            @RequestParam("deptID")Integer deptID,
+//            @RequestParam("description")String des
+//    ) {
+//        patientService.addHistory(time, patientID, deptID, des);
+//    }
 
     @RequestMapping("/updateDescriptionOfHistory")
     public void updateDescription(

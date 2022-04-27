@@ -38,6 +38,9 @@ public class HistoryDaoImpl implements HistoryDao {
     public void addHistory(History newHis) {
         historyRepository.save(newHis);
     }
+    public void removeHistory(History newHis) {
+        historyRepository.delete(newHis);
+    }
 
     @Override
     public void updateHistory(Integer ID, Date time, String newDes) {

@@ -29,11 +29,11 @@ public class History {
     private String description;
 
     public History(){}
-    public History(Date time, Integer patientID, Integer deptID, String des){
-        this.id = 0;
+    public History(Date time, Integer patientID, Integer deptID){
+        this.id = (int) time.getTime()+ patientID;
         this.time = time;
         this.patientID = patientID;
         this.deptID = deptID;
-        this.description = des;
+        this.description = "";
     }
 }

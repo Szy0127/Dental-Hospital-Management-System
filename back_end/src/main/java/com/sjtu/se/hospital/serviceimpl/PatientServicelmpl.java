@@ -72,6 +72,7 @@ public class PatientServicelmpl implements PatientService {
 
         scheduleDao.update(schedule, time);
         appointmentDao.addAppointment(appointment);
+        addHistory(date,patientID,deptID);
         return appointment;
     }
 
@@ -88,6 +89,7 @@ public class PatientServicelmpl implements PatientService {
         boolean success = appointmentDao.cancelAppointment(new Appointment(ranking,patientID,deptID,doctorID,date,time));
         if(success){
             scheduleDao.cancel(doctorID, date,time);
+            removeHistory(date,patientID,deptID);
         }
         return success;
     }
@@ -120,14 +122,12 @@ public class PatientServicelmpl implements PatientService {
     }
 
     @Override
-    public void addHistory(String time, Integer patientID, Integer deptID, String des) {
-        Date date = null;
-        try {
-            date = new Date(new SimpleDateFormat("yyyy-MM-dd").parse(time).getTime());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        historyDao.addHistory(new History(date ,patientID, deptID, des));
+    public void addHistory(Date date, Integer patientID, Integer deptID) {
+        historyDao.addHistory(new History(date ,patientID, deptID));
+    }
+    @Override
+    public void removeHistory(Date date, Integer patientID, Integer deptID) {
+        historyDao.removeHistory(new History(date ,patientID, deptID));
     }
 
     @Override
