@@ -1,9 +1,7 @@
 use hospital;
-<<<<<<< HEAD
-drop table appointment;
-=======
 
->>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
+drop table appointment;
+drop table schedule;
 create table notification
 (
     ID integer,
@@ -66,10 +64,7 @@ create table history
     primary key (ID),
     foreign key (deptID) references department (ID) on delete cascade
 );
-<<<<<<< HEAD
-=======
 
->>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
 create table appointment
 (
     ranking integer,
@@ -79,11 +74,8 @@ create table appointment
     date date,
     time varchar(1) check ( time in ('m', 'a') ),
     primary key (date, ranking, patientID, doctorID),
-<<<<<<< HEAD
     unique key (ranking,doctorID,date,time),
-    unique key(patientID,doctorID,time),
-=======
->>>>>>> ad5278e7ec96ace86308176a467d2a65f63f0b24
+    unique key(patientID,doctorID,date,time),
     foreign key (patientID) references patient (ID) on delete cascade,
     foreign key (deptID) references department (ID) on delete cascade,
     foreign key (doctorID) references department (ID) on delete cascade
@@ -95,6 +87,8 @@ create table schedule
     date date,
     n_morning integer check ( n_morning >= 0 ),
     n_afternoon integer check ( n_afternoon >= 0 ),
+    ranking_morning integer check ( ranking_morning >= 0 ),
+    ranking_afternoon integer check ( ranking_afternoon >= 0 ),
     content varchar(50),
     primary key (doctorID, date),
     foreign key (doctorID) references doctor (ID) on delete cascade

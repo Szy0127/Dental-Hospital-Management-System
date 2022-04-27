@@ -33,13 +33,16 @@ public class Schedule {
     @Column(name="n_afternoon")
     private  Integer n_afternoon;
 
+    @Column(name="rank_morning")
+    private  Integer rank_morning;
+
+    @Column(name="rank_afternoon")
+    private  Integer rank_afternoon;
+
     @Column(name="content")
     private  String content;
 
 
-    public void setDate(java.sql.Date date) {
-        this.date = date;
-    }
 
     public Schedule(){}
     public Schedule(Integer doctorID,Date date){
@@ -47,6 +50,8 @@ public class Schedule {
         this.date = date;
         this.n_afternoon = 0;
         this.n_morning = 0;
+        this.rank_morning = 0;
+        this.rank_afternoon = 0;
         this.content = "门诊";
     }
 

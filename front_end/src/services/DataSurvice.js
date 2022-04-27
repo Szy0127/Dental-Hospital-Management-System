@@ -24,6 +24,16 @@ export const addHistory = (time, patientID, deptID, des) => {
     postRequest_v2(url, data, null);
 }
 
+export const updateDescriptionOfHistory = (patientID, date, newDes) => {
+    const url = root + "/updateDescriptionOfHistory";
+    const data = {
+        patientID: patientID,
+        date: date,
+        newDes: newDes
+    };
+    postRequest_v2(url, data, null);
+}
+
 export const getDepartments = (data, callback) =>{
     const url = root + "/getDepartments";
     postRequest(url, data, callback);
