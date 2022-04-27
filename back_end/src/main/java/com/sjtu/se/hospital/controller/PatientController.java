@@ -62,12 +62,12 @@ public class PatientController {
 
     @RequestMapping("/addHistory")
     public void addHistory(
-            @RequestParam("time")Date time,
+            @RequestParam("time")String time,
             @RequestParam("patientID")Integer patientID,
             @RequestParam("deptID")Integer deptID,
             @RequestParam("description")String des
     ) {
-        patientService.addHistory(new History(time, patientID, deptID, des));
+        patientService.addHistory(time, patientID, deptID, des);
     }
 
     @RequestMapping("/updateDescriptionOfHistory")

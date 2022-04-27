@@ -13,6 +13,6 @@ public interface PatientService {
     List<AppointmentEdited> getAppointmentsByPatient(Integer ID);
     Record getPatientInfo(Integer ID);
     List<HistoryEdited> getHistories(Integer ID);
-    void addHistory(History newHis);
+    void addHistory(String time, Integer patientID, Integer deptID, String des);
     void updateDescription(Integer ID, String time, String newDes);
 }
