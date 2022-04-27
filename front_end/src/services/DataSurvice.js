@@ -1,5 +1,6 @@
 import {postRequest, postRequest_v2} from "../utils/ajax";
 const root = "http://10.119.10.57:8080";
+// const root = "http://localhost:8080"
 
 export const getUser = (patientID, callback) => {
     const data = {patientID: patientID};
@@ -35,9 +36,9 @@ export const addHistory = (time, patientID, deptID, des) => {
         time: time,
         patientID: patientID,
         deptID: deptID,
-        des: des
+        description: des
     };
-    postRequest_v2(url, data, null);
+    postRequest_v2(url, data, ()=>{});
 }
 
 export const updateDescriptionOfHistory = (patientID, date, newDes) => {

@@ -55,6 +55,8 @@ export default function ReAppointment() {
             <Divider />
 
             <Button type='primary' onClick={handleClick}>告诉患者</Button>
+
+            <Divider />
         </div>
     )
 }

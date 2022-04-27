@@ -4,7 +4,7 @@ import {useLocation} from "react-router-dom";
 import {Button, Descriptions, Divider, Input, message, Table} from "antd";
 import {history} from "../../../utils/data";
 import moment from 'moment';
-import {getHistories, getPatientsByID, updateDescriptionOfHistory} from "../../../services/DataSurvice";
+import {addHistory, getHistories, getPatientsByID, updateDescriptionOfHistory} from "../../../services/DataSurvice";
 import { Steps } from 'antd';
 
 const { Step } = Steps;
@@ -20,27 +20,13 @@ export default function PatientInfo () {
     const [desc, setDescription] = useState({});
 
     useEffect(() => {
-        // 找到当天的就诊记录
-        let curDate = new Date();
-        let date = curDate.getFullYear() + '-' + (curDate.getMonth()+1) + '-' + curDate.getDate();
-        console.log(date);
         const callback = (data) => {
-            console.log("JSON")
-            console.log(JSON.stringify(data))
             setPatient(data);
         }
         const callback2 = (data) => {
-            console.log("all_data")
-            console.log(data)
             let res = data.find((item) => {
-                // return item.time === moment().format('YYYY-MM-DD');
-                return item.time === "2022-03-14"
+                return item.time === moment().format('YYYY-MM-DD');
             })
-            console.log("DATA")
-            console.log(res)
-            let obj = JSON.parse(res.description)
-            console.log(obj)
-            console.log(JSON.parse(res.description))
             setDescription(JSON.parse(res.description));
         }
         getPatientsByID(patient.patientID, callback);
@@ -53,6 +39,10 @@ export default function PatientInfo () {
     const handleClick = () => {
         console.log("已完成药方的编辑！")
         message.success("已完成药方的编辑！")
+    }
+
+    const handleClick4 = () => {
+        message.success("已完成病情的诊断！")
     }
 
     const [step, setStep] = useState(0);
@@ -69,8 +59,7 @@ export default function PatientInfo () {
         // 将所有记录传至后端
         message.success("信息已存储")
         let jsonString = JSON.stringify(desc);
-        console.log(jsonString)
-        updateDescriptionOfHistory(patient.id, "2022-03-14", jsonString)
+        updateDescriptionOfHistory(patient.id, moment().format('YYYY-MM-DD'), jsonString)
     }
 
     console.log(patient)
@@ -123,6 +112,15 @@ export default function PatientInfo () {
                 <Descriptions.Item label="开出药方">{desc.medicine}
                 </Descriptions.Item>
             </Descriptions>
+
+            <Divider />
+
+            <TextArea showCount style={{ height: 200,width:600 }} defaultValue = {desc.medicine}
+                      onChange={(event) => {
+                          setDescription({...desc, disease: event.target.value})
+                      }}
+            />
+            <Button type='primary' onClick={handleClick4}>确定病情</Button>
 
             <Divider />
 

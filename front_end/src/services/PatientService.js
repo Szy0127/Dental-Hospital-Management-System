@@ -1,6 +1,6 @@
 import { message } from "antd";
 import { postRequest, postRequest_v2 } from "../utils/ajax";
-const root = "http://10.119.10.57";
+const root = "http://10.119.10.57:8080";
 
 const MorningAppoint = 30;
 const AfternoonAppoint = 40;

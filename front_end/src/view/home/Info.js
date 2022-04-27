@@ -58,8 +58,10 @@ export default function InfoPage(props) {
             <div className="displayNotice" id='lead'>
                 {
                     (props.title === '医院通知') && (<InfoDisplay title="其他通知" items={notification} type="notice" />)
+                    // (props.title === '医院通知') && (<InfoDisplay title="其他通知" type="notice" />)
                 }
                 {
+                    // !(props.title === '医院通知') && (<InfoDisplay title='其他新闻' types='news' />)
                     !(props.title === '医院通知') && (<InfoDisplay title='其他新闻' items={news} types='news' />)
                 }
             </div>

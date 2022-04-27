@@ -9,6 +9,7 @@ export default function PatientList () {
 
     useEffect(() => {
         const callback = (data) => {
+            console.log()
             setPatients(data);
         }
         let jsonString = localStorage.getItem("doctorID");

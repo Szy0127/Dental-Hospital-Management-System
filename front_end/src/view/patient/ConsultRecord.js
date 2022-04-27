@@ -41,7 +41,16 @@ export default function ConsultRecord(props) {
     const renderItem = (list) => {
         return list.map((item) => (
             <Timeline.Item label={item.time} dot={<ClockCircleOutlined style={{ fontSize: '16px' }} />}>
-                {item.department} : {item.description}
+                {item.department} : {() => {
+                    let record = JSON.parse(item.description)
+                    return <div>
+                        <p>{record.disease}</p>
+                        <p>{record.commentA}</p>
+                        <p>{record.commentB}</p>
+                        <p>{record.commentC}</p>
+                        <p>{record.medicine}</p>
+                    </div>
+            }}
             </Timeline.Item>
         ))
     }

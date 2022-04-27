@@ -28,21 +28,16 @@ let menuList = [
         title: "医生介绍",
         icon: <MedicineBoxOutlined />,
         children: [
-            {
-                key: "doctor/profile?id=1",
-                title: "口腔外科",
-                icon: <MedicineBoxOutlined />,
-            },
-            {
-                key: "doctor/profile?id=2",
-                title: "口腔内科",
-                icon: <MedicineBoxOutlined />,
-            },
-            {
-                key: "doctor/profile?id=3",
-                title: "口腔神经科",
-                icon: <MedicineBoxOutlined />,
-            }
+            // {
+            //     key: "doctor/profile?id=1",
+            //     title: "科室一",
+            //     icon: <MedicineBoxOutlined />,
+            // },
+            // {
+            //     key: "doctor/profile?id=2",
+            //     title: "科室二",
+            //     icon: <MedicineBoxOutlined />,
+            // }
         ]
     },
     {
@@ -98,12 +93,17 @@ let menuList = [
                 title: "排班表",
                 icon: <MedicineBoxOutlined />
             },
-            // {
-            //     key: "doctor/detailedinfo",
-            //     identity: "doctor",
-            //     title: "个人信息",
-            //     icon: <MedicineBoxOutlined />
-            // }
+            {
+<<<<<<< HEAD
+                key: "doctor/profile",
+                identity: "doctor",
+=======
+                identity: "doctor",
+                key: "doctor/detailedInfo?id=1",
+>>>>>>> hjm
+                title: "个人信息",
+                icon: <MedicineBoxOutlined />
+            }
         ]
     },
     {
@@ -170,7 +170,7 @@ export default function SideBar(props) {
             console.log("DEPT:")
             console.log(data)
             setDept(data);
-            // addDept(data);
+            addDept(data);
         }
         getDepartments(1, callback);
 
