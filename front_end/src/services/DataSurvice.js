@@ -1,6 +1,22 @@
 import {postRequest, postRequest_v2} from "../utils/ajax";
 const root = "http://localhost:8080";
 
+export const getUser = (patientID, callback) => {
+    const data = {patientID: patientID};
+    const url = root + "/getPatientInfo";
+    postRequest_v2(url, data, callback);
+}
+
+export const getNews = (callback) => {
+    const url = root + "/getNews";
+    postRequest_v2(url, null, callback);
+}
+
+export const getNotifications = (callback) => {
+    const url = root + "/getNotifications";
+    postRequest_v2(url, null, callback);
+}
+
 export const getPatientsByID = (patientID, callback) => {
     const data = {patientID: patientID};
     const url = root + "/getPatientInfo";
@@ -36,7 +52,7 @@ export const updateDescriptionOfHistory = (patientID, date, newDes) => {
 
 export const getDepartments = (data, callback) =>{
     const url = root + "/getDepartments";
-    postRequest(url, data, callback);
+    postRequest_v2(url, null, callback);
 }
 
 export const getDeptOnly = (deptID, callback) => {

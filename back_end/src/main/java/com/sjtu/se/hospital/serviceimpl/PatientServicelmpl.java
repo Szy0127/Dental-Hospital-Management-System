@@ -120,13 +120,25 @@ public class PatientServicelmpl implements PatientService {
     }
 
     @Override
-    public void addHistory(History newHis) {
-        historyDao.addHistory(newHis);
+    public void addHistory(String time, Integer patientID, Integer deptID, String des) {
+        Date date = null;
+        try {
+            date = new Date(new SimpleDateFormat("yyyy-MM-dd").parse(time).getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        historyDao.addHistory(new History(date ,patientID, deptID, des));
     }
 
     @Override
-    public void updateDescription(Integer ID, Date time, String newDes) {
-        historyDao.updateHistory(ID, time, newDes);
+    public void updateDescription(Integer ID, String time, String newDes) {
+        Date date = null;
+        try {
+            date = new Date(new SimpleDateFormat("yyyy-MM-dd").parse(time).getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        historyDao.updateHistory(ID, date, newDes);
     }
 
 }
