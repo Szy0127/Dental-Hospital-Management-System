@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8aef521b-74e9-4e1c-af34-0add91701a96" name="Changes" comment="Changes">
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/controller/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/controller/DepartmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/controller/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/controller/DoctorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../back_end/src/main/java/com/sjtu/se/hospital/controller/PatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="8aef521b-74e9-4e1c-af34-0add91701a96" name="Changes" comment="Changes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,7 +42,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../back_end" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -86,6 +81,7 @@
       <workItem from="1650179078857" duration="12232000" />
       <workItem from="1650640251648" duration="735000" />
       <workItem from="1650707987276" duration="33823000" />
+      <workItem from="1651045477516" duration="37000" />
     </task>
     <servers />
   </component>
