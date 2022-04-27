@@ -50,6 +50,7 @@ export const logout = () => {
         }
     }
     localStorage.removeItem("identity");
+    return true;
     // postRequest(url, {}, callback);
 };
 

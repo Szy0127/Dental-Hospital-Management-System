@@ -88,12 +88,6 @@ const menuList = [
                 key: "doctor/schedule",
                 title: "排班表",
                 icon: <MedicineBoxOutlined />
-            },
-            {
-                identity: "doctor",
-                key: "doctor/detailedInfo?id=1",
-                title: "个人信息",
-                icon: <MedicineBoxOutlined />
             }
         ]
     },

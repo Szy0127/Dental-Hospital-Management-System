@@ -43,7 +43,20 @@ export default class Appointment extends React.Component {
     }
     cancel = (record) => {
         console.log(record);
-        // cancelAppointment(record.);
+        const dataSource = [...this.state.record];
+        let value = {
+            "ranking":record.ranking,
+            "doctorID":record.docID,
+            "deptID":record.deptID,
+            "date":record.date,
+            "time":record.time
+        }
+        cancelAppointment(value,()=>{
+            getAppointments((data) => {
+                console.log(data);
+                this.setState({ record: data })
+            });
+        });
     }
     columns = [
         {
@@ -78,7 +91,7 @@ export default class Appointment extends React.Component {
             title: '退号',
             dataIndex: 'cancel',
             key: 'cancel',
-            render: (text, record) => (<Popconfirm onConfirm={()=>{this.cancel(record)}}>
+            render: (text, record) => (<Popconfirm title="是否要退号？" onConfirm={()=>{this.cancel(record)}}>
                 <Button> 退号</Button>
             </Popconfirm>)
         }

@@ -28,10 +28,10 @@ const HomeMainPage = function (props) {
     useEffect(() => {
         setIdentity(identity)
         checkSession(checkAuth);
-    }, [identity]);
+    }, [login]);
     return (
         <Layout style={{minHeight: '100vh'}}>
-            <Header identity = {identity} islogin = {login}/>
+            <Header identity = {identity} islogin = {login} setlogin={setLogin}/>
             <Layout className="site-layout">
                 <SideBar identity = {identity}></SideBar>
                 <Content style={{margin: '0 16px'}}>

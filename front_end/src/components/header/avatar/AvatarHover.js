@@ -4,18 +4,20 @@ import { Menu, Dropdown, Avatar, Badge } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { logout } from '../../../services/UsrService';
 
-export default function AvatarHover() {
+export default function AvatarHover(props) {
   const [avatar, setAvatar] = useState();
+  const {setlogin} = props;
   const navigate = useNavigate();
   const Dologout = () =>{
     let islogout = logout();
-    if(logout){
+    if(islogout){
       navigate('/home');
+      setlogin(false);
     }
   }  
   const UsrList = (
     <Menu>
-      <Menu.Item>
+      {/* <Menu.Item>
         <Link to={{
           pathname:'/patient/profile'
         }}>
@@ -35,7 +37,7 @@ export default function AvatarHover() {
           </a>
         </Link>
       </Menu.Item>
-      <Menu.Divider />
+      <Menu.Divider /> */}
       <Menu.Item danger onClick={Dologout}><Link to={{
           pathname: '/',
         }}
@@ -45,6 +47,7 @@ export default function AvatarHover() {
     </Menu>
   );
   
+
   return (
     <div>
       <span>

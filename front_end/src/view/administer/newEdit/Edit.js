@@ -11,7 +11,7 @@ export default function Edit() {
     }
     console.log(state);
     const handleEdit = () =>{
-
+        
     }
     var info = state.info;
     return (

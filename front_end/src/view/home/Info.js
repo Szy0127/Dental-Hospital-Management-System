@@ -6,7 +6,7 @@ import img from './img.png'
 import { Divider } from "antd"
 import InfoDisplay from "../../components/infoDisplay/InfoDisplay";
 import { getNews, getNotifications } from "../../services/DataSurvice";
-
+import'./info.css'
 export default function InfoPage(props) {
     let location = useLocation();
     const query = location.search;
@@ -50,7 +50,7 @@ export default function InfoPage(props) {
             <h2 id='date'>发布日期：{findResult.date}</h2>
 
             <div id='content'>
-                <h1>{findResult.content}</h1>
+                <p>{findResult.content}</p>
             </div>
 
             <Divider />

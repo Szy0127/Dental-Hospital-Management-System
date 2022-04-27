@@ -5,10 +5,10 @@ import './Footer.css'
 const Part = function (props) {
     return (
         <React.Fragment>
-            <h3>
+            <h3 style={{color:'white'}}>
                 {props.title}
             </h3>
-            <div>
+            <div style={{color:'white'}}>
                 {props.content}
             </div>
         </React.Fragment>
@@ -18,28 +18,28 @@ const Part = function (props) {
 export default function Footer() {
 
     const content1 = (
-        <div>
+        <div className='footer-list'>
             <ul className="list-group">
-                <li className="list-group-item">东川路800号</li>
-                <li className="list-group-item">东川路700号</li>
-                <li className="list-group-item">东川路600号</li>
+                <li className="list-group-item1">东川路800号</li>
+                <li className="list-group-item1">东川路700号</li>
+                <li className="list-group-item1">东川路600号</li>
             </ul>
         </div>
     )
     const content2 = (
-        <div>
-            <h4>擅长领域</h4>
-            <p>123124123123123123123</p>
-            <h4>获得荣誉</h4>
-            <p>123124123123123123123</p>
+        <div className='footer-list'>
+            <h4 style={{color:'white'}}>擅长领域</h4>
+            <p style={{color:'white'}}>	口腔外科 口腔内科 口腔矫正</p>
+            <h4 style={{color:'white'}}>获得荣誉</h4>
+            <p style={{color:'white'}}>国家卫健委2020-2021年度“私立医疗机构经济管理年”活动优秀单位</p>
         </div>
     )
     const content3 = (
-        <div>
+        <div className='footer-list'>
             <ul className="list-group">
-                <li className="list-group-item">54749110</li>
-                <li className="list-group-item">54749111</li>
-                <li className="list-group-item">54749112</li>
+                <li className="list-group-item1">54749110</li>
+                <li className="list-group-item1">54749111</li>
+                <li className="list-group-item1">54749112</li>
             </ul>
         </div>
     )
