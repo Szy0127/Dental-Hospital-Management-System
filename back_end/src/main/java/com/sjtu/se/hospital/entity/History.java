@@ -34,6 +34,6 @@ public class History {
         this.time = time;
         this.patientID = patientID;
         this.deptID = deptID;
-        this.description = "{\"disease\":\"\",\"commentA\":\"\",\"commentB\":\"\",\"commentC\":\"\",medicine\":\"\"}";
+        this.description = "{\"disease\":\"\",\"commentA\":\"\",\"commentB\":\"\",\"commentC\":\"\",\"medicine\":\"\"}";
     }
 }
