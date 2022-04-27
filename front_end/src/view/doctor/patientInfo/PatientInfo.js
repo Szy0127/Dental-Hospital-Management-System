@@ -30,9 +30,11 @@ export default function PatientInfo () {
             setPatient(data);
         }
         const callback2 = (data) => {
+            console.log("all_data")
+            console.log(data)
             let res = data.find((item) => {
                 // return item.time === moment().format('YYYY-MM-DD');
-                return item.time === '2022-03-14'
+                return item.time === "2022-03-14"
             })
             console.log("DATA")
             console.log(res)
@@ -68,7 +70,7 @@ export default function PatientInfo () {
         message.success("信息已存储")
         let jsonString = JSON.stringify(desc);
         console.log(jsonString)
-        updateDescriptionOfHistory(patient.id, moment().format('YYYY-MM-DD'), jsonString)
+        updateDescriptionOfHistory(patient.id, "2022-03-14", jsonString)
     }
 
     console.log(patient)
