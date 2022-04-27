@@ -7,6 +7,16 @@ export const getUser = (patientID, callback) => {
     postRequest_v2(url, data, callback);
 }
 
+export const getNews = (callback) => {
+    const url = root + "/getNews";
+    postRequest(url, null, callback);
+}
+
+export const getNotifications = (callback) => {
+    const url = root + "/getNotifications";
+    postRequest(url, null, callback);
+}
+
 export const getPatientsByID = (patientID, callback) => {
     const data = {patientID: patientID};
     const url = root + "/getPatientsByID";
@@ -30,9 +40,19 @@ export const addHistory = (time, patientID, deptID, des) => {
     postRequest_v2(url, data, null);
 }
 
+export const updateDescriptionOfHistory = (patientID, date, newDes) => {
+    const url = root + "/updateDescriptionOfHistory";
+    const data = {
+        patientID: patientID,
+        date: date,
+        newDes: newDes
+    };
+    postRequest_v2(url, data, null);
+}
+
 export const getDepartments = (data, callback) =>{
     const url = root + "/getDepartments";
-    postRequest(url, data, callback);
+    postRequest_v2(url, null, callback);
 }
 
 export const getDeptOnly = (deptID, callback) => {
@@ -58,6 +78,7 @@ export const getAppointmentsByDocID = (docID, callback) => {
     const url = root + "/getAppointmentsByDocID";
     postRequest_v2(url, data, callback);
 }
+
 
 export const getScheduleByDocId = (docID, callback) => {
     const data = {docID: docID};

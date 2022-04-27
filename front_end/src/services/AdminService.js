@@ -1,9 +1,7 @@
-// // import { data, data2, news , notification,schedule } from "../utils/data";
-// import { postRequest,postRequests } from "../utils/ajax";
 // // 获取医生信息
 // export const getDoctor = (key,callback)=>{
 //     if(key === null){
-
+import {data, data2, news, notification, patients, schedule} from "../utils/data";
 //     }
 //     let doctor = data.find((item) =>(
 //         item.id === key
@@ -46,3 +44,7 @@
 //     callback(news);
 // }
 
+// 获取患者列表
+export const getPatients = (callback) => {
+    callback(patients);
+}

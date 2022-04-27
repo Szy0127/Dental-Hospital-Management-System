@@ -72,7 +72,7 @@ const menuList = [
                 icon: <MedicineBoxOutlined />,
                 children: [
                     {
-                        key: "doctor/patientinfo",
+                        key: "doctor/patientlist",
                         title: "诊疗信息",
                         icon: <MedicineBoxOutlined />
                     },
@@ -119,12 +119,6 @@ const menuList = [
                 icon: <MedicineBoxOutlined />
             }
         ]
-    },
-    {
-        identity:"administer",
-        key: "administer/authority",
-        title: "管理员权限设置",
-        icon: <MedicineBoxOutlined />,
     }
 ]
 

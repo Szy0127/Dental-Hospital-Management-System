@@ -19,6 +19,9 @@ import NewsEditList from '../view/administer/newEdit/NewsEdit';
 import Edit from '../view/administer/newEdit/Edit';
 import HomeMainPage from '../view/main/Main';
 import Assignment from '../view/doctor/Assignment';
+import PatientList from "../view/doctor/patientInfo/PatientList";
+import PatientInfo from "../view/doctor/patientInfo/PatientInfo";
+import ReAppointment from "../view/doctor/patientInfo/ReAppointment";
 
 export default function MainRoute() {
     return (
@@ -41,6 +44,9 @@ export default function MainRoute() {
                     <Route path='/doctor/patientinfo' element={<PatientConsult />} />
                     <Route path='/doctor/schedule' element={<Assignment/>} />
                     <Route path='/doctor/profile' element={<Profilelist/>} />
+                    <Route path='/doctor/patientinfo' element={<PatientInfo />} />
+                    <Route path='/doctor/patientlist' element={<PatientList />} />
+                    <Route path='/doctor/appointment' element={<ReAppointment />} />
                 </Route>
             </Route>
             <Route path='/info/news' element={<InfoPage title="医院新闻" />} />

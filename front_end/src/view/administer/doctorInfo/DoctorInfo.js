@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import InfoDisplay from '../../../components/infoDisplay/InfoDisplay';
-import { getDoctor } from '../../../services/AdminService';
 import Schedule from '../../../components/schedule/Schedule';
 import { Descriptions, Divider, Image } from 'antd';
-
+import { getDoctor } from '../../../services/DataSurvice';
 export default function DoctorInfo() {
   const [doctor, setDoctor] = useState({});
   const [schedule, getSchedule] = useState();
