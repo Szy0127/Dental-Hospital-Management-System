@@ -119,12 +119,6 @@ const menuList = [
                 icon: <MedicineBoxOutlined />
             }
         ]
-    },
-    {
-        identity:"administer",
-        key: "administer/authority",
-        title: "管理员权限设置",
-        icon: <MedicineBoxOutlined />,
     }
 ]
 

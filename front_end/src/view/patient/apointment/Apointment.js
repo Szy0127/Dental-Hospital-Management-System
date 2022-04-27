@@ -1,41 +1,12 @@
 import React, { useState } from 'react';
 import moment from 'moment'
-import { Button, Cascader, Divider, Form, Table, Select } from "antd";
+import { Button, Cascader, Divider, Form, Table, Select, message, Popconfirm } from "antd";
 import { DatePicker } from "antd/es";
 import { getDepartments, getDoctors, MngOrAftn } from "../../../services/DataSurvice";
-import { AddAppointment, getAppointments, getPredictedTime } from '../../../services/PatientService';
+import { AddAppointment, cancelAppointment, getAppointments, getPredictedTime } from '../../../services/PatientService';
 import { render } from '@testing-library/react';
 const { Option } = Select;
-const columns = [
-    {
-        title: '挂号号码',
-        dataIndex: 'ranking',
-        key: 'ranking',
-    },
-    {
-        title: '预约日期',
-        dataIndex: 'date',
-        key: 'date',
-    },
-    {
-        title: '预期就诊时间',
-        dataIndex: 'Ptime',
-        key: 'Ptime',
-        render: (text, record) => (
-            getPredictedTime(record.time, record.ranking)
-        )
-    },
-    {
-        title: '预约科室',
-        dataIndex: 'department',
-        key: 'department',
-    },
-    {
-        title: '预约医生',
-        dataIndex: 'doctor',
-        key: 'doctor',
-    },
-];
+
 
 export default class Appointment extends React.Component {
     constructor(props) {
@@ -45,7 +16,6 @@ export default class Appointment extends React.Component {
             departments: [],
         }
     }
-
     componentDidMount() {
         getAppointments((data) => {
             this.setState({ record: data })
@@ -70,6 +40,48 @@ export default class Appointment extends React.Component {
             }
         })
     }
+    cancel = (record) => {
+        console.log(record);
+        // cancelAppointment();
+    }
+    columns = [
+        {
+            title: '挂号号码',
+            dataIndex: 'ranking',
+            key: 'ranking',
+        },
+        {
+            title: '预约日期',
+            dataIndex: 'date',
+            key: 'date',
+        },
+        {
+            title: '预期就诊时间',
+            dataIndex: 'Ptime',
+            key: 'Ptime',
+            render: (text, record) => (
+                getPredictedTime(record.time, record.ranking)
+            )
+        },
+        {
+            title: '预约科室',
+            dataIndex: 'department',
+            key: 'department',
+        },
+        {
+            title: '预约医生',
+            dataIndex: 'doctor',
+            key: 'doctor',
+        },
+        {
+            title: '退号',
+            dataIndex: 'cancel',
+            key: 'cancel',
+            render: (text, record) => (<Popconfirm onConfirm={this.cancel(record)}>
+                <Button> 退号</Button>
+            </Popconfirm>)
+        }
+    ];
     config = {
         rules: [
             {
@@ -96,6 +108,15 @@ export default class Appointment extends React.Component {
             });
         }
     }
+    CanAppoint = (value) => {
+        console.log(this.state.record);
+        for (let i = 0; i < this.state.record.length; ++i) {
+            if (this.state.record[i].date === value.date) {
+                return false;
+            }
+        }
+        return true;
+    }
     onFinish = (fieldsvalue) => {
         const value = {
             'deptID': fieldsvalue['doctor'][0],
@@ -104,7 +125,12 @@ export default class Appointment extends React.Component {
             'time': fieldsvalue['time'],
         }
         console.log(value);
-        AddAppointment(value, this.callback);
+        if (this.CanAppoint(value)) {
+            AddAppointment(value, this.callback);
+        }
+        else {
+            message.error("一天仅能挂号一次");
+        }
     }
 
     Time = [{ value: 'm', label: '上午' }, { value: 'a', label: '下午' }];
@@ -118,7 +144,7 @@ export default class Appointment extends React.Component {
                     onFinish={this.onFinish}>
                     <Form.Item label="预约日期" name="date" {...this.config}>
                         <DatePicker disabledDate={(date) => (
-                            date.diff(moment(), 'days') > 7
+                            date.diff(moment(), 'days') < 0 || date.diff(moment(), 'days') >= 7
                         )} />
                     </Form.Item>
                     <Form.Item label="预约时间" name="time" {...this.timeConfig}>
@@ -137,7 +163,7 @@ export default class Appointment extends React.Component {
                 </Form>
                 <Divider />
                 <Table
-                    columns={columns}
+                    columns={this.columns}
                     dataSource={this.state.record}
                     pagination={
                         { pageSize: 5 }

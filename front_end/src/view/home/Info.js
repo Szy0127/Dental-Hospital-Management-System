@@ -1,18 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {useLocation} from "react-router-dom";
 import './Home.css'
 import Footer from "../../components/footer/Footer";
-import { news,notification } from "../../utils/data";
 import img from './img.png'
 import {Divider} from "antd"
 import InfoDisplay from "../../components/infoDisplay/InfoDisplay";
+import { getNews, getNotifications } from "../../services/DataSurvice";
 
 const InfoPage = function (props) {
-
     let location = useLocation();
     const query = location.search;
     const arr = query.split('&');
     const id = arr[0].substr(4);
+    const [notification,setNotification] = useState([]);
+    const [news,setNews] = useState([]);
+    useEffect(()=>{
+        getNotifications((data)=>{console.log(data);setNotification(data)})
+        getNews((data)=>{setNews(data)})
+        
+    },[])
 
     let findResult = {}
     let isNotice
