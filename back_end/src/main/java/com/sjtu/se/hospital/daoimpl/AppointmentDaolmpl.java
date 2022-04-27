@@ -47,13 +47,16 @@ public class AppointmentDaolmpl implements AppointmentDao {
         List<Appointment> ap = appointmentRepository.getAppointmentsByPatient(ID);
 
         for (Appointment p : ap) {
-            res.add(new AppointmentEdited(
+            res.addFirst(new AppointmentEdited(
                     p.getRanking(),
                     p.getPatientID(),
                     departmentRepository.getOne(p.getDeptID()).getTitle(),
                     doctorRepository.getOne(p.getDoctorID()).getName(),
                     p.getDate(),
-                    p.getTime()));
+                    p.getTime(),
+                    p.getDeptID(),
+                    p.getDoctorID()
+            ));
         }
 
         return res;
