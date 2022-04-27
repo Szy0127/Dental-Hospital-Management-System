@@ -11,30 +11,6 @@ const { Step } = Steps;
 
 const { TextArea } = Input;
 
-const columns = [
-    {
-        title: 'Time',
-        dataIndex: 'time',
-        key: 'time',
-        render: text => <a>{text}</a>,
-    },
-    {
-        title: 'Place',
-        dataIndex: 'place',
-        key: 'place',
-    },
-    {
-        title: 'Department',
-        dataIndex: 'department',
-        key: 'department',
-    },
-    {
-        title: 'Description',
-        dataIndex: 'description',
-        key: 'description',
-    }
-];
-
 export default function PatientInfo () {
 
     const location = useLocation();
@@ -49,15 +25,20 @@ export default function PatientInfo () {
         let date = curDate.getFullYear() + '-' + (curDate.getMonth()+1) + '-' + curDate.getDate();
         console.log(date);
         const callback = (data) => {
+            console.log("JSON")
+            console.log(JSON.stringify(data))
             setPatient(data);
         }
         const callback2 = (data) => {
-            console.log("DATA")
-            console.log(data)
             let res = data.find((item) => {
                 // return item.time === moment().format('YYYY-MM-DD');
-                return item.time === "2022-04-26"
+                return item.time === '2022-03-14'
             })
+            console.log("DATA")
+            console.log(res)
+            let obj = JSON.parse(res.description)
+            console.log(obj)
+            console.log(JSON.parse(res.description))
             setDescription(JSON.parse(res.description));
         }
         getPatientsByID(patient.patientID, callback);
@@ -78,6 +59,8 @@ export default function PatientInfo () {
 
         let tmp = step;
         setStep(tmp + 1);
+
+        setArea('')
     }
 
     const handleClick3 = () => {
@@ -85,10 +68,12 @@ export default function PatientInfo () {
         message.success("信息已存储")
         let jsonString = JSON.stringify(desc);
         console.log(jsonString)
-        updateDescriptionOfHistory(patient.id, "2022-04-26", jsonString)
+        updateDescriptionOfHistory(patient.id, moment().format('YYYY-MM-DD'), jsonString)
     }
 
     console.log(patient)
+
+    const [area, setArea] = useState('');
 
     return (
         <div>
@@ -104,7 +89,9 @@ export default function PatientInfo () {
             <Divider />
 
             <TextArea showCount style={{ height: 200,width:600 }}
+                      value={area}
                       onChange={(event) => {
+                          setArea(event.target.value);
                           if (step === 0) {
                             setDescription({...desc, commentA: event.target.value})
                           }
@@ -116,7 +103,7 @@ export default function PatientInfo () {
                           }
                       }}
             />
-            <Button type='primary' onClick={handleClick1}>下一阶段</Button>
+            <Button type='primary' onClick={handleClick1}>{step >= 2? '完成诊断':'下一阶段'}</Button>
 
             <Divider />
 
@@ -145,10 +132,6 @@ export default function PatientInfo () {
             <Button type='primary' onClick={handleClick}>上传药方</Button>
 
             <Divider />
-
-            {/*<h1>就诊记录：</h1>*/}
-
-            {/*<Table columns={columns} dataSource={history} />*/}
 
             <Button type='primary' block size='large' onClick={handleClick3}>完成并提交</Button>
 

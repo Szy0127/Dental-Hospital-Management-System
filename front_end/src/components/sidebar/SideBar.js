@@ -7,11 +7,15 @@ import {
     HomeOutlined,
     MedicineBoxOutlined,
 } from '@ant-design/icons';
+import {getDepartments} from "../../services/DataSurvice";
+import {data} from "../../utils/data";
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
-const menuList = [
+
+
+let menuList = [
     {
         identity: "all",
         key: "home",
@@ -24,16 +28,16 @@ const menuList = [
         title: "医生介绍",
         icon: <MedicineBoxOutlined />,
         children: [
-            {
-                key: "doctor/profile?id=1",
-                title: "科室一",
-                icon: <MedicineBoxOutlined />,
-            },
-            {
-                key: "doctor/profile?id=2",
-                title: "科室二",
-                icon: <MedicineBoxOutlined />,
-            }
+            // {
+            //     key: "doctor/profile?id=1",
+            //     title: "科室一",
+            //     icon: <MedicineBoxOutlined />,
+            // },
+            // {
+            //     key: "doctor/profile?id=2",
+            //     title: "科室二",
+            //     icon: <MedicineBoxOutlined />,
+            // }
         ]
     },
     {
@@ -129,15 +133,48 @@ const menuList = [
 ]
 
 export default function SideBar(props) {
+
+    const [dept, setDept] = useState([]);
+
     const { identity } = props;
     console.log(identity);
     const navigate = useNavigate();
     const location = useLocation();
     const [defaultKey, setDefaultKey] = useState('list')
+
+    const addDept = (data) => {
+        let index = menuList.findIndex((item) => {
+            return item.key === 'info'
+        })
+        console.log(menuList[index])
+        let num_of_dept = data.length;
+        console.log(num_of_dept)
+        data.map(item => {
+            console.log(item)
+            let tmp = {
+                key: 'doctor/profile?id=' + item.id,
+                title: item.title,
+                icon: <MedicineBoxOutlined />
+            }
+            menuList[index].children.push(tmp)
+        })
+        console.log("after:")
+        console.log(menuList)
+    }
+
     useEffect(() => {
         console.log(location.pathname)
         let path = location.pathname
         let key = path.split('/')[1]
+
+        const callback = (data) => {
+            console.log("DEPT:")
+            console.log(data)
+            setDept(data);
+            addDept(data);
+        }
+        getDepartments(1, callback);
+
     }, [])
 
     const handleClick = e => {
@@ -146,10 +183,14 @@ export default function SideBar(props) {
     };
 
     const renderMenu = (menuList) => {
+        console.log("render menu:")
+        console.log(menuList)
         return menuList.map(item => {
             if (item.children && (item.identity === "all" || item.identity === identity)) {
                 return <SubMenu key={item.key} icon={item.icon} title={item.title}>
-                    {renderMenu(item.children)}
+                    {
+                        renderMenu(item.children)
+                    }
                 </SubMenu>
             }
             else if(!item.children){
