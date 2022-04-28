@@ -7,11 +7,15 @@ import {
     HomeOutlined,
     MedicineBoxOutlined,
 } from '@ant-design/icons';
+import {getDepartments} from "../../services/DataSurvice";
+import {data} from "../../utils/data";
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
-const menuList = [
+
+
+let menuList = [
     {
         identity: "all",
         key: "home",
@@ -26,12 +30,17 @@ const menuList = [
         children: [
             {
                 key: "doctor/profile?id=1",
-                title: "科室一",
+                title: "口腔外科",
                 icon: <MedicineBoxOutlined />,
             },
             {
                 key: "doctor/profile?id=2",
-                title: "科室二",
+                title: "口腔内科",
+                icon: <MedicineBoxOutlined />,
+            },
+            {
+                key: "doctor/profile?id=3",
+                title: "口腔神经科",
                 icon: <MedicineBoxOutlined />,
             }
         ]
@@ -72,7 +81,7 @@ const menuList = [
                 icon: <MedicineBoxOutlined />,
                 children: [
                     {
-                        key: "doctor/patientinfo",
+                        key: "doctor/patientlist",
                         title: "诊疗信息",
                         icon: <MedicineBoxOutlined />
                     },
@@ -89,12 +98,13 @@ const menuList = [
                 title: "排班表",
                 icon: <MedicineBoxOutlined />
             },
-            {
-                identity: "doctor",
-                key: "docotor/profile",
-                title: "个人信息",
-                icon: <MedicineBoxOutlined />
-            }
+            // {
+            //     key: "doctor/detailedinfo",
+            //     identity: "doctor",
+            //     title: "个人信息",
+            //     icon: <MedicineBoxOutlined />
+            // }
+
         ]
     },
     {
@@ -119,25 +129,52 @@ const menuList = [
                 icon: <MedicineBoxOutlined />
             }
         ]
-    },
-    {
-        identity:"administer",
-        key: "administer/authority",
-        title: "管理员权限设置",
-        icon: <MedicineBoxOutlined />,
     }
 ]
 
 export default function SideBar(props) {
+
+    const [dept, setDept] = useState([]);
+
     const { identity } = props;
     console.log(identity);
     const navigate = useNavigate();
     const location = useLocation();
     const [defaultKey, setDefaultKey] = useState('list')
+
+    const addDept = (data) => {
+        let index = menuList.findIndex((item) => {
+            return item.key === 'info'
+        })
+        console.log(menuList[index])
+        let num_of_dept = data.length;
+        console.log(num_of_dept)
+        data.map(item => {
+            console.log(item)
+            let tmp = {
+                key: 'doctor/profile?id=' + item.id,
+                title: item.title,
+                icon: <MedicineBoxOutlined />
+            }
+            menuList[index].children.push(tmp)
+        })
+        console.log("after:")
+        console.log(menuList)
+    }
+
     useEffect(() => {
         console.log(location.pathname)
         let path = location.pathname
         let key = path.split('/')[1]
+
+        const callback = (data) => {
+            console.log("DEPT:")
+            console.log(data)
+            setDept(data);
+            // addDept(data);
+        }
+        getDepartments(1, callback);
+
     }, [])
 
     const handleClick = e => {
@@ -146,10 +183,14 @@ export default function SideBar(props) {
     };
 
     const renderMenu = (menuList) => {
+        console.log("render menu:")
+        console.log(menuList)
         return menuList.map(item => {
             if (item.children && (item.identity === "all" || item.identity === identity)) {
                 return <SubMenu key={item.key} icon={item.icon} title={item.title}>
-                    {renderMenu(item.children)}
+                    {
+                        renderMenu(item.children)
+                    }
                 </SubMenu>
             }
             else if(!item.children){

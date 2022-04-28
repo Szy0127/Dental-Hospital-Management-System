@@ -1,3 +1,5 @@
+import {message} from 'antd';
+
 let postRequest_v2 = (url, data, callback) => {
     let formData = new FormData();
 
@@ -5,11 +7,11 @@ let postRequest_v2 = (url, data, callback) => {
         if(data.hasOwnProperty(p))
             formData.append(p, data[p]);
     }
-
+    console.log(formData);
     let opts = {
         method: "POST",
         body: formData,
-        credentials: "include",
+        credentials: "include"
     };
 
     fetch(url,opts)
@@ -30,9 +32,9 @@ let postRequest = (url, json, callback) => {
         method: "POST",
         body: JSON.stringify(json),
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json'
         },
-        credentials: "include",
+        credentials: "include"
     };
 
     fetch(url,opts)

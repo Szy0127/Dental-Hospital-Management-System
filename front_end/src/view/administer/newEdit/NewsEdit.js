@@ -1,27 +1,34 @@
 import { List } from 'antd'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { getInfo } from '../../../services/AdminService';
+import { getNews, getNotifications } from '../../../services/DataSurvice';
 
-export default function NewsEditList() {
+export default function NewsEditList(props) {
     const [info, setInfo] = useState();
     const navigate = useNavigate();
+    const {type} = props;
     useEffect(() => {
         const callback = (data) => {
             setInfo(data);
         }
-        getInfo(callback);
+        if(type === "notice"){
+            getNotifications(callback);
+        }
+        else{
+            getNews(callback)
+        }
     }, []);
 
     const handleEdit = (item) => {
         navigate('/administer/infoedit', {
             state: {
+                type:type,
                 info:item,
             }
         });
     }
     const handleDelete = (item) => {
-
+        
     }
     return (
         <div>

@@ -1,4 +1,18 @@
 // 科室1
+export var userlist = [
+    {identity:'patient',
+    username:'patient',
+    password:'123',
+    id:1},
+    {identity:'doctor',
+    username:'doctor',
+    password:'123',
+    id:1},
+    {identity:'administer',
+    username:'admin',
+    password:'123',
+    id:1},
+];
 export const data = [
     {
         id: '1',
@@ -232,8 +246,8 @@ export var schedule = [
         doc_id:'3',
         date:27,
         Datelist : [
-            { time: '9:00-12:00', content: '门诊' },
-            { time: '14:00-17:00', content: '手术' },
+            { time: '上午8:00-12:00', content: '门诊' },
+            { time: '下午14:00-18:00', content: '手术' },
         ]
     },
 ]
@@ -311,5 +325,54 @@ export const appointment = [
         time: '15:00 ~ 16:00',
         department: '神经科',
         doctor: 'Doctor C',
+    },
+];
+
+// 患者信息
+export const patients = [
+    {
+        id: 'XXX520021910544',
+        name: 'lujunchen',
+        gender: 'male',
+        age: '20',
+        doctor: 'Doctor A',
+        disease: '感冒',
+        medicine: '莲花清瘟胶囊'
+    },
+    {
+        id: 'XXX520021910545',
+        name: 'huangjiamin',
+        gender: 'male',
+        age: '30',
+        doctor: 'Doctor B',
+        disease: '感冒',
+        medicine: '莲花清瘟胶囊'
+    },
+    {
+        id: 'XXX520021910546',
+        name: 'Daniel Lue',
+        gender: 'female',
+        age: '40',
+        doctor: 'Doctor C',
+        disease: '感冒',
+        medicine: '莲花清瘟胶囊'
+    },
+    {
+        id: 'XXX520021910547',
+        name: 'Keven Huang',
+        gender: 'female',
+        age: '50',
+        doctor: 'Doctor D',
+        disease: '感冒',
+        medicine: '莲花清瘟胶囊'
+    },
+    {
+        id: 'XXX520021910548',
+        name: 'Lu Jun Chen',
+        gender: 'female',
+        age: '25',
+        doctor: 'Doctor A',
+        disease: '感冒',
+        medicine: '莲花清瘟胶囊'
     },
 ];

@@ -1,7 +1,6 @@
 import React from 'react'
 import {Descriptions} from "antd";
-import {getUser, MaleOrFemale} from "../../services/DataSurvice";
-
+import {getPatientsByID, MaleOrFemale} from "../../services/DataSurvice";
 
 export default class Patient extends React.Component {
     constructor(props) {
@@ -12,7 +11,7 @@ export default class Patient extends React.Component {
     }
 
     componentDidMount() {
-        getUser(1, (data) => {this.setState({user: data})});
+        getPatientsByID(1, (data) => {this.setState({user: data})});
     }
 
     render() {

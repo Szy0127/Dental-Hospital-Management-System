@@ -8,7 +8,7 @@ import AvatarHover from './avatar/AvatarHover';
 
 
 export default function Header(props) {
-  const {islogin} = props;
+  const {islogin,setlogin} = props;
   const navigate = useNavigate()
   const handleLogin = () => {
     navigate('/login')
@@ -21,7 +21,7 @@ export default function Header(props) {
         <img src={logosrc}></img>
       </div>
       <div>
-        {islogin?<AvatarHover/>:<Button onClick={handleLogin}>Login/Register</Button>}
+        {islogin?<AvatarHover setlogin={setlogin}/>:<Button onClick={handleLogin} >Login/Register</Button>}
       </div>
     </header>
   )

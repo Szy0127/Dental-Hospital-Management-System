@@ -3,13 +3,23 @@ import React from 'react';
 const { Step } = Steps;
 
 class PatientConsult extends React.Component {
+
+    constructor(props) {
+      super(props);
+    }
+
   state = {
-    current: 0,
+    current: this.props.step
   };
 
   onChange = current => {
     console.log('onChange:', current);
     this.setState({ current });
+
+    let jsonString = localStorage.getItem(this.props.id);
+    let cur_patient = JSON.parse(jsonString);
+    cur_patient.steps = current;
+    localStorage.setItem(this.props.id, JSON.stringify(cur_patient));
   };
 
   render() {
