@@ -22,6 +22,7 @@ import PatientInfo from "../view/doctor/patientInfo/PatientInfo";
 import ReAppointment from "../view/doctor/patientInfo/ReAppointment";
 import HomeMainPage from '../view/main/Main';
 import Assignment from '../view/doctor/Assignment';
+import Exception from '../view/exception/Exception';
 
 export default function MainRoute() {
     return (
@@ -47,11 +48,13 @@ export default function MainRoute() {
                     <Route path='/doctor/schedule' element={<Assignment/>} />
                     <Route path='/doctor/profile' element={<Profilelist/>} />
                 </Route>
+                <Route path='*' element={<Exception/>}></Route>
             </Route>
             <Route path='/info/news' element={<InfoPage title="医院新闻" />} />
             <Route path='/info/notice' element={<InfoPage title="医院通知" />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
+            <Route path='*' element={<Exception/>}></Route>
         </Routes>
     )
 }
