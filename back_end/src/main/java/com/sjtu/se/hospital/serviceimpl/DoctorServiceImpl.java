@@ -19,8 +19,6 @@ public class DoctorServiceImpl implements DoctorService {
     private DoctorDao doctorDao;
     @Autowired
     private AppointmentDao appointmentDao;
-    @Autowired
-    private RecordDao recordDao;
 
     @Override
     public DoctorEdited getDoctor(Integer ID) {

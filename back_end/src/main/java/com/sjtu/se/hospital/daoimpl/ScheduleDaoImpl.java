@@ -4,16 +4,11 @@ import com.sjtu.se.hospital.constant.Constant;
 import com.sjtu.se.hospital.dao.ScheduleDao;
 import com.sjtu.se.hospital.entity.Schedule;
 import com.sjtu.se.hospital.entity.ScheduleCoKey;
-import com.sjtu.se.hospital.repository.AppointmentRepository;
 import com.sjtu.se.hospital.repository.ScheduleRepository;
-import jdk.nashorn.internal.runtime.options.Option;
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityNotFoundException;
 import java.sql.Date;
 import java.util.LinkedList;
 import java.util.List;
