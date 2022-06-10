@@ -38,7 +38,6 @@ public class PatientController {
             @RequestParam("date") String date,
             @RequestParam("time") String time
     ) {
-//        return null;
         return patientService.cancelAppointment(ranking,patientID,deptID,doctorID,date,time);
     }
 
