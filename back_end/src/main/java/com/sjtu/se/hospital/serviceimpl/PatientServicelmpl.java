@@ -42,11 +42,10 @@ public class PatientServicelmpl implements PatientService {
     private HistoryDao historyDao;
 
 
-
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     @Override
     public Appointment addAppointment(Integer patientID, Integer deptID, Integer doctorID, String datestr, String time) {
-        Date date = null;
+        Date date;
         try {
             date = new Date(new SimpleDateFormat("yyyy-MM-dd").parse(datestr).getTime());
         } catch (ParseException e) {
