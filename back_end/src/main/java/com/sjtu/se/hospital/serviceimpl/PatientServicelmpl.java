@@ -2,12 +2,10 @@ package com.sjtu.se.hospital.serviceimpl;
 
 
 import com.sjtu.se.hospital.constant.Constant;
-import com.sjtu.se.hospital.dao.AppointmentDao;
-import com.sjtu.se.hospital.dao.HistoryDao;
-import com.sjtu.se.hospital.dao.RecordDao;
-import com.sjtu.se.hospital.dao.ScheduleDao;
+import com.sjtu.se.hospital.dao.*;
 import com.sjtu.se.hospital.entity.*;
 import com.sjtu.se.hospital.service.PatientService;
+import com.sjtu.se.hospital.service.UserService;
 import com.sjtu.se.hospital.utils.RedisLockService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -33,6 +31,8 @@ import java.util.List;
 public class PatientServicelmpl implements PatientService {
 
     @Autowired
+    PatientDao patientDao;
+    @Autowired
     private AppointmentDao appointmentDao;
 
     @Autowired
@@ -46,6 +46,9 @@ public class PatientServicelmpl implements PatientService {
 
     @Autowired
     private RedisLockService redisLockService;
+
+    @Autowired
+    private UserService userService;
 
     @Bean
     public RedisLockService redisLockService(RedisLockRegistry redisLockRegistry) {
@@ -166,4 +169,22 @@ public class PatientServicelmpl implements PatientService {
         historyDao.updateHistory(ID, date, newDes);
     }
 
+    @Override
+    public boolean register(String name, String gender, String email, String phone, Integer age, String username, String password) {
+        if(!userService.checkValid(username)) {
+            return false;
+
+        }
+        Patient patient = new Patient(name,gender,email,phone,age);
+        patient.setUsername(username);
+        patient.setPassword(password);
+        patientDao.save(patient);
+//        userService.createUser(username,password);
+        return true;
+    }
+
+    @Override
+    public Patient resetPatient(Integer id) {
+        return patientDao.resetPunish(id);
+    }
 }

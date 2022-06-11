@@ -17,4 +17,8 @@ public interface PatientService {
     void addHistory(Date time, Integer patientID, Integer deptID);
     void removeHistory(Date date, Integer patientID, Integer deptID);
     void updateDescription(Integer ID, String time, String newDes);
+
+    boolean register(String name,String gender,String email,String phone,Integer age,String username ,String password);
+
+    Patient resetPatient(Integer id);
 }

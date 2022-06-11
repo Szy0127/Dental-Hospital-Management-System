@@ -14,7 +14,19 @@ public class Constant {
     public static final String REMEMBER_ME = "remember";
     public static final String JSESSIONID = "JSESSIONID";
 
+
+    public static final Integer NO_SUCH_USER = -1;
+    public static final Integer MANAGER = 10;
+    public static final Integer CUSTOMER = 1;
+
+    public static final Integer Type_Patient = 1;
+    public static final Integer Type_Doctor = 2;
+    public static final Integer Type_Admin = 3;
+
     public static final Integer N_MORNING_MAX = 30;
     public static final Integer N_AFTERNOON_MAX = 40;
-    public static final Integer CUSTOMER = 1;
+
+    public static final Integer Punish_MAX = 3;//3次
+    public static final Integer Punish_Day = 3;//3天
+
 }
