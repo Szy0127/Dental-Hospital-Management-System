@@ -9,6 +9,5 @@ public interface ScheduleDao {
 
     Schedule getSchedule(Integer doctorID, Date date);
     List<Schedule> getFullScheduleByDateTime(Date date, String time);
-    void update(Schedule schedule,String time);
-    void cancel(Integer doctorID,Date date,String time);
+    Schedule update(Schedule schedule);
 }

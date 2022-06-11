@@ -20,29 +20,29 @@ public interface ScheduleRepository extends JpaRepository<Schedule, ScheduleCoKe
     @Override
     Optional<Schedule> findById(ScheduleCoKey scheduleCoKey);
 
-    @Query(value = "update schedule set n_morning = n_morning+1,rank_morning=rank_morning+1 where doctorID=:doctorID and date=:date",nativeQuery = true)
-    @Modifying
-    void updateMorning(
-            @Param("doctorID") Integer doctorID,
-            @Param("date")java.sql.Date date);
-
-    @Query(value = "update schedule set n_afternoon = n_afternoon+1,rank_afternoon=rank_afternoon+1 where doctorID=:doctorID and date=:date",nativeQuery = true)
-    @Modifying
-    void updateAfternoon(
-            @Param("doctorID") Integer doctorID,
-            @Param("date")Date date);
-
-    @Query(value = "update schedule set n_morning = n_morning-1 where doctorID=:doctorID and date=:date",nativeQuery = true)
-    @Modifying
-    void cancelMorning(
-            @Param("doctorID") Integer doctorID,
-            @Param("date")Date date);
-
-    @Query(value = "update schedule set n_afternoon = n_afternoon-1 where doctorID=:doctorID and date=:date",nativeQuery = true)
-    @Modifying
-    void cancelAfternoon(
-            @Param("doctorID") Integer doctorID,
-            @Param("date")Date date);
+//    @Query(value = "update schedule set n_morning = n_morning+1,rank_morning=rank_morning+1 where doctorID=:doctorID and date=:date",nativeQuery = true)
+//    @Modifying
+//    void updateMorning(
+//            @Param("doctorID") Integer doctorID,
+//            @Param("date")java.sql.Date date);
+//
+//    @Query(value = "update schedule set n_afternoon = n_afternoon+1,rank_afternoon=rank_afternoon+1 where doctorID=:doctorID and date=:date",nativeQuery = true)
+//    @Modifying
+//    void updateAfternoon(
+//            @Param("doctorID") Integer doctorID,
+//            @Param("date")Date date);
+//
+//    @Query(value = "update schedule set n_morning = n_morning-1 where doctorID=:doctorID and date=:date",nativeQuery = true)
+//    @Modifying
+//    void cancelMorning(
+//            @Param("doctorID") Integer doctorID,
+//            @Param("date")Date date);
+//
+//    @Query(value = "update schedule set n_afternoon = n_afternoon-1 where doctorID=:doctorID and date=:date",nativeQuery = true)
+//    @Modifying
+//    void cancelAfternoon(
+//            @Param("doctorID") Integer doctorID,
+//            @Param("date")Date date);
 
 
     @Query("select s from Schedule s where s.date=:date")
@@ -52,4 +52,5 @@ public interface ScheduleRepository extends JpaRepository<Schedule, ScheduleCoKe
 
     @Query("select s from Schedule s where s.doctorID=:ID")
     List<Schedule> getSchedule(@Param("ID")Integer ID);
+    
 }

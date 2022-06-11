@@ -60,16 +60,20 @@ public class PatientServicelmpl implements PatientService {
                 appointment.setRanking(0);
                 return appointment;
             }
-            appointment.setRanking(schedule.getRank_morning() + 1);
+            schedule.setN_morning(schedule.getN_morning()+1);
+            schedule.setRank_morning(schedule.getRank_morning()+1);
+            appointment.setRanking(schedule.getRank_morning());
         } else {
             if (schedule.getN_afternoon() >= Constant.N_AFTERNOON_MAX) {
                 appointment.setRanking(0);
                 return appointment;
             }
+            schedule.setRank_afternoon(schedule.getRank_afternoon()+1);
+            schedule.setN_afternoon(schedule.getN_afternoon()+1);
             appointment.setRanking(schedule.getRank_afternoon() + 1);
         }
 
-        scheduleDao.update(schedule, time);
+        scheduleDao.update(schedule);
         appointmentDao.addAppointment(appointment);
         addHistory(date,patientID,deptID);
         return appointment;
@@ -87,7 +91,14 @@ public class PatientServicelmpl implements PatientService {
         }
         boolean success = appointmentDao.cancelAppointment(new Appointment(ranking,patientID,deptID,doctorID,date,time));
         if(success){
-            scheduleDao.cancel(doctorID, date,time);
+            Schedule schedule = scheduleDao.getSchedule(doctorID, date);
+
+            if (time.equals("m")) {
+                schedule.setN_morning(schedule.getN_morning()-1);
+            } else {
+                schedule.setN_afternoon(schedule.getN_afternoon()-1);
+            }
+            scheduleDao.update(schedule);
             removeHistory(date,patientID,deptID);
         }
         return success;

@@ -70,22 +70,25 @@ public class ScheduleDaoImpl implements ScheduleDao {
 //    public void saveSchedule(Schedule schedule){
 //        scheduleRepository.save(schedule);
 //    }
+    /*
+    只允许用scheduleRepository方法取出来的对象 修改后save 才可以
+    否则save时会当作另一个对象 没法存进去 只能先delete再save
+     */
     @Override
-    public void update(Schedule schedule,String time){
-        if(time.equals("m")){
-            scheduleRepository.updateMorning(schedule.getDoctorID(),schedule.getDate());
-        }else{
-            scheduleRepository.updateAfternoon(schedule.getDoctorID(),schedule.getDate());
-        }
+    public Schedule update(Schedule schedule){
+        scheduleRepository.delete(schedule);
+        scheduleRepository.flush();
+        scheduleRepository.save(schedule);
+        return schedule;
     }
-
-    @Override
-    public void cancel(Integer doctorID, Date date,String time) {
-        if(time.equals("m")){
-            scheduleRepository.cancelMorning(doctorID,date);
-        }else{
-            scheduleRepository.cancelAfternoon(doctorID,date);
-        }
-    }
+//
+//    @Override
+//    public void cancel(Integer doctorID, Date date,String time) {
+//        if(time.equals("m")){
+//            scheduleRepository.cancelMorning(doctorID,date);
+//        }else{
+//            scheduleRepository.cancelAfternoon(doctorID,date);
+//        }
+//    }
 
 }
