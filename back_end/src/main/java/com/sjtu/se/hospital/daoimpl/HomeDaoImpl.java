@@ -25,12 +25,7 @@ public class HomeDaoImpl implements HomeDao {
         List<News> oldNews = newsRepository.getNews();
 
         for (News p : oldNews) {
-            sortedNews.addFirst(new News(
-                    p.getId(),
-                    p.getDate(),
-                    p.getTitle(),
-                    p.getContent()
-            ));
+            sortedNews.addFirst(p);
         }
 
         return sortedNews;
@@ -42,14 +37,19 @@ public class HomeDaoImpl implements HomeDao {
         List<Notification> old = notificationRepository.getNotifications();
 
         for (Notification p : old) {
-            sorted.addFirst(new Notification(
-                    p.getId(),
-                    p.getDate(),
-                    p.getTitle(),
-                    p.getContent()
-            ));
+            sorted.addFirst(p);
         }
 
         return sorted;
+    }
+
+    @Override
+    public News addNews(News news) {
+        return newsRepository.save(news);
+    }
+
+    @Override
+    public Notification addNotification(Notification notification) {
+        return notificationRepository.save(notification);
     }
 }

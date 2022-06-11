@@ -6,10 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Date;
 
 @Data
@@ -19,7 +16,8 @@ import java.sql.Date;
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "id")
 public class Notification {
     @Id
-    @Column(name = "ID")
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private Date date;
@@ -27,8 +25,8 @@ public class Notification {
     private String content;
 
     public Notification() {}
-    public Notification(Integer id, Date date, String title, String content) {
-        this.id = id;
+    public Notification(Date date, String title, String content) {
+        this.id = 0;
         this.date = date;
         this.title = title;
         this.content = content;

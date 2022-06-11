@@ -23,4 +23,12 @@ public class DepartmentController {
     public Department getDeptOnly(@RequestParam("deptID")Integer ID) {
         return departmentService.getDeptOnly(ID);
     }
+
+    @RequestMapping("/alterDeptName")
+    public void alterDeptName(
+            @RequestParam("deptId") int deptId,
+            @RequestParam("name") String name
+    ) {
+        departmentService.alterDeptName(deptId, name);
+    }
 }

@@ -6,10 +6,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Date;
 
 @Data
@@ -19,6 +16,7 @@ import java.sql.Date;
 public class News {
     @Id
     @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private Date date;
@@ -26,8 +24,8 @@ public class News {
     private String content;
 
     public News() {}
-    public News(Integer ID, Date date, String title, String content) {
-        this.id = ID;
+    public News(Date date, String title, String content) {
+        this.id = 0;
         this.date = date;
         this.title = title;
         this.content = content;

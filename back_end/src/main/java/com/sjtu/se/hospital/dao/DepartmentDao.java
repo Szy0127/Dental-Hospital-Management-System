@@ -7,4 +7,5 @@ import java.util.List;
 public interface DepartmentDao {
     List<Department> getDepartments();
     Department getDeptOnly(Integer ID);
+    void alterDeptName(int deptId, String name);
 }

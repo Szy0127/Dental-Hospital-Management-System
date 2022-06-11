@@ -1,6 +1,7 @@
 package com.sjtu.se.hospital.controller;
 
 import com.sjtu.se.hospital.entity.Appointment;
+import com.sjtu.se.hospital.entity.Doctor;
 import com.sjtu.se.hospital.entity.DoctorEdited;
 import com.sjtu.se.hospital.entity.Schedule;
 import com.sjtu.se.hospital.service.DoctorService;
@@ -36,4 +37,17 @@ public class DoctorController {
         return doctorService.getAppointments(ID);
     }
 
+//    @RequestMapping("/modifyDoctor")
+//    Doctor addNewDoctor(
+//            @RequestParam("id") Integer id, //添加新医生：0， 修改医生信息：需指定id
+//            @RequestParam("name") String name,
+//            @RequestParam("gender") String gender,
+//            @RequestParam("deptId") Integer deptId,
+//            @RequestParam("age") Integer age,
+//            @RequestParam("post") String post,
+//            @RequestParam("avatar") String avatar,
+//            @RequestParam("intro") String intro
+//    ) {
+//        return doctorService.addNewDoctor(new Doctor(name, gender, deptId, age, post, avatar, intro));
+//    }
 }

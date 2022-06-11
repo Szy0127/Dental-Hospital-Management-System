@@ -23,4 +23,14 @@ public class HomeServiceImpl implements HomeService{
     public List<Notification> getNotifications() {
         return homeDao.getNotifications();
     }
+
+    @Override
+    public News addNews(News news) {
+        return homeDao.addNews(news);
+    }
+
+    @Override
+    public Notification addNotification(Notification notification) {
+        return homeDao.addNotification(notification);
+    }
 }

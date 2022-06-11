@@ -10,8 +10,10 @@ import com.sjtu.se.hospital.repository.ScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.print.Doc;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class DoctorDaoImpl implements DoctorDao {
@@ -59,5 +61,22 @@ public class DoctorDaoImpl implements DoctorDao {
     @Override
     public List<Schedule> getSchedule(Integer ID) {
         return scheduleRepository.getSchedule(ID);
+    }
+
+    @Override
+    public Doctor addNewDoctor(Doctor doctor) {
+        Optional<Doctor> doctor_old = doctorRepository.findById(doctor.getId());
+        if (doctor_old.isPresent()) {
+            doctor_old.get().setName(doctor.getName());
+            doctor_old.get().setGender(doctor.getGender());
+            doctor_old.get().setDeptID(doctor.getDeptID());
+            doctor_old.get().setAge(doctor.getAge());
+            doctor_old.get().setPost(doctor.getPost());
+            doctor_old.get().setAvatar(doctor.getAvatar());
+            doctor_old.get().setIntro(doctor.getIntro());
+            return doctorRepository.save(doctor_old.get());
+        } else {
+            return doctorRepository.save(doctor);
+        }
     }
 }

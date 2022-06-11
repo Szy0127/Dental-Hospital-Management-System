@@ -1,30 +1,48 @@
 package com.sjtu.se.hospital.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.CustomLog;
+import com.sjtu.se.hospital.constant.Constant;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+@NoArgsConstructor
 @Data
 @Entity
 @Table(name = "doctor")
-@JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
-public class Doctor {
+public class Doctor extends User {
 
-    @Id
-    @Column(name = "id")
-    private int id;
-
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "gender")
     private String gender;
+
     @Column(name = "dept_id")
     private Integer deptID;
+
+    @Column(name = "age")
     private Integer age;
+
+    @Column(name = "post")
     private String post;
+
+    @Column(name = "avatar")
     private String avatar;
+
+    @Column(name = "intro")
     private String intro;
+
+    public Doctor(String name, String gender, Integer deptID, Integer age, String post, String avatar, String intro) {
+//        this.setId(id);
+        this.setType(Constant.Type_Doctor);
+        this.name = name;
+        this.gender = gender;
+        this.deptID = deptID;
+        this.age = age;
+        this.post = post;
+        this.avatar = avatar;
+        this.intro = intro;
+    }
 }

@@ -6,6 +6,7 @@ import com.sjtu.se.hospital.utils.SessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.List;
 
 @CrossOrigin
@@ -68,15 +69,14 @@ public class PatientController {
         return patientService.getHistories(ID);
     }
 
-//    @RequestMapping("/addHistory")
-//    public void addHistory(
-//            @RequestParam("time")String time,
-//            @RequestParam("patientID")Integer patientID,
-//            @RequestParam("deptID")Integer deptID,
-//            @RequestParam("description")String des
-//    ) {
-//        patientService.addHistory(time, patientID, deptID, des);
-//    }
+    @RequestMapping("/addHistory")
+    public void addHistory(
+            @RequestParam("time") Date time,
+            @RequestParam("patientID")Integer patientID,
+            @RequestParam("deptID")Integer deptID
+    ) {
+        patientService.addHistory(time, patientID, deptID);
+    }
 
     @RequestMapping("/updateDescriptionOfHistory")
     public void updateDescription(

@@ -3,6 +3,7 @@ package com.sjtu.se.hospital.serviceimpl;
 import com.sjtu.se.hospital.dao.AppointmentDao;
 import com.sjtu.se.hospital.dao.DoctorDao;
 import com.sjtu.se.hospital.entity.Appointment;
+import com.sjtu.se.hospital.entity.Doctor;
 import com.sjtu.se.hospital.entity.DoctorEdited;
 import com.sjtu.se.hospital.entity.Schedule;
 import com.sjtu.se.hospital.service.DoctorService;
@@ -36,5 +37,10 @@ public class DoctorServiceImpl implements DoctorService {
     @Override
     public List<Appointment> getAppointments(Integer ID) {
         return appointmentDao.getAppointmentsByDoc(ID);
+    }
+
+    @Override
+    public Doctor addNewDoctor(Doctor doctor) {
+        return doctorDao.addNewDoctor(doctor);
     }
 }

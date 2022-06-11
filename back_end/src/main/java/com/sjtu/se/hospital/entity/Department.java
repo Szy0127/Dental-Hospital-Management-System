@@ -14,6 +14,7 @@ public class Department {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String title;

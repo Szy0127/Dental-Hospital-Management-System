@@ -8,4 +8,6 @@ import java.util.List;
 public interface HomeService {
     List<News> getNews();
     List<Notification> getNotifications();
+    News addNews(News news);
+    Notification addNotification(Notification notification);
 }

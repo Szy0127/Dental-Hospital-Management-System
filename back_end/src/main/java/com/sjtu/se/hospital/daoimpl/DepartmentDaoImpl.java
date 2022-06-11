@@ -22,4 +22,11 @@ public class DepartmentDaoImpl implements DepartmentDao {
     public Department getDeptOnly(Integer ID) {
         return departmentRepository.getOne(ID);
     }
+
+    @Override
+    public void alterDeptName(int deptId, String name) {
+        Department department = departmentRepository.getOne(deptId);
+        department.setTitle(name);
+        departmentRepository.save(department);
+    }
 }

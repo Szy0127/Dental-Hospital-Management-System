@@ -13,8 +13,6 @@ import java.util.List;
 public class DepartmentServiceImpl implements DepartmentService {
     @Autowired
     private DepartmentDao departmentDao;
-    @Autowired
-    private DoctorDao doctorDao;
 
     @Override
     public List<Department> getDepartments() {
@@ -24,5 +22,10 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public Department getDeptOnly(Integer ID) {
         return departmentDao.getDeptOnly(ID);
+    }
+
+    @Override
+    public void alterDeptName(int deptId, String name) {
+        departmentDao.alterDeptName(deptId, name);
     }
 }

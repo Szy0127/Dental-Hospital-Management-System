@@ -8,4 +8,5 @@ import java.util.List;
 public interface DepartmentService {
     List<Department> getDepartments();
     Department getDeptOnly(Integer ID);
+    void alterDeptName(int deptId, String name);
 }
