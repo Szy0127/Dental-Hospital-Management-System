@@ -21,6 +21,7 @@ public class Doctor {
 
     private String name;
     private String gender;
+    @Column(name = "dept_id")
     private Integer deptID;
     private Integer age;
     private String post;

@@ -23,7 +23,9 @@ public class History {
     private int id;
 
     private Date time;
+    @Column(name = "patient_id")
     private int patientID;
+    @Column(name = "dept_id")
     private int deptID;
     private String description;
 

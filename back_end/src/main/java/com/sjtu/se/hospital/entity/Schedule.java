@@ -19,7 +19,7 @@ import java.sql.Date;
 public class Schedule {
 
     @Id
-    @Column(name="doctorID")
+    @Column(name="doctor_id")
     private Integer doctorID;
 
     @Id
