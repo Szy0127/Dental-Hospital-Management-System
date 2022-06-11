@@ -1,9 +1,7 @@
 package com.sjtu.se.hospital.dao;
 
-import com.sjtu.se.hospital.entity.Record;
-
-import java.util.List;
+import com.sjtu.se.hospital.entity.Patient;
 
 public interface RecordDao {
-    Record getRecord(Integer ID);
+    Patient getRecord(Integer ID);
 }

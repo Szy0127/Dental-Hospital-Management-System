@@ -1,10 +1,7 @@
 package com.sjtu.se.hospital.controller;
 
 import com.sjtu.se.hospital.entity.Department;
-import com.sjtu.se.hospital.entity.DepartmentEdited;
-import com.sjtu.se.hospital.entity.DoctorEdited;
 import com.sjtu.se.hospital.service.DepartmentService;
-import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,11 +15,11 @@ public class DepartmentController {
     private DepartmentService departmentService;
 
     @RequestMapping("/getDepartments")
-    public List<DepartmentEdited> getDepartments() {
+    public List<Department> getDepartments() {
         return departmentService.getDepartments();
     }
 
-    @RequestMapping("/getDeptName")
+    @RequestMapping("/getDeptOnly")
     public Department getDeptOnly(@RequestParam("deptID")Integer ID) {
         return departmentService.getDeptOnly(ID);
     }

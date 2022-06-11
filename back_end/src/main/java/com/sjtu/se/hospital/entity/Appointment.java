@@ -20,14 +20,14 @@ public class Appointment implements Serializable {
     private Integer ranking;
 
     @Id
-    @Column(name = "patientID")
+    @Column(name = "patient_id")
     private Integer patientID;
 
-    @Column(name = "deptID")
+    @Column(name = "dept_id")
     private Integer deptID;
 
     @Id
-    @Column(name = "doctorID")
+    @Column(name = "doctor_id")
     private Integer doctorID;
 
     @Id

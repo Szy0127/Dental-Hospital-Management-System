@@ -137,7 +137,7 @@ public class PatientServicelmpl implements PatientService {
     }
 
     @Override
-    public Record getPatientInfo(Integer ID) {
+    public Patient getPatientInfo(Integer ID) {
         return recordDao.getRecord(ID);
     }
 

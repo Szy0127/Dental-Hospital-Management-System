@@ -1,13 +1,13 @@
 package com.sjtu.se.hospital.repository;
 
-import com.sjtu.se.hospital.entity.Record;
+import com.sjtu.se.hospital.entity.Patient;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import javax.transaction.Transactional;
 
-public interface RecordRepository extends JpaRepository<Record,Integer> {
+public interface RecordRepository extends JpaRepository<Patient,Integer> {
 
     @Transactional
     @Modifying

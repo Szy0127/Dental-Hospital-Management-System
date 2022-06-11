@@ -2,10 +2,8 @@ package com.sjtu.se.hospital.serviceimpl;
 
 import com.sjtu.se.hospital.dao.AppointmentDao;
 import com.sjtu.se.hospital.dao.DoctorDao;
-import com.sjtu.se.hospital.dao.RecordDao;
 import com.sjtu.se.hospital.entity.Appointment;
 import com.sjtu.se.hospital.entity.DoctorEdited;
-import com.sjtu.se.hospital.entity.Record;
 import com.sjtu.se.hospital.entity.Schedule;
 import com.sjtu.se.hospital.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;

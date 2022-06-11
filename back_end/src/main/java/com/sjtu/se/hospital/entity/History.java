@@ -16,11 +16,10 @@ import java.sql.Date;
 @Entity
 @Table(name = "history")
 @JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "id")
 public class History {
 
     @Id
-    @Column(name = "ID")
+    @Column(name = "id")
     private int id;
 
     private Date time;

@@ -5,7 +5,6 @@ import com.sjtu.se.hospital.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
 import java.util.List;
 
 @CrossOrigin
@@ -54,7 +53,7 @@ public class PatientController {
     }
 
     @RequestMapping("/getPatientInfo")
-    public Record getPatientInfo(@RequestParam("patientID") Integer ID) {
+    public Patient getPatientInfo(@RequestParam("patientID") Integer ID) {
         return patientService.getPatientInfo(ID);
     }
 

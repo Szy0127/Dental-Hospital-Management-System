@@ -3,11 +3,7 @@ package com.sjtu.se.hospital.serviceimpl;
 import com.sjtu.se.hospital.dao.DepartmentDao;
 import com.sjtu.se.hospital.dao.DoctorDao;
 import com.sjtu.se.hospital.entity.Department;
-import com.sjtu.se.hospital.entity.DepartmentEdited;
-import com.sjtu.se.hospital.entity.Doctor;
-import com.sjtu.se.hospital.entity.DoctorEdited;
 import com.sjtu.se.hospital.service.DepartmentService;
-import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +17,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     private DoctorDao doctorDao;
 
     @Override
-    public List<DepartmentEdited> getDepartments() {
+    public List<Department> getDepartments() {
         return departmentDao.getDepartments();
     }
 
