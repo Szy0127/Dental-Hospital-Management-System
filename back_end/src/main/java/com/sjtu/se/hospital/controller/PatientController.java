@@ -2,6 +2,7 @@ package com.sjtu.se.hospital.controller;
 import com.sjtu.se.hospital.entity.*;
 import com.sjtu.se.hospital.service.MQService;
 import com.sjtu.se.hospital.service.PatientService;
+import com.sjtu.se.hospital.utils.SessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,13 +21,18 @@ public class PatientController {
 
     @RequestMapping("/addAppointment")
     public Appointment addAppointment(
-            @RequestParam("patientID") Integer patientID,
+//            @RequestParam("patientID") Integer patientID,
             @RequestParam("deptID") Integer deptID,
             @RequestParam("doctorID") Integer doctorID,
             @RequestParam("date") String date,
             @RequestParam("time") String time
     ) {
 //        mqService.produce(new AppointmentAdding(patientID, deptID, doctorID, date, time));
+        Integer patientID = SessionUtil.checkAuth();
+        System.out.println(patientID);
+        if (patientID == 0) {
+            return null;
+        }
         return patientService.addAppointment(patientID,deptID,doctorID,date,time);
     }
     @RequestMapping("/cancelAppointment")
