@@ -8,7 +8,10 @@ import com.sjtu.se.hospital.dao.RecordDao;
 import com.sjtu.se.hospital.dao.ScheduleDao;
 import com.sjtu.se.hospital.entity.*;
 import com.sjtu.se.hospital.service.PatientService;
+import com.sjtu.se.hospital.utils.RedisLockService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.integration.redis.util.RedisLockRegistry;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -41,6 +44,13 @@ public class PatientServicelmpl implements PatientService {
     @Autowired
     private HistoryDao historyDao;
 
+    @Autowired
+    private RedisLockService redisLockService;
+
+    @Bean
+    public RedisLockService redisLockService(RedisLockRegistry redisLockRegistry) {
+        return new RedisLockService(redisLockRegistry);
+    }
 
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     @Override
@@ -53,10 +63,13 @@ public class PatientServicelmpl implements PatientService {
             return null;
         }
         Appointment appointment = new Appointment(patientID, deptID, doctorID, date, time);
+
+        redisLockService.lock(doctorID + String.valueOf(date));
         Schedule schedule = scheduleDao.getSchedule(doctorID, date);
 
         if (time.equals("m")) {
             if (schedule.getN_morning() >= Constant.N_MORNING_MAX) {
+                redisLockService.unlock(doctorID + String.valueOf(date));
                 appointment.setRanking(0);
                 return appointment;
             }
@@ -65,15 +78,17 @@ public class PatientServicelmpl implements PatientService {
             appointment.setRanking(schedule.getRank_morning());
         } else {
             if (schedule.getN_afternoon() >= Constant.N_AFTERNOON_MAX) {
+                redisLockService.unlock(doctorID + String.valueOf(date));
                 appointment.setRanking(0);
                 return appointment;
             }
             schedule.setRank_afternoon(schedule.getRank_afternoon()+1);
             schedule.setN_afternoon(schedule.getN_afternoon()+1);
-            appointment.setRanking(schedule.getRank_afternoon() + 1);
+            appointment.setRanking(schedule.getRank_afternoon());
         }
 
         scheduleDao.update(schedule);
+        redisLockService.unlock(doctorID + String.valueOf(date));
         appointmentDao.addAppointment(appointment);
         addHistory(date,patientID,deptID);
         return appointment;

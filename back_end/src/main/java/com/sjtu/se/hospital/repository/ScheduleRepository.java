@@ -52,5 +52,5 @@ public interface ScheduleRepository extends JpaRepository<Schedule, ScheduleCoKe
 
     @Query("select s from Schedule s where s.doctorID=:ID")
     List<Schedule> getSchedule(@Param("ID")Integer ID);
-    
+
 }

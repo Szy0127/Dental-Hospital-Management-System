@@ -10,6 +10,8 @@ import jdk.nashorn.internal.runtime.options.Option;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Repository;
 
@@ -27,6 +29,7 @@ public class ScheduleDaoImpl implements ScheduleDao {
     @Nullable
 //    @NotFound(action = NotFoundAction.IGNORE)
     @Override
+    @Cacheable(value={"Schedule"},key="#doctorID + '_' + #date",sync = true)
     public Schedule getSchedule(Integer doctorID, Date date){
         Optional<Schedule> s = scheduleRepository.findById(new ScheduleCoKey(doctorID,date));
 //        try{
@@ -75,6 +78,7 @@ public class ScheduleDaoImpl implements ScheduleDao {
     否则save时会当作另一个对象 没法存进去 只能先delete再save
      */
     @Override
+    @CachePut(value={"Schedule"},key="#schedule.getDoctorID() + '_' + #schedule.getDate()")
     public Schedule update(Schedule schedule){
         scheduleRepository.delete(schedule);
         scheduleRepository.flush();
