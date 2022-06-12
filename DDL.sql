@@ -1,3 +1,6 @@
+drop database hospital;
+create database hospital;
+
 use hospital;
 
 drop table if exists notification;
@@ -11,34 +14,34 @@ drop table if exists department;
 drop table if exists user;
 create table notification
 (
-    ID integer,
+    id integer auto_increment,
     date date,
     title varchar(50),
     content text,
-    primary key (ID)
+    primary key (id)
 );
 
 create table news
 (
-    ID integer,
+    id integer auto_increment,
     date date,
     title varchar(50),
     content text,
-    primary key (ID)
+    primary key (id)
 );
 
 create table department
 (
-    ID integer,
+    id integer auto_increment,
     title varchar(30),
     doc_num numeric(3) check ( doc_num >= 0 ),
-    primary key (ID)
+    primary key (id)
 );
 
 create table user
 (
-	ID integer not null auto_increment,
-    primary key (ID),
+	id integer not null auto_increment,
+    primary key (id),
 	username varchar(50),
     password char(64) not null,
     `type` integer not null
@@ -46,7 +49,7 @@ create table user
 
 create table patient
 (
-    ID integer,
+    id integer,
     name varchar(50),
     gender varchar(1) check ( gender in ('m', 'f') ),
     email varchar(50),
@@ -54,61 +57,61 @@ create table patient
     age integer check ( age >= 0 ),
     punish_count integer,#累计废号次数 达到n次后记录禁用开始时间
     punish_begin timestamp,#禁用开始时间
-    primary key (ID),
-    foreign key (ID) references user (ID) on delete cascade
+    primary key (id),
+    foreign key (id) references user (id) on delete cascade
 );
 
 
 create table doctor
 (
-    ID integer,
+    id integer auto_increment,
     name varchar(50),
     gender varchar(1), check ( gender in ('m', 'f') ),
-    deptID integer,
+    dept_id integer,
     age integer,
     post varchar(16),
     avatar TEXT,
     intro TEXT,
-    primary key (ID),
-    foreign key (deptID) references department (ID) on delete cascade
+    primary key (id),
+    foreign key (dept_id) references department (id) on delete cascade
 );
 
 create table history
 (
-    ID integer auto_increment,
+    id integer auto_increment,
     time date,
-    patientID integer,
-    deptID integer,
+    patient_id integer,
+    dept_id integer,
     description text,
-    primary key (ID),
-    foreign key (deptID) references department (ID) on delete cascade
+    primary key (id),
+    foreign key (dept_id) references department (id) on delete cascade
 );
 
 create table appointment
 (
     ranking integer,
-    patientID integer,
-    deptID integer,
-    doctorID integer,
+    patient_id integer,
+    dept_id integer,
+    doctor_id integer,
     date date,
     time varchar(1) check ( time in ('m', 'a') ),
-    primary key (date, ranking, patientID, doctorID),
-    unique key (ranking,doctorID,date,time),
-    unique key(patientID,doctorID,date,time),
-    foreign key (patientID) references patient (ID) on delete cascade,
-    foreign key (deptID) references department (ID) on delete cascade,
-    foreign key (doctorID) references department (ID) on delete cascade
+    primary key (date, ranking, patient_id, doctor_id),
+    unique key (ranking,doctor_id,date,time),
+    unique key(patient_id,doctor_id,date,time),
+    foreign key (patient_id) references patient (id) on delete cascade,
+    foreign key (dept_id) references department (id) on delete cascade,
+    foreign key (doctor_id) references department (id) on delete cascade
 );
 
 create table schedule
 (
-    doctorID integer,
+    doctor_id integer,
     date date,
     n_morning integer check ( n_morning >= 0 ),
     n_afternoon integer check ( n_afternoon >= 0 ),
     rank_morning integer check ( rank_morning >= 0 ),
     rank_afternoon integer check ( rank_afternoon >= 0 ),
     content varchar(50),
-    primary key (doctorID, date),
-    foreign key (doctorID) references doctor (ID) on delete cascade
+    primary key (doctor_id, date),
+    foreign key (doctor_id) references doctor (id) on delete cascade
 );
