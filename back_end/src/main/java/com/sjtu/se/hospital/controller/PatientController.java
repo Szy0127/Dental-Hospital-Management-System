@@ -29,7 +29,6 @@ public class PatientController {
     ) {
 //        mqService.produce(new AppointmentAdding(patientID, deptID, doctorID, date, time));
         Integer patientID = SessionUtil.checkAuth();
-        System.out.println(patientID);
         if (patientID == 0) {
             return null;
         }

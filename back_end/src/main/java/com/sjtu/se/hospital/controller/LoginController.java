@@ -2,6 +2,7 @@ package com.sjtu.se.hospital.controller;
 
 
 import com.sjtu.se.hospital.constant.Constant;
+import com.sjtu.se.hospital.dao.ConstantDao;
 import com.sjtu.se.hospital.entity.Patient;
 import com.sjtu.se.hospital.entity.User;
 import com.sjtu.se.hospital.service.PatientService;
@@ -25,6 +26,9 @@ public class LoginController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    ConstantDao constantDao;
 
     @PostMapping("/register")
     public boolean register(
@@ -53,13 +57,13 @@ public class LoginController {
         if(user != null){
             if(user.getType().equals(Constant.Type_Patient)){
                 Patient patient = (Patient) user;
-                if(patient.getPunish_count() == Constant.Punish_MAX){
+                if(patient.getPunish_count() == constantDao.getPunishCount()){
                     long begin = patient.getPunish_begin().getTime();
                     long now = new Date().getTime();
-                    if(now < begin){//惩罚结束
-                        patientService.resetPatient(patient.getId());
-                    }else{
+                    if(now - begin < constantDao.getPunishDuration() * 1000 * 3600 * 24){//惩罚结束
                         return MsgUtil.makeMsg(false, MsgUtil.BANNED);
+                    }else{
+                        patientService.resetPatient(patient.getId());
                     }
                 }
             }

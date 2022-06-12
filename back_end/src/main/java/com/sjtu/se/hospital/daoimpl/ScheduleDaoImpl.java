@@ -1,6 +1,7 @@
 package com.sjtu.se.hospital.daoimpl;
 
 import com.sjtu.se.hospital.constant.Constant;
+import com.sjtu.se.hospital.dao.ConstantDao;
 import com.sjtu.se.hospital.dao.ScheduleDao;
 import com.sjtu.se.hospital.entity.Schedule;
 import com.sjtu.se.hospital.entity.ScheduleCoKey;
@@ -25,6 +26,9 @@ import java.util.Optional;
 public class ScheduleDaoImpl implements ScheduleDao {
     @Autowired
     private ScheduleRepository scheduleRepository;
+
+    @Autowired
+    private ConstantDao constantDao;
 
     @Nullable
 //    @NotFound(action = NotFoundAction.IGNORE)
@@ -54,13 +58,13 @@ public class ScheduleDaoImpl implements ScheduleDao {
         List<Schedule> res = new LinkedList<>();
         if(time.equals("m")){
             for(Schedule s : fullSchedule){
-                if(s.getN_morning().equals(Constant.N_MORNING_MAX)){
+                if(s.getN_morning().equals(constantDao.getMorningMax())){
                     res.add(s);
                 }
             }
         }else{
             for(Schedule s : fullSchedule){
-                if(s.getN_afternoon().equals(Constant.N_AFTERNOON_MAX)){
+                if(s.getN_afternoon().equals(constantDao.getAfternoonMax())){
                     res.add(s);
                 }
             }
