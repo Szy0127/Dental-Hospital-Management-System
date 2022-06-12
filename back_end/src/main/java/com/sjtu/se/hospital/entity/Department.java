@@ -21,6 +21,13 @@ public class Department {
     private Integer doc_num;
 
     @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "dept_id", referencedColumnName = "id")
+    @JoinColumn(name = "dept_id", referencedColumnName = "id", updatable = false, insertable = false)
     private List<Doctor> doctors;
+
+    public Department() {}
+    public Department(String title) {
+        this.id = 0;
+        this.title = title;
+        this.doc_num = 0;
+    }
 }

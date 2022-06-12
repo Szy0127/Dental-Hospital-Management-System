@@ -39,6 +39,11 @@ public class DoctorDaoImpl implements DoctorDao {
     }
 
     @Override
+    public Doctor getDetailedDoctor(int doctorId) {
+        return doctorRepository.getOne(doctorId);
+    }
+
+    @Override
     public List<DoctorEdited> getDoctorsByDept(Integer ID) {
         List<Doctor> docs = doctorRepository.getDoctorsByDept(ID);
         LinkedList<DoctorEdited> res = new LinkedList<>();
@@ -67,16 +72,16 @@ public class DoctorDaoImpl implements DoctorDao {
     public Doctor addNewDoctor(Doctor doctor) {
         Optional<Doctor> doctor_old = doctorRepository.findById(doctor.getId());
         if (doctor_old.isPresent()) {
-            doctor_old.get().setName(doctor.getName());
-            doctor_old.get().setGender(doctor.getGender());
-            doctor_old.get().setDeptID(doctor.getDeptID());
-            doctor_old.get().setAge(doctor.getAge());
-            doctor_old.get().setPost(doctor.getPost());
-            doctor_old.get().setAvatar(doctor.getAvatar());
-            doctor_old.get().setIntro(doctor.getIntro());
+            doctorRepository.delete(doctor_old.get());
+            doctorRepository.flush();
             return doctorRepository.save(doctor_old.get());
         } else {
             return doctorRepository.save(doctor);
         }
+    }
+
+    @Override
+    public void delDoctor(int doctorId) {
+        doctorRepository.deleteById(doctorId);
     }
 }

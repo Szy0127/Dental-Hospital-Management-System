@@ -13,4 +13,5 @@ public interface DoctorService {
     List<Schedule> getSchedule(Integer ID);
     List<Appointment> getAppointments(Integer ID);
     Doctor addNewDoctor(Doctor doctor);
+    void delDoctor(int doctorId);
 }

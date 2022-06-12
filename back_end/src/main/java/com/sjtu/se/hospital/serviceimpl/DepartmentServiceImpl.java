@@ -25,6 +25,16 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
+    public Department addNewDept(Department department) {
+        return departmentDao.addNewDept(department);
+    }
+
+    @Override
+    public void delDept(int deptId) {
+        departmentDao.delDept(deptId);
+    }
+
+    @Override
     public void alterDeptName(int deptId, String name) {
         departmentDao.alterDeptName(deptId, name);
     }
