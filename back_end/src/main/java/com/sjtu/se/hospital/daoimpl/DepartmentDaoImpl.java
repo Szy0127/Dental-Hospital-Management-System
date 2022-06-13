@@ -24,9 +24,26 @@ public class DepartmentDaoImpl implements DepartmentDao {
     }
 
     @Override
+    public Department addNewDept(Department department) {
+        return departmentRepository.save(department);
+    }
+
+    @Override
+    public void delDept(int deptId) {
+        departmentRepository.deleteById(deptId);
+    }
+
+    @Override
     public void alterDeptName(int deptId, String name) {
         Department department = departmentRepository.getOne(deptId);
         department.setTitle(name);
+        departmentRepository.save(department);
+    }
+
+    @Override
+    public void alterDocNum(int deptId, int adding) {
+        Department department = departmentRepository.getOne(deptId);
+        department.setDoc_num(department.getDoc_num() + adding);
         departmentRepository.save(department);
     }
 }

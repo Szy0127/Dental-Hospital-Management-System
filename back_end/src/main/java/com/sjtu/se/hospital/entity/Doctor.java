@@ -34,9 +34,13 @@ public class Doctor extends User {
     @Column(name = "intro")
     private String intro;
 
-    public Doctor(String name, String gender, Integer deptID, Integer age, String post, String avatar, String intro) {
-//        this.setId(id);
+    public Doctor(Integer id, String username, String password, String name, String gender,
+                  Integer deptID, Integer age, String post, String avatar, String intro) {
+        this.setId(id);
+        this.setUsername(username);
+        this.setPassword(password);
         this.setType(Constant.Type_Doctor);
+
         this.name = name;
         this.gender = gender;
         this.deptID = deptID;

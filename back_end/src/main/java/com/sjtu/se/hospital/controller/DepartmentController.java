@@ -19,9 +19,19 @@ public class DepartmentController {
         return departmentService.getDepartments();
     }
 
-    @RequestMapping("/getDeptOnly")
+    @RequestMapping("/getOneDepartment")
     public Department getDeptOnly(@RequestParam("deptID")Integer ID) {
         return departmentService.getDeptOnly(ID);
+    }
+
+    @RequestMapping("/addNewDept")
+    public Department addNewDept(@RequestParam("title") String title) {
+        return departmentService.addNewDept(new Department(title));
+    }
+
+    @RequestMapping("delDept")
+    public void delDept(@RequestParam("deptId") int deptId) {
+        departmentService.delDept(deptId);
     }
 
     @RequestMapping("/alterDeptName")

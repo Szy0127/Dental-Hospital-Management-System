@@ -37,17 +37,24 @@ public class DoctorController {
         return doctorService.getAppointments(ID);
     }
 
-//    @RequestMapping("/modifyDoctor")
-//    Doctor addNewDoctor(
-//            @RequestParam("id") Integer id, //添加新医生：0， 修改医生信息：需指定id
-//            @RequestParam("name") String name,
-//            @RequestParam("gender") String gender,
-//            @RequestParam("deptId") Integer deptId,
-//            @RequestParam("age") Integer age,
-//            @RequestParam("post") String post,
-//            @RequestParam("avatar") String avatar,
-//            @RequestParam("intro") String intro
-//    ) {
-//        return doctorService.addNewDoctor(new Doctor(name, gender, deptId, age, post, avatar, intro));
-//    }
+    @RequestMapping("/modifyDoctor")
+    Doctor addNewDoctor(
+            @RequestParam("id") Integer id, //添加新医生：0， 修改医生信息：需指定id
+            @RequestParam("username") String username,
+            @RequestParam("password") String password,
+            @RequestParam("name") String name,
+            @RequestParam("gender") String gender,
+            @RequestParam("deptId") Integer deptId,
+            @RequestParam("age") Integer age,
+            @RequestParam("post") String post,
+            @RequestParam("avatar") String avatar,
+            @RequestParam("intro") String intro
+    ) {
+        return doctorService.addNewDoctor(new Doctor(id, username, password, name, gender, deptId, age, post, avatar, intro));
+    }
+
+    @RequestMapping("/delDoctor")
+    void delDoctor(@RequestParam("doctorId") int doctorId) {
+        doctorService.delDoctor(doctorId);
+    }
 }

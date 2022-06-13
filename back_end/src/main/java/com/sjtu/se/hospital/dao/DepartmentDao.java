@@ -8,4 +8,7 @@ public interface DepartmentDao {
     List<Department> getDepartments();
     Department getDeptOnly(Integer ID);
     void alterDeptName(int deptId, String name);
+    Department addNewDept(Department department);
+    void delDept(int deptId);
+    void alterDocNum(int deptId, int adding);
 }
