@@ -44,6 +44,11 @@ public class DoctorDaoImpl implements DoctorDao {
     }
 
     @Override
+    public Doctor getDoctor_v2(Integer ID) {
+        return doctorRepository.getOne(ID);
+    }
+
+    @Override
     public Doctor getDetailedDoctor(int doctorId) {
         return doctorRepository.getOne(doctorId);
     }

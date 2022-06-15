@@ -10,6 +10,8 @@ import java.util.List;
 
 public interface DoctorService {
     DoctorEdited getDoctor(Integer ID);
+
+    Doctor getDoctor_v2(Integer ID);
     List<DoctorEdited> getDoctorsByDept(Integer ID);
     List<Schedule> getSchedule(Integer ID);
     List<Appointment> getAppointments(Integer ID);

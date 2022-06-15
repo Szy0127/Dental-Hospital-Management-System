@@ -23,6 +23,11 @@ public class DoctorController {
         return doctorService.getDoctor(ID);
     }
 
+    @RequestMapping("/getDoctor_v2")
+    Doctor getDoctor_v2(@RequestParam("doctorID") Integer ID) {
+        return doctorService.getDoctor_v2(ID);
+    }
+
     @RequestMapping("/getDoctorsByDept")
     List<DoctorEdited> getDoctorsByDept(@RequestParam("deptID") Integer ID) {
         return doctorService.getDoctorsByDept(ID);

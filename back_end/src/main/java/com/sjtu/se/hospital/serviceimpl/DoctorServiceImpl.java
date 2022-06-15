@@ -25,6 +25,11 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
+    public Doctor getDoctor_v2(Integer ID) {
+        return doctorDao.getDoctor_v2(ID);
+    }
+
+    @Override
     public List<DoctorEdited> getDoctorsByDept(Integer ID) {
         return doctorDao.getDoctorsByDept(ID);
     }
