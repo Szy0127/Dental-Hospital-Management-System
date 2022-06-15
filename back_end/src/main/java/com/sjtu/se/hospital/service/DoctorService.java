@@ -5,6 +5,7 @@ import com.sjtu.se.hospital.entity.Doctor;
 import com.sjtu.se.hospital.entity.DoctorEdited;
 import com.sjtu.se.hospital.entity.Schedule;
 
+import javax.print.Doc;
 import java.util.List;
 
 public interface DoctorService {
