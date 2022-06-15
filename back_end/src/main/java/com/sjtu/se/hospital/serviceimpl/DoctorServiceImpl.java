@@ -20,17 +20,12 @@ public class DoctorServiceImpl implements DoctorService {
     private DepartmentDao departmentDao;
 
     @Override
-    public DoctorEdited getDoctor(Integer ID) {
+    public Doctor getDoctor(Integer ID) {
         return doctorDao.getDoctor(ID);
     }
 
-    @Override
-    public Doctor getDoctor_v2(Integer ID) {
-        return doctorDao.getDoctor_v2(ID);
-    }
+    public List<Doctor> getDoctorsByDept(Integer ID) {
 
-    @Override
-    public List<DoctorEdited> getDoctorsByDept(Integer ID) {
         return doctorDao.getDoctorsByDept(ID);
     }
 

@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "doctor")
+@JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 public class Doctor extends User {
 
     @Column(name = "name")
@@ -21,6 +22,10 @@ public class Doctor extends User {
 
     @Column(name = "dept_id")
     private Integer deptID;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
+    private Department department;
 
     @Column(name = "age")
     private Integer age;

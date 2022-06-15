@@ -2,17 +2,15 @@ package com.sjtu.se.hospital.service;
 
 import com.sjtu.se.hospital.entity.Appointment;
 import com.sjtu.se.hospital.entity.Doctor;
-import com.sjtu.se.hospital.entity.DoctorEdited;
 import com.sjtu.se.hospital.entity.Schedule;
 
-import javax.print.Doc;
 import java.util.List;
 
 public interface DoctorService {
-    DoctorEdited getDoctor(Integer ID);
 
-    Doctor getDoctor_v2(Integer ID);
-    List<DoctorEdited> getDoctorsByDept(Integer ID);
+    Doctor getDoctor(Integer ID);
+    List<Doctor> getDoctorsByDept(Integer ID);
+
     List<Schedule> getSchedule(Integer ID);
     List<Appointment> getAppointments(Integer ID);
     Doctor addNewDoctor(Doctor doctor);
