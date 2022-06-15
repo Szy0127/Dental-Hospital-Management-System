@@ -1,5 +1,6 @@
 package com.sjtu.se.hospital.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sjtu.se.hospital.constant.Constant;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import java.util.Objects;
 @Data
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

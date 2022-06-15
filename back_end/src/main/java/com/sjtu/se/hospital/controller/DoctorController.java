@@ -2,7 +2,6 @@ package com.sjtu.se.hospital.controller;
 
 import com.sjtu.se.hospital.entity.Appointment;
 import com.sjtu.se.hospital.entity.Doctor;
-import com.sjtu.se.hospital.entity.DoctorEdited;
 import com.sjtu.se.hospital.entity.Schedule;
 import com.sjtu.se.hospital.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.print.Doc;
 import java.util.List;
 
 @RestController
@@ -19,12 +17,12 @@ public class DoctorController {
     private DoctorService doctorService;
 
     @RequestMapping("/getDoctor")
-    DoctorEdited getDoctor(@RequestParam("doctorID") Integer ID) {
+    Doctor getDoctor(@RequestParam("doctorID") Integer ID) {
         return doctorService.getDoctor(ID);
     }
 
     @RequestMapping("/getDoctorsByDept")
-    List<DoctorEdited> getDoctorsByDept(@RequestParam("deptID") Integer ID) {
+    List<Doctor> getDoctorsByDept(@RequestParam("deptID") Integer ID) {
         return doctorService.getDoctorsByDept(ID);
     }
 
