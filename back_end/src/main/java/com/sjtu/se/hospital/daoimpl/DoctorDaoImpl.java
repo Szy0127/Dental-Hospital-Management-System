@@ -39,8 +39,7 @@ public class DoctorDaoImpl implements DoctorDao {
                 p.getAvatar(),
                 p.getIntro(),
                 p.getUsername(),
-                p.getPassword(),
-                p.getType()
+                p.getPassword()
         );
     }
 
@@ -66,8 +65,7 @@ public class DoctorDaoImpl implements DoctorDao {
                     p.getAvatar(),
                     p.getIntro(),
                     p.getUsername(),
-                    p.getPassword(),
-                    p.getType()
+                    p.getPassword()
             ));
         }
 

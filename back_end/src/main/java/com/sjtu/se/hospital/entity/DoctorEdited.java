@@ -13,11 +13,10 @@ public class DoctorEdited {
     public String intro;
     public String username;
     public String password;
-    public Integer type;
 
     public DoctorEdited() {}
     public DoctorEdited(int id, String name, String gen, Integer deptId, String dep, Integer age, String post, String ava,
-                        String intro, String username, String password, Integer type) {
+                        String intro, String username, String password) {
         this.id = id;
         this.name = name;
         this.gender = gen;
@@ -29,6 +28,5 @@ public class DoctorEdited {
         this.intro = intro;
         this.username = username;
         this.password = password;
-        this.type = type;
     }
 }
