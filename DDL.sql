@@ -12,6 +12,16 @@ drop table if exists doctor;
 drop table if exists history;
 drop table if exists department;
 drop table if exists user;
+drop table if exists constant;
+
+create table constant
+(
+	morning_max integer check ( morning_max >= 0 ),
+    afternoon_max integer check ( afternoon_max >= 0 ),
+    punish_count integer check ( punish_count >= 0 ),#超过n次禁止挂号
+    punish_duration integer check ( punish_duration >= 0 ),#一次禁止n天
+    primary key(morning_max)
+);
 create table notification
 (
     id integer auto_increment,
@@ -74,6 +84,7 @@ create table doctor
     intro TEXT,
     primary key (id),
     foreign key (dept_id) references department (id) on delete cascade
+
 );
 
 create table history
@@ -83,8 +94,10 @@ create table history
     patient_id integer,
     dept_id integer,
     description text,
+
     primary key (id),
     foreign key (dept_id) references department (id) on delete cascade
+
 );
 
 create table appointment

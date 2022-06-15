@@ -45,6 +45,9 @@ public class PatientServicelmpl implements PatientService {
     private HistoryDao historyDao;
 
     @Autowired
+    private ConstantDao constantDao;
+
+    @Autowired
     private RedisLockService redisLockService;
 
     @Autowired
@@ -69,9 +72,9 @@ public class PatientServicelmpl implements PatientService {
 
         redisLockService.lock(doctorID + String.valueOf(date));
         Schedule schedule = scheduleDao.getSchedule(doctorID, date);
-
+        System.out.println(schedule);
         if (time.equals("m")) {
-            if (schedule.getN_morning() >= Constant.N_MORNING_MAX) {
+            if (schedule.getN_morning() >= constantDao.getMorningMax()) {
                 redisLockService.unlock(doctorID + String.valueOf(date));
                 appointment.setRanking(0);
                 return appointment;
@@ -80,7 +83,7 @@ public class PatientServicelmpl implements PatientService {
             schedule.setRank_morning(schedule.getRank_morning()+1);
             appointment.setRanking(schedule.getRank_morning());
         } else {
-            if (schedule.getN_afternoon() >= Constant.N_AFTERNOON_MAX) {
+            if (schedule.getN_afternoon() >= constantDao.getAfternoonMax()) {
                 redisLockService.unlock(doctorID + String.valueOf(date));
                 appointment.setRanking(0);
                 return appointment;
@@ -89,11 +92,10 @@ public class PatientServicelmpl implements PatientService {
             schedule.setN_afternoon(schedule.getN_afternoon()+1);
             appointment.setRanking(schedule.getRank_afternoon());
         }
-
         scheduleDao.update(schedule);
         redisLockService.unlock(doctorID + String.valueOf(date));
         appointmentDao.addAppointment(appointment);
-        addHistory(date,patientID,deptID);
+        addHistory(date,patientID,deptID);//这个得改
         return appointment;
     }
 

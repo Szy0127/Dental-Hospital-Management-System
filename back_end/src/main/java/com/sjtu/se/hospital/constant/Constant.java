@@ -23,10 +23,5 @@ public class Constant {
     public static final Integer Type_Doctor = 2;
     public static final Integer Type_Admin = 3;
 
-    public static final Integer N_MORNING_MAX = 30;
-    public static final Integer N_AFTERNOON_MAX = 40;
-
-    public static final Integer Punish_MAX = 3;//3次
-    public static final Integer Punish_Day = 3;//3天
 
 }
