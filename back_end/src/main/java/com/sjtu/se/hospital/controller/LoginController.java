@@ -52,7 +52,9 @@ public class LoginController {
             @RequestParam("username") String username,
             @RequestParam("password") String password
     ){
-
+        if(SessionUtil.checkAuth()>0){
+            logout();
+        }
         User user = userService.login(username,password);
         if(user != null){
             if(user.getType().equals(Constant.Type_Patient)){

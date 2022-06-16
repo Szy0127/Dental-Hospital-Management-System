@@ -171,6 +171,7 @@ public class PatientServicelmpl implements PatientService {
         historyDao.updateHistory(ID, date, newDes);
     }
 
+    @Transactional
     @Override
     public boolean register(String name, String gender, String email, String phone, Integer age, String username, String password) {
         if(!userService.checkValid(username)) {
