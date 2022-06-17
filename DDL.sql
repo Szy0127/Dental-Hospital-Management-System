@@ -22,6 +22,7 @@ create table constant
     punish_duration integer check ( punish_duration >= 0 ),#一次禁止n天
     primary key(morning_max)
 )engine=ndbcluster;
+
 create table notification
 (
     id integer auto_increment,
@@ -71,7 +72,6 @@ create table patient
     foreign key (id) references user (id) on delete cascade
 )engine=ndbcluster;
 
-
 create table doctor
 (
     id integer,
@@ -90,19 +90,6 @@ create table doctor
 
 )engine=ndbcluster;
 
-create table history
-(
-    id integer auto_increment,
-    time date,
-    patient_id integer,
-    dept_id integer,
-    description varchar(500),
-
-    primary key (id),
-    foreign key (dept_id) references department (id) on delete cascade
-
-)engine=ndbcluster;
-
 create table appointment
 (
     ranking integer,
@@ -111,12 +98,13 @@ create table appointment
     doctor_id integer,
     date date,
     time varchar(1) check ( time in ('m', 'a') ),
+    description varchar(511),
     primary key (date, ranking, patient_id, doctor_id),
     unique key (ranking,doctor_id,date,time),
     unique key(patient_id,doctor_id,date,time),
     foreign key (patient_id) references patient (id) on delete cascade,
     foreign key (dept_id) references department (id) on delete cascade,
-    foreign key (doctor_id) references department (id) on delete cascade
+    foreign key (doctor_id) references doctor (id) on delete cascade
 )engine=ndbcluster;
 
 create table schedule
