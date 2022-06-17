@@ -24,7 +24,7 @@ public class Doctor extends User {
     private Integer deptID;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "dept_id", referencedColumnName = "id", insertable = false, updatable = false)
     private Department department;
 
     @Column(name = "age")
