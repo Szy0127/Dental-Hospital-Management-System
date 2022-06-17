@@ -12,7 +12,7 @@ export default function PatientList () {
             console.log()
             setPatients(data);
         }
-        let jsonString = localStorage.getItem("doctorID");
+        let jsonString = localStorage.getItem("ID");
         let cur_doctor = JSON.parse(jsonString);
         getAppointmentsByDocID(cur_doctor, callback);
     }, [])

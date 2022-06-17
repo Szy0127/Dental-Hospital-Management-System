@@ -11,7 +11,8 @@ export default class Patient extends React.Component {
     }
 
     componentDidMount() {
-        getPatientsByID(1, (data) => {this.setState({user: data})});
+        let ID = localStorage.getItem("ID");
+        getPatientsByID((data) => {this.setState({user: data})});
     }
 
     render() {

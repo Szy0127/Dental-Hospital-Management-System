@@ -119,8 +119,8 @@ let menuList = [
                 icon: <MedicineBoxOutlined />
             },
             {
-                key: "administer/info",
-                title: "个人信息",
+                key: "administer/param",
+                title: "参数设置",
                 icon: <MedicineBoxOutlined />
             },
             {
@@ -169,9 +169,9 @@ export default function SideBar(props) {
 
         const callback = (data) => {
             console.log("DEPT:")
-            console.log(data)
-            setDept(data);
+            console.log(data);
             // addDept(data);
+            setDept(data);
         }
         getDepartments(1, callback);
 

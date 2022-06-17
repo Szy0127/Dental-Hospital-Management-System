@@ -23,6 +23,7 @@ import ReAppointment from "../view/doctor/patientInfo/ReAppointment";
 import HomeMainPage from '../view/main/Main';
 import Assignment from '../view/doctor/Assignment';
 import Exception from '../view/exception/Exception';
+import Param from '../view/administer/Param';
 
 export default function MainRoute() {
     return (
@@ -34,6 +35,7 @@ export default function MainRoute() {
                     <Route path='/administer/management' element={<Management />} />
                     <Route path='/administer/editlist' element={<NewsEditList />} />
                     <Route path='/administer/infoedit' element={<Edit />} />
+                    <Route path='/administer/param' element={<Param />} />
                 </Route>
                 <Route path='/patient'>
                     <Route path='/patient/appointment' element={<Apointment />} />

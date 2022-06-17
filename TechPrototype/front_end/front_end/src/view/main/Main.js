@@ -26,7 +26,7 @@ const HomeMainPage = function (props) {
         }
     }
     useEffect(() => {
-        setIdentity(identity)
+        setIdentity("administer")
         checkSession(checkAuth);
     }, [login]);
     return (

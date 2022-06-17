@@ -1,42 +1,22 @@
-import { postRequest } from "../utils/ajax";
+import { postRequest,postRequest_v2 } from "../utils/ajax";
 import { message } from 'antd';
 import { userlist } from '../utils/data';
+import sha256 from 'crypto-js/sha256';
 
-export const login = (form) => {
-    // const url = `${config.apiUrl}/login`;
-    console.log(form);
-    const callback = (data) => {
-        console.log();
-        console.log(form.identity);
-        let i = data.findIndex((item) => (form.identity === item.identity
-            && form.username === item.username
-            && form.password === item.password));
-        if(i === -1){
-            message.error("登陆失败")
-            return false;
-        }
-        else{
-            message.success("登陆成功")
-            localStorage.setItem("identity",data[i].identity);
-            if(data[i].identity === "patient"){
-                console.log("suc");
-                localStorage.setItem("patientID",data[i].id);
-            }
-            else if(data[i].identity === "doctor"){
-                localStorage.setItem("doctorID",data[i].id);
-            }
-            else{
-                localStorage.setItem("adminID",data[i].id);
-            }
-            return true;
-        }
-    };
-    return callback(userlist);
-    // postRequest(url, form, callback);
+const root = "http://10.119.10.57:8080";
+// const root = "http://localhost:8080";
+
+const nonce = "12345";
+
+export const login = (data,callback) => {
+    const url = root + `/login`;
+    console.log(data);
+    data['password'] = sha256(data['password'] + nonce.toString()).toString();
+    postRequest_v2(url, data, callback);
 }
 
 export const logout = () => {
-    // const url = `${config.apiUrl}/logout`;
+    const url = root + `/logout`;
 
     const callback = (data) => {
         if (data.status >= 0) {
@@ -50,14 +30,15 @@ export const logout = () => {
         }
     }
     localStorage.removeItem("identity");
+    postRequest_v2(url,null, callback);
     return true;
-    // postRequest(url, {}, callback);
 };
 
-export const register = (data) => {
-    
-    // const url = `${config.apiUrl}/register`;
-    // postRequest(url, {}, callback);
+export const register = (data,callback) => {
+    const url = root + "/register";
+    data['password'] = sha256(data['password'] + nonce.toString()).toString();
+    console.log(data);    
+    postRequest_v2(url, data, callback);
 };
 
 

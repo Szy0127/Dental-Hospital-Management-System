@@ -1,23 +1,29 @@
 import React from 'react'
-import { Button, Input } from 'antd';
+import { Button, Form, Input } from 'antd';
 import { useLocation } from 'react-router-dom';
 
 const { TextArea } = Input;
 export default function Edit() {
     const location = useLocation();
-    const {state} = location;
-    if(state == null){
+    const { state } = location;
+    if (state == null) {
         console.log("error!");
     }
     console.log(state);
-    const handleEdit = () =>{
-        
+    const handleEdit = () => {
+
     }
     var info = state.info;
     return (
         <div>
-            <TextArea showCount style={{ height: 300,width:300 }} defaultValue = {info.content}/>
-            <Button onClick={handleEdit}>上传</Button>
+            <Form>
+                <Form.Item>
+                    <TextArea showCount style={{ height: 300, width: 300 }} defaultValue={info.content} />
+                </Form.Item>
+                <Form.Item>
+                    <Button onClick={handleEdit}>上传</Button>
+                </Form.Item>
+            </Form>
         </div>
     )
 }

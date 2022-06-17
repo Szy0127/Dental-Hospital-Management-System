@@ -18,8 +18,8 @@ export const getNotifications = (callback) => {
     postRequest(url, null, callback);
 }
 
-export const getPatientsByID = (patientID, callback) => {
-    const data = {patientID: patientID};
+export const getPatientsByID = (ID,callback) => {
+    const data = {patientID: ID};
     const url = root + "/getPatientInfo";
     postRequest_v2(url, data, callback);
 }
@@ -67,6 +67,7 @@ export const getDoctors = (deptId, callback) => {
     const url = root + "/getDoctorsByDept";
     postRequest_v2(url, data, callback);
 }
+
 
 export const getDoctor = (id, callback) => {
     const data = {doctorID: id};
