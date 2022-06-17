@@ -23,9 +23,9 @@ public class Doctor extends User {
     @Column(name = "dept_id")
     private Integer deptID;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "dept_id", referencedColumnName = "id", insertable = false, updatable = false)
-    private Department department;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "dept_id", referencedColumnName = "id", insertable = false, updatable = false)
+//    private Department department;
 
     @Column(name = "age")
     private Integer age;
