@@ -15,4 +15,5 @@ public interface DoctorService {
     List<Appointment> getAppointments(Integer ID);
     Doctor addNewDoctor(Doctor doctor);
     void delDoctor(int doctorId);
+    void modifyDescription(Appointment appointment);
 }

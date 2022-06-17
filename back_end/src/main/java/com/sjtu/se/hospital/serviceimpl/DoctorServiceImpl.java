@@ -52,4 +52,9 @@ public class DoctorServiceImpl implements DoctorService {
         departmentDao.alterDocNum(doctor.getDeptID(), -1);
         doctorDao.delDoctor(doctorId);
     }
+
+    @Override
+    public void modifyDescription(Appointment appointment) {
+        doctorDao.modifyDescription(appointment);
+    }
 }

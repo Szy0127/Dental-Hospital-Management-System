@@ -1,5 +1,6 @@
 package com.sjtu.se.hospital.dao;
 
+import com.sjtu.se.hospital.entity.Appointment;
 import com.sjtu.se.hospital.entity.Doctor;
 import com.sjtu.se.hospital.entity.Schedule;
 
@@ -14,4 +15,5 @@ public interface DoctorDao {
     List<Schedule> getSchedule(Integer ID);
     Doctor addNewDoctor(Doctor doctor);
     void delDoctor(int doctorId);
+    void modifyDescription(Appointment appointment);
 }

@@ -1,8 +1,11 @@
 package com.sjtu.se.hospital.daoimpl;
 
+import com.sjtu.se.hospital.entity.Appointment;
+import com.sjtu.se.hospital.entity.AppointmentCoKey;
 import com.sjtu.se.hospital.entity.Doctor;
 import com.sjtu.se.hospital.dao.DoctorDao;
 import com.sjtu.se.hospital.entity.Schedule;
+import com.sjtu.se.hospital.repository.AppointmentRepository;
 import com.sjtu.se.hospital.repository.DoctorRepository;
 import com.sjtu.se.hospital.repository.ScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +20,8 @@ public class DoctorDaoImpl implements DoctorDao {
     private DoctorRepository doctorRepository;
     @Autowired
     private ScheduleRepository scheduleRepository;
+    @Autowired
+    private AppointmentRepository appointmentRepository;
 
     @Override
     public Doctor getDoctor(Integer ID) {
@@ -61,5 +66,12 @@ public class DoctorDaoImpl implements DoctorDao {
     @Override
     public void delDoctor(int doctorId) {
         doctorRepository.deleteById(doctorId);
+    }
+
+    @Override
+    public void modifyDescription(Appointment appointment) {
+        Appointment old = appointmentRepository.getOne(new AppointmentCoKey(appointment));
+        old.setDescription(appointment.getDescription());
+        appointmentRepository.save(appointment);
     }
 }

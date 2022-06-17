@@ -34,11 +34,11 @@ public class Appointment implements Serializable {
     @Column(name = "date")
     private java.sql.Date date;
 
-    @Id
     @Column(name = "time")
     private String time;
 
-
+    @Column(name = "description")
+    private String description;
 
     public Appointment(){}
     public Appointment(Integer patientID,Integer deptID,Integer doctorID,Date date,String time){
