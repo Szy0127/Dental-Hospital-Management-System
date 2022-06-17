@@ -36,7 +36,7 @@ public class DepartmentController {
 
     @RequestMapping("/alterDeptName")
     public void alterDeptName(
-            @RequestParam("id") int deptId,
+            @RequestParam("deptID") int deptId,
             @RequestParam("name") String name
     ) {
         departmentService.alterDeptName(deptId, name);
