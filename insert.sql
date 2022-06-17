@@ -12,9 +12,9 @@ delete from user;
 
 insert into constant values(30,40,3,3);
 
-insert into department values (1, '儿科', 1);
-insert into department values (2, '内科', 0);
-insert into department values (3, '神经科', 0);
+insert into department values (1, '儿科', 2);
+insert into department values (2, '内科', 2);
+insert into department values (3, '神经科', 2);
 
 insert into user values(2,'doctor1','25605c8c4d7bd9073922aedc05236bf35acd14587281f147bd84242ffecb053b',2);
 insert into user values(3,'doctor2','25605c8c4d7bd9073922aedc05236bf35acd14587281f147bd84242ffecb053b',2);
