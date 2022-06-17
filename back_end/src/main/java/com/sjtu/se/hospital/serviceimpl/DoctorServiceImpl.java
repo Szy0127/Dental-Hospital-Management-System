@@ -24,8 +24,8 @@ public class DoctorServiceImpl implements DoctorService {
         return doctorDao.getDoctor(ID);
     }
 
-    @Override
     public List<Doctor> getDoctorsByDept(Integer ID) {
+
         return doctorDao.getDoctorsByDept(ID);
     }
 

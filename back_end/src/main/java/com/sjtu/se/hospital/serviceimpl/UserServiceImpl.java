@@ -8,6 +8,7 @@ import com.sjtu.se.hospital.entity.User;
 import com.sjtu.se.hospital.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -25,7 +26,9 @@ public class UserServiceImpl implements UserService {
     }
 
 
-
+    //为了测试不报org.hibernate.LazyInitializationException: could not initialize proxy - no session
+    //实际上不需要
+    @Transactional
     @Override
     public User login(String username, String password) {
 
