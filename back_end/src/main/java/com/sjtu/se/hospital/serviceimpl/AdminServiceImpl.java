@@ -17,6 +17,6 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public Constant getConstants() {
-        return constantDao.get
+        return constantDao.getConstant();
     }
 }
