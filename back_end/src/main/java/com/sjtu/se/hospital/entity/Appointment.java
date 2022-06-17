@@ -47,15 +47,16 @@ public class Appointment implements Serializable {
         this.doctorID = doctorID;
         this.date = date;
         this.time = time;
+        this.description = "{\"disease\":\"\",\"commentA\":\"\",\"commentB\":\"\",\"commentC\":\"\",\"commentD\":\"\",\"commentE\":\"\",\"medicine\":\"\"}";
 
     }
-    public Appointment(Integer ranking,Integer patientID,Integer deptID,Integer doctorID,Date date,String time){
+    public Appointment(Integer ranking,Integer patientID,Integer deptID,Integer doctorID,Date date,String time,String desc){
         this.ranking = ranking;
         this.patientID = patientID;
         this.deptID = deptID;
         this.doctorID = doctorID;
         this.date = date;
         this.time = time;
-
+        this.description = desc;
     }
 }

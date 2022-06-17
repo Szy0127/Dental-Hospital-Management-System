@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.Date;
 import java.util.List;
 
 @RestController
@@ -70,7 +71,19 @@ public class DoctorController {
     }
 
     @RequestMapping("/modifyDescription")
-    void modifyDescription(@RequestBody Appointment appointment) {
+    void modifyDescription(
+            @RequestParam("ranking") int ranking,
+            @RequestParam("patientID") int patientID,
+            @RequestParam("deptID") int deptID,
+            @RequestParam("doctorID") int doctorID,
+            @RequestParam("date") Date date,
+            @RequestParam("time") String time,
+            @RequestParam("description") String desc
+    ) {
+        Appointment appointment = new Appointment(
+                ranking, patientID, deptID, doctorID, date, time, desc
+        );
+        System.out.println(appointment);
         doctorService.modifyDescription(appointment);
     }
 }

@@ -110,7 +110,7 @@ public class PatientServicelmpl implements PatientService {
             e.printStackTrace();
             return false;
         }
-        boolean success = appointmentDao.cancelAppointment(new Appointment(ranking,patientID,deptID,doctorID,date,time));
+        boolean success = appointmentDao.cancelAppointment(new Appointment(ranking,patientID,deptID,doctorID,date,time,""));
         if(success){
             Schedule schedule = scheduleDao.getSchedule(doctorID, date);
 
