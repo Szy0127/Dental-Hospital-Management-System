@@ -1,5 +1,6 @@
 package com.sjtu.se.hospital.controller;
 
+import com.sjtu.se.hospital.entity.Constant;
 import com.sjtu.se.hospital.entity.Department;
 import com.sjtu.se.hospital.service.AdminService;
 import com.sjtu.se.hospital.service.DepartmentService;
@@ -23,7 +24,13 @@ public class AdminController {
             @RequestParam("punishCount") Integer punishCount,
             @RequestParam("punishDuration") Integer punishDuration
     ) {
-        adminService.modifyConstant(morningMax,afternoonMax,punishCount,punishDuration);
+        adminService.modifyConstants(morningMax,afternoonMax,punishCount,punishDuration);
     }
+    @RequestMapping("/getConstants")
+    Constant getConstants(
+    ) {
+        return adminService.getConstants();
+    }
+
 
 }

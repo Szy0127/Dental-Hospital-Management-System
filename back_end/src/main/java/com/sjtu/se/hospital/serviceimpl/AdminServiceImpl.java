@@ -11,7 +11,12 @@ public class AdminServiceImpl implements AdminService {
     @Autowired
     ConstantDao constantDao;
     @Override
-    public void modifyConstant(Integer morningMax, Integer afternoonMax, Integer punishCount, Integer punishDuration) {
+    public void modifyConstants(Integer morningMax, Integer afternoonMax, Integer punishCount, Integer punishDuration) {
         constantDao.modify(new Constant(morningMax, afternoonMax, punishCount, punishCount));
+    }
+
+    @Override
+    public Constant getConstants() {
+        return constantDao.get
     }
 }
