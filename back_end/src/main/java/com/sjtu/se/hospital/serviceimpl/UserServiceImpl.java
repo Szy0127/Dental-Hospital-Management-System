@@ -2,6 +2,7 @@ package com.sjtu.se.hospital.serviceimpl;
 
 
 import com.sjtu.se.hospital.constant.Constant;
+import com.sjtu.se.hospital.dao.DoctorDao;
 import com.sjtu.se.hospital.dao.PatientDao;
 import com.sjtu.se.hospital.dao.UserDao;
 import com.sjtu.se.hospital.entity.User;
@@ -19,6 +20,8 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     PatientDao patientDao;
+    @Autowired
+    DoctorDao doctorDao;
 
     @Override
     public boolean checkValid(String username) {
@@ -33,13 +36,18 @@ public class UserServiceImpl implements UserService {
     public User login(String username, String password) {
 
         List<User> users = userDao.getUserByUsernameAndPassword(username, password);
-        if(users.isEmpty()){
+        if (users.isEmpty()) {
             return null;
         }
         User user = users.get(0);
-        if(user.getType()== Constant.Type_Patient){
+        if (user.getType() == Constant.Type_Patient) {
             return patientDao.getPatientByID(user.getId());
         }
-        return users.get(0);
+        if (user.getType() == Constant.Type_Doctor) {
+            return doctorDao.getDoctor(user.getId());
+        }
+        return user;
     }
+
+
 }

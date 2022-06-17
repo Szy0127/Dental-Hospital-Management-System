@@ -81,10 +81,12 @@ public class LoginController {
 //            System.out.println("set session");
             JSONObject data = null;
             if(user.getType()==Constant.Type_Patient){
-                data = JSONObject.fromObject((Patient)user);
+                Patient patient = (Patient)user;
+                data = JSONObject.fromObject(patient);
             }else {
                 if (user.getType() == Constant.Type_Doctor) {
-                    data = JSONObject.fromObject((Doctor) user);
+                    Doctor doctor = (Doctor) user;
+                    data = JSONObject.fromObject(doctor);
                 }else{
                     data = JSONObject.fromObject(user);
                 }

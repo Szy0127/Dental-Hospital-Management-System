@@ -50,6 +50,12 @@ class HospitalApplicationTests {
      //重复登录 成功
         loginRes = loginController.login(username,password);
         assertThat(loginRes.isSuccess()).isEqualTo(true);
+
+        //测试医生 管理员
+        loginRes = loginController.login("doctor1","25605c8c4d7bd9073922aedc05236bf35acd14587281f147bd84242ffecb053b");
+        assertThat(loginRes.isSuccess()).isEqualTo(true);
+        loginRes = loginController.login("admin","25605c8c4d7bd9073922aedc05236bf35acd14587281f147bd84242ffecb053b");
+        assertThat(loginRes.isSuccess()).isEqualTo(true);
     }
 
     @Test

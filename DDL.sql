@@ -1,4 +1,4 @@
-drop database hospital;
+drop database if exists hospital;
 create database hospital;
 
 use hospital;
@@ -42,7 +42,7 @@ create table news
 
 create table department
 (
-    id integer auto_increment,
+    id integer not null auto_increment,
     title varchar(30),
     doc_num numeric(3) check ( doc_num >= 0 ),
     primary key (id)
@@ -80,12 +80,13 @@ create table doctor
     dept_id integer,
     age integer,
     post varchar(16),
-    avatar TEXT,
-    intro TEXT,
 
-    primary key (id)
-    #foreign key (id) references user (id) on delete cascade
-    #foreign key (dept_id) references department (id) on delete cascade
+    avatar varchar(500),
+    intro varchar(500),
+    primary key (id),
+    foreign key (id) references user (id) on delete cascade,
+    foreign key (dept_id) references department (id) on delete cascade
+
 
 )engine=ndbcluster;
 
@@ -95,10 +96,10 @@ create table history
     time date,
     patient_id integer,
     dept_id integer,
-    description text,
+    description varchar(500),
 
-    primary key (id)
-    #foreign key (dept_id) references department (id) on delete cascade
+    primary key (id),
+    foreign key (dept_id) references department (id) on delete cascade
 
 )engine=ndbcluster;
 
