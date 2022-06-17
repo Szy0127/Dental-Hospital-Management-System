@@ -3,6 +3,7 @@ package com.sjtu.se.hospital.controller;
 
 import com.sjtu.se.hospital.constant.Constant;
 import com.sjtu.se.hospital.dao.ConstantDao;
+import com.sjtu.se.hospital.entity.Doctor;
 import com.sjtu.se.hospital.entity.Patient;
 import com.sjtu.se.hospital.entity.User;
 import com.sjtu.se.hospital.service.PatientService;
@@ -81,6 +82,12 @@ public class LoginController {
             JSONObject data = null;
             if(user.getType()==Constant.Type_Patient){
                 data = JSONObject.fromObject((Patient)user);
+            }else {
+                if (user.getType() == Constant.Type_Doctor) {
+                    data = JSONObject.fromObject((Doctor) user);
+                }else{
+                    data = JSONObject.fromObject(user);
+                }
             }
             data.remove(Constant.PASSWORD);
             return  MsgUtil.makeMsg(true, MsgUtil.LOGIN_SUCCESS_MSG, data);
