@@ -1,6 +1,10 @@
 package com.sjtu.se.hospital.service;
 
+import com.sjtu.se.hospital.entity.Constant;
+
 public interface AdminService {
 
-    void modifyConstant(Integer morningMax, Integer afternoonMax, Integer punishCount, Integer punishDuration);
+    void modifyConstants(Integer morningMax, Integer afternoonMax, Integer punishCount, Integer punishDuration);
+
+    Constant getConstants();
 }
