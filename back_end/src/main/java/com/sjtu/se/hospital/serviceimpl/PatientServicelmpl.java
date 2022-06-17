@@ -97,6 +97,12 @@ public class PatientServicelmpl implements PatientService {
         appointmentDao.addAppointment(appointment);
         addHistory(date,patientID,deptID);//这个得改
         return appointment;
+
+    }
+
+    @Override
+    public void discardAppointment(Integer patientID) {
+        patientDao.punish(patientID);
     }
 
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)

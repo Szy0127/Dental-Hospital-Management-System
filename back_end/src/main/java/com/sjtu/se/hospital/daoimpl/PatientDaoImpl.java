@@ -29,4 +29,12 @@ public class PatientDaoImpl implements PatientDao {
         patientRepository.save(patient);
         return patient;
     }
+
+    @Override
+    public void punish(Integer id) {
+        Patient patient = patientRepository.getOne(id);
+        patient.setPunish_count(patient.getPunish_count()+1);
+        patientRepository.save(patient);
+
+    }
 }

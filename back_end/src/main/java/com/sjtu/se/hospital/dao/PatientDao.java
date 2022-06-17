@@ -8,4 +8,6 @@ public interface PatientDao {
 
     Patient resetPunish(Integer id);
     void save(Patient patient);
+
+    void punish(Integer id);
 }
