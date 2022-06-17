@@ -4,6 +4,7 @@ import com.sjtu.se.hospital.entity.Appointment;
 import com.sjtu.se.hospital.entity.Doctor;
 import com.sjtu.se.hospital.entity.Schedule;
 import com.sjtu.se.hospital.service.DoctorService;
+import com.sjtu.se.hospital.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +16,9 @@ import java.util.List;
 public class DoctorController {
     @Autowired
     private DoctorService doctorService;
+
+    @Autowired
+    private PatientService patientService;
 
     @RequestMapping("/getDoctor")
     Doctor getDoctor(@RequestParam("doctorID") Integer ID) {
@@ -55,5 +59,12 @@ public class DoctorController {
     @RequestMapping("/delDoctor")
     void delDoctor(@RequestParam("doctorId") int doctorId) {
         doctorService.delDoctor(doctorId);
+    }
+
+    @RequestMapping("/discardAppointment")
+    void discardAppointment(
+            @RequestParam("patientID") Integer patientID
+    ) {
+        patientService.discardAppointment(patientID);
     }
 }

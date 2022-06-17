@@ -15,4 +15,6 @@ public interface PatientService {
     Patient getPatientInfo(Integer ID);
     boolean register(String name,String gender,String email,String phone,Integer age,String username ,String password);
     Patient resetPatient(Integer id);
+
+    void discardAppointment(Integer patientID);
 }
