@@ -64,7 +64,7 @@ public class PatientController {
     }
 
     @RequestMapping("/getHistories")
-    public List<HistoryEdited> getHistories(@RequestParam("ID") Integer ID) {
+    public List<History> getHistories(@RequestParam("ID") Integer ID) {
         return patientService.getHistories(ID);
     }
 

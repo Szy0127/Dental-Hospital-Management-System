@@ -13,7 +13,7 @@ public interface PatientService {
     List<Schedule> getFullScheduleByDateTime(String date, String time);
     List<AppointmentEdited> getAppointmentsByPatient(Integer ID);
     Patient getPatientInfo(Integer ID);
-    List<HistoryEdited> getHistories(Integer ID);
+    List<History> getHistories(Integer ID);
     void addHistory(Date time, Integer patientID, Integer deptID);
     void removeHistory(Date date, Integer patientID, Integer deptID);
     void updateDescription(Integer ID, String time, String newDes);

@@ -95,7 +95,7 @@ public class PatientServicelmpl implements PatientService {
         scheduleDao.update(schedule);
         redisLockService.unlock(doctorID + String.valueOf(date));
         appointmentDao.addAppointment(appointment);
-        addHistory(date,patientID,deptID);//这个得改
+//        addHistory(date,patientID,deptID);//这个得改
         return appointment;
     }
 
@@ -147,7 +147,7 @@ public class PatientServicelmpl implements PatientService {
     }
 
     @Override
-    public List<HistoryEdited> getHistories(Integer ID) {
+    public List<History> getHistories(Integer ID) {
         return historyDao.getHistories(ID);
     }
 

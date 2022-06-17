@@ -38,6 +38,8 @@ public class Appointment implements Serializable {
     @Column(name = "time")
     private String time;
 
+
+
     public Appointment(){}
     public Appointment(Integer patientID,Integer deptID,Integer doctorID,Date date,String time){
         this.patientID = patientID;
