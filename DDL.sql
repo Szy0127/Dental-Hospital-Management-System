@@ -80,11 +80,13 @@ create table doctor
     dept_id integer,
     age integer,
     post varchar(16),
+
     avatar varchar(500),
     intro varchar(500),
     primary key (id),
     foreign key (id) references user (id) on delete cascade,
     foreign key (dept_id) references department (id) on delete cascade
+
 
 )engine=ndbcluster;
 

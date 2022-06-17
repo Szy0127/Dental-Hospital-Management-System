@@ -20,7 +20,7 @@ public class DepartmentController {
     }
 
     @RequestMapping("/getOneDepartment")
-    public Department getDeptOnly(@RequestParam("deptID")Integer ID) {
+    public Department getDeptOnly(@RequestParam("id")Integer ID) {
         return departmentService.getDeptOnly(ID);
     }
 
@@ -30,13 +30,13 @@ public class DepartmentController {
     }
 
     @RequestMapping("delDept")
-    public void delDept(@RequestParam("deptId") int deptId) {
+    public void delDept(@RequestParam("id") int deptId) {
         departmentService.delDept(deptId);
     }
 
     @RequestMapping("/alterDeptName")
     public void alterDeptName(
-            @RequestParam("deptId") int deptId,
+            @RequestParam("id") int deptId,
             @RequestParam("name") String name
     ) {
         departmentService.alterDeptName(deptId, name);
