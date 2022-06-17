@@ -4,7 +4,7 @@ import com.sjtu.se.hospital.entity.Constant;
 
 public interface ConstantDao {
 
-    public Constant getConstant();
+    Constant getConstant();
     Integer getMorningMax();
     Integer getAfternoonMax();
     Integer getPunishCount();

@@ -2,11 +2,9 @@ package com.sjtu.se.hospital.controller;
 import com.sjtu.se.hospital.entity.*;
 import com.sjtu.se.hospital.service.MQService;
 import com.sjtu.se.hospital.service.PatientService;
-import com.sjtu.se.hospital.utils.SessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
 import java.util.List;
 
 @CrossOrigin
@@ -61,28 +59,5 @@ public class PatientController {
     @RequestMapping("/getPatientInfo")
     public Patient getPatientInfo(@RequestParam("patientID") Integer ID) {
         return patientService.getPatientInfo(ID);
-    }
-
-    @RequestMapping("/getHistories")
-    public List<History> getHistories(@RequestParam("ID") Integer ID) {
-        return patientService.getHistories(ID);
-    }
-
-    @RequestMapping("/addHistory")
-    public void addHistory(
-            @RequestParam("time") Date time,
-            @RequestParam("patientID")Integer patientID,
-            @RequestParam("deptID")Integer deptID
-    ) {
-        patientService.addHistory(time, patientID, deptID);
-    }
-
-    @RequestMapping("/updateDescriptionOfHistory")
-    public void updateDescription(
-            @RequestParam("patientID") Integer ID,
-            @RequestParam("date") String time,
-            @RequestParam("newDes") String newDes
-    ) {
-        patientService.updateDescription(ID, time, newDes);
     }
 }

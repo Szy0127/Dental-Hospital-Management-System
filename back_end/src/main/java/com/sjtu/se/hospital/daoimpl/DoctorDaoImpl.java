@@ -3,7 +3,6 @@ package com.sjtu.se.hospital.daoimpl;
 import com.sjtu.se.hospital.entity.Doctor;
 import com.sjtu.se.hospital.dao.DoctorDao;
 import com.sjtu.se.hospital.entity.Schedule;
-import com.sjtu.se.hospital.repository.DepartmentRepository;
 import com.sjtu.se.hospital.repository.DoctorRepository;
 import com.sjtu.se.hospital.repository.ScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,6 @@
 package com.sjtu.se.hospital.serviceimpl;
 
 
-import com.sjtu.se.hospital.constant.Constant;
 import com.sjtu.se.hospital.dao.*;
 import com.sjtu.se.hospital.entity.*;
 import com.sjtu.se.hospital.service.PatientService;
@@ -40,9 +39,6 @@ public class PatientServicelmpl implements PatientService {
 
     @Autowired
     private RecordDao recordDao;
-
-    @Autowired
-    private HistoryDao historyDao;
 
     @Autowired
     private ConstantDao constantDao;
@@ -95,7 +91,6 @@ public class PatientServicelmpl implements PatientService {
         scheduleDao.update(schedule);
         redisLockService.unlock(doctorID + String.valueOf(date));
         appointmentDao.addAppointment(appointment);
-//        addHistory(date,patientID,deptID);//这个得改
         return appointment;
     }
 
@@ -119,7 +114,6 @@ public class PatientServicelmpl implements PatientService {
                 schedule.setN_afternoon(schedule.getN_afternoon()-1);
             }
             scheduleDao.update(schedule);
-            removeHistory(date,patientID,deptID);
         }
         return success;
     }
@@ -144,31 +138,6 @@ public class PatientServicelmpl implements PatientService {
     @Override
     public Patient getPatientInfo(Integer ID) {
         return recordDao.getRecord(ID);
-    }
-
-    @Override
-    public List<History> getHistories(Integer ID) {
-        return historyDao.getHistories(ID);
-    }
-
-    @Override
-    public void addHistory(Date date, Integer patientID, Integer deptID) {
-        historyDao.addHistory(new History(date ,patientID, deptID));
-    }
-    @Override
-    public void removeHistory(Date date, Integer patientID, Integer deptID) {
-        historyDao.removeHistory(new History(date ,patientID, deptID));
-    }
-
-    @Override
-    public void updateDescription(Integer ID, String time, String newDes) {
-        Date date = null;
-        try {
-            date = new Date(new SimpleDateFormat("yyyy-MM-dd").parse(time).getTime());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        historyDao.updateHistory(ID, date, newDes);
     }
 
     @Transactional
