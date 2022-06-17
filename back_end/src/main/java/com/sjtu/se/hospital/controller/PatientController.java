@@ -21,14 +21,14 @@ public class PatientController {
 
     @RequestMapping("/addAppointment")
     public Appointment addAppointment(
-//            @RequestParam("patientID") Integer patientID,
+            @RequestParam("patientID") Integer patientID,
             @RequestParam("deptID") Integer deptID,
             @RequestParam("doctorID") Integer doctorID,
             @RequestParam("date") String date,
             @RequestParam("time") String time
     ) {
 //        mqService.produce(new AppointmentAdding(patientID, deptID, doctorID, date, time));
-        Integer patientID = SessionUtil.checkAuth();
+//        Integer patientID = SessionUtil.checkAuth();
         if (patientID == 0) {
             return null;
         }
