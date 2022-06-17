@@ -74,7 +74,7 @@ create table patient
 
 create table doctor
 (
-    id integer auto_increment,
+    id integer,
     name varchar(50),
     gender varchar(1), check ( gender in ('m', 'f') ),
     dept_id integer,
@@ -84,7 +84,6 @@ create table doctor
     intro TEXT,
     primary key (id),
     foreign key (dept_id) references department (id) on delete cascade
-
 );
 
 create table history

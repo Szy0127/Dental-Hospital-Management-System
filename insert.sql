@@ -12,7 +12,7 @@ delete from user;
 
 insert into constant values(30,40,3,3);
 
-insert into department values (1, '儿科', 0);
+insert into department values (1, '儿科', 1);
 insert into department values (2, '内科', 0);
 insert into department values (3, '神经科', 0);
 
