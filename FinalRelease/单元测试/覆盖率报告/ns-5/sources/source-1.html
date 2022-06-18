@@ -1,0 +1,177 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Appointment</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.sjtu.se.hospital.entity</a>
+</div>
+
+<h1>Coverage Summary for Class: Appointment (com.sjtu.se.hospital.entity)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Appointment</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (11/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (24/24)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Appointment$HibernateProxy$wWPMwKMX</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (11/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (24/24)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.sjtu.se.hospital.entity;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+<i class="no-highlight">4</i>&nbsp;import lombok.Data;
+<i class="no-highlight">5</i>&nbsp;
+<i class="no-highlight">6</i>&nbsp;
+<i class="no-highlight">7</i>&nbsp;import javax.persistence.*;
+<i class="no-highlight">8</i>&nbsp;import java.io.Serializable;
+<i class="no-highlight">9</i>&nbsp;import java.sql.Date;
+<i class="no-highlight">10</i>&nbsp;
+<b class="fc"><i class="no-highlight">11</i>&nbsp;@Data</b>
+<i class="no-highlight">12</i>&nbsp;@Entity
+<i class="no-highlight">13</i>&nbsp;@Table(name = &quot;appointment&quot;)
+<i class="no-highlight">14</i>&nbsp;@JsonIgnoreProperties(value = {&quot;handler&quot;,&quot;hibernateLazyInitializer&quot;,&quot;fieldHandler&quot;})
+<i class="no-highlight">15</i>&nbsp;@IdClass(value = AppointmentCoKey.class)
+<i class="no-highlight">16</i>&nbsp;public class Appointment implements Serializable {
+<i class="no-highlight">17</i>&nbsp;
+<i class="no-highlight">18</i>&nbsp;    @Id
+<i class="no-highlight">19</i>&nbsp;    @Column(name = &quot;ranking&quot;)
+<b class="fc"><i class="no-highlight">20</i>&nbsp;    private Integer ranking;</b>
+<i class="no-highlight">21</i>&nbsp;
+<i class="no-highlight">22</i>&nbsp;    @Id
+<i class="no-highlight">23</i>&nbsp;    @Column(name = &quot;patient_id&quot;)
+<b class="fc"><i class="no-highlight">24</i>&nbsp;    private Integer patientID;</b>
+<i class="no-highlight">25</i>&nbsp;
+<i class="no-highlight">26</i>&nbsp;    @Column(name = &quot;dept_id&quot;)
+<b class="fc"><i class="no-highlight">27</i>&nbsp;    private Integer deptID;</b>
+<i class="no-highlight">28</i>&nbsp;
+<i class="no-highlight">29</i>&nbsp;    @Id
+<i class="no-highlight">30</i>&nbsp;    @Column(name = &quot;doctor_id&quot;)
+<b class="fc"><i class="no-highlight">31</i>&nbsp;    private Integer doctorID;</b>
+<i class="no-highlight">32</i>&nbsp;
+<i class="no-highlight">33</i>&nbsp;    @Id
+<i class="no-highlight">34</i>&nbsp;    @Column(name = &quot;date&quot;)
+<b class="fc"><i class="no-highlight">35</i>&nbsp;    private java.sql.Date date;</b>
+<i class="no-highlight">36</i>&nbsp;
+<i class="no-highlight">37</i>&nbsp;    @Column(name = &quot;time&quot;)
+<b class="fc"><i class="no-highlight">38</i>&nbsp;    private String time;</b>
+<i class="no-highlight">39</i>&nbsp;
+<i class="no-highlight">40</i>&nbsp;    @Column(name = &quot;description&quot;)
+<b class="fc"><i class="no-highlight">41</i>&nbsp;    private String description;</b>
+<i class="no-highlight">42</i>&nbsp;
+<b class="fc"><i class="no-highlight">43</i>&nbsp;    public Appointment(){}</b>
+<b class="fc"><i class="no-highlight">44</i>&nbsp;    public Appointment(Integer patientID,Integer deptID,Integer doctorID,Date date,String time){</b>
+<b class="fc"><i class="no-highlight">45</i>&nbsp;        this.patientID = patientID;</b>
+<b class="fc"><i class="no-highlight">46</i>&nbsp;        this.deptID = deptID;</b>
+<b class="fc"><i class="no-highlight">47</i>&nbsp;        this.doctorID = doctorID;</b>
+<b class="fc"><i class="no-highlight">48</i>&nbsp;        this.date = date;</b>
+<b class="fc"><i class="no-highlight">49</i>&nbsp;        this.time = time;</b>
+<b class="fc"><i class="no-highlight">50</i>&nbsp;        this.description = &quot;{\&quot;disease\&quot;:\&quot;\&quot;,\&quot;commentA\&quot;:\&quot;\&quot;,\&quot;commentB\&quot;:\&quot;\&quot;,\&quot;commentC\&quot;:\&quot;\&quot;,\&quot;commentD\&quot;:\&quot;\&quot;,\&quot;commentE\&quot;:\&quot;\&quot;,\&quot;medicine\&quot;:\&quot;\&quot;}&quot;;</b>
+<i class="no-highlight">51</i>&nbsp;
+<i class="no-highlight">52</i>&nbsp;    }
+<b class="fc"><i class="no-highlight">53</i>&nbsp;    public Appointment(Integer ranking,Integer patientID,Integer deptID,Integer doctorID,Date date,String time,String desc){</b>
+<b class="fc"><i class="no-highlight">54</i>&nbsp;        this.ranking = ranking;</b>
+<b class="fc"><i class="no-highlight">55</i>&nbsp;        this.patientID = patientID;</b>
+<b class="fc"><i class="no-highlight">56</i>&nbsp;        this.deptID = deptID;</b>
+<b class="fc"><i class="no-highlight">57</i>&nbsp;        this.doctorID = doctorID;</b>
+<b class="fc"><i class="no-highlight">58</i>&nbsp;        this.date = date;</b>
+<b class="fc"><i class="no-highlight">59</i>&nbsp;        this.time = time;</b>
+<b class="fc"><i class="no-highlight">60</i>&nbsp;        this.description = desc;</b>
+<i class="no-highlight">61</i>&nbsp;    }
+<i class="no-highlight">62</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-06-18 21:47</div>
+</div>
+</body>
+</html>

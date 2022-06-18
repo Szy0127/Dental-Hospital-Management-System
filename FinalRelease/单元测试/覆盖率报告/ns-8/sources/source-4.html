@@ -1,0 +1,155 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > RedisConfig</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.sjtu.se.hospital.utils</a>
+</div>
+
+<h1>Coverage Summary for Class: RedisConfig (com.sjtu.se.hospital.utils)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">RedisConfig</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/9)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">RedisConfig$$EnhancerBySpringCGLIB$$995144a0</td>
+  </tr>
+  <tr>
+    <td class="name">RedisConfig$$EnhancerBySpringCGLIB$$995144a0$$FastClassBySpringCGLIB$$f67105e5</td>
+  </tr>
+  <tr>
+    <td class="name">RedisConfig$$FastClassBySpringCGLIB$$acc5f</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/9)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.sjtu.se.hospital.utils;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
+<i class="no-highlight">4</i>&nbsp;import org.springframework.context.annotation.Bean;
+<i class="no-highlight">5</i>&nbsp;import org.springframework.context.annotation.Configuration;
+<i class="no-highlight">6</i>&nbsp;import org.springframework.data.redis.connection.RedisConnectionFactory;
+<i class="no-highlight">7</i>&nbsp;import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
+<i class="no-highlight">8</i>&nbsp;import org.springframework.data.redis.core.RedisTemplate;
+<i class="no-highlight">9</i>&nbsp;import org.springframework.data.redis.serializer.StringRedisSerializer;
+<i class="no-highlight">10</i>&nbsp;import org.springframework.integration.redis.util.RedisLockRegistry;
+<i class="no-highlight">11</i>&nbsp;
+<i class="no-highlight">12</i>&nbsp;@Configuration
+<b class="fc"><i class="no-highlight">13</i>&nbsp;public class RedisConfig {</b>
+<i class="no-highlight">14</i>&nbsp;    @Bean
+<i class="no-highlight">15</i>&nbsp;    public RedisTemplate&lt;String, Object&gt; redisTemplate(LettuceConnectionFactory redisConnectionFactory) {
+<b class="fc"><i class="no-highlight">16</i>&nbsp;        RedisTemplate&lt;String, Object&gt; redisTemplate = new RedisTemplate&lt;&gt;();</b>
+<i class="no-highlight">17</i>&nbsp;        // key序列化
+<b class="fc"><i class="no-highlight">18</i>&nbsp;        redisTemplate.setKeySerializer(new StringRedisSerializer());</b>
+<i class="no-highlight">19</i>&nbsp;        // value序列化
+<b class="fc"><i class="no-highlight">20</i>&nbsp;        redisTemplate.setValueSerializer(new FastJsonRedisSerializer&lt;&gt;(Object.class));</b>
+<i class="no-highlight">21</i>&nbsp;        // Hash key序列化
+<b class="fc"><i class="no-highlight">22</i>&nbsp;        redisTemplate.setHashKeySerializer(new StringRedisSerializer());</b>
+<i class="no-highlight">23</i>&nbsp;        // Hash value序列化
+<b class="fc"><i class="no-highlight">24</i>&nbsp;        redisTemplate.setHashValueSerializer(new StringRedisSerializer());</b>
+<b class="fc"><i class="no-highlight">25</i>&nbsp;        redisTemplate.setConnectionFactory(redisConnectionFactory);</b>
+<b class="fc"><i class="no-highlight">26</i>&nbsp;        return redisTemplate;</b>
+<i class="no-highlight">27</i>&nbsp;    }
+<i class="no-highlight">28</i>&nbsp;
+<i class="no-highlight">29</i>&nbsp;    @Bean(destroyMethod = &quot;destroy&quot;)
+<i class="no-highlight">30</i>&nbsp;    public RedisLockRegistry redisLockRegistry(RedisConnectionFactory redisConnectionFactory) {
+<b class="fc"><i class="no-highlight">31</i>&nbsp;        return new RedisLockRegistry(redisConnectionFactory, &quot;lock&quot;);</b>
+<i class="no-highlight">32</i>&nbsp;    }
+<i class="no-highlight">33</i>&nbsp;
+<i class="no-highlight">34</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-06-18 21:47</div>
+</div>
+</body>
+</html>

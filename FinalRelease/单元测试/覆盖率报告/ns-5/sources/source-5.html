@@ -1,0 +1,149 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Constant</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.sjtu.se.hospital.entity</a>
+</div>
+
+<h1>Coverage Summary for Class: Constant (com.sjtu.se.hospital.entity)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Constant</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (11/11)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Constant$HibernateProxy$lK2jqwV2</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (11/11)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.sjtu.se.hospital.entity;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import lombok.Data;
+<i class="no-highlight">4</i>&nbsp;import lombok.NoArgsConstructor;
+<i class="no-highlight">5</i>&nbsp;
+<i class="no-highlight">6</i>&nbsp;import javax.persistence.*;
+<i class="no-highlight">7</i>&nbsp;import java.util.Objects;
+<i class="no-highlight">8</i>&nbsp;
+<i class="no-highlight">9</i>&nbsp;
+<b class="fc"><i class="no-highlight">10</i>&nbsp;@NoArgsConstructor</b>
+<b class="fc"><i class="no-highlight">11</i>&nbsp;@Data</b>
+<i class="no-highlight">12</i>&nbsp;@Entity
+<i class="no-highlight">13</i>&nbsp;@Table(name=&quot;constant&quot;)
+<i class="no-highlight">14</i>&nbsp;public class Constant {
+<i class="no-highlight">15</i>&nbsp;    @Id
+<i class="no-highlight">16</i>&nbsp;    @Column(name = &quot;morning_max&quot;)
+<b class="fc"><i class="no-highlight">17</i>&nbsp;    private Integer morningMax;</b>
+<i class="no-highlight">18</i>&nbsp;    @Basic
+<i class="no-highlight">19</i>&nbsp;    @Column(name = &quot;afternoon_max&quot;)
+<b class="fc"><i class="no-highlight">20</i>&nbsp;    private Integer afternoonMax;</b>
+<i class="no-highlight">21</i>&nbsp;    @Basic
+<i class="no-highlight">22</i>&nbsp;    @Column(name = &quot;punish_count&quot;)
+<b class="fc"><i class="no-highlight">23</i>&nbsp;    private Integer punishCount;</b>
+<i class="no-highlight">24</i>&nbsp;    @Basic
+<i class="no-highlight">25</i>&nbsp;    @Column(name = &quot;punish_duration&quot;)
+<b class="fc"><i class="no-highlight">26</i>&nbsp;    private Integer punishDuration;</b>
+<i class="no-highlight">27</i>&nbsp;
+<b class="fc"><i class="no-highlight">28</i>&nbsp;    public Constant(Integer morningMax, Integer afternoonMax, Integer punishCount, Integer punishDuration){</b>
+<b class="fc"><i class="no-highlight">29</i>&nbsp;        this.morningMax = morningMax;</b>
+<b class="fc"><i class="no-highlight">30</i>&nbsp;        this.afternoonMax = afternoonMax;</b>
+<b class="fc"><i class="no-highlight">31</i>&nbsp;        this.punishCount = punishCount;</b>
+<b class="fc"><i class="no-highlight">32</i>&nbsp;        this.punishDuration = punishDuration;</b>
+<i class="no-highlight">33</i>&nbsp;    }
+<i class="no-highlight">34</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-06-18 21:47</div>
+</div>
+</body>
+</html>

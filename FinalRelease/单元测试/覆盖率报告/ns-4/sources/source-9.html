@@ -1,0 +1,223 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ScheduleDaoImpl</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.sjtu.se.hospital.daoimpl</a>
+</div>
+
+<h1>Coverage Summary for Class: ScheduleDaoImpl (com.sjtu.se.hospital.daoimpl)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ScheduleDaoImpl</td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (3/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    45.8%
+  </span>
+  <span class="absValue">
+    (11/24)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ScheduleDaoImpl$$EnhancerBySpringCGLIB$$341ea4be</td>
+  </tr>
+  <tr>
+    <td class="name">ScheduleDaoImpl$$EnhancerBySpringCGLIB$$341ea4be$$FastClassBySpringCGLIB$$634df226</td>
+  </tr>
+  <tr>
+    <td class="name">ScheduleDaoImpl$$FastClassBySpringCGLIB$$c0f31b3e</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    75%
+  </span>
+  <span class="absValue">
+    (3/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    45.8%
+  </span>
+  <span class="absValue">
+    (11/24)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.sjtu.se.hospital.daoimpl;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import com.sjtu.se.hospital.constant.Constant;
+<i class="no-highlight">4</i>&nbsp;import com.sjtu.se.hospital.dao.ConstantDao;
+<i class="no-highlight">5</i>&nbsp;import com.sjtu.se.hospital.dao.ScheduleDao;
+<i class="no-highlight">6</i>&nbsp;import com.sjtu.se.hospital.entity.Schedule;
+<i class="no-highlight">7</i>&nbsp;import com.sjtu.se.hospital.entity.ScheduleCoKey;
+<i class="no-highlight">8</i>&nbsp;import com.sjtu.se.hospital.repository.AppointmentRepository;
+<i class="no-highlight">9</i>&nbsp;import com.sjtu.se.hospital.repository.ScheduleRepository;
+<i class="no-highlight">10</i>&nbsp;import jdk.nashorn.internal.runtime.options.Option;
+<i class="no-highlight">11</i>&nbsp;import org.hibernate.annotations.NotFound;
+<i class="no-highlight">12</i>&nbsp;import org.hibernate.annotations.NotFoundAction;
+<i class="no-highlight">13</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+<i class="no-highlight">14</i>&nbsp;import org.springframework.cache.annotation.CachePut;
+<i class="no-highlight">15</i>&nbsp;import org.springframework.cache.annotation.Cacheable;
+<i class="no-highlight">16</i>&nbsp;import org.springframework.lang.Nullable;
+<i class="no-highlight">17</i>&nbsp;import org.springframework.stereotype.Repository;
+<i class="no-highlight">18</i>&nbsp;
+<i class="no-highlight">19</i>&nbsp;import javax.persistence.EntityNotFoundException;
+<i class="no-highlight">20</i>&nbsp;import java.sql.Date;
+<i class="no-highlight">21</i>&nbsp;import java.util.LinkedList;
+<i class="no-highlight">22</i>&nbsp;import java.util.List;
+<i class="no-highlight">23</i>&nbsp;import java.util.Optional;
+<i class="no-highlight">24</i>&nbsp;
+<i class="no-highlight">25</i>&nbsp;@Repository
+<b class="fc"><i class="no-highlight">26</i>&nbsp;public class ScheduleDaoImpl implements ScheduleDao {</b>
+<i class="no-highlight">27</i>&nbsp;    @Autowired
+<i class="no-highlight">28</i>&nbsp;    private ScheduleRepository scheduleRepository;
+<i class="no-highlight">29</i>&nbsp;
+<i class="no-highlight">30</i>&nbsp;    @Autowired
+<i class="no-highlight">31</i>&nbsp;    private ConstantDao constantDao;
+<i class="no-highlight">32</i>&nbsp;
+<i class="no-highlight">33</i>&nbsp;    @Nullable
+<i class="no-highlight">34</i>&nbsp;//    @NotFound(action = NotFoundAction.IGNORE)
+<i class="no-highlight">35</i>&nbsp;    @Override
+<i class="no-highlight">36</i>&nbsp;    @Cacheable(value={&quot;Schedule&quot;},key=&quot;#doctorID + &#39;_&#39; + #date&quot;,sync = true)
+<i class="no-highlight">37</i>&nbsp;    public Schedule getSchedule(Integer doctorID, Date date){
+<b class="fc"><i class="no-highlight">38</i>&nbsp;        Optional&lt;Schedule&gt; s = scheduleRepository.findById(new ScheduleCoKey(doctorID,date));</b>
+<i class="no-highlight">39</i>&nbsp;//        try{
+<i class="no-highlight">40</i>&nbsp;//            Schedule schedule = scheduleRepository.getOne(new ScheduleCoKey(doctorID,date));
+<i class="no-highlight">41</i>&nbsp;//            return schedule;
+<i class="no-highlight">42</i>&nbsp;//        }catch (EntityNotFoundException e){
+<i class="no-highlight">43</i>&nbsp;//            return null;
+<i class="no-highlight">44</i>&nbsp;//        }
+<b class="fc"><i class="no-highlight">45</i>&nbsp;        if(s.isPresent()){</b>
+<b class="nc"><i class="no-highlight">46</i>&nbsp;            return s.get();</b>
+<i class="no-highlight">47</i>&nbsp;        }else{
+<b class="fc"><i class="no-highlight">48</i>&nbsp;            System.out.println(&quot;schedule not exist&quot;);</b>
+<b class="fc"><i class="no-highlight">49</i>&nbsp;            Schedule schedule = new Schedule(doctorID,date);</b>
+<b class="fc"><i class="no-highlight">50</i>&nbsp;            scheduleRepository.save(schedule);</b>
+<b class="fc"><i class="no-highlight">51</i>&nbsp;            return schedule;</b>
+<i class="no-highlight">52</i>&nbsp;        }
+<i class="no-highlight">53</i>&nbsp;    }
+<i class="no-highlight">54</i>&nbsp;
+<i class="no-highlight">55</i>&nbsp;    @Override
+<i class="no-highlight">56</i>&nbsp;    public List&lt;Schedule&gt; getFullScheduleByDateTime(Date date, String time) {
+<b class="nc"><i class="no-highlight">57</i>&nbsp;        List&lt;Schedule&gt; fullSchedule = scheduleRepository.getFullScheduleByDateTime(date);</b>
+<b class="nc"><i class="no-highlight">58</i>&nbsp;        List&lt;Schedule&gt; res = new LinkedList&lt;&gt;();</b>
+<b class="nc"><i class="no-highlight">59</i>&nbsp;        if(time.equals(&quot;m&quot;)){</b>
+<b class="nc"><i class="no-highlight">60</i>&nbsp;            for(Schedule s : fullSchedule){</b>
+<b class="nc"><i class="no-highlight">61</i>&nbsp;                if(s.getN_morning().equals(constantDao.getMorningMax())){</b>
+<b class="nc"><i class="no-highlight">62</i>&nbsp;                    res.add(s);</b>
+<i class="no-highlight">63</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">64</i>&nbsp;            }</b>
+<i class="no-highlight">65</i>&nbsp;        }else{
+<b class="nc"><i class="no-highlight">66</i>&nbsp;            for(Schedule s : fullSchedule){</b>
+<b class="nc"><i class="no-highlight">67</i>&nbsp;                if(s.getN_afternoon().equals(constantDao.getAfternoonMax())){</b>
+<b class="nc"><i class="no-highlight">68</i>&nbsp;                    res.add(s);</b>
+<i class="no-highlight">69</i>&nbsp;                }
+<b class="nc"><i class="no-highlight">70</i>&nbsp;            }</b>
+<i class="no-highlight">71</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">72</i>&nbsp;        return res;</b>
+<i class="no-highlight">73</i>&nbsp;    }
+<i class="no-highlight">74</i>&nbsp;
+<i class="no-highlight">75</i>&nbsp;
+<i class="no-highlight">76</i>&nbsp;//    @Override
+<i class="no-highlight">77</i>&nbsp;//    public void saveSchedule(Schedule schedule){
+<i class="no-highlight">78</i>&nbsp;//        scheduleRepository.save(schedule);
+<i class="no-highlight">79</i>&nbsp;//    }
+<i class="no-highlight">80</i>&nbsp;    /*
+<i class="no-highlight">81</i>&nbsp;    只允许用scheduleRepository方法取出来的对象 修改后save 才可以
+<i class="no-highlight">82</i>&nbsp;    否则save时会当作另一个对象 没法存进去 只能先delete再save
+<i class="no-highlight">83</i>&nbsp;     */
+<i class="no-highlight">84</i>&nbsp;    @Override
+<i class="no-highlight">85</i>&nbsp;    @CachePut(value={&quot;Schedule&quot;},key=&quot;#schedule.getDoctorID() + &#39;_&#39; + #schedule.getDate()&quot;)
+<i class="no-highlight">86</i>&nbsp;    public Schedule update(Schedule schedule){
+<b class="fc"><i class="no-highlight">87</i>&nbsp;        scheduleRepository.delete(schedule);</b>
+<b class="fc"><i class="no-highlight">88</i>&nbsp;        scheduleRepository.flush();</b>
+<b class="fc"><i class="no-highlight">89</i>&nbsp;        scheduleRepository.save(schedule);</b>
+<b class="fc"><i class="no-highlight">90</i>&nbsp;        return schedule;</b>
+<i class="no-highlight">91</i>&nbsp;    }
+<i class="no-highlight">92</i>&nbsp;//
+<i class="no-highlight">93</i>&nbsp;//    @Override
+<i class="no-highlight">94</i>&nbsp;//    public void cancel(Integer doctorID, Date date,String time) {
+<i class="no-highlight">95</i>&nbsp;//        if(time.equals(&quot;m&quot;)){
+<i class="no-highlight">96</i>&nbsp;//            scheduleRepository.cancelMorning(doctorID,date);
+<i class="no-highlight">97</i>&nbsp;//        }else{
+<i class="no-highlight">98</i>&nbsp;//            scheduleRepository.cancelAfternoon(doctorID,date);
+<i class="no-highlight">99</i>&nbsp;//        }
+<i class="no-highlight">100</i>&nbsp;//    }
+<i class="no-highlight">101</i>&nbsp;
+<i class="no-highlight">102</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-06-16 16:53</div>
+</div>
+</body>
+</html>
