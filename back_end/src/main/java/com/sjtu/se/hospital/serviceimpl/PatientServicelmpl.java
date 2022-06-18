@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Propagation;
 
 import org.springframework.transaction.annotation.Transactional;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -94,7 +95,10 @@ public class PatientServicelmpl implements PatientService {
 
     @Override
     public void discardAppointment(Integer patientID) {
-        patientDao.punish(patientID);
+        Integer count = patientDao.punish(patientID);
+        if(count >= constantDao.getPunishCount()){
+            patientDao.setPunishBegin(patientID,new Timestamp(new java.util.Date().getTime()));
+        }
     }
 
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
