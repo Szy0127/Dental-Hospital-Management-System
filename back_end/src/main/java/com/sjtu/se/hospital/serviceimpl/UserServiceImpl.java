@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
 
     //为了测试不报org.hibernate.LazyInitializationException: could not initialize proxy - no session
     //实际上不需要
-    @Transactional
+//    @Transactional
     @Override
     public User login(String username, String password) {
 

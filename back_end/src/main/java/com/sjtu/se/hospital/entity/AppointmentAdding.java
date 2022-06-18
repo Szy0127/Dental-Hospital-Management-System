@@ -10,11 +10,11 @@ public class AppointmentAdding implements Serializable {
     private String date;
     private String time;
 
-    public AppointmentAdding(Integer patientId, Integer deptId, Integer doctorId, String date, String time) {
-        this.patientId = patientId;
-        this.deptId = deptId;
-        this.doctorId = doctorId;
-        this.date = date;
-        this.time = time;
-    }
+//    public AppointmentAdding(Integer patientId, Integer deptId, Integer doctorId, String date, String time) {
+//        this.patientId = patientId;
+//        this.deptId = deptId;
+//        this.doctorId = doctorId;
+//        this.date = date;
+//        this.time = time;
+//    }
 }

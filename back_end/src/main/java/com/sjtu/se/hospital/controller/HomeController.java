@@ -29,21 +29,5 @@ public class HomeController {
         return homeService.getNotifications();
     }
 
-    @RequestMapping("/addNews")
-    public News addNews(
-            @RequestParam("date") Date date,
-            @RequestParam("title") String title,
-            @RequestParam("content") String content
-    ) {
-        return homeService.addNews(new News(date, title, content));
-    }
 
-    @RequestMapping("/addNotification")
-    public Notification addNotification(
-            @RequestParam("date") Date date,
-            @RequestParam("title") String title,
-            @RequestParam("content") String content
-    ) {
-        return homeService.addNotification(new Notification(date, title, content));
-    }
 }

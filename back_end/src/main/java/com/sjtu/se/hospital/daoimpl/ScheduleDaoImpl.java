@@ -46,25 +46,25 @@ public class ScheduleDaoImpl implements ScheduleDao {
         }
     }
 
-    @Override
-    public List<Schedule> getFullScheduleByDateTime(Date date, String time) {
-        List<Schedule> fullSchedule = scheduleRepository.getFullScheduleByDateTime(date);
-        List<Schedule> res = new LinkedList<>();
-        if(time.equals("m")){
-            for(Schedule s : fullSchedule){
-                if(s.getN_morning().equals(constantDao.getMorningMax())){
-                    res.add(s);
-                }
-            }
-        }else{
-            for(Schedule s : fullSchedule){
-                if(s.getN_afternoon().equals(constantDao.getAfternoonMax())){
-                    res.add(s);
-                }
-            }
-        }
-        return res;
-    }
+//    @Override
+//    public List<Schedule> getFullScheduleByDateTime(Date date, String time) {
+//        List<Schedule> fullSchedule = scheduleRepository.getFullScheduleByDateTime(date);
+//        List<Schedule> res = new LinkedList<>();
+//        if(time.equals("m")){
+//            for(Schedule s : fullSchedule){
+//                if(s.getN_morning().equals(constantDao.getMorningMax())){
+//                    res.add(s);
+//                }
+//            }
+//        }else{
+//            for(Schedule s : fullSchedule){
+//                if(s.getN_afternoon().equals(constantDao.getAfternoonMax())){
+//                    res.add(s);
+//                }
+//            }
+//        }
+//        return res;
+//    }
 
 
 //    @Override

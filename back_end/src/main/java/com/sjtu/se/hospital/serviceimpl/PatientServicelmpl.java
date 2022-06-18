@@ -125,17 +125,17 @@ public class PatientServicelmpl implements PatientService {
         return success;
     }
 
-    @Override
-    public List<Schedule> getFullScheduleByDateTime(String datestr, String time) {
-        Date date = null;
-        try {
-            date = new Date(new SimpleDateFormat("yyyy-MM-dd").parse(datestr).getTime());
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return null;
-        }
-        return scheduleDao.getFullScheduleByDateTime(date,time);
-    }
+//    @Override
+//    public List<Schedule> getFullScheduleByDateTime(String datestr, String time) {
+//        Date date = null;
+//        try {
+//            date = new Date(new SimpleDateFormat("yyyy-MM-dd").parse(datestr).getTime());
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//            return null;
+//        }
+//        return scheduleDao.getFullScheduleByDateTime(date,time);
+//    }
 
     @Override
     public List<AppointmentEdited> getAppointmentsByPatient(Integer ID) {

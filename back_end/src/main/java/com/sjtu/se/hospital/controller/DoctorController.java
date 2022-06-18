@@ -5,6 +5,7 @@ import com.sjtu.se.hospital.entity.Doctor;
 import com.sjtu.se.hospital.entity.Schedule;
 import com.sjtu.se.hospital.service.DoctorService;
 import com.sjtu.se.hospital.service.PatientService;
+import com.sjtu.se.hospital.utils.SessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,27 +24,39 @@ public class DoctorController {
     private PatientService patientService;
 
     @RequestMapping("/getDoctor")
-    Doctor getDoctor(@RequestParam("doctorID") Integer ID) {
+    public Doctor getDoctor(@RequestParam("doctorID") Integer ID) {
         return doctorService.getDoctor(ID);
     }
 
     @RequestMapping("/getDoctorsByDept")
-    List<Doctor> getDoctorsByDept(@RequestParam("deptID") Integer ID) {
+    public List<Doctor> getDoctorsByDept(@RequestParam("deptID") Integer ID) {
         return doctorService.getDoctorsByDept(ID);
     }
 
     @RequestMapping("/getScheduleByDocID")
-    List<Schedule> getSchedule(@RequestParam("docID") Integer ID) {
+    public List<Schedule> getSchedule(
+//            @RequestParam("docID") Integer ID
+    ) {
+        if(!SessionUtil.isDoctor()){
+            return null;
+        }
+        Integer ID = SessionUtil.getUserID();
         return doctorService.getSchedule(ID);
     }
 
     @RequestMapping("/getAppointmentsByDocID")
-    List<Appointment> getAppointments(@RequestParam("docID") Integer ID) {
+    public List<Appointment> getAppointments(
+//            @RequestParam("docID") Integer ID
+    ) {
+        if(!SessionUtil.isDoctor()){
+            return null;
+        }
+        Integer ID = SessionUtil.getUserID();
         return doctorService.getAppointments(ID);
     }
 
     @RequestMapping("/modifyDoctor")
-    Doctor addNewDoctor(
+    public Doctor addNewDoctor(
             @RequestParam("id") Integer id, //添加新医生：0， 修改医生信息：需指定id
             @RequestParam("name") String name,
             @RequestParam("gender") String gender,
@@ -55,23 +68,27 @@ public class DoctorController {
             @RequestParam("username") String username,
             @RequestParam("password") String password
     ) {
+        if(!SessionUtil.isAdmin()){
+            return null;
+        }
         return doctorService.addNewDoctor(new Doctor(id, username, password, name, gender, deptID, age, post, avatar, intro));
     }
 
-    @RequestMapping("/delDoctor")
-    void delDoctor(@RequestParam("doctorId") int doctorId) {
-        doctorService.delDoctor(doctorId);
-    }
+
 
     @RequestMapping("/discardAppointment")
-    void discardAppointment(
+    public boolean discardAppointment(
             @RequestParam("patientID") Integer patientID
     ) {
+        if(!SessionUtil.isDoctor()){
+            return false;
+        }
         patientService.discardAppointment(patientID);
+        return true;
     }
 
     @RequestMapping("/modifyDescription")
-    void modifyDescription(
+    public boolean modifyDescription(
             @RequestParam("ranking") int ranking,
             @RequestParam("patientID") int patientID,
             @RequestParam("deptID") int deptID,
@@ -80,10 +97,14 @@ public class DoctorController {
             @RequestParam("time") String time,
             @RequestParam("description") String desc
     ) {
+        if(!SessionUtil.isDoctor()){
+            return false;
+        }
         Appointment appointment = new Appointment(
                 ranking, patientID, deptID, doctorID, date, time, desc
         );
-        System.out.println(appointment);
+//        System.out.println(appointment);
         doctorService.modifyDescription(appointment);
+        return true;
     }
 }

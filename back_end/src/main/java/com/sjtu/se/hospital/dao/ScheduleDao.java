@@ -8,6 +8,6 @@ import java.util.List;
 public interface ScheduleDao {
 
     Schedule getSchedule(Integer doctorID, Date date);
-    List<Schedule> getFullScheduleByDateTime(Date date, String time);
+//    List<Schedule> getFullScheduleByDateTime(Date date, String time);
     Schedule update(Schedule schedule);
 }

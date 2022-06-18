@@ -24,13 +24,13 @@ public class MQServiceImpl<T> implements MQService<T> {
     @Resource
     private RedisTemplate<String, T> redisTemplate;
 
-    @Override
-    public void produce(T obj) {
-        redisTemplate.opsForList().leftPush(MESSAGE_KEY, obj);
-    }
-
-    @Override
-    public T consume() {
-        return redisTemplate.opsForList().rightPop(MESSAGE_KEY);
-    }
+//    @Override
+//    public void produce(T obj) {
+//        redisTemplate.opsForList().leftPush(MESSAGE_KEY, obj);
+//    }
+//
+//    @Override
+//    public T consume() {
+//        return redisTemplate.opsForList().rightPop(MESSAGE_KEY);
+//    }
 }

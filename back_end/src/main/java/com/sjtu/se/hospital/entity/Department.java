@@ -23,9 +23,9 @@ public class Department {
     private String title;
     private Integer doc_num;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "dept_id", referencedColumnName = "id", updatable = false, insertable = false)
-    private List<Doctor> doctors;
+//    @OneToMany(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "dept_id", referencedColumnName = "id", updatable = false, insertable = false)
+//    private List<Doctor> doctors;
 
     public Department() {}
     public Department(String title) {

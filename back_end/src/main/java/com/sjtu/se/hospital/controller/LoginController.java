@@ -53,7 +53,7 @@ public class LoginController {
             @RequestParam("username") String username,
             @RequestParam("password") String password
     ){
-        if(SessionUtil.checkAuth()>0){
+        if(SessionUtil.getUserID()>0){
             logout();
         }
         User user = userService.login(username,password);

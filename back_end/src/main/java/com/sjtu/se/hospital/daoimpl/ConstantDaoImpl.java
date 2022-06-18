@@ -15,15 +15,15 @@ public class ConstantDaoImpl implements ConstantDao {
     @Autowired
     ConstantRepository constantRepository;
 
-    @Cacheable(value={"Constant"})
+    @Cacheable(value={"Constant"},key="1")
     public Constant getConstant(){
         return constantRepository.findAll().get(0);
     }
 
-    @CachePut(value={"Constant"})
+    @CachePut(value={"Constant"},key="1")
     @Override
     public Constant modify(Constant constant) {
-        constantRepository.deleteAll();;
+        constantRepository.deleteAll();
         constantRepository.save(constant);
         return constant;
     }
