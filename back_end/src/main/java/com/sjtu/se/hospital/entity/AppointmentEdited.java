@@ -9,7 +9,7 @@ public class AppointmentEdited {
     public Date date;
     public String time;
     public Integer deptID;
-    public Integer docID;
+    public Integer doctorID;
     public String description;
 
 
@@ -22,7 +22,7 @@ public class AppointmentEdited {
         this.date = date;
         this.time = time;
         this.deptID = deptID;
-        this.docID = docID;
+        this.doctorID = docID;
         this.description = desc;
     }
 }
