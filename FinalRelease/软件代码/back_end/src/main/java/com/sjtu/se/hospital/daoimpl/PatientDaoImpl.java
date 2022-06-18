@@ -1,0 +1,52 @@
+package com.sjtu.se.hospital.daoimpl;
+
+import com.sjtu.se.hospital.dao.ConstantDao;
+import com.sjtu.se.hospital.dao.PatientDao;
+import com.sjtu.se.hospital.entity.Patient;
+import com.sjtu.se.hospital.repository.PatientRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import java.sql.Timestamp;
+
+@Repository
+public class PatientDaoImpl implements PatientDao {
+    @Autowired
+    PatientRepository patientRepository;
+
+
+
+    @Override
+    public Patient getPatientByID(Integer id) {
+        return patientRepository.getOne(id);
+    }
+
+    @Override
+    public void save(Patient patient) {
+
+        patientRepository.save(patient);
+    }
+
+    @Override
+    public Patient resetPunish(Integer id) {
+        Patient patient = patientRepository.getOne(id);
+        patient.setPunish_count(0);
+        patientRepository.save(patient);
+        return patient;
+    }
+
+    @Override
+    public Integer punish(Integer id) {
+        Patient patient = patientRepository.getOne(id);
+        patient.setPunish_count(patient.getPunish_count()+1);
+        patientRepository.save(patient);
+        return patient.getPunish_count();
+    }
+
+    @Override
+    public void setPunishBegin(Integer id,Timestamp begin) {
+        Patient patient = patientRepository.getOne(id);
+        patient.setPunish_begin(begin);
+        patientRepository.save(patient);
+    }
+}
