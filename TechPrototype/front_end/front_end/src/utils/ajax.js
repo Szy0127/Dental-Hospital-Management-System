@@ -16,6 +16,7 @@ let postRequest_v2 = (url, data, callback) => {
 
     fetch(url,opts)
         .then((response) => {
+            console.log(response);
             return response.json()
         })
         .then((data) => {

@@ -29,8 +29,8 @@ export default class Admin extends Component {
             },
             {
                 title: '科室编号',
-                key: 'deptId',
-                dataIndex: 'deptId',
+                key: 'deptID',
+                dataIndex: 'deptID',
             },
             {
                 title: '职位',
@@ -70,11 +70,16 @@ export default class Admin extends Component {
     }
     handleDelete = (key) => {
         // const dataSource = [...this.state.doctor];
-        delDoctor(key,(item)=>{
-            getDoctors(1, (data) => {
+        delDoctor(key, (item) => {
+            getDepartments(null, (data) => {
                 console.log(data);
-                this.setState({ doctor: data });
+                let doctors = []
+                data.map((item) => {
+                    doctors = [...doctors,...item.doctors];
+                })
+                this.setState({ doctor: doctors });
             })
+    
         });
     }
     handleAdd = () => {
@@ -114,19 +119,29 @@ export default class Admin extends Component {
                 // let doctors = { ...this.state.doctor, ...data }
                 // console.log(doctors);
                 // this.setState({ doctor: doctors, TableKey: this.state.TableKey + 1 });
-                getDoctors(1, (data) => {
+                getDepartments(null, (data) => {
                     console.log(data);
-                    this.setState({ doctor: data });
+                    let doctors = []
+                    data.map((item) => {
+                        doctors = [...doctors,...item.doctors];
+                    })
+                    this.setState({ doctor: doctors });
                 })
+        
             });
         }
         else if (this.state.ModalType === "编辑医生") {
             console.log("In EDIT");
-            editDoctor(this.state.EditingDoc.id, doctor,(data)=>{
-                getDoctors(1, (data) => {
+            editDoctor(this.state.EditingDoc.id, doctor, (data) => {
+                getDepartments(null, (data) => {
                     console.log(data);
-                    this.setState({ doctor: data });
+                    let doctors = []
+                    data.map((item) => {
+                        doctors = [...doctors,...item.doctors];
+                    })
+                    this.setState({ doctor: doctors });
                 })
+        
             });
         }
         setTimeout(() => {
@@ -144,19 +159,19 @@ export default class Admin extends Component {
     }
     componentDidMount() {
         console.log("Management");
-        // getDepartments(null,(data) => {
-        //     console.log(data);
-        //     var doctor = data.map(item=>{
-        //         return {...item.doctors};
-        //     })
-        //     console.log(doctor)
-        //     this.setState({doctor:data});
-
-        // })
-        getDoctors(1, (data) => {
+        getDepartments(null, (data) => {
             console.log(data);
-            this.setState({ doctor: data });
+            let doctors = []
+            data.map((item) => {
+                doctors = [...doctors,...item.doctors];
+            })
+            this.setState({ doctor: doctors });
         })
+
+        // getDoctors(1, (data) => {
+        //     console.log(data);
+        //     this.setState({ doctor: data });
+        // })
     }
     render() {
         return (
@@ -170,7 +185,7 @@ export default class Admin extends Component {
                     columns={this.columns}
                     pagination={
                         {
-                            pageSize: 8
+                            pageSize: 4
                         }
                     }
                 />

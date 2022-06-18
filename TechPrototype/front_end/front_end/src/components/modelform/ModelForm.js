@@ -67,7 +67,7 @@ export default class ModalForm extends Component {
                     />
                 </FormItem>
                 <FormItem label="科室编号"
-                    name="deptId"
+                    name="deptID"
                     rules={[{ required: true, message: '请输入科室编号' }]}>
                     <Input />
                 </FormItem>

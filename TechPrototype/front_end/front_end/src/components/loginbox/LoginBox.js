@@ -15,8 +15,9 @@ export default function LoginBox() {
       if (data.success) {
         message.success(data.msg);
         localStorage.setItem("identity",values["identity"]);
-        localStorage.setItem("ID",data.data.ID);
+        localStorage.setItem("ID",data.data.id);
         console.log("in");
+        console.log(data);
         navigate('/home');
       }
       else {

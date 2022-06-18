@@ -4,7 +4,13 @@ import {useLocation} from "react-router-dom";
 import {Button, Descriptions, Divider, Input, message, Table} from "antd";
 import {history} from "../../../utils/data";
 import moment from 'moment';
-import {addHistory, getHistories, getPatientsByID, updateDescriptionOfHistory} from "../../../services/DataSurvice";
+import {
+    addHistory,
+    discardAppointment,
+    getHistories,
+    getPatientsByID, modifyDesc,
+    updateDescriptionOfHistory
+} from "../../../services/DataSurvice";
 import { Steps } from 'antd';
 
 const { Step } = Steps;
@@ -19,22 +25,24 @@ export default function PatientInfo () {
 
     const [desc, setDescription] = useState({});
 
-    useEffect(() => {
-        const callback = (data) => {
-            setPatient(data);
-        }
-        const callback2 = (data) => {
-            let res = data.find((item) => {
-                return item.time === moment().format('YYYY-MM-DD');
-            })
-            setDescription(JSON.parse(res.description));
-        }
-        getPatientsByID(patient.patientID, callback);
-        getHistories(patient.patientID, callback2);
-    }, [])
+    const [comment, setComment] = useState([]);
 
-    console.log("Description Object")
-    console.log(desc)
+    const [info, setInfo] = useState({});
+
+    useEffect(() => {
+
+        console.log(patient)
+        console.log(patient.description)
+        setDescription(JSON.parse(patient.description))
+        console.log(desc)
+        setComment([desc.commentA, desc.commentB, desc.commentC, desc.commentD, desc.commentE])
+
+        getPatientsByID(patient.patientID, (data)=>{
+            console.log(data)
+            setInfo(data)
+        })
+
+    }, [])
 
     const handleClick = () => {
         console.log("已完成药方的编辑！")
@@ -53,28 +61,58 @@ export default function PatientInfo () {
         setStep(tmp + 1);
 
         setArea('')
+
+        if (step >= 5)
+            message.warn("注意！不可继续添加诊断流程！")
+
+        setDescription({...desc, commentA: comment[0], commentB: comment[1], commentC: comment[2], commentD: comment[3], commentE: comment[4]})
+        console.log(desc)
     }
 
     const handleClick3 = () => {
         // 将所有记录传至后端
         message.success("信息已存储")
         let jsonString = JSON.stringify(desc);
-        updateDescriptionOfHistory(patient.id, moment().format('YYYY-MM-DD'), jsonString)
+
+        // message.success(jsonString)
+
+        modifyDesc(patient.ranking, patient.patientID, patient.deptID, patient.doctorID, patient.date, patient.time, jsonString);
+
+        // updateDescriptionOfHistory(patient.id, moment().format('YYYY-MM-DD'), jsonString)
     }
 
-    console.log(patient)
+    console.log(desc)
 
     const [area, setArea] = useState('');
+
+    const click = () => {
+        message.warn("已取消该病人挂号就诊！")
+        discardAppointment(patient.patientID)
+    }
 
     return (
         <div>
 
             <h2>治疗流程图</h2>
 
+            <Divider />
+
+            <Button type='primary' onClick={click} style={{width: 800, height: 50, marginLeft: 150}}>病人未到</Button>
+
+            <Divider />
+
             <Steps direction="horizontal" current={step}>
-                <Step title="初诊" description={desc.commentA} />
-                <Step title="复诊" description={desc.commentB} />
-                <Step title="完成诊断" description={desc.commentC} />
+                <Step title="开始诊疗" description={""} />
+                {
+                    comment.map((item) => {
+                        console.log(item)
+                        if (item !== undefined) {
+                            return (
+                                <Step title="诊疗阶段" description={item} />
+                            )
+                        }
+                    })
+                }
             </Steps>
 
             <Divider />
@@ -84,17 +122,28 @@ export default function PatientInfo () {
                       onChange={(event) => {
                           setArea(event.target.value);
                           if (step === 0) {
-                            setDescription({...desc, commentA: event.target.value})
+                              setComment([event.target.value, comment[1], comment[2], comment[3], comment[4]])
+                            // setDescription({...desc, commentA: event.target.value})
                           }
                           else if (step === 1){
-                              setDescription({...desc, commentB: event.target.value})
+                              // setDescription({...desc, commentB: event.target.value})
+                              setComment([comment[0], event.target.value, comment[2], comment[3], comment[4]])
                           }
-                          else{
-                              setDescription({...desc, commentC: event.target.value})
+                          else if (step === 2){
+                              // setDescription({...desc, commentB: event.target.value})
+                              setComment([comment[0], comment[1], event.target.value, comment[3], comment[4]])
+                          }
+                          else if (step === 3){
+                              // setDescription({...desc, commentB: event.target.value})
+                              setComment([comment[0], comment[1], comment[2], event.target.value, comment[4]])
+                          }
+                          else if (step === 4){
+                              // setDescription({...desc, commentB: event.target.value})
+                              setComment([comment[0], comment[1], comment[2], comment[3], event.target.value])
                           }
                       }}
             />
-            <Button type='primary' onClick={handleClick1}>{step >= 2? '完成诊断':'下一阶段'}</Button>
+            <Button type='primary' onClick={handleClick1}>{step < 5? '增加诊疗阶段':'不可继续增加'}</Button>
 
             <Divider />
 
@@ -103,11 +152,11 @@ export default function PatientInfo () {
                 bordered
                 column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
             >
-                <Descriptions.Item label="姓名">{patient.name}</Descriptions.Item>
-                <Descriptions.Item label="性别">{patient.gender === 'm'? '男':'女'}</Descriptions.Item>
-                <Descriptions.Item label='编号'>{patient.id}</Descriptions.Item>
-                <Descriptions.Item label="年龄">{patient.age}</Descriptions.Item>
-                <Descriptions.Item label="联系方式">{patient.email}</Descriptions.Item>
+                <Descriptions.Item label="姓名">{info.name}</Descriptions.Item>
+                <Descriptions.Item label="性别">{info.gender === 'm'? '男':'女'}</Descriptions.Item>
+                <Descriptions.Item label='编号'>{info.id}</Descriptions.Item>
+                <Descriptions.Item label="年龄">{info.age}</Descriptions.Item>
+                <Descriptions.Item label="联系方式">{info.email}</Descriptions.Item>
                 <Descriptions.Item label="病情描述">{desc.disease}</Descriptions.Item>
                 <Descriptions.Item label="开出药方">{desc.medicine}
                 </Descriptions.Item>

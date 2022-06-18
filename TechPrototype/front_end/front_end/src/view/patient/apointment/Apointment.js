@@ -141,8 +141,6 @@ export default class Appointment extends React.Component {
         console.log(value);
         if (this.CanAppoint(value)) {
             AddAppointment(value, this.callback);
-            let Pid = localStorage.getItem("PatientID");
-            addHistory(value.time,Pid,value.deptID,"{\"disease\":\"\",\"commentA\":\"\",\"commentB\":\"\",\"commentC\":\"\",\"medicine\":\"\"}");
         }
         else {
             message.error("一天仅能挂号一次");

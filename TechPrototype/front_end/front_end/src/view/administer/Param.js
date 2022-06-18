@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { Button, Col, Row, Statistic, Form, Input, Popconfirm, Table } from 'antd';
+import { Button, Col, Row, Statistic, Form, Input, Popconfirm, Table, InputNumber, Space } from 'antd';
 import { getDepartments } from '../../services/DataSurvice';
 import { data } from '../../utils/data';
-import { addDept, saveDept } from '../../services/AdminService';
+import { addDept, getConstant, modifyConstant, saveDept } from '../../services/AdminService';
 
 const EditableContext = React.createContext(null);
 const EditableRow = ({ index, ...props }) => {
@@ -88,37 +88,30 @@ const EditableCell = ({
 export default function Param() {
     const [dataSource, setDataSource] = useState([
     ]);
+    const [formdata, setFormdata] = useState({});
     const [count, setCount] = useState(2);
-    useEffect(()=>{
-        getDepartments(null,(data)=>{
+    useEffect(() => {
+        getDepartments(null, (data) => {
             console.log(data);
             setDataSource(data);
         })
-    },[])
-    const handleDelete = (key) => {
-
-    };
+        getConstant((data) => {
+            console.log(data);
+            setFormdata(data);
+            console.log(formdata);
+        })
+    }, [])
 
     const defaultColumns = [
         {
-            title: 'deptId',
-            dataIndex: 'deptId',
+            title: 'id',
+            dataIndex: 'id',
             // width: '30%',
         },
         {
             title: 'title',
             dataIndex: 'title',
             editable: true,
-        },
-        {
-            title: 'operation',
-            dataIndex: 'operation',
-            render: (_, record) =>
-                dataSource.length >= 1 ? (
-                    <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.deptId)}>
-                        <a>Delete</a>
-                    </Popconfirm>
-                ) : null,
         },
     ];
 
@@ -128,8 +121,8 @@ export default function Param() {
         };
         setDataSource([...dataSource, newData]);
         setCount(count + 1);
-        addDept(newData,(item)=>{
-            getDepartments(null,(data)=>{
+        addDept(newData, (item) => {
+            getDepartments(null, (data) => {
                 setDataSource(data);
             })
         })
@@ -142,7 +135,7 @@ export default function Param() {
         const item = newData[index];
         newData.splice(index, 1, { ...item, ...row });
         setDataSource(newData);
-        saveDept(row,()=>{})
+        saveDept(row, () => { })
     };
 
     const components = {
@@ -167,27 +160,52 @@ export default function Param() {
             }),
         };
     });
-
+    const onFinish = (values) => {
+        modifyConstant(values, (data) => {
+            setFormdata(data);
+        })
+    }
     return (
         <div>
-            <Row gutter={16}>
-                <Col span={12}>
-                    <Statistic title="号码数量限制" value={112893} />
-                    <Button style={{ marginTop: 16 }} type="primary">
-                        修改参数
-                    </Button>
-                </Col>
-            </Row>
+                <Form
+                    className='constantForm'
+                    initialValues={formdata}
+                    onFinish={onFinish}>
+                    <Form.Item name="morningMax"
+                        label="上午最大挂号人数"
+                        initialValue={formdata.morningMax}
+                    >
+                        <InputNumber
+                        />
+                    </Form.Item>
+                    <Form.Item name="afternoonMax"
+                        label="下午最大挂号人数"
+                        initialValue={formdata.afternoonMax}
+                    >
+                        <InputNumber />
+                    </Form.Item>
+                    <Form.Item name="punishCount"
+                        label="挂号退号禁用"
+                        initialValue={formdata.punishCount}
+                    >
+                        <InputNumber />
+                    </Form.Item>
+                    <Form.Item name="punishDuration"
+                        label="禁用时间"
+                        initialValue={formdata.punishDuration}
+                    >
+                        <InputNumber />
+                    </Form.Item>
+                    <Form.Item>
+                        <Button type="primary" htmlType="submit" >
+                            修改
+                        </Button>
+                    </Form.Item>
+                </Form>
             <div>
-                <Button
-                    onClick={handleAdd}
-                    type="primary"
-                    style={{
-                        marginBottom: 16,
-                    }}
-                >
-                    Add a row
-                </Button>
+                <Space>
+                    诊所科室
+                </Space>
                 <Table
                     components={components}
                     rowClassName={() => 'editable-row'}

@@ -41,17 +41,17 @@ export const AddAppointment = (value, callback) => {
             message.error("号已被抢完");
         }
     }
-    let Pid = localStorage.getItem("patientID");
-    let data = { patientID: 1, ...value };
+    let Pid = parseInt(localStorage.getItem("ID"));
+    let data = { patientID:Pid,...value };
     console.log(data);
     postRequest_v2(url, data, Wrapcallback);
 }
 
 export const getAppointments = (callback) => {
     const url = root + "/getAppointments";
-    let key = localStorage.getItem("patientID");
+    let key = localStorage.getItem("ID");
     let Pid = parseInt(key);
-    let data = { patientID: 1 };
+    let data = { patientID: Pid };
     postRequest_v2(url, data, callback);
 }
 
@@ -61,7 +61,7 @@ export const ADD_TO_APPOINT = (data) => {
 
 
 export const GET_Record = (callback) => {
-    localStorage.getItem("patientID");
+    localStorage.getItem("ID");
     let record = localStorage.getItem("record");
 
 
@@ -69,7 +69,7 @@ export const GET_Record = (callback) => {
 
 export const cancelAppointment = (value,callback) =>{
     const url = root + "/cancelAppointment";
-    let Pid = localStorage.getItem("patientID");
+    let Pid = localStorage.getItem("ID");
     let data = { patientID: Pid, ...value };
     console.log(data);
     postRequest_v2(url, data, callback);

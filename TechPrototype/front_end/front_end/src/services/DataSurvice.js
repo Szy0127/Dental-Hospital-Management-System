@@ -1,6 +1,6 @@
 import {postRequest, postRequest_v2} from "../utils/ajax";
+import {data} from "../utils/data";
 const root = "http://10.119.10.57:8080";
-// const root = "http://localhost:8080"
 
 export const getUser = (patientID, callback) => {
     const data = {patientID: patientID};
@@ -20,7 +20,7 @@ export const getNotifications = (callback) => {
 
 export const getPatientsByID = (ID,callback) => {
     const data = {patientID: ID};
-    const url = root + "/getPatientInfo";
+    const url = root + "/getPatient";
     postRequest_v2(url, data, callback);
 }
 
@@ -94,4 +94,24 @@ export const MngOrAftn = (flag) => {
 
 export const MaleOrFemale = (flag) => {
     return flag === 'm' ? 'male' : 'female';
+}
+
+export const discardAppointment = (patientID) => {
+    const data = {patientID: patientID};
+    const url = root + "/discardAppointment";
+    postRequest_v2(url, data, ()=>{})
+}
+
+export const modifyDesc = (rank, id, deptId, docId, date, time, desc) => {
+    const data = {
+        ranking: rank,
+        patientID: id,
+        deptID: deptId,
+        doctorID: docId,
+        date: date,
+        time: time,
+        description: desc
+    }
+    const url = root + "/modifyDescription"
+    postRequest_v2(url, data, ()=>{})
 }
