@@ -31,7 +31,7 @@ public class LoginController {
     @Autowired
     ConstantDao constantDao;
 
-    @PostMapping("/register")
+    @RequestMapping("/register")
     public boolean register(
             @RequestParam("name") String name,
             @RequestParam("gender") String gender,
@@ -48,7 +48,7 @@ public class LoginController {
         }
     }
 
-    @PostMapping("/login")
+    @RequestMapping("/login")
     public Msg login(
             @RequestParam("username") String username,
             @RequestParam("password") String password

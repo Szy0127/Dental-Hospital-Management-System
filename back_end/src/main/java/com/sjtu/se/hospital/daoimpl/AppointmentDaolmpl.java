@@ -55,7 +55,8 @@ public class AppointmentDaolmpl implements AppointmentDao {
                     p.getDate(),
                     p.getTime(),
                     p.getDeptID(),
-                    p.getDoctorID()
+                    p.getDoctorID(),
+                    p.getDescription()
             ));
         }
 

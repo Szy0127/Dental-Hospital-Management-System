@@ -10,10 +10,11 @@ public class AppointmentEdited {
     public String time;
     public Integer deptID;
     public Integer docID;
+    public String description;
 
 
     public AppointmentEdited() {}
-    public AppointmentEdited(Integer ran, Integer pat, String dep, String doc, Date date, String time, Integer deptID, Integer docID) {
+    public AppointmentEdited(Integer ran, Integer pat, String dep, String doc, Date date, String time, Integer deptID, Integer docID, String desc) {
         this.ranking = ran;
         this.patientID = pat;
         this.department = dep;
@@ -22,5 +23,6 @@ public class AppointmentEdited {
         this.time = time;
         this.deptID = deptID;
         this.docID = docID;
+        this.description = desc;
     }
 }

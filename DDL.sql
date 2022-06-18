@@ -21,7 +21,7 @@ create table constant
     punish_count integer check ( punish_count >= 0 ),#超过n次禁止挂号
     punish_duration integer check ( punish_duration >= 0 ),#一次禁止n天
     primary key(morning_max)
-)engine=ndbcluster;
+);
 
 create table notification
 (
@@ -30,7 +30,7 @@ create table notification
     title varchar(50),
     content text,
     primary key (id)
-)engine=ndbcluster;
+);
 
 create table news
 (
@@ -39,7 +39,7 @@ create table news
     title varchar(50),
     content text,
     primary key (id)
-)engine=ndbcluster;
+);
 
 create table department
 (
@@ -47,7 +47,7 @@ create table department
     title varchar(30),
     doc_num numeric(3) check ( doc_num >= 0 ),
     primary key (id)
-)engine=ndbcluster;
+);
 
 create table user
 (
@@ -56,7 +56,7 @@ create table user
 	username varchar(50),
     password char(64) not null,
     `type` integer not null
-)engine=ndbcluster;
+);
 
 create table patient
 (
@@ -70,7 +70,7 @@ create table patient
     punish_begin timestamp,#禁用开始时间
     primary key (id),
     foreign key (id) references user (id) on delete cascade
-)engine=ndbcluster;
+);
 
 create table doctor
 (
@@ -88,7 +88,7 @@ create table doctor
     foreign key (dept_id) references department (id) on delete cascade
 
 
-)engine=ndbcluster;
+);
 
 create table appointment
 (
@@ -104,8 +104,8 @@ create table appointment
     unique key(patient_id,doctor_id,date,time),
     foreign key (patient_id) references patient (id) on delete cascade,
     foreign key (dept_id) references department (id) on delete cascade,
-    foreign key (doctor_id) references doctor (id) on delete cascade
-)engine=ndbcluster;
+    foreign key (doctor_id) references department (id) on delete cascade
+);
 
 create table schedule
 (
@@ -118,4 +118,4 @@ create table schedule
     content varchar(50),
     primary key (doctor_id, date),
     foreign key (doctor_id) references doctor (id) on delete cascade
-)engine=ndbcluster;
+);

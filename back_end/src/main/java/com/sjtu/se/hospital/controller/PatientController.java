@@ -56,8 +56,8 @@ public class PatientController {
         return patientService.getAppointmentsByPatient(ID);
     }
 
-    @RequestMapping("/getPatientInfo")
-    public Patient getPatientInfo(@RequestParam("patientID") Integer ID) {
-        return patientService.getPatientInfo(ID);
+    @RequestMapping("/getPatient")
+    public Patient getPatientById(@RequestParam("patientID") Integer ID) {
+        return patientService.getPatientById(ID);
     }
 }

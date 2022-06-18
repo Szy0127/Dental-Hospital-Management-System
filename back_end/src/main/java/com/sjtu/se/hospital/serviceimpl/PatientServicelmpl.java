@@ -38,9 +38,6 @@ public class PatientServicelmpl implements PatientService {
     private ScheduleDao scheduleDao;
 
     @Autowired
-    private RecordDao recordDao;
-
-    @Autowired
     private ConstantDao constantDao;
 
     @Autowired
@@ -142,8 +139,8 @@ public class PatientServicelmpl implements PatientService {
     }
 
     @Override
-    public Patient getPatientInfo(Integer ID) {
-        return recordDao.getRecord(ID);
+    public Patient getPatientById(Integer ID) {
+        return patientDao.getPatientByID(ID);
     }
 
     @Transactional
