@@ -1,0 +1,1631 @@
+{
+    "id": "index",
+    "type": "PAGE",
+    "component": "Page",
+    "attributes": {
+      "backgroundColor": "#fff",
+      "backgroundColorBottom": "#fff",
+      "backgroundColorTop": "#fff",
+      "backgroundTextStyle": "dark",
+      "enablePullDownRefresh": "",
+      "navigationBarBackgroundColor": "#ffffff",
+      "navigationBarTextStyle": "black",
+      "navigationBarTitleText": "首页",
+      "navigationStyle": "custom",
+      "pageOrientation": "portrait",
+      "reachBottomDistance": 50,
+      "title": "首页"
+    },
+    "items": [
+      {
+        "id": "id200",
+        "component": "NavBar",
+        "attributes": {
+          "back": false,
+          "home": false,
+          "textSize": 32,
+          "title": "水源诊所"
+        },
+        "items": [
+          {
+            "id": "start",
+            "component": "",
+            "items": [
+              {
+                "id": "id274",
+                "component": "Image",
+                "attributes": {
+                  "lazyLoad": true,
+                  "src": "https://lowcode-7g82j08v00c629a1-1309474882.tcloudbaseapp.com/resources/2022-06/lowcode-677272"
+                },
+                "extra": {
+                  "commonStyle": {
+                    "self": {
+                      "left": 50,
+                      "width": "100",
+                      "height": "80",
+                      "position": "relative"
+                    },
+                    "size": {
+                      "width": "100",
+                      "height": "80"
+                    },
+                    "position": {
+                      "left": 50,
+                      "position": "relative"
+                    }
+                  },
+                  "xIndex": 0,
+                  "staticResourceAttribute": [
+                    "src"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "center",
+            "component": ""
+          },
+          {
+            "id": "end",
+            "component": ""
+          }
+        ],
+        "extra": {
+          "xIndex": 0
+        }
+      },
+      {
+        "id": "id236",
+        "component": "Container",
+        "attributes": {
+          "class": "gradual"
+        },
+        "items": [
+          {
+            "id": "id37",
+            "component": "Container",
+            "attributes": {},
+            "items": [
+              {
+                "id": "id1",
+                "component": "Image",
+                "attributes": {
+                  "showMenuByLongpress": false,
+                  "src": "https://lowcode-7g82j08v00c629a1-1309474882.tcloudbaseapp.com/resources/2022-06/lowcode-677274",
+                  "webp": false
+                },
+                "extra": {
+                  "commonStyle": {
+                    "self": {
+                      "width": "710",
+                      "height": "280"
+                    },
+                    "size": {
+                      "width": "710",
+                      "height": "280"
+                    }
+                  },
+                  "xIndex": 0,
+                  "staticResourceAttribute": [
+                    "src"
+                  ]
+                }
+              }
+            ],
+            "extra": {
+              "commonStyle": {
+                "self": {
+                  "position": "static",
+                  "marginLeft": 20,
+                  "paddingTop": 20,
+                  "marginRight": 20
+                },
+                "margin": {
+                  "left": 20,
+                  "right": 20
+                },
+                "padding": {
+                  "top": 20
+                },
+                "position": {
+                  "position": "static"
+                }
+              },
+              "xIndex": 0
+            }
+          },
+          {
+            "id": "id17",
+            "component": "Container",
+            "attributes": {},
+            "items": [
+              {
+                "id": "id19",
+                "component": "ScrollView",
+                "attributes": {
+                  "divider": "",
+                  "enableFlex": true,
+                  "fastDeceleration": "",
+                  "pagingEnabled": "",
+                  "refresherTriggered": "",
+                  "scrollLeft": null,
+                  "scrollWithAnimation": true,
+                  "scrollX": true,
+                  "scrollY": false
+                },
+                "items": [
+                  {
+                    "id": "id55",
+                    "component": "Row",
+                    "attributes": {
+                      "ColMobile": 2,
+                      "ColPC": 4,
+                      "buttonText": "查看详情",
+                      "buttonVisible": true,
+                      "col": "",
+                      "desColor": "rgba(0, 0, 0, 0.4)",
+                      "desFontSize": 14,
+                      "desFontWeight": "normal",
+                      "desLineHeight": "auto",
+                      "desMaxLines": 2,
+                      "desVisible": true,
+                      "iconHeightSize": "100%",
+                      "iconWidthSize": "100%",
+                      "navOption": [
+                        {
+                          "des": "这是一段示例描述，这是一段示例描述",
+                          "icon": "https://qcloudimg.tencent-cloud.cn/raw/478c35e469057b4d6352ccc14e00ebc5.png",
+                          "title": "",
+                          "tapStatus": "tap",
+                          "__sortid__": "ZkEQm_cCDPmmHd4jB6NnS"
+                        },
+                        {
+                          "des": "这是一段示例描述，这是一段示例描述",
+                          "icon": "https://qcloudimg.tencent-cloud.cn/raw/478c35e469057b4d6352ccc14e00ebc5.png",
+                          "title": "示例标题",
+                          "tapStatus": "tap",
+                          "__sortid__": "XOOt9WZVFkZIR3RdaZDlt"
+                        },
+                        {
+                          "des": "这是一段示例描述，这是一段示例描述",
+                          "icon": "https://qcloudimg.tencent-cloud.cn/raw/478c35e469057b4d6352ccc14e00ebc5.png",
+                          "title": "示例标题",
+                          "tapStatus": "tap",
+                          "__sortid__": "fxrCvBb5LwNENN-FuyqNc"
+                        },
+                        {
+                          "des": "这是一段示例描述，这是一段示例描述",
+                          "icon": "https://qcloudimg.tencent-cloud.cn/raw/478c35e469057b4d6352ccc14e00ebc5.png",
+                          "title": "示例标题",
+                          "tapStatus": "tap",
+                          "__sortid__": "HCkUOjaDj7LmOExLEBRLY"
+                        }
+                      ],
+                      "reverse": "",
+                      "textAlign": "left",
+                      "titleColor": "rgb(0, 0, 0)",
+                      "titleFontSize": 14,
+                      "titleFontWeight": "bolder",
+                      "titleLineHeight": "auto",
+                      "titleMaxLines": 1,
+                      "titleVisible": true
+                    },
+                    "items": [
+                      {
+                        "id": "child",
+                        "component": "",
+                        "items": [
+                          {
+                            "id": "id273",
+                            "component": "Media",
+                            "attributes": {
+                              ":content": "$for.id55.xm",
+                              "isCustomContent": true,
+                              ":mediaUrl": "$for.id55.tp",
+                              "subtitle": "",
+                              "title": ""
+                            },
+                            "items": [
+                              {
+                                "id": "customMedia",
+                                "component": ""
+                              },
+                              {
+                                "id": "customContent",
+                                "component": ""
+                              }
+                            ],
+                            "extra": {
+                              "xIndex": 0,
+                              "staticResourceAttribute": [
+                                "mediaUrl"
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    ],
+                    "directives": {
+                      ":for": "id55 in $app.dataset.state.yslb"
+                    },
+                    "extra": {
+                      "commonStyle": {
+                        "self": {
+                          "width": "100%",
+                          "display": "flex",
+                          "flexWrap": "nowrap",
+                          "paddingLeft": 50
+                        },
+                        "size": {
+                          "width": "100%"
+                        },
+                        "custom": [],
+                        "display": "flex",
+                        "padding": {
+                          "left": 50
+                        },
+                        "flexConfig": {
+                          "flexWrap": "nowrap"
+                        }
+                      },
+                      "xIndex": 0
+                    }
+                  }
+                ],
+                "extra": {
+                  "commonStyle": {
+                    "self": {
+                      "height": "170",
+                      "display": "flex",
+                      "flexWrap": "nowrap",
+                      "marginTop": 3
+                    },
+                    "size": {
+                      "height": "170"
+                    },
+                    "margin": {
+                      "top": 3
+                    },
+                    "display": "flex",
+                    "flexConfig": {
+                      "flexWrap": "nowrap"
+                    }
+                  },
+                  "xIndex": 1
+                }
+              },
+              {
+                "id": "id30",
+                "component": "Container",
+                "attributes": {},
+                "items": [
+                  {
+                    "id": "id18",
+                    "component": "Text",
+                    "attributes": {
+                      "decode": false,
+                      "selectable": false,
+                      "space": "",
+                      "text": "医生展示"
+                    },
+                    "extra": {
+                      "commonStyle": {
+                        "self": {
+                          "height": "44",
+                          "fontSize": "32",
+                          "fontWeight": "bolder",
+                          "whiteSpace": "pre-line"
+                        },
+                        "size": {
+                          "height": "44"
+                        },
+                        "text": {
+                          "weight": "bolder",
+                          "fontSize": "32"
+                        },
+                        "whiteSpace": "pre-line"
+                      },
+                      "xIndex": 0
+                    }
+                  }
+                ],
+                "extra": {
+                  "commonStyle": {
+                    "self": {
+                      "height": "44",
+                      "display": "inline-block",
+                      "marginTop": 24,
+                      "marginBottom": 38
+                    },
+                    "size": {
+                      "height": "44"
+                    },
+                    "margin": {
+                      "top": 24,
+                      "bottom": 38
+                    },
+                    "display": "inline-block"
+                  },
+                  "xIndex": 0
+                }
+              }
+            ],
+            "extra": {
+              "commonStyle": {
+                "self": {
+                  "width": "710",
+                  "height": "316",
+                  "background": "rgb(255, 255, 255)",
+                  "marginLeft": 20,
+                  "paddingLeft": 40,
+                  "borderRadius": "16"
+                },
+                "size": {
+                  "width": "710",
+                  "height": "316"
+                },
+                "border": {
+                  "radiusInfo": {
+                    "topLeft": "16",
+                    "topRight": "16",
+                    "bottomLeft": "16",
+                    "bottomRight": "16"
+                  }
+                },
+                "margin": {
+                  "left": 20
+                },
+                "padding": {
+                  "left": 40
+                },
+                "background": {
+                  "color": "rgb(255, 255, 255)",
+                  "bgType": "color"
+                }
+              },
+              "xIndex": 3
+            }
+          },
+          {
+            "id": "id93",
+            "component": "Container",
+            "attributes": {},
+            "items": [
+              {
+                "id": "id95",
+                "component": "Container",
+                "attributes": {},
+                "items": [
+                  {
+                    "id": "id96",
+                    "component": "Text",
+                    "attributes": {
+                      "decode": false,
+                      "selectable": false,
+                      "space": "",
+                      "text": "最新动态"
+                    },
+                    "extra": {
+                      "commonStyle": {
+                        "self": {
+                          "display": "inline-block",
+                          "fontSize": "32",
+                          "fontWeight": "bolder",
+                          "marginLeft": 40,
+                          "whiteSpace": "pre-line"
+                        },
+                        "text": {
+                          "weight": "bolder",
+                          "fontSize": "32"
+                        },
+                        "margin": {
+                          "left": 40
+                        },
+                        "display": "inline-block",
+                        "whiteSpace": "pre-line"
+                      },
+                      "xIndex": 0
+                    }
+                  },
+                  {
+                    "id": "id256",
+                    "component": "Container",
+                    "attributes": {},
+                    "items": [
+                      {
+                        "id": "id101",
+                        "component": "Text",
+                        "attributes": {
+                          "decode": false,
+                          "selectable": false,
+                          "space": "",
+                          "text": "更多"
+                        },
+                        "listeners": [
+                          {
+                            "id": "wajt5q09a938",
+                            "eventName": "tap",
+                            "type": "platform",
+                            "handler": {
+                              "name": "navigateTo",
+                              "module": "platform",
+                              "params": {
+                                "pageId": "liebiao"
+                              }
+                            },
+                            "isCapturePhase": false
+                          }
+                        ],
+                        "extra": {
+                          "commonStyle": {
+                            "self": {
+                              "color": "rgb(124, 132, 142)",
+                              "display": "inline-block",
+                              "fontSize": "24",
+                              "whiteSpace": "pre-line"
+                            },
+                            "text": {
+                              "color": "rgb(124, 132, 142)",
+                              "fontSize": "24"
+                            },
+                            "custom": [],
+                            "display": "inline-block",
+                            "whiteSpace": "pre-line"
+                          },
+                          "xIndex": 0
+                        }
+                      },
+                      {
+                        "id": "id100",
+                        "component": "Image",
+                        "attributes": {
+                          "imgPreview": "",
+                          "showMenuByLongpress": false,
+                          "src": "https://lowcode-3gzggxse31702e14-1253226562.tcloudbaseapp.com/resources/2021-06/lowcode-4206",
+                          "webp": false
+                        },
+                        "extra": {
+                          "commonStyle": {
+                            "self": {
+                              "width": "34",
+                              "height": "34",
+                              "display": "inline-block",
+                              "position": "static"
+                            },
+                            "size": {
+                              "width": "34",
+                              "height": "34"
+                            },
+                            "custom": [],
+                            "display": "inline-block",
+                            "position": {
+                              "position": "static"
+                            }
+                          },
+                          "xIndex": 1
+                        }
+                      }
+                    ],
+                    "extra": {
+                      "commonStyle": {
+                        "custom": [],
+                        "display": "inline-flex",
+                        "flexConfig": {
+                          "alignItems": "center",
+                          "justifyContent": "center"
+                        }
+                      },
+                      "xIndex": 2
+                    }
+                  }
+                ],
+                "extra": {
+                  "commonStyle": {
+                    "self": {
+                      "width": "710",
+                      "height": "96",
+                      "display": "flex",
+                      "boxSizing": "border-box",
+                      "alignItems": "center",
+                      "borderRadius": "16",
+                      "paddingRight": 24,
+                      "justifyContent": "space-between"
+                    },
+                    "size": {
+                      "width": "710",
+                      "height": "96"
+                    },
+                    "border": {
+                      "radiusInfo": {
+                        "topLeft": "16",
+                        "topRight": "16",
+                        "bottomLeft": "16",
+                        "bottomRight": "16"
+                      }
+                    },
+                    "custom": [],
+                    "display": "flex",
+                    "padding": {
+                      "right": 24
+                    },
+                    "boxSizing": "border-box",
+                    "flexConfig": {
+                      "alignItems": "center",
+                      "justifyContent": "space-between"
+                    }
+                  },
+                  "xIndex": 0
+                }
+              },
+              {
+                "id": "id105",
+                "component": "Media",
+                "attributes": {
+                  "align": "top",
+                  "content": "",
+                  "isCustomContent": true,
+                  "isCustomMedia": true,
+                  "mediaUrl": "",
+                  "reverse": true,
+                  "subtitle": "",
+                  "title": "功能更新要点：新增流程引擎功能，新增编辑"
+                },
+                "items": [
+                  {
+                    "id": "customMedia",
+                    "component": "",
+                    "items": [
+                      {
+                        "id": "id106",
+                        "component": "Image",
+                        "attributes": {
+                          "imgPreview": "",
+                          "showMenuByLongpress": false,
+                          "src": "/resources/2022-06/lowcode-677272",
+                          "webp": false,
+                          "class": "list_img"
+                        },
+                        "extra": {
+                          "commonStyle": {
+                            "self": {
+                              "width": "192",
+                              "height": "128",
+                              "marginTop": 10,
+                              "marginRight": 30
+                            },
+                            "size": {
+                              "width": "192",
+                              "height": "128"
+                            },
+                            "margin": {
+                              "top": 10,
+                              "right": 30
+                            }
+                          },
+                          "xIndex": 0,
+                          "staticResourceAttribute": [
+                            "src"
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "customContent",
+                    "component": "",
+                    "items": [
+                      {
+                        "id": "id120",
+                        "component": "Container",
+                        "attributes": {
+                          "class": "list_text"
+                        },
+                        "items": [
+                          {
+                            "id": "id115",
+                            "component": "Text",
+                            "attributes": {
+                              "decode": false,
+                              "selectable": false,
+                              "space": "",
+                              "text": "水源诊所荣获国家卫健委2020-2021年度“私立医疗机构经济管理年”活……"
+                            },
+                            "extra": {
+                              "commonStyle": {
+                                "self": {
+                                  "width": "406",
+                                  "fontSize": "24",
+                                  "fontWeight": "normal",
+                                  "whiteSpace": "pre-line"
+                                },
+                                "size": {
+                                  "width": "406"
+                                },
+                                "text": {
+                                  "weight": "normal",
+                                  "fontSize": "24"
+                                },
+                                "whiteSpace": "pre-line"
+                              },
+                              "xIndex": 0
+                            }
+                          }
+                        ],
+                        "extra": {
+                          "commonStyle": {
+                            "self": {
+                              "width": "406",
+                              "fontWeight": "bolder"
+                            },
+                            "size": {
+                              "width": "406"
+                            },
+                            "text": {
+                              "weight": "bolder"
+                            }
+                          },
+                          "xIndex": 0
+                        }
+                      },
+                      {
+                        "id": "id259",
+                        "component": "Container",
+                        "attributes": {
+                          "class": "list_text_time"
+                        },
+                        "items": [
+                          {
+                            "id": "id260",
+                            "component": "Text",
+                            "attributes": {
+                              "decode": false,
+                              "selectable": false,
+                              "space": "",
+                              ":text": "app.utils.formatDate(new Date($page.dataset.state.indexData?.[0]?.list?.[2]?.date), 'yyyy-mm-dd')"
+                            },
+                            "extra": {
+                              "commonStyle": {
+                                "self": {
+                                  "whiteSpace": "pre-line"
+                                },
+                                "text": {
+                                  "color": "rgb(135, 141, 150)"
+                                },
+                                "custom": [],
+                                "margin": {
+                                  "top": "8"
+                                },
+                                "display": "inline-block",
+                                "whiteSpace": "pre-line"
+                              },
+                              "xIndex": 0
+                            }
+                          }
+                        ],
+                        "extra": {}
+                      }
+                    ]
+                  }
+                ],
+                "listeners": [
+                  {
+                    "id": "walcf3f0pqvo",
+                    "eventName": "tap",
+                    "type": "rematch",
+                    "handler": {
+                      "name": "toDetail",
+                      "module": "index",
+                      "params": {
+                        ":target": "$page.dataset.state.indexData[0].list[2]"
+                      }
+                    },
+                    "isCapturePhase": false
+                  }
+                ],
+                "extra": {
+                  "commonStyle": {
+                    "self": {
+                      "width": "670",
+                      "height": "176",
+                      "fontWeight": "normal",
+                      "marginLeft": 40
+                    },
+                    "size": {
+                      "width": "670",
+                      "height": "176"
+                    },
+                    "text": {
+                      "weight": "normal"
+                    },
+                    "margin": {
+                      "left": 40
+                    }
+                  },
+                  "xIndex": 3
+                }
+              },
+              {
+                "id": "id123",
+                "component": "Media",
+                "attributes": {
+                  "align": "top",
+                  "content": "",
+                  "isCustomContent": true,
+                  "isCustomMedia": true,
+                  "mediaUrl": "",
+                  "reverse": true,
+                  "subtitle": "",
+                  "title": "功能更新要点：新增流程引擎功能，新增编辑",
+                  "class": "list list_padding"
+                },
+                "items": [
+                  {
+                    "id": "customMedia",
+                    "component": "",
+                    "items": [
+                      {
+                        "id": "id124",
+                        "component": "Image",
+                        "attributes": {
+                          "imgPreview": "",
+                          "showMenuByLongpress": false,
+                          "src": "/resources/2022-06/lowcode-677275",
+                          "webp": false,
+                          "class": "list_img"
+                        },
+                        "extra": {
+                          "commonStyle": {
+                            "self": {
+                              "width": "192",
+                              "height": "128",
+                              "marginRight": 30
+                            },
+                            "size": {
+                              "width": "192",
+                              "height": "128"
+                            },
+                            "margin": {
+                              "right": 30
+                            }
+                          },
+                          "xIndex": 0,
+                          "staticResourceAttribute": [
+                            "src"
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "customContent",
+                    "component": "",
+                    "items": [
+                      {
+                        "id": "id258",
+                        "component": "Container",
+                        "attributes": {
+                          "class": "list_text"
+                        },
+                        "items": [
+                          {
+                            "id": "id126",
+                            "component": "Container",
+                            "attributes": {
+                              "class": "list_text"
+                            },
+                            "items": [
+                              {
+                                "id": "id128",
+                                "component": "Text",
+                                "attributes": {
+                                  "decode": false,
+                                  "selectable": false,
+                                  "space": "",
+                                  "text": "因安立花园写字楼高压配电设备检修停电，我口腔外科于2022年4月20……",
+                                  "class": "list_title_font"
+                                },
+                                "extra": {
+                                  "commonStyle": {
+                                    "self": {
+                                      "width": "406",
+                                      "fontSize": "24",
+                                      "fontWeight": "normal",
+                                      "whiteSpace": "pre-line"
+                                    },
+                                    "size": {
+                                      "width": "406"
+                                    },
+                                    "text": {
+                                      "weight": "normal",
+                                      "fontSize": "24"
+                                    },
+                                    "whiteSpace": "pre-line"
+                                  },
+                                  "xIndex": 0
+                                }
+                              }
+                            ],
+                            "extra": {
+                              "commonStyle": {
+                                "self": {
+                                  "width": "406",
+                                  "paddingTop": 5
+                                },
+                                "size": {
+                                  "width": "406"
+                                },
+                                "custom": [],
+                                "padding": {
+                                  "top": 5
+                                }
+                              },
+                              "xIndex": 0
+                            }
+                          },
+                          {
+                            "id": "id125",
+                            "component": "Container",
+                            "attributes": {
+                              "class": "list_text_time"
+                            },
+                            "items": [
+                              {
+                                "id": "id127",
+                                "component": "Text",
+                                "attributes": {
+                                  "decode": false,
+                                  "selectable": false,
+                                  "space": "",
+                                  ":text": "app.utils.formatDate(new Date($page.dataset.state.indexData?.[0]?.list?.[0]?.date), 'yyyy-mm-dd')"
+                                },
+                                "extra": {
+                                  "commonStyle": {
+                                    "self": {
+                                      "color": "rgb(135, 141, 150)",
+                                      "display": "inline-block",
+                                      "marginTop": "8",
+                                      "whiteSpace": "pre-line",
+                                      "paddingBottom": 10
+                                    },
+                                    "text": {
+                                      "color": "rgb(135, 141, 150)"
+                                    },
+                                    "custom": [],
+                                    "margin": {
+                                      "top": "8"
+                                    },
+                                    "display": "inline-block",
+                                    "padding": {
+                                      "bottom": 10
+                                    },
+                                    "whiteSpace": "pre-line"
+                                  },
+                                  "xIndex": 0
+                                }
+                              }
+                            ],
+                            "extra": {
+                              "commonStyle": {
+                                "self": {
+                                  "marginTop": 10
+                                },
+                                "margin": {
+                                  "top": 10
+                                }
+                              },
+                              "xIndex": 1
+                            }
+                          }
+                        ],
+                        "extra": {
+                          "commonStyle": {
+                            "self": {
+                              "boxSizing": "border-box"
+                            },
+                            "custom": [],
+                            "boxSizing": "border-box"
+                          },
+                          "xIndex": 2
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "listeners": [
+                  {
+                    "id": "wasbfd29rf08",
+                    "eventName": "tap",
+                    "type": "rematch",
+                    "handler": {
+                      "name": "toDetail",
+                      "module": "index",
+                      "params": {
+                        ":target": "$page.dataset.state.indexData[0].list[0]"
+                      }
+                    },
+                    "isCapturePhase": false
+                  }
+                ],
+                "extra": {
+                  "commonStyle": {
+                    "self": {
+                      "width": "670",
+                      "height": "176",
+                      "fontWeight": "normal",
+                      "marginLeft": 40
+                    },
+                    "size": {
+                      "width": "670",
+                      "height": "176"
+                    },
+                    "text": {
+                      "weight": "normal"
+                    },
+                    "margin": {
+                      "left": 40
+                    }
+                  },
+                  "xIndex": 1
+                }
+              },
+              {
+                "id": "id129",
+                "component": "Media",
+                "attributes": {
+                  "align": "top",
+                  "content": "",
+                  "isCustomContent": true,
+                  "isCustomMedia": true,
+                  "mediaUrl": "",
+                  "reverse": true,
+                  "subtitle": "",
+                  "title": "功能更新要点：新增流程引擎功能，新增编辑",
+                  "class": "list"
+                },
+                "items": [
+                  {
+                    "id": "customMedia",
+                    "component": "",
+                    "items": [
+                      {
+                        "id": "id130",
+                        "component": "Image",
+                        "attributes": {
+                          "imgPreview": "",
+                          "showMenuByLongpress": false,
+                          "src": "/resources/2022-06/lowcode-677273",
+                          "webp": false,
+                          "class": "list_img"
+                        },
+                        "extra": {
+                          "commonStyle": {
+                            "self": {
+                              "width": "192",
+                              "height": "128",
+                              "marginRight": 30
+                            },
+                            "size": {
+                              "width": "192",
+                              "height": "128"
+                            },
+                            "margin": {
+                              "right": 30
+                            }
+                          },
+                          "xIndex": 0,
+                          "staticResourceAttribute": [
+                            "src"
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "id": "customContent",
+                    "component": "",
+                    "items": [
+                      {
+                        "id": "id131",
+                        "component": "Container",
+                        "attributes": {
+                          "class": "list_text_time"
+                        },
+                        "items": [
+                          {
+                            "id": "id133",
+                            "component": "Text",
+                            "attributes": {
+                              "decode": false,
+                              "selectable": false,
+                              "space": "",
+                              ":text": "app.utils.formatDate(new Date($page.dataset.state.indexData[0].list[1].date), 'yyyy-mm-dd')"
+                            },
+                            "extra": {
+                              "commonStyle": {
+                                "self": {
+                                  "whiteSpace": "pre-line"
+                                },
+                                "text": {
+                                  "color": "rgb(135, 141, 150)"
+                                },
+                                "custom": [],
+                                "margin": {
+                                  "top": "8"
+                                },
+                                "display": "inline-block",
+                                "whiteSpace": "pre-line"
+                              },
+                              "xIndex": 0
+                            }
+                          }
+                        ],
+                        "extra": {
+                          "xIndex": 2
+                        }
+                      },
+                      {
+                        "id": "id132",
+                        "component": "Container",
+                        "attributes": {
+                          "class": "list_text"
+                        },
+                        "items": [
+                          {
+                            "id": "id134",
+                            "component": "Text",
+                            "attributes": {
+                              "decode": false,
+                              "selectable": false,
+                              "space": "",
+                              "text": "党代会｜踔厉奋发 笃行不怠 建全国党建标杆院系",
+                              "class": "list_title_font"
+                            },
+                            "extra": {
+                              "commonStyle": {
+                                "self": {
+                                  "width": "406",
+                                  "fontSize": "24",
+                                  "fontWeight": "normal",
+                                  "whiteSpace": "pre-line"
+                                },
+                                "size": {
+                                  "width": "406"
+                                },
+                                "text": {
+                                  "weight": "normal",
+                                  "fontSize": "24"
+                                },
+                                "whiteSpace": "pre-line"
+                              },
+                              "xIndex": 0
+                            }
+                          }
+                        ],
+                        "extra": {
+                          "commonStyle": {
+                            "self": {
+                              "width": "406"
+                            },
+                            "size": {
+                              "width": "406"
+                            }
+                          },
+                          "xIndex": 0
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "listeners": [
+                  {
+                    "id": "wam8irulr8q",
+                    "eventName": "tap",
+                    "type": "rematch",
+                    "handler": {
+                      "name": "toDetail",
+                      "module": "index",
+                      "params": {
+                        ":target": "$page.dataset.state.indexData[0].list[1]"
+                      }
+                    },
+                    "isCapturePhase": false
+                  }
+                ],
+                "extra": {
+                  "commonStyle": {
+                    "self": {
+                      "width": "670",
+                      "height": "176",
+                      "fontWeight": "normal",
+                      "marginLeft": 40
+                    },
+                    "size": {
+                      "width": "670",
+                      "height": "176"
+                    },
+                    "text": {
+                      "weight": "normal"
+                    },
+                    "margin": {
+                      "left": 40
+                    }
+                  },
+                  "xIndex": 2
+                }
+              }
+            ],
+            "extra": {
+              "commonStyle": {
+                "self": {
+                  "width": "710",
+                  "height": "620",
+                  "marginTop": 24,
+                  "background": "rgb(255, 255, 255)",
+                  "marginLeft": 20,
+                  "borderRadius": "16"
+                },
+                "size": {
+                  "width": "710",
+                  "height": "620"
+                },
+                "border": {
+                  "radiusInfo": {
+                    "topLeft": "16",
+                    "topRight": "16",
+                    "bottomLeft": "16",
+                    "bottomRight": "16"
+                  }
+                },
+                "margin": {
+                  "top": 24,
+                  "left": 20
+                },
+                "background": {
+                  "color": "rgb(255, 255, 255)",
+                  "bgType": "color"
+                }
+              },
+              "xIndex": 4
+            }
+          },
+          {
+            "id": "id212",
+            "component": "Container",
+            "attributes": {},
+            "items": [
+              {
+                "id": "id213",
+                "component": "Container",
+                "attributes": {},
+                "items": [
+                  {
+                    "id": "id217",
+                    "component": "Text",
+                    "attributes": {
+                      "decode": false,
+                      "selectable": false,
+                      "space": "",
+                      "text": "合作伙伴"
+                    },
+                    "extra": {
+                      "commonStyle": {
+                        "self": {
+                          "height": "44",
+                          "fontSize": "32",
+                          "fontWeight": "bolder",
+                          "whiteSpace": "pre-line"
+                        },
+                        "size": {
+                          "height": "44"
+                        },
+                        "text": {
+                          "weight": "bolder",
+                          "fontSize": "32"
+                        },
+                        "whiteSpace": "pre-line"
+                      },
+                      "xIndex": 0
+                    }
+                  }
+                ],
+                "extra": {
+                  "commonStyle": {
+                    "self": {
+                      "display": "inline-block",
+                      "marginTop": 24,
+                      "marginLeft": 40
+                    },
+                    "margin": {
+                      "top": 24,
+                      "left": 40
+                    },
+                    "display": "inline-block"
+                  },
+                  "xIndex": 0
+                }
+              },
+              {
+                "id": "id251",
+                "component": "Container",
+                "attributes": {},
+                "items": [
+                  {
+                    "id": "id252",
+                    "component": "Container",
+                    "attributes": {
+                      "class": "box"
+                    },
+                    "items": [
+                      {
+                        "id": "id253",
+                        "component": "Image",
+                        "attributes": {
+                          "imgPreview": "",
+                          "showMenuByLongpress": false,
+                          ":src": "$for.id252.pic",
+                          "webp": false
+                        },
+                        "extra": {
+                          "commonStyle": {
+                            "self": {
+                              "width": "166",
+                              "height": "55",
+                              "marginTop": 28,
+                              "textAlign": "justify",
+                              "marginLeft": 24
+                            },
+                            "size": {
+                              "width": "166",
+                              "height": "55"
+                            },
+                            "text": {
+                              "textAlign": "justify"
+                            },
+                            "margin": {
+                              "top": 28,
+                              "left": 24
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "directives": {
+                      ":for": "id252 in $page.dataset.state.indexData?.[0]?.cooperation"
+                    },
+                    "extra": {
+                      "commonStyle": {
+                        "self": {
+                          "width": "214",
+                          "height": "100",
+                          "display": "inline-block",
+                          "marginTop": 10,
+                          "textAlign": "justify",
+                          "marginLeft": 16,
+                          "borderRadius": "8"
+                        },
+                        "size": {
+                          "width": "214",
+                          "height": "100"
+                        },
+                        "text": {
+                          "textAlign": "justify"
+                        },
+                        "border": {
+                          "radiusInfo": {
+                            "topLeft": "8",
+                            "topRight": "8",
+                            "bottomLeft": "8",
+                            "bottomRight": "8"
+                          }
+                        },
+                        "margin": {
+                          "top": 10,
+                          "left": 16
+                        },
+                        "display": "inline-block"
+                      },
+                      "xIndex": 0
+                    }
+                  }
+                ],
+                "extra": {
+                  "commonStyle": {
+                    "self": {
+                      "width": "710",
+                      "marginTop": 20
+                    },
+                    "size": {
+                      "width": "710"
+                    },
+                    "margin": {
+                      "top": 20
+                    }
+                  },
+                  "xIndex": 2
+                }
+              }
+            ],
+            "extra": {
+              "commonStyle": {
+                "self": {
+                  "top": 24,
+                  "width": "710",
+                  "position": "relative",
+                  "marginTop": 0,
+                  "background": "rgb(255, 255, 255)",
+                  "marginLeft": 20,
+                  "borderRadius": "16",
+                  "paddingBottom": 20
+                },
+                "size": {
+                  "width": "710"
+                },
+                "border": {
+                  "radiusInfo": {
+                    "topLeft": "16",
+                    "topRight": "16",
+                    "bottomLeft": "16",
+                    "bottomRight": "16"
+                  }
+                },
+                "margin": {
+                  "top": 0,
+                  "left": 20
+                },
+                "padding": {
+                  "bottom": 20
+                },
+                "position": {
+                  "top": 24,
+                  "position": "relative"
+                },
+                "background": {
+                  "color": "rgb(255, 255, 255)",
+                  "bgType": "color"
+                }
+              },
+              "xIndex": 5
+            }
+          },
+          {
+            "id": "id170",
+            "component": "Container",
+            "attributes": {},
+            "items": [
+              {
+                "id": "id171",
+                "component": "Text",
+                "attributes": {
+                  "decode": false,
+                  "maxLines": 1,
+                  "selectable": false,
+                  "space": "",
+                  "text": "Copyright © 2013 - 2018 Tencent Cloud. All Right Reserved.\n",
+                  "textAlign": "left",
+                  "textColor": "rgb(0, 0, 0)",
+                  "class": "footer-copyright-01"
+                },
+                "extra": {
+                  "commonStyle": {
+                    "self": {
+                      "color": "#A2A9B0",
+                      "display": "block",
+                      "fontSize": "22",
+                      "whiteSpace": "pre-line"
+                    },
+                    "text": {
+                      "color": "#A2A9B0",
+                      "fontSize": "22"
+                    },
+                    "display": "block",
+                    "whiteSpace": "pre-line"
+                  },
+                  "xIndex": 0
+                }
+              },
+              {
+                "id": "id257",
+                "component": "Text",
+                "attributes": {
+                  "maxLines": 1,
+                  "text": "weda 版权所有",
+                  "class": "footer-copyright-01"
+                },
+                "extra": {
+                  "commonStyle": {
+                    "self": {
+                      "color": "#A2A9B0",
+                      "display": "block",
+                      "fontSize": "22",
+                      "whiteSpace": "pre-line"
+                    },
+                    "text": {
+                      "color": "#A2A9B0",
+                      "fontSize": "22"
+                    },
+                    "display": "block",
+                    "whiteSpace": "pre-line"
+                  },
+                  "xIndex": 1
+                }
+              }
+            ],
+            "extra": {
+              "commonStyle": {
+                "size": {
+                  "height": "64"
+                },
+                "text": {
+                  "textAlign": "center"
+                },
+                "custom": [],
+                "margin": {
+                  "top": "108"
+                },
+                "padding": {
+                  "bottom": "300"
+                }
+              },
+              "xIndex": 6
+            }
+          },
+          {
+            "id": "id237",
+            "component": "TabBar",
+            "attributes": {
+              "activeColor": "#0F62FE",
+              "color": "#A2A9B0",
+              "iconSize": 48,
+              "route": true,
+              "tabs": [
+                {
+                  "icon": "https://main.qcloudimg.com/raw/43209915f1503ded18f11ce1cb13fd7c.png",
+                  "name": "index",
+                  "title": "首页",
+                  "iconFont": "custom",
+                  "__sortid__": "Soz-PCybMbtBUKZ2Al_hq",
+                  "activeIcon": "https://main.qcloudimg.com/raw/effad1ab7cc137ec7103bda0df0e64b2.png",
+                  "withParams": false
+                },
+                {
+                  "icon": "https://main.qcloudimg.com/raw/333d7bde2c4481f3f2558dbb9341cbc1.png",
+                  "name": "solution",
+                  "title": "挂号信息",
+                  "iconFont": "custom",
+                  "__sortid__": "a2NV1PtllXcov7R0z9lH-",
+                  "activeIcon": "https://main.qcloudimg.com/raw/71e0ae15c85169c53dc5de0544adfa64.png",
+                  "withParams": false
+                },
+                {
+                  "icon": "https://main.qcloudimg.com/raw/e6b8af8a9f31050d12e1d0e20f446264.png",
+                  "name": "aboutUs",
+                  "title": "联系我们",
+                  "iconFont": "custom",
+                  "__sortid__": "pSDa-KdoNE2aPLAt4v5zE",
+                  "activeIcon": "https://main.qcloudimg.com/raw/cbaf6487eb653ae82fd0e608ae25b9d1.png",
+                  "withParams": false
+                }
+              ],
+              "value": "index"
+            },
+            "items": [
+              {
+                "id": "tabbar",
+                "component": ""
+              }
+            ],
+            "extra": {
+              "commonStyle": {
+                "self": {
+                  "color": "#878D96",
+                  "fontSize": "22"
+                },
+                "text": {
+                  "color": "#878D96",
+                  "fontSize": "22"
+                }
+              },
+              "xIndex": 7
+            }
+          }
+        ],
+        "extra": {
+          "commonStyle": {
+            "custom": []
+          },
+          "xIndex": 2
+        }
+      }
+    ],
+    "resources": [
+      {
+        "id": "ab6d7d42",
+        "code": "// 最外层容器\n.gradual{\n  background-image: linear-gradient(180deg, #FFFFFF 9%, #F2F4F8 30%);\n}\n\n// 图标间距\n.icon_to_img {\n  margin: 48px 0 36px 0;\n}\n// 图标下方文字\n.text{\n  text-align: center;\n}\n\n// 应用场景下的普通容器\n.rowBox{\n  flex: none\n}\n\nbody{\n  background-color: #F2F4F8 100%;\n}\n\n// 底部文本\n.footer-copyright-01 {\n  display: block;\n  text-align: center;\n  margin: 0 auto;\n}\n\n\n// 合作伙伴的普通容器\n.box{\n  box-shadow: 0px 2px 20px 2px #F2F4F8;\n}\n\n\n// 图文展示项组件\n.list_padding {\n  box-sizing: border-box;\n  padding: 24px 0;\n}\n\n\n",
+        "name": "style",
+        "path": "index/style",
+        "pageId": "index",
+        "system": true,
+        "oldName": "style",
+        "type": "CODE",
+        "codeType": "style"
+      },
+      {
+        "code": "export default {\n  onPageLoad(query) {\n    //console.log('---------> LifeCycle onPageLoad', query)\n  },\n  onPageShow() {\n    //console.log('---------> LifeCycle onPageShow')\n  },\n  onPageReady() {\n    //console.log('---------> LifeCycle onPageReady')\n  },\n  onPageHide() {\n    //console.log('---------> LifeCycle onPageHide')\n  },\n  onPageUnload() {\n    //console.log('---------> LifeCycle onPageUnload')\n  },\n}",
+        "name": "lifecycle",
+        "path": "index/lifecycle",
+        "system": true,
+        "type": "CODE",
+        "codeType": "lifecycle"
+      },
+      {
+        "code": "\n/*\n* 可通过 $page.state.xxx 访问这里定义的状态\n* 注意：页面级别的状态仅在所属的页面有效\n* 修改状态时，直接赋值即可。如：$page.state.xxx = 'xxx'\n* 请注意：避免在页面处于后台状态时state，页面在后台时对全局state的修改会丢失！\n*/\n\n\nexport default {\n  name: 'LowCode'\n}\n\n/* 在这里定义页面变量。\n*  页面变量区别于 state 的是：页面变量不会作响应处理，不可被绑定\n*  在 handler 中使用的例子：import { data } from '../state'\n*  \n*/\nexport const data = {\n\n}\n\n\n",
+        "name": "state",
+        "path": "index/state",
+        "system": true,
+        "type": "CODE",
+        "codeType": "state"
+      },
+      {
+        "code": "\n/*\n* 可通过 $page.computed.xxx 访问这里定义的计算状态\n* 注意：页面级别的计算状态仅在所属的页面有效\n*/\n\nexport default {\n  name() { return 'LowCode' }\n}",
+        "name": "computed",
+        "path": "index/computed",
+        "system": true,
+        "type": "CODE",
+        "codeType": "computed"
+      },
+      {
+        "code": "\n/*\n* 可通过 $page.handler.xxx 访问这里定义的方法\n* 注意：该方法仅在所属的页面有效\n* 如果需要 async-await，请修改成 export default async function() {}\n*/\n\nexport default function({event, data}) {\n\n}",
+        "name": "____index____",
+        "path": "index/handler/____index____",
+        "system": true,
+        "type": "CODE",
+        "codeType": "handler-fn"
+      },
+      {
+        "id": "275ec110",
+        "code": "/**\n * 跳转至详情页面\n */\nexport default function({event, data}) {\n\n    let { target } = data;\n    let dataArr = JSON.stringify(target);\n    const { section } = target;\n    console.log(\"navigate data\", target)\n    console.log(\"section\", section)\n\n    app.navigateTo({\n        pageId: 'xiangqing',\n        params: {data:dataArr }\n    })\n}",
+        "name": "toDetail",
+        "path": "index/handler/toDetail",
+        "pageId": "index",
+        "oldName": "toDetail",
+        "type": "CODE",
+        "codeType": "handler-fn"
+      }
+    ],
+    "dataset": {
+      "state": {
+        "indexData": {
+          "name": "indexData",
+          "label": "首页渲染的数据",
+          "varType": "datasource",
+          "dataType": "record-collection",
+          "initMethod": {
+            "name": "getList",
+            "params": {}
+          },
+          "updateMethod": {
+            "name": "",
+            "params": {}
+          },
+          "dataSourceName": "business"
+        }
+      },
+      "pageName": "首页"
+    },
+    "extra": {
+      "commonStyle": {
+        "size": {
+          "height": "1800"
+        },
+        "text": {
+          "textAlign": "justify"
+        },
+        "custom": [],
+        "position": {
+          "position": "static"
+        }
+      }
+    }
+  }
